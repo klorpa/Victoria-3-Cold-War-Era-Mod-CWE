@@ -192,7 +192,7 @@ contested_dictator = {
 }
 
 politically_strengthened_modifier = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
 	interest_group_pol_str_mult = 0.25
 }
 
@@ -277,6 +277,11 @@ longing_for_peace = {
 national_pride_modifier = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
 	country_prestige_mult = 0.25
+}
+
+united_in_fear = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	political_movement_radicalism_add = -100
 }
 
 ### Colonial System ###
@@ -792,14 +797,38 @@ nuclear_fallout_5 = {
 
 chemical_dev_cost = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
-	country_military_wages_mult = 1
-	country_government_wages_mult = 1
+	country_military_wages_mult = 0.10
+	country_government_wages_mult = 0.10
 }
 
 chemical_capability = {
 	icon = gfx/interface/icons/diplo_icons/chemical_capability.dds
 	country_prestige_mult = 0.01
 	country_infamy_decay_mult = -0.10
+}
+
+### Biological Capability ###
+
+biological_dev_cost = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	country_military_wages_mult = 0.10
+	country_government_wages_mult = 0.10
+}
+
+biological_capability = {
+	icon = gfx/interface/icons/diplo_icons/chemical_capability.dds
+	country_prestige_mult = 0.01
+	country_infamy_decay_mult = -0.05
+}
+
+biological_attack_cooldown = {
+	icon = gfx/interface/icons/generic_icons/goods_shortage.dds
+	
+}
+
+biological_attack = {
+	icon = gfx/interface/icons/diplo_icons/biological_capability.dds
+	state_mortality_mult = 0.05
 }
 
 ### Economic Cycle ###
@@ -1237,6 +1266,24 @@ climate_change_effects_5 = {
 	building_group_bg_logging_throughput_add = -0.80
 }
 
+recycling_policy = {
+	icon = gfx/interface/icons/invention_icons/automatic_bottle_blowers.dds
+	state_pollution_generation_add = -1000
+	state_tax_collection_mult = -0.02
+}
+
+reforestation_policy = {
+	icon = gfx/interface/icons/invention_icons/enclosure.dds
+	state_pollution_generation_add = -2000
+	state_tax_collection_mult = -0.04
+}
+
+carbon_capture_policy = {
+	icon = gfx/interface/icons/invention_icons/pasteurization.dds
+	state_pollution_generation_add = -3000
+	state_tax_collection_mult = -0.08
+}
+
 ### Historical Modifiers ###
 
 great_leap_forward = {
@@ -1443,6 +1490,28 @@ G8_democracy_focus = {
 G8_environment_focus = {
 	icon = gfx/interface/icons/invention_icons/international_diplomacy.dds
 	state_pollution_reduction_health_mult = -0.10
+}
+
+### Nuclear Accidents ###
+
+anti_nuclear_energy_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	interest_group_pol_str_mult = 0.25
+}
+
+mild_nuclear_accident = {
+	icon = gfx/interface/icons/diplo_icons/nuclear_capability.dds
+	state_mortality_mult = 0.01
+}
+
+moderate_nuclear_accident = {
+	icon = gfx/interface/icons/diplo_icons/nuclear_capability.dds
+	state_mortality_mult = 0.02
+}
+
+major_nuclear_accident = {
+	icon = gfx/interface/icons/diplo_icons/nuclear_capability.dds
+	state_mortality_mult = 0.03
 }
 
 ### Vanilla modifiers ###

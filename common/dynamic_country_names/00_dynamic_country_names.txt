@@ -1307,6 +1307,22 @@ PAL = {
 	}
 }
 
+ISR = {
+	dynamic_country_name = {
+		name = PAL
+		adjective = PAL_ADJ
+		is_main_tag_only = yes
+		priority = 0
+		trigger = {
+			scope:actor = {
+				exists = c:GBR
+				is_subject_of = c:GBR
+				is_subject_type = subject_type_mandate
+			}
+		}
+	}
+}
+
 MSY = {
 	dynamic_country_name = {
 		name = dyn_c_malaya
@@ -1654,6 +1670,66 @@ SKN = { # Saint Kitts and Nevis
 				p:x606060 = {
 					owner = scope:actor
 				}
+			}
+		}
+	}
+}
+
+IMP = { # British Commonwealth
+	dynamic_country_name = {
+		name = dyn_c_Imperial_Federation
+		adjective = GBR_ADJ
+		is_main_tag_only = yes
+		priority = 10
+
+		trigger = {
+			scope:actor = { 
+				is_a_regime_monarchy = yes
+				has_law = law_type:law_federal_state
+			}
+		}
+	}
+	dynamic_country_name = {
+		name = dyn_c_Imperial_Union
+		adjective = GBR_ADJ
+		is_main_tag_only = yes
+		priority = 5
+
+		trigger = {
+			scope:actor = { 
+				is_a_regime_monarchy = yes
+			}
+		}
+	}
+}
+
+GRE = { # Greece
+	dynamic_country_name = {
+		name = dyn_c_South_Greece
+		adjective = dyn_c_South_Greece_adj
+		
+		is_main_tag_only = yes
+		priority = 1
+		
+		trigger = {
+			scope:actor = { 
+				exists = c:UGR
+			}
+		}
+	}
+}
+
+WGR = { # West Germany
+	dynamic_country_name = {
+		name = dyn_c_North_Germany
+		adjective = dyn_c_North_Germany_adj
+		
+		is_main_tag_only = yes
+		priority = 1
+		
+		trigger = {
+			scope:actor = { 
+				exists = c:SGR
 			}
 		}
 	}

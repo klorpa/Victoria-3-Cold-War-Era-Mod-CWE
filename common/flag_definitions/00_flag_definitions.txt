@@ -85,7 +85,7 @@ SOV = { # Greater Russia
 	}
 	flag_definition = {
 		coa = RUS_absolute_monarchy
-		subject_canton = SOV
+		subject_canton = RUS_absolute_monarchy
 		priority = 20
 		trigger = { 
 			coa_def_absolute_monarchy_flag_trigger = yes
@@ -107,6 +107,14 @@ SOV = { # Greater Russia
 		priority = 1500 # need to override the DEFAULT
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = SOV_early
+		priority = 1600 # need to override the DEFAULT
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+			game_date < 1955.8.19
 		}
 	}
 	flag_definition = {
@@ -759,6 +767,25 @@ AZB = { # Azerbaijan
 	}	
 	flag_definition = {
 		coa = AZB_communist
+		priority = 1400
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = AZB_communist_PER
+		priority = 1500
+		trigger = {
+			scope:actor ?= { 
+				capital ?= { state_region = s:STATE_TABRIZ }
+			}
+		}
+	}
+}
+
+KUR = { # Kurdistan
+	flag_definition = {
+		coa = KUR_communist
 		priority = 1500
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
@@ -2890,6 +2917,16 @@ GRE = { # Greece
 	}
 }
 
+UGR = { # North Greece
+	flag_definition = {
+		coa = GRE
+		allow_overlord_canton = yes
+		subject_canton = GRE
+		overlord_canton_scale = { @canton_scale_cross_x @canton_scale_cross_y }
+		priority = 50
+	}
+}
+
 GUA = { # Guatemala
 	flag_definition = {
 		coa = GUA
@@ -3436,6 +3473,15 @@ ISR = { # Israel
 		subject_canton = ISR	
 		priority = 1
 	}
+	flag_definition = {
+		coa = ISR_subject_GBR
+		allow_overlord_canton = yes				
+		priority = 50
+		trigger = { 
+			coa_def_british_ensign_trigger = yes
+			scope:actor = { is_subject_type = subject_type_mandate }
+		}
+	}
 }
 
 ITA = { # Italy
@@ -3699,8 +3745,17 @@ KAS = { # Kashmir
 	flag_definition = {
 		coa = KAS
 		allow_overlord_canton = yes			
-		subject_canton = KAS		
+		subject_canton = KAS
 		priority = 1
+	}
+	flag_definition = {
+		coa = KAS_early
+		allow_overlord_canton = yes			
+		subject_canton = KAS_early
+		priority = 2
+		trigger = { 
+			game_date < 1952.6.7
+		}
 	}
 }
 
@@ -3788,6 +3843,9 @@ SKO = { # Korea
 		allow_overlord_canton = yes		
 		coa_with_overlord_canton = KOR_subject			
 		priority = 1
+		trigger = { 
+			NOT = { scope:actor = { is_subject_type = subject_type_mandate } }
+		}
 	}
 	flag_definition = {
 		coa = KOR_subject_CHI		
@@ -5962,6 +6020,16 @@ VNZ = { # Venezuela
 		}
 	}
 	flag_definition = {
+		coa = VNZ_republic
+		allow_overlord_canton = no
+		subject_canton = VNZ_republic
+		priority = 1300
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+			scope:actor = { has_government_type = gov_soviet_republic }
+		}
+	}
+	flag_definition = {
 		coa = VNZ_socialist
 		priority = 1400
 		trigger = { 
@@ -7435,4 +7503,14 @@ STP = { # São Tomé and Príncipe
 			coa_def_communist_flag_trigger = yes
 		}
 	}
+}
+
+ETS = { # East Turkestan
+	flag_definition = {
+		coa = ETS
+		priority = 1500
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+		}
+	}		
 }

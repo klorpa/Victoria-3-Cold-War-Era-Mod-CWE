@@ -127,16 +127,31 @@ GLOBAL = {
 	}
 	
 	#Olympics
-	set_global_variable = {
-		name = olympic_games_year
-		value = 1952
-	}
-	c:FIN = {
-		set_variable = { 
-			name = olympic_games_host_country
-			years = 6
+	if = {
+		limit = { game_date >= 1950.1.1 }
+		set_global_variable = {
+			name = olympic_games_year
+			value = 1952
 		}
-		add_journal_entry = { type = je_olympic_games }
+		c:FIN = {
+			set_variable = { 
+				name = olympic_games_host_country
+				years = 6
+			}
+			add_journal_entry = { type = je_olympic_games }
+		}
+	}
+	
+	#Fix recognised status
+	every_country = {
+		limit = { 
+			is_not_sufficiently_independent = yes 
+			NOR = { 
+				has_modifier = unga_member 
+				has_modifier = unsc_permanent_member
+			}
+		}
+		set_country_type = unrecognized
 	}
 
 }

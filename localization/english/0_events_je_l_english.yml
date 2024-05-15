@@ -45,6 +45,23 @@
     lost_chemical_capability.f:0 "This event fired because [SCOPE.sCountry('chemical_country').GetName] either no longer has a $building_chemical_plants$ [concept_building], passed the $law_wmd_banned$ [concept_law], or became an insufficiently independent subject."
     lost_chemical_capability.option:0 "A tragedy!"
     
+    biological_dev_cost:0 "Biological Weapons Development Cost"
+    
+    biological_capability:0 "Biological Weapons State"
+    start_biological_weapons_program_decision:0 "Start a Biological Weapons Program"
+    start_biological_weapons_program_decision_desc:0 "Biological warfare is the use of biological toxins or infectious agents such as bacteria, viruses, insects, and fungi with the intent to kill, harm or incapacitate humans, animals or plants as an act of war. Biological weapons are living organisms or replicating entities."
+    biological_program_started:0 "Biological Weapons Program"
+    
+    gained_biological_capability.t:0 "Gained Biological Strike Capability"
+    gained_biological_capability.d:0 "[SCOPE.sCountry('biological_country').GetName], through its tireless efforts, has acquired biological weapons and a means of delivering those weapons to its enemies. This means that it can now use the $conduct_biological_strike$ [concept_diplomatic_action] against its enemies."
+    gained_biological_capability.f:0 "Note that the biological capability would be lost if [SCOPE.sCountry('biological_country').GetName] either no longer has a $building_university$ [concept_building] that does not have a goods shortage, passed the $law_wmd_banned$ [concept_law], or becomes an insufficiently independent subject."
+    gained_biological_capability.option:0 "Great!"
+   
+    lost_biological_capability.t:0 "Lost Biological Strike Capability"
+    lost_biological_capability.d:0 "[SCOPE.sCountry('biological_country').GetName] has lost its ability to launch biological strikes against its enemies."
+    lost_biological_capability.f:0 "This event fired because [SCOPE.sCountry('biological_country').GetName] either no longer has a $building_university$ [concept_building], passed the $law_wmd_banned$ [concept_law], or became an insufficiently independent subject."
+    lost_biological_capability.option:0 "A tragedy!"
+    
     enable_historical_railroading_decision:0 "Enable Historical Railroading for the AI"
     enable_historical_railroading_decision_desc:0 "Clicking on this decision will force the AI to always select the historical option in all historical events. The decision can be enabled or disabled anytime by the player during the game. Note that this decision will not force a historical event to fire when it would not normally fire, it instead only makes the AI choose the historical option whenever a historical event fires for it."
     disable_historical_railroading_decision:0 "Disable Historical Railroading for the AI"
@@ -656,6 +673,8 @@
     british_hong_kong.sgc.d:0 "After the Sino-British Joint Declaration, the Hong Kong government decided to start the process of democratisation in Hong Kong based on the consultative document Green Paper: the Further Development of Representative Government in Hong Kong published on 18 July 1984. There were 12 members elected by the Electoral Colleges and 12 by the functional constituencies, four official members and the rest of the seats were appointed by the Governor."
     british_WIF_state.indy.t:0 "Winds of Change in the Caribbean?"
     british_WIF_state.indy.d:0 "West Indies Associated States was the collective name for a number of islands in the Eastern Caribbean whose status changed from being British colonies to states in free association with the United Kingdom in 1967. Over time, the associated states moved to full independence, the first being Grenada in 1974. This was followed by Dominica in 1978, Saint Lucia and Saint Vincent both in 1979, Antigua and Barbuda in 1981 and Saint Kitts and Nevis in 1983."
+    british_cyrenaica.sgc.t:0 "Autonomy in Cyrenaica?"
+    british_cyrenaica.sgc.d:0 "The Emirate of Cyrenaica came into existence when Sayyid Idris unilaterally proclaimed Cyrenaica an independent Senussi emirate on 1 March 1949, backed by the United Kingdom. Sayyid Idris proclaimed himself Emir of Cyrenaica at a 'national conference' in Benghazi. The recognition by the UK failed to influence the attitude of the United Nations, and Britain and France were directed to prepare Libya's independence in a resolution passed on 21 November 1949."
     
     british_canada.indy.t:0 "Independence of Canada?"
     british_canada.indy.d:0 "In 1981, the Canadian House of Commons and Senate passed a resolution requesting that the British Parliament enact a package of constitutional amendments which would end the last powers of the British Parliament to legislate for Canada and would create an entirely Canadian process for constitutional amendments."
@@ -735,6 +754,18 @@
     british_zambia.indy.d:0 "$generic_independence_decolonisation_loc_desc$"
     british_zanzibar.indy.t:0 "Independence of Zanzibar?"
     british_zanzibar.indy.d:0 "$generic_independence_decolonisation_loc_desc$"
+    british_ceylon.indy.t:0 "Independence of Ceylon?"
+    british_ceylon.indy.d:0 "$generic_independence_decolonisation_loc_desc$"
+    british_burma.indy.t:0 "Independence of Burma?"
+    british_burma.indy.d:0 "$generic_independence_decolonisation_loc_desc$"
+    british_india.indy.t:0 "Independence of India?"
+    british_india.indy.d:0 "On 3 June 1947, Viscount Louis Mountbatten, the last British Governor-General of India, announced the partitioning of British India into India and Pakistan. With the speedy passage of the Indian Independence Act 1947, at 1157 on 14 August 1947 Pakistan was declared a separate nation. Then at 1202, on 15 August 1947 India became a sovereign and democratic nation."
+    british_palestine.indy.t:0 "Independence of Israel & Palestine?"
+    british_palestine.indy.d:0 "In November 1947, the United Nations recommended the partition of Palestine and the establishment of separate Arab and Jewish states. On 15 May 1948, Britain gave up her mandate. The British Army departed from Palestine leaving the Jews and the Arabs to fight it out in the war that followed."
+    british_jordan.indy.t:0 "Independence of Transjordan?"
+    british_jordan.indy.d:0 "$generic_independence_decolonisation_loc_desc$"
+    british_iraq.indy.t:0 "End the Occupation of Iraq?"
+    british_iraq.indy.d:0 "On 1 April 1941, Rashid Ali al-Gaylani and members of the Golden Square staged a coup d'état. During the subsequent Anglo-Iraqi War, the United Kingdom invaded Iraq for fear that the government might cut oil supplies to Western nations because of his links to the Axis powers. A military occupation followed the restoration of the pre-coup government of the Hashemite monarchy. The occupation ended on 26 October 1947, although Britain was to retain military bases in Iraq until 1954, after which the Assyrian militias were disbanded."
     
     british_decolonisation_indy.option.1:0 "Grant them independence"
     british_decolonisation_indy.option.2:0 "They do not deserve freedom"
@@ -856,6 +887,12 @@
     french_cambodia.indy.d:0 "$generic_independence_decolonisation_loc_desc$"
     french_laos.indy.t:0 "Independence of Laos?"
     french_laos.indy.d:0 "$generic_independence_decolonisation_loc_desc$"
+    french_vietnam_state.indy.t:0 "The State of Vietnam?"
+    french_vietnam_state.indy.d:0 "On May 20, 1949, the French National Assembly approved the reunification of Cochinchina with the rest of Vietnam. The decision took effect on June 4 and the State of Vietnam was officially proclaimed on July 2. From 1949 to 1954, after reunification with Cochinchina, the State of Vietnam had partial autonomy from France as an associated state within the French Union."
+    french_syria.indy.t:0 "Independence of Syria?"
+    french_syria.indy.d:0 "After a period as a French mandate (1923–1946), the newly created state represented the largest Arab state to emerge from the formerly Ottoman-ruled Syrian provinces. It gained de jure independence as a democratic parliamentary republic on 24 October 1945 when the Republic of Syria became a founding member of the United Nations, an act which legally ended the former French mandate (although French troops did not leave the country until April 1946)."
+    french_saarland.indy.t:0 "Create the Saar Protectorate?"
+    french_saarland.indy.d:0 "In July 1945, two months after World War II had ended in Europe, the Allied forces were redeploying from the areas they had conquered into their respective zones of occupation. On 10 July 1945, US forces left the Saar, and French troops established their occupational administration. On 16 February 1946, France disentangled the Saar from the Allied zones of occupation and established the separate Saar Protectorate, which was de facto no longer under the joint Allied jurisdiction by the Allied Control Council for Germany."
     
     french_decolonisation_indy.option.1:0 "Grant them independence"
     french_decolonisation_indy.option.2:0 "They do not deserve freedom"
@@ -880,9 +917,25 @@
     american_afghanistan.indy.d:0 "In August 2021, the United States withdrew the last of its troops from Afghanistan, ending its military presence there after nearly 20 years. The U.S. exit from Afghanistan resulted in the Taliban regaining control of the country and created a refugee crisis as many Afghans fled."
     american_germany.indy.t:0 "A Sovereign Germany?"
     american_germany.indy.d:0 "The Treaty on the Final Settlement with Respect to Germany is an international agreement that allowed the reunification of Germany in the early 1990s. It was negotiated in 1990 between the 'two', the Federal Republic of Germany and the German Democratic Republic, in addition to the Four Powers which had occupied Germany at the end of World War II in Europe: France, the Soviet Union, the United Kingdom, and the United States. The treaty supplanted the 1945 Potsdam Agreement: in it, the Four Powers renounced all rights they had held with regard to Germany, allowing for its reunification as a fully sovereign state the following year."
+    american_italy.indy.t:0 "The Treaty of Paris?"
+    american_italy.indy.d:0 "The Treaty of Paris between Italy and the Allied Powers was signed on 10 February 1947, formally ending hostilities between both parties. It came into general effect on 15 September 1947."
+    american_south_korea.indy.t:0 "Independence of South Korea?"
+    american_south_korea.indy.d:0 "The First Republic of Korea was the government of South Korea from August 1948 to April 1960. The first republic was founded on 15 August 1948 after the transfer from the United States Army Military Government that governed South Korea since the end of Japanese rule in 1945, becoming the first independent republican government in Korea."
+    american_FRG.indy.t:0 "The Federal Republic of Germany?"
+    american_FRG.indy.d:0 "The Western Allies turned over increasing authority to West German officials and moved to establish a nucleus for a future German government by creating a central Economic Council for their zones. The program later provided for a West German constituent assembly, an occupation statute governing relations between the Allies and the German authorities, and the political and economic merger of the French with the British and American zones. On 23 May 1949, the Grundgesetz (Basic Law), the constitution of the Federal Republic of Germany, was promulgated."
+    american_philippines.indy.t:0 "The Treaty of Manila?"
+    american_philippines.indy.d:0 "The Treaty of Manila of 1946, formally the Treaty of General Relations and Protocol, is a treaty of general relations signed on July 4, 1946, in Manila, the capital of the Philippines. It relinquished U.S. sovereignty over the Philippines and recognised the independence of the Republic of the Philippines."
+    american_iceland.indy.t:0 "The Keflavík Agreement?"
+    american_iceland.indy.d:0 "The Keflavík Agreement was an agreement made in 1946 between the government of the United States and the newly established Republic of Iceland, following the conclusion of World War II. This agreement stipulated that the American army would leave the country within six months and that the Icelanders would take possession of Keflavík Airport."
     
     american_decolonisation_indy.option.1:0 "Grant them independence"
     american_decolonisation_indy.option.2:0 "They do not deserve freedom"
+    
+    soviet_north_korea.indy.t:0 "Independence of North Korea?"
+    soviet_north_korea.indy.d:0 "In 1945, after the Japanese surrender at the end of World War II, Korea was divided into two zones along the 38th parallel, with the north occupied by the Soviet Union and the south occupied by the United States. In 1948, separate governments were formed in Korea: the socialist and Soviet-aligned Democratic People's Republic of Korea in the north, and the capitalist, Western-aligned Republic of Korea in the south."
+    
+    soviet_decolonisation_indy.option.1:0 "Grant them independence"
+    soviet_decolonisation_indy.option.2:0 "They do not deserve freedom"
     
     dutch_suriname.indy.t:0 "Independence of Suriname?"
     dutch_suriname.indy.d:0 "$generic_independence_decolonisation_loc_desc$"
@@ -926,6 +979,8 @@
     
     italian_somalia.indy.t:0 "Independence of Somalia?"
     italian_somalia.indy.d:0 "$generic_independence_decolonisation_loc_desc$"
+    italian_SUT.indy.t:0 "The Südtirolfrage"
+    italian_SUT.indy.d:0 "The South Tyrolean Question (Südtirolfrage) became an international issue. The issue was resolved in 1971, when a new Austro-Italian treaty was signed and ratified. It stipulated that disputes in South Tyrol would be submitted for settlement to the International Court of Justice in The Hague, that the province would receive greater autonomy within Italy, and that Austria would not interfere in South Tyrol's internal affairs. The new agreement proved broadly satisfactory to the parties involved, and the separatist tensions soon eased. The autonomous status granted in 1972 has resulted in a considerable level of self-government, and also allows the entity to retain almost 90% of all levied taxes."
     
     italian_decolonisation_indy.option.1:0 "Grant them independence"
     italian_decolonisation_indy.option.2:0 "They do not deserve freedom"
@@ -940,6 +995,10 @@
     RUS_BYE_union.d:0 "The Union State of Russia and Belarus is a supranational union consisting of Belarus and Russia, with the stated aim of deepening the relationship between the two states through integration in economic and defence policy. Originally, the Union State aimed to create a confederation but both countries currently retain their independence."
     SEN_GAM_union.t:0 "The Senegambian Confederation?"
     SEN_GAM_union.d:0 "Senegambia, officially the Senegambia Confederation or Confederation of Senegambia, was a loose confederation in the late 20th century between the West African countries of Senegal and its neighbour The Gambia, which is almost completely surrounded by Senegal."
+    KAS_HND_union.t:0 "Accession of Jammu and Kashmir to India?"
+    KAS_HND_union.d:0 "By executing an Instrument of Accession under the provisions of the Indian Independence Act 1947, Maharaja Hari Singh agreed to accede his state to the Dominion of India."
+    NET_IDO_union.t:0 "The Netherlands-Indonesia Union?"
+    NET_IDO_union.d:0 "The Netherlands-Indonesia Union was a confederal relationship between the Netherlands and Indonesia that existed between 1949 and 1956. Agreed in 1949, It was an attempt by the Netherlands to continue to bind its former colony of the Dutch East Indies (now Indonesia) to the Netherlands in a confederal manner, at least within the framework of a personal union, even after independence had been granted."
     
     historical_union_formation.option.1:0 "Yes"
     historical_union_formation.option.2:0 "No, we shall remain independent!"
@@ -993,6 +1052,20 @@
     transfer_territory_omani_gwadar.d:0 "At the time of Pakistan's independence in 1947, Gwadar remained under Omani authority. Nevertheless, Pakistan started to indicate interest in Gwadar. A deal was made with the efforts of Prime Minister of Pakistan Feroz Khan Noon and Said bin Taimur, the Sultan of Oman, and Pakistan was able to purchase the land on 8 September 1958, and it officially became a part of Pakistan on 8 December 1958."
     transfer_territory_portuguese_cabinda.t:0 "Transfer of Cabinda to Angola?"
     transfer_territory_portuguese_cabinda.d:0 "The Alvor Agreement, signed on 15 January 1975 in Alvor, Portugal, granted Angola independence from Portugal on 11 November and formally ended the 13-year-long Angolan War of Independence. The treaty, to which FLEC never agreed, described Cabinda as an 'integral and inalienable part of Angola'."
+    transfer_territory_british_bizonia.t:0 "Form Bizonia in Germany?"
+    transfer_territory_british_bizonia.d:0 "The Bizone or Bizonia was the combination of the American and the British occupation zones on 1 January 1947 during the occupation of Germany after World War II."
+    transfer_territory_french_trizonia.t:0 "Form Trizonia in Germany?"
+    transfer_territory_french_trizonia.d:0 "Bizonia governance was extended to include the French occupation zone on 1 August 1948 and the resulting structure was unofficially called either Trizonia or Trizonesia. Relations among the four occupying powers continued to deteriorate, and the quadripartite structures became unmanageable. In March 1948, the Allied Control Council ceased to operate and was replaced for the Trizone by the Allied High Commission."
+    transfer_territory_KMT_PRC.t:0 "Flee to Taiwan?"
+    transfer_territory_KMT_PRC.d:0 "The retreat of the government of Republic of China to Taiwan refers to the exodus of the remnants of the then-internationally-recognised Kuomintang-ruled government of the Republic of China (ROC) to the island of Taiwan (Formosa) on December 7, 1949, after losing the Chinese Civil War in the Chinese mainland."
+    transfer_territory_dutch_east_indonesia.t:0 "The Denpasar Conference?"
+    transfer_territory_dutch_east_indonesia.d:0 "The Denpasar Conference was held from 7–24 December 1946 at the Hotel Bali, Denpasar and resulted in the establishment of the State of East Indonesia, part of the United States of Indonesia. It was at this conference that the Dutch government stated its position that control of Western New Guinea would not be handed over at the same time as the rest of the Dutch East Indies."
+    transfer_territory_port_porkkala.t:0 "Return the Porkkala Naval Base?"
+    transfer_territory_port_porkkala.d:0 "Porkkala Naval Base was a Soviet naval base operational from 1944–1956 in the municipalities of Kirkkonummi, Ingå and Siuntio on the Porkkala peninsula, 30 kilometers (19 mi) west of Helsinki, Finland. The area was leased to the Soviet Union according to the Moscow Armistice signed in 1944 by Finland, the Soviet Union, and the United Kingdom. The area was returned to Finland in 1956."
+    transfer_territory_port_bornholm.t:0 "End the Occupation of Bornholm?"
+    transfer_territory_port_bornholm.d:0 "On 9 May Soviet troops landed on the island, and after a short fight, the German garrison (about 12,000 strong) surrendered. Soviet forces left the island on 5 April 1946."
+    transfer_territory_port_dodecanese.t:0 "Transfer the Dodecanese Islands to Greece?"
+    transfer_territory_port_dodecanese.d:0 "After the war, the islands became a British military protectorate and were almost immediately allowed to run their own civil affairs, whereupon they became informally united with Greece, though under separate sovereignty and military control. Despite objections from Turkey, which desired the islands as well, they were formally united with Greece by the 1947 Peace Treaty with Italy."
     
     historical_territorial_transfers.option.1:0 "Transfer the territories"
     historical_territorial_transfers.option.2:0 "Those territories shall remain ours!"
@@ -1024,12 +1097,14 @@
     CAN_QUE_2_dissolution.d:0 "The 1995 Quebec referendum was the second referendum to ask voters in the predominantly French-speaking Canadian province of Quebec whether Quebec should proclaim sovereignty and become an independent country, with the condition precedent of offering a political and economic agreement to Canada. Voting took place on 30 October 1995, and featured the largest voter turnout in Quebec's history (93.52%). The 'No' option carried by a margin of 54,288 votes, receiving 50.58% of the votes cast."
     IRQ_KUR_dissolution.t:0 "Recognise Kurdish Autonomy?"
     IRQ_KUR_dissolution.d:0 "In advance of the Iraq war in 2003, the two parties united in the negotiations with the Arab opposition to Saddam Hussein and succeeded in harvesting political, economic, and security gains and the Arab opposition agreed to recognise Kurdish autonomy in the case that Saddam Hussein was removed from power. America and Kurdistan also jointly rooted out the Islamist Ansar al-Islam group in Halabja area as Kurdistan hosted thousands of soldiers. The Kurdish autonomy which had existed since 1992 was formally recognised by the new Iraqi government in 2005 in the new Iraqi constitution"
-    GBR_SCO_dissolution.t:0 "The Scottish Independence Referendum?"
+    GBR_SCO_dissolution.t:0 "The Scottish Independence Referendum"
     GBR_SCO_dissolution.d:0 "A referendum on Scottish independence from the United Kingdom was held in Scotland on 18 September 2014. The referendum question was, 'Should Scotland be an independent country?', which voters answered with 'Yes' or 'No'. The 'No' side won with 2,001,926 voting against independence and 1,617,989 voting in favour."
-    SPA_CAT_dissolution.t:0 "The Catalan Independence Referendum?"
+    SPA_CAT_dissolution.t:0 "The Catalan Independence Referendum"
     SPA_CAT_dissolution.d:0 "An independence referendum was held on 1 October 2017 in the Spanish autonomous community of Catalonia, passed by the Parliament of Catalonia as the Law on the Referendum on Self-determination of Catalonia. The referendum was declared unconstitutional on 7 September 2017 and suspended by the Constitutional Court of Spain after a request from the Spanish government, who declared it a breach of the Spanish Constitution."
     SKN_GBR_dissolution.t:0 "Dissolution of Saint Christopher-Nevis-Anguilla?"
     SKN_GBR_dissolution.d:0 "After a brief period as part of the West Indies Federation, the island of Anguilla became part of the associated state of Saint Kitts-Nevis-Anguilla with full internal autonomy in 1967. However many Anguillans had no wish to be a part of this union, and resented the dominance of St Kitts within it. In 1980, Anguilla was finally allowed to formally secede from Saint Kitts and Nevis and become a separate British Overseas Territory."
+    FRA_NCD_dissolution.t:0 "The New Caledonian Independence Referendum"
+    FRA_NCD_dissolution.d:0 "An independence referendum was held in New Caledonia, a French territory in the South Pacific, on 12 December 2021. The vote was the third and final to be held under the terms of the Nouméa Accord, following votes in 2018 and 2020, in which independence was rejected by 57% and 53% respectively."
     
     historical_union_dissolution.option.1:0 "Grant them independence"
     historical_union_dissolution.option.2:0 "Our country cannot be fragmented!"
@@ -1129,6 +1204,12 @@
     SAF_ANG_war.d:0 "Operation Savannah was the South African code name for their military incursion into Angola in 1975–1976. It was part of the South African Border War and arose due to the Angolan War of Independence. The objective was to prevent the creation of a state hostile to South Africa in Angola."
     USA_korean_war.t:0 "Intervene in the Korean War?"
     USA_korean_war.d:0 "On 25 June 1950, the North's Korean People's Army (KPA) crossed below the 38th parallel. The United Nations Security Council denounced the invasion and authorised the United Nations Command to repel the KPA. After the first two months of war, the South Korean army (ROKA) and its allies were nearly defeated, holding onto only the Pusan Perimeter. In September 1950, however, UN forces landed at Incheon, cutting off KPA troops and supply lines. They invaded North Korea in October 1950 and advanced towards the Yalu River—the border with China."
+    india_hyderabad_war.t:0 "Annexation of Hyderabad?"
+    india_hyderabad_war.d:0 "In November 1947, Hyderabad signed a standstill agreement with the Dominion of India, continuing all previous arrangements except for the stationing of Indian troops in the state. India felt that the establishment of a Communist state in Hyderabad would be a threat to the country. Nizam's power had weakened because of the Telangana Rebellion and the rise of a radical militia known as the Razakars whom he could not put down. On 7 September, Jawaharlal Nehru gave ultimatum to Nizam, demanding ban on the Razakars and return of Indian troops to Secunderabad. India invaded the state by 13 September 1948."
+    arab_israeli_war.t:0 "The Arab–Israeli War?"
+    arab_israeli_war.d:0 "The 1948 Arab–Israeli War, also known as the First Arab–Israeli War, followed the civil war in Mandatory Palestine as the second and final stage of the 1948 Palestine war. The civil war became a war of separate states with the Israeli Declaration of Independence on 14 May 1948, the end of the British Mandate for Palestine at midnight, and the entry of a military coalition of Arab states into the territory of Mandatory Palestine the following morning."
+    first_indo_pakistan_war.t:0 "The First Indo-Pakistan War?"
+    first_indo_pakistan_war.d:0 "The Indo-Pakistani war of 1947–1948, also known as the first Kashmir war, was a war fought between India and Pakistan over the princely state of Jammu and Kashmir from 1947 to 1948."
     
     korean_war:0 "The Korean War"
     portugal_india_war:0 "Annexation of Goa"
@@ -1231,9 +1312,14 @@
     ZIM_1987_revolution.t:0 "The Presidential Republic?"
     ZIM_1987_revolution.d:0 "In late 1987, Zimbabwe's parliament amended the constitution. On 30 December it declared Mugabe to be executive president, a new position that combined the roles of head of state, head of government, and commander-in-chief of the armed forces. This position gave him the power to dissolve parliament, declare martial law, and run for an unlimited number of terms."
     
+    SAF_1970_revolution.t:0 "Bantustans in South Africa?"
+    SAF_1970_revolution.d:0 "The Pretoria government established ten Bantustans in South Africa, and ten in neighbouring South West Africa (then under South African administration), for the purpose of concentrating the members of designated ethnic groups, thus making each of those territories ethnically homogeneous as the basis for creating autonomous nation states for South Africa's different black ethnic groups. Under the Bantu Homelands Citizenship Act of 1970, the government stripped black South Africans of their South African citizenship, depriving them of their few remaining political and civil rights in South Africa, and declared them to be citizens of these homelands."
+    SAF_1970_revolution.f:0 "Due to game engine limitations, the Bantustans cannot be represented as separate countries in this mod."
     SAF_1984_revolution.t:0 "An Executive President?"
     SAF_1984_revolution.d:0 "Among the 1983 constitution's most controversial provisions was its establishment of the Tricameral Parliament, a legislative arrangement that would permit the Coloured and Indian race groups to be represented in parliament on a segregated basis, and the abolition of the office of Prime Minister in favour of an executive State Presidency under ruling Prime Minister P. W. Botha."
-    SAF_1994_revolution.t:0 "End of Apartheid?"
+    SAF_1989_revolution.t:0 "The Fall of P. W. Botha?"
+    SAF_1989_revolution.d:0 "On 18 January 1989, Botha (then aged 73) suffered a mild stroke which prevented him from attending a meeting with Namibian political leaders on 20 January 1989. Botha's place was taken by acting president J. Christiaan Heunis. On 2 February 1989, Botha resigned as leader of the National Party (NP), anticipating his nominee – finance minister Barend du Plessis – would succeed him. Instead, the NP's parliamentary caucus selected as leader education minister F. W. de Klerk, who moved quickly to consolidate his position within the party as a reformist, while hardliners supported Botha."
+    SAF_1994_revolution.t:0 "The End of Apartheid?"
     SAF_1994_revolution.d:0 "De Klerk negotiated with Mandela to fully dismantle apartheid and establish a transition to universal suffrage. In 1993, he publicly apologised for apartheid's harmful effects. He oversaw the 1994 non-racial election in which Mandela led the African National Congress (ANC) to victory."
     
     ARAB_2011_revolution.t:0 "The Arab Spring?"
@@ -1348,6 +1434,8 @@
     RUS_1993_revolution.d:0 "In September and October 1993, a constitutional crisis arose in the Russian Federation from a conflict between President Boris Yeltsin and Russia's parliament. President Yeltsin performed a self-coup, dissolving parliament and instituting a presidential rule by decree system. The crisis ended with Yeltsin using military force to attack Moscow's House of Soviets and arrest the lawmakers. In the wake of the events, Yeltsin consolidated his position, further expanded the powers of the executive, and pushed through the adoption of the 1993 constitution of the Russian Federation."
     RUS_2000_revolution.t:0 "The Rise of Oligarchy?"
     RUS_2000_revolution.d:0 "On 31 December 1999, president Yeltsin unexpectedly resigned, handing the post to the recently appointed prime minister and his chosen successor, Vladimir Putin. Putin then won the 2000 presidential election, and defeated the Chechen insurgency in the Second Chechen War. Putin's rule increased stability, while transforming Russia into an authoritarian state."
+    RUS_2023_revolution.t:0 "The Wagner Group Rebellion?"
+    RUS_2023_revolution.d:0 "On 23 June 2023, the Wagner Group, a Russian private military company, engaged in a major uprising against the Government of Russia. It marked the climax of the Wagner Group–Ministry of Defense conflict, which had begun about six months earlier. Russian oligarch Yevgeny Prigozhin, who had been leading Wagner Group activities in Ukraine, stood down after reaching an agreement a day later."
     
     UKR_2014_revolution.t:0 "The Maidan Revolution?"
     UKR_2014_revolution.d:0 "The Revolution of Dignity, also known as the Maidan Revolution, took place in Ukraine in February 2014 at the end of the Euromaidan protests, when deadly clashes between protesters and state forces in the capital Kyiv culminated in the ousting of elected President Viktor Yanukovych, the return to the 2004 Constitution of Ukraine, and the outbreak of the 2014 Russo-Ukrainian War."
@@ -1453,6 +1541,10 @@
     PAK_1988_revolution.t:0 "Return to Democracy?"
     PAK_1988_revolution.d:0 "President Zia died in a plane crash in 1988, and Benazir Bhutto, daughter of Zulfikar Ali Bhutto, was elected as the country's first female Prime Minister. The PPP was followed by conservative Pakistan Muslim League (N), and over the next decade the leaders of the two parties fought for power, alternating in office while the country's situation worsened, economic indicators fell sharply, in contrast to the 1980s."
     
+    HND_1975_revolution.t:0 "The Emergency?"
+    HND_1975_revolution.d:0 "The Emergency in India was a 21-month period from 1975 to 1977 when Prime Minister Indira Gandhi had a state of emergency declared across the country. Officially issued by President Fakhruddin Ali Ahmed under Article 352 of the Constitution because of prevailing "internal disturbance", the order bestowed upon the prime minister the authority to rule by decree, allowing elections to be cancelled and civil liberties to be suspended."
+    HND_1977_revolution.t:0 "End the Emergency?"
+    HND_1977_revolution.d:0 "On 18 January 1977, Gandhi called fresh elections for March and released several opposition leaders; however, many others remained in prison even after she left office, despite the Emergency officially ending on 21 March 1977. The Indian general election of 1977 was held from 16 to 20 March, and resulted in a landslide victory for the Janata Party and the CFD, securing 298 seats in the Lok Sabha, whereas the ruling Indian National Congress only managed to win 154—a decrease of 198 as compared to the previous election."
     HND_1984_revolution.t:0 "The Assassination of Indira Gandhi?"
     HND_1984_revolution.d:0 "Indian Prime Minister Indira Gandhi was assassinated at 9:30 a.m. on 31 October 1984 at her residence in Safdarjung Road, New Delhi. She was killed by her bodyguards Satwant Singh and Beant Singh in the aftermath of Operation Blue Star, an Indian military action carried out between 1 and 8 June 1984 ordered by Indira Gandhi to damage the Golden Temple of Harmandir Sahib in Amritsar, Punjab, the holiest site of Sikhism."
     HND_1991_revolution.t:0 "The Assassination of Rajiv Gandhi?"
@@ -1548,6 +1640,8 @@
     BNG_1991_revolution.t:0 "Return to Parliamentary Democracy?"
     BNG_1991_revolution.d:0 "After the 1991 general election, the twelfth amendment to the constitution restored the parliamentary republic, and Begum Khaleda Zia became Bangladesh's first female prime minister. Zia, a former first lady, led a BNP government from 1990 to 1996. In 1991, her finance minister, Saifur Rahman, began a major programme to liberalise the Bangladeshi economy."
     
+    AST_1975_revolution.t:0 "End the White Australia Policy?"
+    AST_1975_revolution.d:0 "From the 1950s onwards, Australians began to rethink their attitudes towards racial issues. An Aboriginal rights movement was founded and supported by many liberal white Australians and a campaign against the White Australia policy was also launched. The 1967 referendum was held and overwhelmingly approved to amend the Constitution, removing discriminatory references and giving the national parliament the power to legislate specifically for Indigenous Australians. Indigenous Australians began to take up representation in Australian parliaments during the 1970s."
     AST_1999_revolution.t:0 "The Republic Referendum"
     AST_1999_revolution.d:0 "The Australian republic referendum held on 6 November 1999 was a two-question referendum to amend the Constitution of Australia. The first question asked whether Australia should become a republic, with a president appointed by Parliament following a bi-partisan appointment model which had been approved by a half-elected, half-appointed Constitutional Convention held in Canberra in February 1998. The second question, generally deemed to be far less important politically, asked whether Australia should alter the Constitution to insert a preamble. The republic referendum was defeated."
     
@@ -1642,6 +1736,8 @@
     USA_1998_revolution.d:0 "Bill Clinton, the 42nd president of the United States, was impeached by the United States House of Representatives of the 105th United States Congress on December 19, 1998, for 'high crimes and misdemeanors'. The House adopted two articles of impeachment against Clinton, with the specific charges against Clinton being lying under oath and obstruction of justice. Two other articles had been considered but were rejected by the House vote. The approved articles of impeachment would be submitted to the United States Senate on January 7, 1999. A trial in the Senate then began, with Chief Justice William Rehnquist presiding. On February 12, Clinton was acquitted on both counts as neither received the necessary two-thirds majority vote of the senators present for conviction and removal from office."
     USA_2019_revolution.t:0 "The Impeachment of Donald Trump?"
     USA_2019_revolution.d:0 "The first impeachment of Donald Trump (45th President of the United States) began on December 18, 2019, during the 116th United States Congress, when the House of Representatives adopted two articles of impeachment against Trump: abuse of power and obstruction of Congress. On February 5, 2020, the Senate voted to acquit Donald Trump."
+    USA_2020_revolution.t:0 "Politicise the US Civil Service?"
+    USA_2020_revolution.d:0 "Schedule F was created by Executive Order 13957 on October 21, 2020. The purpose of the provision was to increase the President's control over the federal career civil service. It was widely criticised as providing means to retaliate against federal officials for political reasons. It was estimated that tens or hundreds of thousands of career employees could have lost their civil service protections, increasing the number of political appointments by a factor of ten."
     USA_2021_revolution.t:0 "The January 6 Insurrection?"
     USA_2021_revolution.d:0 "On January 6, 2021, the United States Capitol Building in Washington, D.C., was attacked by a mob of supporters of then-U.S. president Donald Trump, two months after his defeat in the 2020 presidential election. They sought to keep Trump in power by preventing a joint session of Congress from counting the Electoral College votes to formalise the victory of President-elect Joe Biden. The attack was ultimately unsuccessful in preventing the election results from being certified."
     
@@ -1665,12 +1761,18 @@
     sino_soviet_split.d:0 "The Sino-Soviet split was the gradual deterioration of relations between China and the Soviet Union caused by doctrinal divergences that arose from their different interpretations and practical applications of Marxism–Leninism, as influenced by their respective geopolitics during the Cold War of 1947–1991. In the late 1950s and early 1960s, Sino-Soviet debates about the interpretation of orthodox Marxism became specific disputes about the Soviet Union's policies of national de-Stalinisation and international peaceful coexistence with the Western Bloc, which Chinese founding father Mao Zedong decried as revisionism."
     sino_soviet_split_ussr.f:0 "This event fired because the [concept_ruler] of [SCOPE.sCountry('communist_china_scope').GetName] is incompatible with the [concept_ruler] of [ROOT.GetCountry.GetName]."
     sino_soviet_split.f:0 "This event fired because the [concept_ruler] of [SCOPE.sCountry('sino_soviet_split_ussr').GetName] is incompatible with the [concept_ruler] of [ROOT.GetCountry.GetName]."
+    yugoslav_soviet_split.t:0 "The Soviet–Yugoslav Split"
+    yugoslav_soviet_split.d:0 "The Tito–Stalin split or the Soviet–Yugoslav split was the culmination of a conflict between the political leaderships of Yugoslavia and the Soviet Union, under Josip Broz Tito and Joseph Stalin, respectively, in the years following World War II. Although presented by both sides as an ideological dispute, the conflict was as much the product of a geopolitical struggle in the Balkans that also involved Albania, Bulgaria, and the communist insurgency in Greece, which Tito's Yugoslavia supported and the Soviet Union secretly opposed."
+    yugoslav_soviet_split_ussr.f:0 "This event fired because the [concept_ruler] of [SCOPE.sCountry('communist_yugoslavia_scope').GetName] is incompatible with the [concept_ruler] of [ROOT.GetCountry.GetName]."
     
     eastern_europe_indy.option.1:0 "Let them be more free."
     eastern_europe_indy.option.2:0 "They do not deserve any freedom!"
     sino_soviet_split.option.1:0 "Enough with the arguments, break with Communist China!"
     sino_soviet_split.option.2:0 "Let the differences continue..."
     sino_soviet_split.option.3:0 "We never liked the Soviets anyway!"
+    yugoslav_soviet_split.option.1:0 "Enough with the arguments, break with Yugoslavia!"
+    yugoslav_soviet_split.option.2:0 "Let the differences continue..."
+    yugoslav_soviet_split.option.3:0 "We never liked the Soviets anyway!"
     
     weaken_the_warsaw_pact.tt:0 "Weaken the Warsaw Pact"
     
@@ -1692,6 +1794,8 @@
     cypriot_war.d:0 "The Cyprus Emergency was a conflict fought in British Cyprus between November 1955 and March 1959. The National Organisation of Cypriot Fighters (EOKA), a Greek Cypriot right-wing nationalist guerrilla organisation, began an armed campaign in support of the end of British colonial rule and the unification of Cyprus and Greece (Enosis) in 1955. Opposition to Enosis from Turkish Cypriots led to the formation of the Turkish Resistance Organisation (TMT) in support of the partition of Cyprus. The Cyprus Emergency ended in 1959 with the signature of the London-Zürich Agreements."
     malayan_emergency.t:0 "The Malayan Emergency"
     malayan_emergency.d:0 "The Malayan Emergency was a guerrilla war fought in British Malaya between communist pro-independence fighters of the Malayan National Liberation Army and the military forces of the Federation of Malaya, British Empire and Commonwealth."
+    Malagasy_war.t:0 "The Malagasy Uprising"
+    Malagasy_war.d:0 "The Malagasy Uprising was a Malagasy nationalist rebellion against French colonial rule in Madagascar, lasting from March 1947 to February 1949. On the evening of 29 March 1947, coordinated surprise attacks were launched by Malagasy nationalists, armed mainly with spears, against military bases and French-owned plantations in the eastern part of the island concentrated around Moramanga and Manakara. The nationalist cause was rapidly adopted in the south and spread to the central highlands and the capital of Antananarivo by the following month, with the number of Malagasy nationalist fighters estimated at over one million."
     
     historical_colonial_wars.option.1:0 "Crush their insignificant rebellion!"
     historical_colonial_wars.option.2:0 "Give in to the rebels"
@@ -1742,6 +1846,12 @@
     Zapatista_Uprising.d:0 "On 1 January 1994, the Zapatista Army of National Liberation (EZLN) coordinated a 12-day uprising in the state of Chiapas, Mexico in protest of the enactment of the North American Free Trade Agreement. The rebels occupied cities and towns in Chiapas, releasing prisoners and destroying land records. After battles with the Mexican Army and police, a ceasefire was brokered on 12 January. Around 300 people were killed."
     moro_war.PHI.t:0 "The Moro Conflict"
     moro_war.PHI.d:0 "The Moro conflict was an insurgency in the Mindanao region of the Philippines, which involved multiple armed groups. The root cause of the Moro conflict is associated in a long history of resistance by the Bangsamoro people against foreign rule, including the American annexation of the Philippines in 1898."
+    CCW_war.ROC.t:0 "The Battle of Hainan Island"
+    CCW_war.ROC.d:0 "The Battle of Hainan Island occurred in 1950, during the final phase of the Chinese Civil War. The People's Republic of China (PRC) conducted an amphibious assault on Hainan Island on 16 April, assisted by the Hainan communist movement which controlled much of the island's interior, while the Republic of China (ROC) controlled the coast; their forces were concentrated in the north near Haikou and were forced to retreat south after the landings. The communists secured Hainan's southern cities by the end of the month and declared victory on 1 May."
+    chinese_civil_wars.option.1:0 "Stop the war at Hainan"
+    chinese_civil_wars.option.2:0 "To Hainan, then to Taiwan!"
+    maluku_war.IDO.t:0 "The South Maluku Uprising"
+    maluku_war.IDO.d:0 "Distrusting the Javanese and Muslim-dominated Republic of Indonesia, the largely Protestant and pro-Dutch South Moluccans - who had long contributed forces to the Royal Netherlands East Indies Army (KNIL) - declared the independence of the Republic of South Maluku in Ambon and Seram on 25 April 1950. This was not acknowledged by Sukarno and on his orders, the Indonesian military invaded the Moluccan island of Buru and a part of the island of Ceram."
     
     historical_civil_wars.option.1:0 "Start the war!"
     historical_civil_wars.option.2:0 "Take the peaceful option."
@@ -2308,6 +2418,16 @@
     
     did_not_sign_CWC_tt:0 "This country is not a signatory to the Chemical Weapons Convention"
     
+    join_biological_non_proliferation_treaty_decision:0 "Sign the Biological Weapons Convention"
+    join_biological_non_proliferation_treaty_decision_desc:0 "The Biological Weapons Convention, or Biological and Toxin Weapons Convention, is a disarmament treaty that effectively bans biological and toxin weapons by prohibiting their development, production, acquisition, transfer, stockpiling and use."
+    signed_BWC_1_tt:0 "This country signs the Biological Weapons Convention and will be bound by it for at least 10 years."
+    
+    leave_biological_non_proliferation_treaty_decision:0 "Renounce the Biological Weapons Convention"
+    leave_biological_non_proliferation_treaty_decision_desc:0 "The Biological Weapons Convention, or Biological and Toxin Weapons Convention, is a disarmament treaty that effectively bans biological and toxin weapons by prohibiting their development, production, acquisition, transfer, stockpiling and use. Renouncing this treaty will allow this country to start a biological weapons program again."
+    signed_BWC_2_tt:0 "This country has been a signatory to the Biological Weapons Convention for at least 10 years."
+    
+    did_not_sign_BWC_tt:0 "This country is not a signatory to the Biological Weapons Convention"
+    
     generic_decolonisation_indy.1.tt:0 "Declare a war of independence against [SCOPE.sCountry('overlord_in_question_scopes').GetName]!"
     generic_decolonisation_indy.t:0 "[ROOT.GetCountry.GetAdjective] War of Independence?"
     generic_decolonisation_indy.d:0 "The [ROOT.GetCountry.GetAdjective] people are outraged that [SCOPE.sCountry('overlord_in_question_scopes').GetName] is reluctant to grant independence to [ROOT.GetCountry.GetName]. In light of this growing nationalist sentiment, certain members of the government have approached [SCOPE.sCharacter('puppet_leader_in_question_scopes').GetFullName] with a radical proposal: [ROOT.GetCountry.GetName] shall make a declaration of independence and unilaterally sever all ties with [SCOPE.sCountry('overlord_in_question_scopes').GetName]."
@@ -2368,6 +2488,12 @@
     je_develop_chemical_weapons_1.tt:0 "There is at least 1 $building_chemical_plants$ [concept_building] in the country"
     
     je_develop_chemical_weapons_goal:0 "Chemical Weapons Program progress is 100%"
+    
+    je_develop_biological_weapons:0 "Biological Weapons Program"
+    je_develop_biological_weapons_reason:0 "[ROOT.GetCountry.GetName] is currently attempting to create its own biological weapons. This requires [ROOT.GetCountry.GetAdjective] scientists to research the $tech_agriculture_4$ [concept_technology] and the military to build at least 1 $building_university$ [concept_building] in the country."
+    je_develop_biological_weapons_1.tt:0 "There is at least 1 $building_university$ [concept_building] in the country"
+    
+    je_develop_biological_weapons_goal:0 "Biological Weapons Program progress is 100%"
     
     political_survivor:0 "Political Survivor"
     
@@ -3039,6 +3165,16 @@
     indo_soviet_form.d:0 "The Indo–Soviet Treaty of Peace, Friendship and Cooperation was a treaty signed between India and the Soviet Union in August 1971 that specified mutual strategic cooperation. This was a significant deviation from India's previous position of non-alignment during the Cold War and was a factor in the 1971 Indo-Pakistani war. The treaty was caused by increasing Pakistani ties with China and the United States."
     cuban_soviet_form.t:0 "Soviet Nuclear Weapons in Cuba?"
     cuban_soviet_form.d:0 "In May 1962, Soviet First Secretary Nikita Khrushchev was persuaded by the idea of countering the US's growing lead in developing and deploying strategic missiles by placing Soviet intermediate-range nuclear missiles in Cuba. The Cuban leadership had a strong expectation that the US would invade Cuba again and enthusiastically approved the idea of installing nuclear missiles in Cuba. The first consignment of Soviet R-12 missiles arrived on the night of September 8, followed by a second on September 16. The R-12 was a medium-range ballistic missile, capable of carrying a thermonuclear warhead."
+    USA_SPA_form.t:0 "The Pact of Madrid?"
+    USA_SPA_form.d:0 "The Pact of Madrid, signed on 23 September 1953 by Francoist Spain and the United States, was a significant effort to break the international isolation of Spain after World War II, together with the Concordat of 1953. The 1953 accord took the form of three separate executive agreements that pledged the United States to furnish economic and military aid to Spain. The United States, in turn, was to be permitted to construct and to utilize air and naval bases on Spanish territory."
+    USA_ROC_form.t:0 "The Sino-American Mutual Defense Treaty?"
+    USA_ROC_form.d:0 "The Mutual Defense Treaty between the United States and the Republic of China was a defense pact signed between the United States and the Republic of China (Taiwan) effective from 1955 to 1980. It was intended to defend the island of Taiwan from invasion by the People's Republic of China."
+    SOV_PRC_form.t:0 "The Soviet-Chinese Treaty of Friendship?"
+    SOV_PRC_form.d:0 "The Sino-Soviet Treaty of Friendship, Alliance and Mutual Assistance was a bilateral treaty of alliance, collective security, aid and cooperation concluded between the People's Republic of China and the Union of Soviet Socialist Republics on February 14, 1950."
+    SOV_NVM_form.t:0 "The Soviet-Vietnamese Treaty of Friendship?"
+    SOV_NVM_form.d:0 "The Soviet Union was the first country, along with its satellite states in Eastern Europe and the newly established People's Republic of China, to diplomatically recognize the Democratic Republic of Vietnam during the First Indochina War in January 1950."
+    USA_YUG_form.t:0 "The American-Yugoslav Thaw?"
+    USA_YUG_form.d:0 "The 1948 Tito-Stalin split represented the major turning point in the relations of United States and the new socialist republic. Yugoslavia first requested assistance from the United States in summer 1948. The Truman administration decided to provide substantial aid, loans and military assistance to Yugoslavia. This marked the beginning of US military aid to a communist nation in order to counter Soviet ambitions in the region, leading to greater strives in United States–Yugoslavia relations. Tito received US backing in Yugoslavia's successful 1949 bid for a seat on the United Nations Security Council, against Soviet opposition. In 1949, the United States provided loans to Yugoslavia, and in 1950 the loans were increased and followed by large grants and military aid."
     
     historical_alliances_system.option.1:0 "Yes"
     historical_alliances_system.option.2:0 "No"
@@ -3336,6 +3472,27 @@
     je_climate_change_summit_button:0 "Hold a Climate Summit"
     je_climate_change_summit_button_desc:0 "[ROOT.GetCountry.GetName] can organise a Climate Summit to call for the world's governments to enact better $lawgroup_environmental_policy$ [Concept('concept_law','$concept_laws$')]."
     
+    je_climate_change_reforestation_start_button:0 "Start Reforestation Policy"
+    je_climate_change_reforestation_start_button_desc:0 "Reforestation is the practice of restoring previously existing forests and woodlands that have been destroyed or damaged. \n\nEnacting this policy will slow down the rate of climate change."
+    je_climate_change_reforestation_end_button:0 "End Reforestation Policy"
+    je_climate_change_reforestation_end_button_desc:0 "Reforestation is the practice of restoring previously existing forests and woodlands that have been destroyed or damaged."
+    je_climate_change_recycling_start_button:0 "Start Recycling Policy"
+    je_climate_change_recycling_start_button_desc:0 "Recycling is the process of converting waste materials into new materials and objects. This concept often includes the recovery of energy from waste materials. The recyclability of a material depends on its ability to reacquire the properties it had in its original state. \n\nEnacting this policy will slow down the rate of climate change."
+    je_climate_change_recycling_end_button:0 "End Recycling Policy"
+    je_climate_change_recycling_end_button_desc:0 "Recycling is the process of converting waste materials into new materials and objects. This concept often includes the recovery of energy from waste materials. The recyclability of a material depends on its ability to reacquire the properties it had in its original state."
+    je_climate_change_carbon_capture_start_button:0 "Start Carbon Capture Policy"
+    je_climate_change_carbon_capture_start_button_desc:0 "Carbon capture and storage is a process in which a relatively pure stream of carbon dioxide from industrial sources is separated, treated and transported to a long-term storage location. \n\nEnacting this policy will slow down the rate of climate change."
+    je_climate_change_carbon_capture_start_button:0 "End Carbon Capture Policy"
+    je_climate_change_carbon_capture_start_button_desc:0 "Carbon capture and storage is a process in which a relatively pure stream of carbon dioxide from industrial sources is separated, treated and transported to a long-term storage location."
+    
+    climate_change_recycling_timer.tt:0 "Did not enact a Recycling Policy in the last 5 years"
+    climate_change_reforestation_timer.tt:0 "Did not enact a Reforestation Policy in the last 5 years"
+    climate_change_carbon_capture_timer.tt:0 "Did not enact a Carbon Capture Policy in the last 5 years"
+    
+    recycling_policy:0 "Recyling Policy"
+    reforestation_policy:0 "Reforestation Policy"
+    carbon_capture_policy:0 "Carbon Capture Policy"
+    
     generic_climate_accords_climate.t:0 "The [SCOPE.sState('climate_change_summit_location').GetCityHubName] Climate Summit"
     generic_climate_accords_climate.d:0 "A climate summit was held in [SCOPE.sState('climate_change_summit_location').GetCityHubName], a city in [SCOPE.sState('climate_change_summit_location').GetCountry.GetName], calling for the nations of the world to enact better $lawgroup_environmental_policy$ [Concept('concept_law','$concept_laws$')]."
     
@@ -3586,6 +3743,12 @@
     FRA_Paris_attack_1995.d:0 "A series of attacks targeted public transport systems in Paris and Lyon, as well as a school in Villeurbanne, in 1995. They were carried out by the Armed Islamic Group of Algeria (GIA), who sought to expand the Algerian Civil War to France. The attacks killed eight people, all during the first attack on 25 July. The attack also injured 190 people."
     USA_Oklahoma_attack_1995.t:0 "The Oklahoma City Bombing"
     USA_Oklahoma_attack_1995.d:0 "The Oklahoma City bombing was a domestic terrorist truck bombing of the Alfred P. Murrah Federal Building in Oklahoma City, Oklahoma, United States, on April 19, 1995, the second anniversary of the end to the Waco siege. The bombing was the deadliest act of terrorism in U.S. history prior to the September 11 attacks in 2001. Perpetrated by two anti-government extremists and white supremacists, Timothy McVeigh and Terry Nichols, the bombing occurred at 9:02 a.m. and killed 168 people, injured 680, and destroyed more than one-third of the building, which had to be demolished."
+    HND_Operation_Blue_Star.t:0 "Operation Blue Star?"
+    HND_Operation_Blue_Star.d:0 "Operation Blue Star was an Indian Armed Forces operation between 1 and 10 June 1984 to remove Sikh militant Jarnail Singh Bhindranwale and other Sikh separatists from the buildings of the Golden Temple, the holiest site of Sikhism. The military action in the temple complex was criticized by Sikhs worldwide, who interpreted it as an assault on the Sikh religion and the entire Sikh community."
+    HND_Anti_Sikh_Riots.t:0 "The Anti-Sikh Riots"
+    HND_Anti_Sikh_Riots.d:0 "The 1984 anti-Sikh riots, also known as the 1984 Sikh massacre, was a series of organised pogroms against Sikhs in India following the assassination of Indira Gandhi by her Sikh bodyguards. Government estimates project that about 2,800 Sikhs were killed in Delhi and 3,350 nationwide."
+    ITA_Piazza_Fontana_attack_1969.t:0 "The Piazza Fontana Bombing"
+    ITA_Piazza_Fontana_attack_1969.d:0 "The Piazza Fontana bombing was a terrorist attack that occurred on 12 December 1969 when a bomb exploded at the headquarters of Banca Nazionale dell'Agricoltura (the National Agricultural Bank) in Piazza Fontana (near the Duomo) in Milan, Italy, killing 17 people and wounding 88. The attack was carried out by the Third Position, neo-fascist paramilitary terrorist group Ordine Nuovo and possibly certain undetermined collaborators."
     
     in_a_defensive_war.tt:0 "This country is in a defensive [concept_war] with an independent country."
     alliance_leader_label.tt:0 "Leader: [SCOPE.sCountry('alliance_leader_scope_label').GetName]"
@@ -3821,5 +3984,35 @@
     
     historical_pandemics.option.1:0 "Oh no!"
     
+    biological_weapons_fallout.t:0 "Artificial Pandemic"
+    biological_weapons_fallout.d:0 "Biological weapons used against [ROOT.GetCountry.GetName] have caused an epidemic in the country. We need to develop a vaccine to solve this problem."
+    biological_weapons_fallout.f:0 "This event fired because [ROOT.GetCountry.GetName] was struck by biological weapons."
+    
+    biological_weapons_fallout.option:0 "Oh no!"
+    
     end_conscription.t:0 "Abolish Conscription?"
     end_conscription.d:0 "A number of influential politicians have called for the end of conscription in [ROOT.GetCountry.GetName]. They say that it is no longer required because it is incongruent with the principles of democracy."
+    
+    nuclear_accident_1979.t:0 "The Three Mile Island Nuclear Accident"
+    nuclear_accident_1979.d:0 "The Three Mile Island accident was a nuclear meltdown of the Unit 2 reactor (TMI-2) of the Three Mile Island Nuclear Generating Station on the Susquehanna River in Londonderry Township, near Harrisburg, the capital city of Pennsylvania, United States. The reactor accident began at 4:00 a.m. on March 28, 1979, and released radioactive gases and radioactive iodine into the environment."
+    nuclear_accident_1986.t:0 "The Chernobyl Nuclear Disaster"
+    nuclear_accident_1986.d:0 "The Chernobyl disaster began on 26 April 1986 with the explosion of the No. 4 reactor of the Chernobyl Nuclear Power Plant, near the city of Pripyat in the north of the Ukrainian SSR, close to the border with the Byelorussian SSR, in the Soviet Union. Following the disaster, Pripyat was abandoned and eventually replaced by the new purpose-built city of Slavutych."
+    nuclear_accident_2011.t:0 "The Fukushima Nuclear Accident"
+    nuclear_accident_2011.d:0 "The Fukushima nuclear accident was a major nuclear accident at the Fukushima Daiichi nuclear power plant in Ōkuma, Fukushima, Japan which began on March 11, 2011. The proximate cause of the accident was the 2011 Tōhoku earthquake and tsunami, which resulted in electrical grid failure and damaged nearly all of the power plant's backup energy sources. The subsequent inability to sufficiently cool reactors after shutdown compromised containment and resulted in the release of radioactive contaminants into the surrounding environment."
+    
+    historical_nuclear_accidents.option.1:0 "Oh no!"
+    
+    major_nuclear_accident:0 "Major Nuclear Accident"
+    moderate_nuclear_accident:0 "Moderate Nuclear Accident"
+    mild_nuclear_accident:0 "Mild Nuclear Accident"
+    anti_nuclear_energy_modifier:0 "Anti-Nuclear Energy Campaign"
+    
+    united_in_fear:0 "United in Fear"
+    
+    eastern_europe_sovietisation.t:0 "Sovietisation of [SCOPE.sCountry('eastern_europe_sovietisation_target').GetName]?"
+    eastern_europe_sovietisation.d:0 "At first, the Soviets concealed their role in other Eastern Bloc politics, with the transformation appearing as a modification of Western "bourgeois democracy". Moscow-trained cadres were put into crucial power positions to fulfill orders regarding sociopolitical transformation. Elimination of the bourgeoisie's social and financial power by expropriation of landed and industrial property was accorded absolute priority. Crucial departments such as those responsible for personnel, general police, secret police and youth were strictly Communist run. Such procedures were repeated until Communists had gained unlimited power and only politicians who were unconditionally supportive of Soviet policy remained."
+    eastern_europe_sovietisation.f:0 "This event fired because [SCOPE.sCountry('eastern_europe_sovietisation_target').GetName] is in the Sphere of Influence of [SCOPE.sCountry('eastern_europe_sovietisation_initiator').GetName]."
+    eastern_europe_sovietisation.option.1:0 "Install a Communist Regime in [SCOPE.sCountry('eastern_europe_sovietisation_target').GetName]!"
+    eastern_europe_sovietisation.option.2:0 "It is not necessary."
+    eastern_europe_sovietisation_target.option.1:0 "Accept [SCOPE.sCountry('eastern_europe_sovietisation_initiator').GetAdjective] domination."
+    eastern_europe_sovietisation_target.option.2:0 "We will be free!"

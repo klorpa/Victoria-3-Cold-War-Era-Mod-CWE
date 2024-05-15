@@ -1692,9 +1692,19 @@ AZB_communist = {
         instance = { scale = { 1.0 0.2 } position = { 0.5 0.9 }  }
 	}	
 }
+AZB_communist_PER = {
+	pattern = "pattern_solid.tga"
+	color1 = "green"
 
-
-
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "red"
+	}	
+	textured_emblem = {
+		texture = "te_coa_AZB_PER.dds"
+	}
+}
 
 BAD = {
 	pattern = "pattern_solid.tga"
@@ -4533,7 +4543,7 @@ CEY_subject_GBR = {
 
     sub = {
         parent = "sub_CEY" 
-        instance = { scale = { 0.7 0.7 } offset = { 0.225 0.15 }  }
+        instance = { scale = { 0.6 0.6 } offset = { 0.30 0.20 } }
     }	
 }
 
@@ -10073,7 +10083,7 @@ HND_subject = {
 	# 1879 design, blue ensign with order of the star badge 
 	
 	pattern = "pattern_solid.tga"
-	color1 = "blue"
+	color1 = "red"
 	color2 = "white"
 	color3 = "red"
 	
@@ -10983,6 +10993,16 @@ ISR = { # Israel
 		instance = { scale = { 1.0 0.14 } position = { 0.5 0.16 } }			
 		instance = { scale = { 1.0 0.14 } position = { 0.5 0.84 } }				
 	}	
+}
+
+ISR_subject_GBR = { # Israel
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+
+	textured_emblem = {
+		texture = "te_coa_british_palestine.dds"
+		instance = { scale = { 0.85 0.85 } position = { 0.75 0.5 } }
+	}
 }
 
 ITA = { # Italy
@@ -11947,6 +11967,16 @@ KAS = { # Kashmir
 	}	
 }
 
+KAS_early = { # Kashmir
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	
+	colored_emblem = {
+		texture = "ce_border_KAS_early.dds"
+		color1 = "white"
+	}	
+}
+
 KAZ = { # Kazakhstan
 	pattern = "pattern_solid.tga"
 	color1 = "light_blue"
@@ -12413,6 +12443,20 @@ KUR = { # Kurdistan
 		texture = "ce_star_16.dds"
 		color1 = "yellow"
 		instance = { scale = { 0.6 0.6 } }
+	}
+}
+
+KUR_communist = { # Kurdistan
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "green"
+	}
+	textured_emblem = {
+		texture = "te_coa_KUR_communist.dds"
 	}
 }
 
@@ -19263,6 +19307,25 @@ SOV = {
 
 	colored_emblem = {
 		texture = "ce_hammer_and_sickle.dds"
+		color1 = color2
+		color2 = color2
+        instance = { scale = { @third @third } position = { 0.222 @third }  }
+	}
+	colored_emblem = {
+		texture = "ce_star_05_hollow.dds"
+		color1 = color2
+		color2 = color1
+        instance = { scale = { 0.145 0.145 } position = { 0.222 0.125 }  }
+	}
+}
+
+SOV_early = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	color2 = "yellow"
+
+	colored_emblem = {
+		texture = "ce_hammer_and_sickle_round.dds"
 		color1 = color2
 		color2 = color2
         instance = { scale = { @third @third } position = { 0.222 @third }  }
@@ -27034,5 +27097,27 @@ DYK = { # Dayak
 		texture = "ce_tricolor_horizontal.dds"
 		color1 = "yellow"
 		color2 = "blue"
+	}
+}
+
+ETS = { # East Turkestan
+	pattern = "pattern_solid.tga"
+	color1 = "blue_light"
+	
+	colored_emblem = {
+		texture = "ce_border_ETS.dds"
+		color1 = "white"	
+	}
+}
+
+SUT = { # South Tyrol
+	pattern = "pattern_solid.tga"
+	color1 = "white"
+	
+	colored_emblem = {
+		texture = "ce_border_SUT.dds"
+		color1 = "red"
+		color2 = "yellow"
+		color3 = "black"
 	}
 }

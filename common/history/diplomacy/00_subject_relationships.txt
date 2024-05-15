@@ -78,7 +78,7 @@
 	c:USA = {
 		create_diplomatic_pact = {
 			country = c:ROC
-			type = satellite
+			type = protectorate
 		}
 	}
 	c:USA = {
@@ -376,7 +376,7 @@
 	c:GBR = {
 		create_diplomatic_pact = {
 			country = c:OMA
-			type = satellite
+			type = puppet
 		}		
 	}
 	c:GBR = {
