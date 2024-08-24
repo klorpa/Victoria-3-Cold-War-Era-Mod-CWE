@@ -1,5 +1,5 @@
 ﻿protectorate = {
-	requires_approval = yes
+	groups= { general } requires_approval = yes
 	should_notify_third_parties = no
 	can_use_obligations = yes
 
@@ -9,6 +9,12 @@
 		scope:target_country = {
 			is_revolutionary = no is_secessionist = no
 		}
+		
+		is_at_war = no
+		scope:target_country = { 
+			is_at_war = no
+			NOT = { is_diplomatic_play_enemy_of = ROOT }
+		}
 	
 	}
 
@@ -16,20 +22,14 @@
 	
 		has_diplomatic_relevance = scope:target_country
 		
-		is_at_war = no
-		scope:target_country = { 
-			is_at_war = no
-			NOT = { is_diplomatic_play_enemy_of = ROOT }
-		}
-		
 		custom_tooltip = {
 			text = DIPLO_ACTION_MARKET_CONNECTION_REQUIRED
 			OR = {	
 				AND = {
-					market = { has_port = yes }
-					scope:target_country.market = { has_port = yes }
+					market ?= { has_port = yes }
+					scope:target_country.market ?= { has_port = yes }
 				}
-				scope:actor.market = {
+				scope:actor.market ?= {
 					any_scope_country = {
 						is_adjacent_to_country = root
 					}
@@ -50,21 +50,24 @@
 		#can_be_used_in_sway_offers = no
 		
 		is_trade_agreement = yes
-		#is_customs_union = yes
 		has_junior_participant = yes
 		recipient_pays_maintenance = no	
 		
 		#Cash support from overlord (based on overlord's income)
 		income_transfer = 0.05
-		recipient_gets_income_transfer = yes
-		income_transfer_based_on_recipient = yes
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
 		
 		#relations_progress_per_day = 1
 		#relations_improvement_max = 50
 	
 		#target_requires_approval_to_break = yes	
 		
-		subject_type = subject_type_protectorate	
+		subject_type = subject_type_protectorate
+		
+		second_modifier = {
+			country_convoy_contribution_to_market_owner_add = 0.25
+		}
 		
 		actor_can_break = {
 			is_diplomatic_play_committed_participant = no
@@ -107,13 +110,13 @@
 		}
 
 		manual_break_effect = {
-			create_truce = { country = scope:target_country months = 60 }
+			create_bidirectional_truce = { country = scope:target_country months = 60 }
 			change_relations = { country = scope:target_country value = -20 }
 			change_infamy = -5
 		}
 		
 		auto_break_effect = {
-			create_truce = { country = scope:target_country months = 60 }
+			create_bidirectional_truce = { country = scope:target_country months = 60 }
 		}
 		
 	}
@@ -133,6 +136,10 @@
 	ai = {
 		check_acceptance_for_will_break = yes
 		check_acceptance_for_will_propose = yes
+		
+		evaluation_chance = {
+			value = 0.25		
+		}
 		
 		will_propose = { 
 			country_rank >= rank_value:major_power
@@ -277,10 +284,7 @@
 			if = {
 				limit = {
 					NOT = {
-						has_diplomatic_pact = {
-							who = scope:actor
-							type = customs_union
-						}					
+						is_in_customs_union_with = scope:actor				
 					}
 				}
 				add = {
@@ -613,11 +617,19 @@
 }
 
 become_protectorate = {
-	requires_approval = yes
+	groups= { general } requires_approval = yes
 	should_notify_third_parties = yes
 
 	potential = {
+		
+		is_revolutionary = no is_secessionist = no
+		scope:target_country = {
+			is_revolutionary = no is_secessionist = no
+		}
+		
 		is_subject = no
+		is_sufficiently_independent = yes
+		
 		scope:target_country = {
 			NOT = {
 				has_diplomatic_pact = {
@@ -626,14 +638,21 @@ become_protectorate = {
 				}					
 			}
 		}
-	}
-	
-	possible = {
+		
 		is_at_war = no
 		scope:target_country = { 
 			is_at_war = no 
-			NOT = { is_diplomatic_play_enemy_of = ROOT }
+			hidden_trigger = { NOT = { is_diplomatic_play_enemy_of = ROOT } }
 		}
+		
+	}
+	
+	possible = {
+	
+		has_diplomatic_relevance = scope:target_country
+		
+		is_not_neutral = yes
+		
 		scope:target_country = {
 			NOT = {
 				has_diplomatic_pact = {
@@ -647,20 +666,41 @@ become_protectorate = {
 				has_diplomatic_pact = {
 					who = scope:target_country
 					type = rivalry
-				}					
-			}					
+				}
+			}			
 		}
-		has_diplomatic_relevance = scope:target_country
-		is_revolutionary = no is_secessionist = no
-		scope:target_country = {
-			is_revolutionary = no is_secessionist = no
+		
+		custom_tooltip = {
+			text = DIPLO_ACTION_MARKET_CONNECTION_REQUIRED
+			OR = {	
+				AND = {
+					market ?= { has_port = yes }
+					scope:target_country.market ?= { has_port = yes }
+				}
+				scope:actor.market ?= {
+					any_scope_country = {
+						is_adjacent_to_country = root
+					}
+				}
+			}
+		}	
+		
+		#THIS has good relations with the TARGET
+		custom_tooltip = {
+			text = DIPLO_ACTION_RELATIONS_NEUTRAL_OR_GREATER
+			scope:target_country.relations:root >= relations_threshold:neutral
 		}
+		
 	}
 	
 	reverse_pact = protectorate
 	
 	ai = {
 		check_acceptance_for_will_propose = yes
+
+		evaluation_chance = {
+			value = 0
+		}
 
 		propose_score = {
 			value = 10
@@ -678,4 +718,5 @@ become_protectorate = {
 			value = 0
 		}
 	}
+	
 }

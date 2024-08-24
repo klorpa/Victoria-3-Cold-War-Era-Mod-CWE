@@ -1,5 +1,5 @@
 ﻿currency_union = {
-	requires_approval = yes
+	groups= { general } requires_approval = yes
 	can_use_obligations = yes
 
 	unlocking_technologies = {
@@ -65,6 +65,15 @@
 					has_variable = superstate_currency_union 
 					has_journal_entry = je_superstate_system
 				}
+			}
+		}
+		
+		#Cannot enter into new currency unions if part of a superstate
+		custom_tooltip = {
+			text = NOT_superstate_currency_union.tt
+			NOT = { 
+				has_journal_entry = je_superstate_system
+				has_variable = superstate_currency_union
 			}
 		}
 		
@@ -138,11 +147,11 @@
 		cost = 5
 		has_junior_participant = yes
 		
-		can_be_used_in_sway_offers = yes
+		can_be_used_in_sway_offers = no
 		
-		income_transfer = 0.05
-		recipient_gets_income_transfer = yes
-		income_transfer_based_on_recipient = yes
+		second_modifier = {
+			country_pact_leverage_generation_add = 100
+		}
 		
 		actor_can_break = {
 		
@@ -158,9 +167,9 @@
 			NOT_in_superstate_currency_union = yes
 		}
 
-		requirement_to_maintain = { 
+		requirement_to_maintain = {
 		
-			trigger = { 
+			trigger = {
 			
 				#THIS and TARGET are not decentralized
 				NOR = {
@@ -177,7 +186,6 @@
 				#Can only invite TARGET into THIS CU if THIS has a higher rank than TARGET (this is to prevent invitation harassment by AI)
 				OR = { 
 					scope:target_country = { country_rank < root.country_rank }
-					in_superstate_currency_union = yes
 					scope:target_country = { is_subject_of = ROOT }
 				}
 				
@@ -188,9 +196,6 @@
 						is_subject_of = ROOT
 					}
 				}
-				
-				#THIS is not at war with the TARGET
-				NOT = { has_war_with = scope:target_country }
 				
 				#THIS has good relations with the TARGET
 				#custom_tooltip = {
@@ -297,6 +302,10 @@
 		check_acceptance_for_will_break = yes
 		check_acceptance_for_will_propose = yes
 
+		evaluation_chance = {
+			value = 0.25		
+		}
+
 		# This is the acceptance score for the senior part of the customs union (used for 'join customs union' action and checking )
 		accept_score = {
 			value = 0
@@ -309,7 +318,7 @@
 			if = {
 				limit = {
 					NOR = {
-						scope:actor.market = {
+						scope:actor.market ?= {
 							any_scope_country = {
 								is_adjacent_to_country = root
 							}

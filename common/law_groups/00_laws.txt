@@ -15,6 +15,16 @@ lawgroup_distribution_of_power = {
 	regressive_movement_chance = 0.1
 }
 
+lawgroup_voting_method = {
+	law_group_category = power_structure
+	base_enactment_days = 90
+	enactment_approval_mult = 1.5
+	affected_by_regime_change = yes
+	
+	progressive_movement_chance = 5
+	regressive_movement_chance = 0.1
+}
+
 lawgroup_political_parties = {
 	law_group_category = power_structure
 	base_enactment_days = 90
@@ -46,6 +56,16 @@ lawgroup_cabinet_composition = {
 }
 
 lawgroup_bureaucracy = {
+	law_group_category = power_structure
+	base_enactment_days = 90
+	enactment_approval_mult = 1.5
+	affected_by_regime_change = yes
+	
+	progressive_movement_chance = 5
+	regressive_movement_chance = 0.1
+}
+
+lawgroup_term_limits = {
 	law_group_category = power_structure
 	base_enactment_days = 90
 	enactment_approval_mult = 1.5
@@ -252,27 +272,9 @@ lawgroup_wmd_policy = {
 	regressive_movement_chance = 0.1
 }
 
-lawgroup_civil_defence_policy = {
-	law_group_category = human_rights
-	base_enactment_days = 365
-	enactment_approval_mult = 2.0
-	
-	progressive_movement_chance = 5
-	regressive_movement_chance = 0.1
-}
-
 lawgroup_espionage_policy = {
 	law_group_category = human_rights
 	base_enactment_days = 365
-	enactment_approval_mult = 2.0
-	
-	progressive_movement_chance = 5
-	regressive_movement_chance = 0.1
-}
-
-lawgroup_space_program = {
-	law_group_category = human_rights
-	base_enactment_days = 180
 	enactment_approval_mult = 2.0
 	
 	progressive_movement_chance = 5
@@ -388,16 +390,16 @@ lawgroup_financial_regulations = {
 	regressive_movement_chance = 0.1
 }
 
-lawgroup_environmental_policy = {
+lawgroup_land_ownership = {
 	law_group_category = economy
-	base_enactment_days = 30
+	base_enactment_days = 60
 	affected_by_regime_change = yes
 	
 	progressive_movement_chance = 4
 	regressive_movement_chance = 0.1
 }
 
-lawgroup_energy_policy = {
+lawgroup_environmental_policy = {
 	law_group_category = economy
 	base_enactment_days = 30
 	affected_by_regime_change = yes

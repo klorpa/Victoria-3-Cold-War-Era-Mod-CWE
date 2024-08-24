@@ -241,17 +241,6 @@ je_leave_superstate_customs_union_button = {
 		
 		#Leave Customs Union with others
 		remove_variable = superstate_customs_union
-		every_country = {
-			limit = { 
-				has_variable = superstate_customs_union
-				shares_same_superstate = yes
-				has_diplomatic_pact = { who = ROOT type = customs_union }
-			}
-			remove_diplomatic_pact = {
-				country = ROOT
-				type = customs_union
-			}
-		}
 		
 	}
 	
@@ -308,7 +297,7 @@ je_join_superstate_currency_union_button = {
 		set_variable = superstate_currency_union
 		set_variable = independent_central_bank
 		
-		#create_superstate_currency_union = yes
+		create_superstate_currency_union = yes
 		
 		#Leave all Currency Unions that THIS is not a leader of
 		every_country = { 
@@ -395,6 +384,10 @@ je_leave_superstate_currency_union_button = {
 				country = ROOT
 				type = currency_union
 			}
+		}
+		custom_tooltip = {
+			text = abandon_superstate_currency.tt
+			remove_variable = independent_central_bank
 		}
 		
 	}
@@ -574,6 +567,7 @@ je_join_superstate_political_union_button = {
 		
 		#Enter into Political Union with others
 		set_variable = superstate_political_union
+		create_superstate_confederation = yes
 		harmonise_superstate_member_law = yes
 		
 	}
@@ -672,6 +666,9 @@ je_create_superstate_final_union_button = {
 	}
 
 	possible = {
+	
+		#Superstate
+		is_power_bloc_leader = yes
 	
 		#THIS is not at war
 		is_at_war = no

@@ -1444,6 +1444,10 @@
  KUW_ADJ:0 "Kuwaiti"
  GZA:0 "Gaza"
  GZA_ADJ:0 "Gazan"
+ KHU:0 "Arabistan"
+ KHU_ADJ:0 "Arabistani"
+ AZA:0 "Azawad"
+ AZA_ADJ:0 "Azawagh"
  
  XNA:0 "North American Union"
  XNA_ADJ:0 "North American"
@@ -1485,6 +1489,9 @@
  TAE_ADJ:0 "Tamil"
  DYK:0 "Great Dayak"
  DYK_ADJ:0 "Dayak"
+ 
+ FCB:0 "Berlin"
+ FCB_ADJ:0 "Berliner"
  
  # Dynamic countries
  dyn_c_united_sovereign_archduchy:0 "United Kingdoms of America"

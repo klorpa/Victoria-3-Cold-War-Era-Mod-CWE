@@ -9,6 +9,11 @@ ideology_autocratic = {
 		NOT = { has_role = agitator }
 	}
 	
+	lawgroup_term_limits = {
+		law_yes_term_limit = strongly_disapprove
+		law_no_term_limit = strongly_approve
+	}
+	
 	lawgroup_war_policy = {
 		law_no_war = disapprove
 		law_defensive_war = disapprove
@@ -114,21 +119,18 @@ ideology_autocratic = {
 		law_fair_voting = strongly_disapprove
 	}
 	
+	lawgroup_voting_method = {
+		law_first_past_the_post = strongly_approve
+		law_jefferson_system = strongly_disapprove
+		law_propotional_representation = strongly_disapprove
+	}
+	
 	lawgroup_corruption_policy = {
 		law_very_low_anti_corruption = strongly_approve
 		law_low_anti_corruption = approve
 		law_medium_anti_corruption = disapprove
 		law_high_anti_corruption = strongly_disapprove
 		law_very_high_anti_corruption = strongly_disapprove
-	}
-	
-	lawgroup_civil_defence_policy = {
-		law_no_civil_defence_law = disapprove
-		law_very_weak_civil_defence_law = disapprove
-		law_weak_civil_defence_law = disapprove
-		law_moderate_civil_defence_law = disapprove
-		law_strong_civil_defence_law = approve
-		law_very_strong_civil_defence_law = approve
 	}
 	
 	leader_weight = {
@@ -237,6 +239,11 @@ ideology_power_hungry = {
 		NOT = { has_role = agitator }
 	}
 	
+	lawgroup_term_limits = {
+		law_yes_term_limit = disapprove
+		law_no_term_limit = approve
+	}
+	
 	lawgroup_war_policy = {
 		law_no_war = disapprove
 		law_defensive_war = neutral
@@ -342,21 +349,18 @@ ideology_power_hungry = {
 		law_fair_voting = strongly_disapprove
 	}
 	
+	lawgroup_voting_method = {
+		law_first_past_the_post = strongly_approve
+		law_jefferson_system = disapprove
+		law_propotional_representation = strongly_disapprove
+	}
+	
 	lawgroup_corruption_policy = {
 		law_very_low_anti_corruption = approve
 		law_low_anti_corruption = strongly_approve
 		law_medium_anti_corruption = neutral
 		law_high_anti_corruption = disapprove
 		law_very_high_anti_corruption = strongly_disapprove
-	}
-	
-	lawgroup_civil_defence_policy = {
-		law_no_civil_defence_law = disapprove
-		law_very_weak_civil_defence_law = disapprove
-		law_weak_civil_defence_law = disapprove
-		law_moderate_civil_defence_law = approve
-		law_strong_civil_defence_law = approve
-		law_very_strong_civil_defence_law = disapprove
 	}
 	
 	leader_weight = {
@@ -438,6 +442,11 @@ ideology_elitist = {
 		NOT = { has_role = agitator }
 	}
 	
+	lawgroup_term_limits = {
+		law_yes_term_limit = neutral
+		law_no_term_limit = neutral
+	}
+	
 	lawgroup_war_policy = {
 		law_no_war = neutral
 		law_defensive_war = approve
@@ -483,9 +492,9 @@ ideology_elitist = {
 	}
 	
 	lawgroup_cabinet_composition = {
-		law_nepotistic_cabinet = neutral
+		law_nepotistic_cabinet = disapprove
 		law_semi_nepotistic_cabinet = approve
-		law_meritocratic_cabinet = neutral
+		law_meritocratic_cabinet = disapprove
 	}
 	
 	lawgroup_centralisation = {
@@ -543,21 +552,18 @@ ideology_elitist = {
 		law_fair_voting = disapprove
 	}
 	
+	lawgroup_voting_method = {
+		law_first_past_the_post = strongly_approve
+		law_jefferson_system = approve
+		law_propotional_representation = disapprove
+	}
+	
 	lawgroup_corruption_policy = {
 		law_very_low_anti_corruption = disapprove
 		law_low_anti_corruption = neutral
 		law_medium_anti_corruption = approve
 		law_high_anti_corruption = neutral
 		law_very_high_anti_corruption = disapprove
-	}
-	
-	lawgroup_civil_defence_policy = {
-		law_no_civil_defence_law = disapprove
-		law_very_weak_civil_defence_law = disapprove
-		law_weak_civil_defence_law = approve
-		law_moderate_civil_defence_law = approve
-		law_strong_civil_defence_law = disapprove
-		law_very_strong_civil_defence_law = disapprove
 	}
 	
 	leader_weight = {
@@ -600,6 +606,11 @@ ideology_democratic = {
 	
 	possible = {
 		NOT = { has_role = agitator }
+	}
+	
+	lawgroup_term_limits = {
+		law_yes_term_limit = approve
+		law_no_term_limit = disapprove
 	}
 	
 	lawgroup_war_policy = {
@@ -647,8 +658,8 @@ ideology_democratic = {
 	}
 	
 	lawgroup_cabinet_composition = {
-		law_nepotistic_cabinet = disapprove
-		law_semi_nepotistic_cabinet = strongly_approve
+		law_nepotistic_cabinet = strongly_disapprove
+		law_semi_nepotistic_cabinet = disapprove
 		law_meritocratic_cabinet = approve
 	}
 	
@@ -707,21 +718,18 @@ ideology_democratic = {
 		law_fair_voting = strongly_approve
 	}
 	
+	lawgroup_voting_method = {
+		law_first_past_the_post = approve
+		law_jefferson_system = strongly_approve
+		law_propotional_representation = neutral
+	}
+	
 	lawgroup_corruption_policy = {
 		law_very_low_anti_corruption = strongly_disapprove
 		law_low_anti_corruption = strongly_disapprove
 		law_medium_anti_corruption = disapprove
 		law_high_anti_corruption = strongly_approve
 		law_very_high_anti_corruption = approve
-	}
-	
-	lawgroup_civil_defence_policy = {
-		law_no_civil_defence_law = disapprove
-		law_very_weak_civil_defence_law = approve
-		law_weak_civil_defence_law = approve
-		law_moderate_civil_defence_law = disapprove
-		law_strong_civil_defence_law = disapprove
-		law_very_strong_civil_defence_law = disapprove
 	}
 	
 	### SPECIAL ###
@@ -816,6 +824,11 @@ ideology_liberal = {
 	
 	possible = {
 		NOT = { has_role = agitator }
+	}
+	
+	lawgroup_term_limits = {
+		law_yes_term_limit = strongly_approve
+		law_no_term_limit = strongly_disapprove
 	}
 	
 	lawgroup_war_policy = {
@@ -923,21 +936,18 @@ ideology_liberal = {
 		law_fair_voting = strongly_approve
 	}
 	
+	lawgroup_voting_method = {
+		law_first_past_the_post = disapprove
+		law_jefferson_system = approve
+		law_propotional_representation = strongly_approve
+	}
+	
 	lawgroup_corruption_policy = {
 		law_very_low_anti_corruption = strongly_disapprove
 		law_low_anti_corruption = strongly_disapprove
 		law_medium_anti_corruption = strongly_disapprove
 		law_high_anti_corruption = approve
 		law_very_high_anti_corruption = strongly_approve
-	}
-	
-	lawgroup_civil_defence_policy = {
-		law_no_civil_defence_law = approve
-		law_very_weak_civil_defence_law = approve
-		law_weak_civil_defence_law = disapprove
-		law_moderate_civil_defence_law = disapprove
-		law_strong_civil_defence_law = disapprove
-		law_very_strong_civil_defence_law = disapprove
 	}
 	
 	### SPECIAL ###

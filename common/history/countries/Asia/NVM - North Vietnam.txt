@@ -15,7 +15,7 @@ COUNTRIES = {
 
 		set_tax_level = medium
 		
-		add_taxed_goods = g:liquor
+		add_taxed_goods = g:wine
 		
 		# Laws
 		effect_starting_politics_communist_republic = yes
@@ -29,6 +29,8 @@ COUNTRIES = {
 		effect_starting_politics_specialisation_natural_resource = yes
 		
 		effect_starting_politics_fiat_standard = yes
+		
+		activate_law = law_type:law_full_private_land_ownership
 		
 	}
 	

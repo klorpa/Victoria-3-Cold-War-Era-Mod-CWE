@@ -14,7 +14,7 @@ law_politicised_judiciary = {
 				any_interest_group = {
 					OR = { 
 						has_modifier = cabinet_minister_ig
-						leader = { has_modifier = cabinet_minister }
+						leader ?= { has_modifier = cabinet_minister }
 					}
 					law_stance = {
 						law = law_type:law_politicised_judiciary
@@ -36,12 +36,12 @@ law_politicised_judiciary = {
 		country_decree_cost_mult = -0.20
 		
 		#More influential bureaucrats
-		interest_group_ig_bureaucrats_pol_str_mult = 0.20
+		interest_group_ig_intelligentsia_pol_str_mult = 0.20
 		country_bureaucrats_pol_str_mult = 0.20
 		
 	}
 	
-	can_impose = { is_subject_of = scope:initiator is_not_sufficiently_independent = yes } #progressiveness = -50
+	can_impose = { can_impose_law_default = yes } #progressiveness = -50
 	
 	possible_political_movements = {
 		#law_politicised_judiciary
@@ -95,7 +95,7 @@ law_partially_politicised_judiciary = {
 				any_interest_group = {
 					OR = { 
 						has_modifier = cabinet_minister_ig
-						leader = { has_modifier = cabinet_minister }
+						leader ?= { has_modifier = cabinet_minister }
 					}
 					law_stance = {
 						law = law_type:law_partially_politicised_judiciary
@@ -117,7 +117,7 @@ law_partially_politicised_judiciary = {
 		country_decree_cost_mult = -0.10
 		
 		#More influential bureaucrats
-		interest_group_ig_bureaucrats_pol_str_mult = 0.10
+		interest_group_ig_intelligentsia_pol_str_mult = 0.10
 		country_bureaucrats_pol_str_mult = 0.10
 		
 		#Pops are less likely to revolt
@@ -125,7 +125,7 @@ law_partially_politicised_judiciary = {
 		
 	}
 	
-	can_impose = { is_subject_of = scope:initiator is_not_sufficiently_independent = yes } #progressiveness = 0
+	can_impose = { can_impose_law_default = yes } #progressiveness = 0
 	
 	possible_political_movements = {
 		law_politicised_judiciary
@@ -179,7 +179,7 @@ law_independent_judiciary = {
 				any_interest_group = {
 					OR = { 
 						has_modifier = cabinet_minister_ig
-						leader = { has_modifier = cabinet_minister }
+						leader ?= { has_modifier = cabinet_minister }
 					}
 					law_stance = {
 						law = law_type:law_independent_judiciary
@@ -198,7 +198,7 @@ law_independent_judiciary = {
 		
 	}
 	
-	can_impose = { is_subject_of = scope:initiator is_not_sufficiently_independent = yes } #progressiveness = 50
+	can_impose = { can_impose_law_default = yes } #progressiveness = 50
 	
 	possible_political_movements = {
 		law_politicised_judiciary

@@ -28,6 +28,10 @@ effect_starting_politics_presidential_republic = {
 	else = {
 		activate_law = law_type:law_bicameralism
 	}
+	
+	activate_law = law_type:law_full_private_land_ownership
+	
+	effect_set_electoral_system = yes
 }
 
 effect_starting_politics_semi_presidential_republic = {
@@ -55,6 +59,10 @@ effect_starting_politics_semi_presidential_republic = {
 	else = {
 		activate_law = law_type:law_bicameralism
 	}
+	
+	activate_law = law_type:law_full_private_land_ownership
+	
+	effect_set_electoral_system = yes
 }
 
 effect_starting_politics_parliamentary_republic = {
@@ -82,6 +90,10 @@ effect_starting_politics_parliamentary_republic = {
 	else = {
 		activate_law = law_type:law_bicameralism
 	}
+	
+	activate_law = law_type:law_full_private_land_ownership
+	
+	effect_set_electoral_system = yes
 }
 
 effect_starting_politics_absolute_monarchy = {
@@ -105,6 +117,10 @@ effect_starting_politics_absolute_monarchy = {
 	activate_law = law_type:law_natural_resource_focus
 	
 	activate_law = law_type:law_hybrid_chamber
+	
+	activate_law = law_type:law_full_private_land_ownership
+	
+	effect_set_electoral_system = yes
 }
 
 effect_starting_politics_semi_constitutional_monarchy = {
@@ -132,6 +148,10 @@ effect_starting_politics_semi_constitutional_monarchy = {
 	else = {
 		activate_law = law_type:law_bicameralism
 	}
+	
+	activate_law = law_type:law_full_private_land_ownership
+	
+	effect_set_electoral_system = yes
 }
 
 effect_starting_politics_constitutional_monarchy = {
@@ -159,6 +179,10 @@ effect_starting_politics_constitutional_monarchy = {
 	else = {
 		activate_law = law_type:law_bicameralism
 	}
+	
+	activate_law = law_type:law_full_private_land_ownership
+	
+	effect_set_electoral_system = yes
 }
 
 effect_starting_politics_nationalist_republic = {
@@ -182,6 +206,10 @@ effect_starting_politics_nationalist_republic = {
 	activate_law = law_type:law_manufacturing_focus
 	
 	activate_law = law_type:law_hybrid_chamber
+	
+	activate_law = law_type:law_full_private_land_ownership
+	
+	effect_set_electoral_system = yes
 }
 
 effect_starting_politics_theocratic_republic = {
@@ -205,6 +233,10 @@ effect_starting_politics_theocratic_republic = {
 	activate_law = law_type:law_natural_resource_focus
 	
 	activate_law = law_type:law_hybrid_chamber
+	
+	activate_law = law_type:law_full_private_land_ownership
+	
+	effect_set_electoral_system = yes
 }
 
 effect_starting_politics_communist_republic = {
@@ -230,6 +262,10 @@ effect_starting_politics_communist_republic = {
 	activate_law = law_type:law_manufacturing_focus
 	
 	activate_law = law_type:law_hybrid_chamber
+	
+	activate_law = law_type:law_no_private_land_ownership
+	
+	effect_set_electoral_system = yes
 }
 
 ### Level of democracy ###
@@ -248,13 +284,22 @@ effect_starting_politics_very_democratic = {
 	activate_law = law_type:law_full_free_speech
 	activate_law = law_type:law_multicultural
 	activate_law = law_type:law_slavery_banned
-	activate_law = law_type:law_very_high_anti_corruption
+	
+	effect_reduce_corruption = yes
 	
 	activate_law = law_type:law_no_colonial_affairs
 	
 	activate_law = law_type:law_full_trade_unions
 	
 	activate_law = law_type:law_freedom_of_conscience
+	
+	if = {
+		limit = { has_law = law_type:law_HOG_prime_minister }
+		activate_law = law_type:law_no_term_limit
+	}
+	else = {
+		activate_law = law_type:law_yes_term_limit
+	}
 }
 
 effect_starting_politics_democratic = {
@@ -277,13 +322,22 @@ effect_starting_politics_democratic = {
 		activate_law = law_type:law_cultural_exclusion
 	}
 	activate_law = law_type:law_slavery_banned
-	activate_law = law_type:law_very_high_anti_corruption
+	
+	effect_reduce_corruption = yes
 	
 	activate_law = law_type:law_no_colonial_affairs
 	
 	activate_law = law_type:law_restricted_trade_unions
 	
 	activate_law = law_type:law_freedom_of_conscience
+	
+	if = {
+		limit = { has_law = law_type:law_HOG_prime_minister }
+		activate_law = law_type:law_no_term_limit
+	}
+	else = {
+		activate_law = law_type:law_yes_term_limit
+	}
 }
 
 effect_starting_politics_regime = {
@@ -306,11 +360,14 @@ effect_starting_politics_regime = {
 		activate_law = law_type:law_racial_segregation
 	}
 	activate_law = law_type:law_slavery_banned
-	activate_law = law_type:law_medium_anti_corruption
+	
+	effect_increase_corruption = yes
 	
 	activate_law = law_type:law_no_colonial_affairs
 	
 	activate_law = law_type:law_state_trade_unions
+	
+	activate_law = law_type:law_no_term_limit
 }
 
 effect_starting_politics_dictatorship = {
@@ -340,11 +397,14 @@ effect_starting_politics_dictatorship = {
 	else = {
 		activate_law = law_type:law_slavery_banned
 	}
-	activate_law = law_type:law_very_low_anti_corruption
+	
+	effect_increase_corruption = yes
 	
 	activate_law = law_type:law_no_colonial_affairs
 	
 	activate_law = law_type:law_state_trade_unions
+	
+	activate_law = law_type:law_no_term_limit
 }
 
 ### Constitutional System ###
@@ -370,28 +430,24 @@ effect_starting_politics_war_policy_pacifism = {
 	activate_law = law_type:law_national_militia
 	activate_law = law_type:law_no_war
 	activate_law = law_type:law_no_espionage
-	activate_law = law_type:law_no_civil_defence_law
 }
 
 effect_starting_politics_war_policy_anti_military = {
 	activate_law = law_type:law_national_militia
 	activate_law = law_type:law_defensive_war
 	activate_law = law_type:law_defensive_espionage
-	activate_law = law_type:law_no_civil_defence_law
 }
 
 effect_starting_politics_war_policy_pro_military = {
 	activate_law = law_type:law_mass_conscription
 	activate_law = law_type:law_defensive_war
 	activate_law = law_type:law_offensive_espionage
-	activate_law = law_type:law_no_civil_defence_law
 }
 
 effect_starting_politics_war_policy_jingoism = {
 	activate_law = law_type:law_mass_conscription
 	activate_law = law_type:law_offensive_war
 	activate_law = law_type:law_offensive_espionage
-	activate_law = law_type:law_no_civil_defence_law
 }
 
 ### Economic Policy ###
@@ -464,8 +520,76 @@ effect_starting_politics_economic_policy_semi_planned_economy = {
 	activate_law = law_type:law_no_environment_law
 }
 
+effect_starting_politics_economic_policy_cooperative_ownership_economy = {
+	activate_law = law_type:law_cooperative_ownership
+	
+	if = { 
+		limit = { 
+			game_date < 1951.1.1
+			NOT = { is_a_developed_country_1950 = yes }
+		}
+		activate_law = law_type:law_child_labor_allowed			#Compulsory Primary School
+	}
+	else_if = { 
+		limit = { 
+			game_date > 1951.1.1
+			root.average_sol < 20
+		}
+		activate_law = law_type:law_restricted_child_labor		#Compulsory Secondary School
+	}
+	else = {
+		activate_law = law_type:law_compulsory_primary_school	#Compulsory Tertiary School
+	}
+	
+	activate_law = law_type:law_public_schools
+	activate_law = law_type:law_public_health_insurance
+	
+	activate_law = law_type:law_high_social_security
+	activate_law = law_type:law_taxation_5
+	activate_law = law_type:law_deflationary_monetary_policy
+	
+	activate_law = law_type:law_pro_consumer_regulations
+	activate_law = law_type:law_strong_financial_regulations
+	
+	activate_law = law_type:law_no_environment_law
+}
+
 effect_starting_politics_economic_policy_state_capitalism = {
 	activate_law = law_type:law_state_capitalism
+	
+	if = { 
+		limit = { 
+			game_date < 1951.1.1
+			NOT = { is_a_developed_country_1950 = yes }
+		}
+		activate_law = law_type:law_child_labor_allowed			#Compulsory Primary School
+	}
+	else_if = { 
+		limit = { 
+			game_date > 1951.1.1
+			root.average_sol < 20
+		}
+		activate_law = law_type:law_restricted_child_labor		#Compulsory Secondary School
+	}
+	else = {
+		activate_law = law_type:law_compulsory_primary_school	#Compulsory Tertiary School
+	}
+	
+	activate_law = law_type:law_public_schools
+	activate_law = law_type:law_public_health_insurance
+	
+	activate_law = law_type:law_medium_social_security
+	activate_law = law_type:law_taxation_4
+	activate_law = law_type:law_deflationary_monetary_policy
+	
+	activate_law = law_type:law_pro_consumer_regulations
+	activate_law = law_type:law_strong_financial_regulations
+	
+	activate_law = law_type:law_no_environment_law
+}
+
+effect_starting_politics_economic_policy_social_capitalism = {
+	activate_law = law_type:law_social_capitalism
 	
 	if = { 
 		limit = { 
@@ -605,17 +729,11 @@ effect_starting_politics_trade_policy_autarky = {
 ### Nuclear Policy ###
 
 effect_starting_politics_anti_nuclear_policy = {
-	activate_law = law_type:law_no_nuclear_energy
 	activate_law = law_type:law_wmd_banned
-	
-	activate_law = law_type:law_no_space_program
 }
 
 effect_starting_politics_pro_nuclear_policy = {
-	activate_law = law_type:law_nuclear_energy
 	activate_law = law_type:law_wmd_allowed
-	
-	activate_law = law_type:law_space_program_public
 }
 
 ### Economic Specialisation ###
@@ -936,4 +1054,116 @@ set_regime_change_gov_type = {
 		}
 	}
 	
+}
+
+effect_set_electoral_system = {
+
+	if = {
+		limit = { 
+			NOR = {
+				has_law = law_type:law_propotional_representation
+				has_law = law_type:law_jefferson_system
+				has_law = law_type:law_first_past_the_post
+			}
+		}
+		if = {
+			limit = { THIS_uses_proportional_representation = yes }
+			activate_law = law_type:law_propotional_representation
+		}
+		else_if = {
+			limit = { THIS_uses_jefferson_system = yes }
+			activate_law = law_type:law_jefferson_system
+		}
+		else = {
+			activate_law = law_type:law_first_past_the_post
+		}
+	}
+
+}
+
+effect_increase_corruption = {
+	
+	if = {
+		limit = { 
+			has_law = law_type:law_very_low_anti_corruption
+		}
+		activate_law = law_type:law_low_anti_corruption
+	}
+	else_if = {
+		limit = { 
+			has_law = law_type:law_low_anti_corruption
+		}
+		activate_law = law_type:law_medium_anti_corruption
+	}
+	else_if = {
+		limit = { 
+			has_law = law_type:law_medium_anti_corruption
+		}
+		activate_law = law_type:law_high_anti_corruption
+	}
+	else_if = {
+		limit = { 
+			has_law = law_type:law_high_anti_corruption
+		}
+		activate_law = law_type:law_very_high_anti_corruption
+	}
+
+}
+
+effect_reduce_corruption = {
+	
+	if = {
+		limit = { 
+			has_law = law_type:law_very_high_anti_corruption
+		}
+		activate_law = law_type:law_high_anti_corruption
+	}
+	else_if = {
+		limit = { 
+			has_law = law_type:law_high_anti_corruption
+		}
+		activate_law = law_type:law_medium_anti_corruption
+	}
+	else_if = {
+		limit = { 
+			has_law = law_type:law_medium_anti_corruption
+		}
+		activate_law = law_type:law_low_anti_corruption
+	}
+	else_if = {
+		limit = { 
+			has_law = law_type:law_low_anti_corruption
+		}
+		activate_law = law_type:law_very_low_anti_corruption
+	}
+
+}
+
+effect_reduce_multiculturalism = {
+	
+	if = {
+		limit = { 
+			has_law = law_type:law_multicultural
+		}
+		activate_law = law_type:law_cultural_exclusion
+	}
+	else_if = {
+		limit = { 
+			has_law = law_type:law_cultural_exclusion
+		}
+		activate_law = law_type:law_racial_segregation
+	}
+	else_if = {
+		limit = { 
+			has_law = law_type:law_racial_segregation
+		}
+		activate_law = law_type:law_national_supremacy
+	}
+	else_if = {
+		limit = { 
+			has_law = law_type:law_national_supremacy
+		}
+		activate_law = law_type:law_ethnostate
+	}
+
 }

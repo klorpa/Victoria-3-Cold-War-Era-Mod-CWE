@@ -50,6 +50,18 @@ is_in_our_personal_union = {
 	
 }
 
+shares_same_monarch = {
+
+	OR = {
+		is_subject_type = subject_type_personal_union
+		is_subject_type = subject_type_dominion
+		is_subject_type = subject_type_semi_autonomous_colony
+		is_subject_type = subject_type_mandate
+		is_subject_type = subject_type_special_administrative_region
+	}
+
+}
+
 is_in_our_sphere_of_influence = {
 
 	is_direct_subject_of = ROOT
@@ -72,6 +84,15 @@ is_already_in_a_customs_union = {
 		is_subject_type = subject_type_mandate
 	}
 	
+}
+
+is_a_very_autonomous_subject = {
+
+	OR = {
+		is_subject_type = subject_type_protectorate
+		is_subject_type = subject_type_personal_union
+	}
+
 }
 
 is_a_democracy = {
@@ -407,7 +428,7 @@ diplo_play_war_check_cwe = {
 	
 		AND = { 
 			exists = ruler
-			ruler = {
+			ruler ?= {
 				OR = {
 					has_ideology = ideology:ideology_autocratic
 					has_ideology = ideology:ideology_power_hungry
@@ -417,6 +438,7 @@ diplo_play_war_check_cwe = {
 		
 		AND = {
 			is_a_dictatorship = yes
+			hidden_trigger = { is_player = yes }
 			any_interest_group = {
 				is_in_government = yes
 				is_powerful = yes
@@ -559,6 +581,28 @@ is_a_superpower = {
 	country_rank = rank_value:super_power
 }
 
+interest_group_has_conservative_ideology = {
+	conservative_ruling_coalition = yes
+}
+
+interest_group_has_reactionary_ideology = {
+	radical_right_wing_ruling_coalition = yes
+}
+
+interest_group_has_liberal_ideology = {
+	OR = {
+		liberal_ruling_coalition = yes
+		progressive_ruling_coalition = yes
+	}
+}
+
+interest_group_has_socialist_ideology = {
+	OR = {
+		socialist_ruling_coalition = yes
+		communist_ruling_coalition = yes
+	}
+}
+
 radical_left_wing_ruling_coalition = {
 	OR = { 
 		has_modifier = communist_ruling_party_ideology
@@ -602,6 +646,10 @@ liberal_ruling_coalition = {
 	}
 }
 
+progressive_ruling_coalition = {
+	has_modifier = progressive_ruling_party_ideology
+}
+
 communist_ruling_coalition = {
 	OR = {
 		has_modifier = communist_ruling_party_ideology
@@ -643,23 +691,23 @@ has_an_elected_parliament = {
 
 government_has_legislative_simple_majority = {
 	
-	custom_tooltip = {
-		text = has_lower_house_simple_majority.tt
-		NAND = {
-			has_journal_entry = je_lower_house
-			NOT = { has_variable = lower_house_has_simple_majority }
-			NOT = { has_modifier = executive_order_issued }
-			NOT = { has_modifier = state_of_emergency_issued }
-		}
-	}
+	government_legitimacy > 50
 	
 	OR = {
 	
-		has_upper_house_support_simple_majority = yes
+		#If bicameral
+		trigger_if = {
+			limit = { has_journal_entry = je_upper_house }
+			AND = { 
+				has_upper_house_support_simple_majority = yes
+				has_lower_house_support_simple_majority = yes
+			}
+		}
 		
-		custom_tooltip = {
-			text = has_no_upper_house.tt
-			NOT = { has_journal_entry = je_upper_house }
+		#If unicameral
+		trigger_if = {
+			limit = { NOT = { has_journal_entry = je_upper_house } }
+			has_lower_house_support_simple_majority = yes
 		}
 		
 		has_modifier = executive_order_issued
@@ -677,33 +725,21 @@ government_has_legislative_simple_majority = {
 
 government_has_legislative_super_majority = {
 	
-	custom_tooltip = {
-		text = has_lower_house_super_majority.tt
-		NAND = {
-			has_journal_entry = je_lower_house
-			NOT = { has_variable = lower_house_has_super_majority }
-			NOT = { has_modifier = executive_order_issued }
-			NOT = { has_modifier = state_of_emergency_issued }
-		}
-	}
+	government_legitimacy > 66
 	
 	OR = {
 	
 		trigger_if = {
 			limit = { has_law = law_type:law_constitutional_supremacy }
 			AND = { 
-				has_law = law_type:law_constitutional_supremacy
 				has_upper_house_support_667 = yes
-				government_legitimacy > 66
+				has_lower_house_support_667 = yes
 			}
 		}
 		
 		trigger_if = {
 			limit = { NOT = { has_law = law_type:law_constitutional_supremacy } }
-			AND = { 
-				NOT = { has_law = law_type:law_constitutional_supremacy }
-				has_upper_house_support_simple_majority = yes
-			}
+			has_upper_house_support_simple_majority = yes
 		}
 		
 		has_modifier = state_of_emergency_issued
@@ -725,7 +761,6 @@ has_upper_house_support_simple_majority = {
 		custom_tooltip = {
 			text = has_upper_house_support_50.tt
 			NAND = {
-				NOT = { has_variable = upper_house_filibuster_rule }
 				has_journal_entry = je_upper_house
 				NOT = { has_variable = upper_house_has_simple_majority }
 			}
@@ -737,7 +772,6 @@ has_upper_house_support_simple_majority = {
 		custom_tooltip = {
 			text = has_upper_house_support_60.tt
 			NAND = {
-				has_variable = upper_house_filibuster_rule
 				has_journal_entry = je_upper_house
 				NOT = { has_variable = upper_house_has_filibuster_majority }
 			}
@@ -753,6 +787,30 @@ has_upper_house_support_667 = {
 		NAND = {
 			has_journal_entry = je_upper_house
 			NOT = { has_variable = upper_house_has_super_majority }
+		}
+	}
+	
+}
+
+has_lower_house_support_simple_majority = {
+
+	custom_tooltip = {
+		text = has_lower_house_support_50.tt
+		NAND = {
+			has_journal_entry = je_lower_house
+			NOT = { has_variable = lower_house_has_simple_majority }
+		}
+	}
+
+}
+
+has_lower_house_support_667 = {
+	
+	custom_tooltip = {
+		text = has_lower_house_super_majority.tt
+		NAND = {
+			has_journal_entry = je_lower_house
+			NOT = { has_variable = lower_house_has_super_majority }
 		}
 	}
 	
@@ -830,45 +888,45 @@ ideologically_different_civil_service = {
 		NAND = {
 	
 			OR = {
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_far_right_economy } ig:ig_bureaucrats = { has_ideology = ideology:ideology_far_right_economy } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_right_economy } ig:ig_bureaucrats = { has_ideology = ideology:ideology_right_economy } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_centre_economy } ig:ig_bureaucrats = { has_ideology = ideology:ideology_centre_economy } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_left_economy } ig:ig_bureaucrats = { has_ideology = ideology:ideology_left_economy } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_far_left_economy } ig:ig_bureaucrats = { has_ideology = ideology:ideology_far_left_economy } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_far_right_economy } ig:ig_intelligentsia = { has_ideology = ideology:ideology_far_right_economy } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_right_economy } ig:ig_intelligentsia = { has_ideology = ideology:ideology_right_economy } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_centre_economy } ig:ig_intelligentsia = { has_ideology = ideology:ideology_centre_economy } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_left_economy } ig:ig_intelligentsia = { has_ideology = ideology:ideology_left_economy } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_far_left_economy } ig:ig_intelligentsia = { has_ideology = ideology:ideology_far_left_economy } }
 			}
 			OR = {
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_natural_resource_focus } ig:ig_bureaucrats = { has_ideology = ideology:ideology_natural_resource_focus } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_manufacturing_focus } ig:ig_bureaucrats = { has_ideology = ideology:ideology_manufacturing_focus } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_services_focus } ig:ig_bureaucrats = { has_ideology = ideology:ideology_services_focus } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_no_economic_focus } ig:ig_bureaucrats = { has_ideology = ideology:ideology_no_economic_focus } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_natural_resource_focus } ig:ig_intelligentsia = { has_ideology = ideology:ideology_natural_resource_focus } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_manufacturing_focus } ig:ig_intelligentsia = { has_ideology = ideology:ideology_manufacturing_focus } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_services_focus } ig:ig_intelligentsia = { has_ideology = ideology:ideology_services_focus } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_no_economic_focus } ig:ig_intelligentsia = { has_ideology = ideology:ideology_no_economic_focus } }
 			}
 			OR = {
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_anti_environment } ig:ig_bureaucrats = { has_ideology = ideology:ideology_anti_environment } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_balanced_environment } ig:ig_bureaucrats = { has_ideology = ideology:ideology_balanced_environment } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_pro_environment } ig:ig_bureaucrats = { has_ideology = ideology:ideology_pro_environment } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_anti_environment } ig:ig_intelligentsia = { has_ideology = ideology:ideology_anti_environment } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_balanced_environment } ig:ig_intelligentsia = { has_ideology = ideology:ideology_balanced_environment } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_pro_environment } ig:ig_intelligentsia = { has_ideology = ideology:ideology_pro_environment } }
 			}
 			OR = {
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_nationalist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_nationalist } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_regionalist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_regionalist } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_globalist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_globalist } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_nationalist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_nationalist } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_regionalist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_regionalist } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_globalist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_globalist } }
 			}
 			OR = {
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_totalitarian } ig:ig_bureaucrats = { has_ideology = ideology:ideology_totalitarian } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_authoritarian } ig:ig_bureaucrats = { has_ideology = ideology:ideology_authoritarian } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_communitarian } ig:ig_bureaucrats = { has_ideology = ideology:ideology_communitarian } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_individualist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_individualist } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_totalitarian } ig:ig_intelligentsia = { has_ideology = ideology:ideology_totalitarian } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_authoritarian } ig:ig_intelligentsia = { has_ideology = ideology:ideology_authoritarian } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_communitarian } ig:ig_intelligentsia = { has_ideology = ideology:ideology_communitarian } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_individualist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_individualist } }
 			}
 			OR = {
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_traditionalist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_traditionalist } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_conservative } ig:ig_bureaucrats = { has_ideology = ideology:ideology_conservative } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_progressive } ig:ig_bureaucrats = { has_ideology = ideology:ideology_progressive } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_traditionalist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_traditionalist } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_conservative } ig:ig_intelligentsia = { has_ideology = ideology:ideology_conservative } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_progressive } ig:ig_intelligentsia = { has_ideology = ideology:ideology_progressive } }
 			}
 			OR = {
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_monarchist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_monarchist } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_republican } ig:ig_bureaucrats = { has_ideology = ideology:ideology_republican } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_theocrat } ig:ig_bureaucrats = { has_ideology = ideology:ideology_theocrat } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_militarist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_militarist } }
-				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_communist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_communist } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_monarchist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_monarchist } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_republican } ig:ig_intelligentsia = { has_ideology = ideology:ideology_republican } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_theocrat } ig:ig_intelligentsia = { has_ideology = ideology:ideology_theocrat } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_militarist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_militarist } }
+				AND = { any_interest_group = { is_in_government = yes is_strongest_ig_in_government = yes has_ideology = ideology:ideology_communist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_communist } }
 			}
 			
 		}
@@ -885,45 +943,45 @@ ideologically_different_civil_service_evolve = {
 		NAND = {
 	
 			OR = {
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_far_right_economy } ig:ig_bureaucrats = { has_ideology = ideology:ideology_far_right_economy } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_right_economy } ig:ig_bureaucrats = { has_ideology = ideology:ideology_right_economy } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_centre_economy } ig:ig_bureaucrats = { has_ideology = ideology:ideology_centre_economy } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_left_economy } ig:ig_bureaucrats = { has_ideology = ideology:ideology_left_economy } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_far_left_economy } ig:ig_bureaucrats = { has_ideology = ideology:ideology_far_left_economy } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_far_right_economy } ig:ig_intelligentsia = { has_ideology = ideology:ideology_far_right_economy } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_right_economy } ig:ig_intelligentsia = { has_ideology = ideology:ideology_right_economy } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_centre_economy } ig:ig_intelligentsia = { has_ideology = ideology:ideology_centre_economy } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_left_economy } ig:ig_intelligentsia = { has_ideology = ideology:ideology_left_economy } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_far_left_economy } ig:ig_intelligentsia = { has_ideology = ideology:ideology_far_left_economy } }
 			}
 			OR = {
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_natural_resource_focus } ig:ig_bureaucrats = { has_ideology = ideology:ideology_natural_resource_focus } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_manufacturing_focus } ig:ig_bureaucrats = { has_ideology = ideology:ideology_manufacturing_focus } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_services_focus } ig:ig_bureaucrats = { has_ideology = ideology:ideology_services_focus } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_no_economic_focus } ig:ig_bureaucrats = { has_ideology = ideology:ideology_no_economic_focus } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_natural_resource_focus } ig:ig_intelligentsia = { has_ideology = ideology:ideology_natural_resource_focus } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_manufacturing_focus } ig:ig_intelligentsia = { has_ideology = ideology:ideology_manufacturing_focus } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_services_focus } ig:ig_intelligentsia = { has_ideology = ideology:ideology_services_focus } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_no_economic_focus } ig:ig_intelligentsia = { has_ideology = ideology:ideology_no_economic_focus } }
 			}
 			OR = {
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_anti_environment } ig:ig_bureaucrats = { has_ideology = ideology:ideology_anti_environment } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_balanced_environment } ig:ig_bureaucrats = { has_ideology = ideology:ideology_balanced_environment } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_pro_environment } ig:ig_bureaucrats = { has_ideology = ideology:ideology_pro_environment } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_anti_environment } ig:ig_intelligentsia = { has_ideology = ideology:ideology_anti_environment } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_balanced_environment } ig:ig_intelligentsia = { has_ideology = ideology:ideology_balanced_environment } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_pro_environment } ig:ig_intelligentsia = { has_ideology = ideology:ideology_pro_environment } }
 			}
 			OR = {
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_nationalist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_nationalist } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_regionalist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_regionalist } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_globalist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_globalist } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_nationalist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_nationalist } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_regionalist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_regionalist } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_globalist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_globalist } }
 			}
 			OR = {
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_totalitarian } ig:ig_bureaucrats = { has_ideology = ideology:ideology_totalitarian } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_authoritarian } ig:ig_bureaucrats = { has_ideology = ideology:ideology_authoritarian } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_communitarian } ig:ig_bureaucrats = { has_ideology = ideology:ideology_communitarian } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_individualist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_individualist } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_totalitarian } ig:ig_intelligentsia = { has_ideology = ideology:ideology_totalitarian } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_authoritarian } ig:ig_intelligentsia = { has_ideology = ideology:ideology_authoritarian } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_communitarian } ig:ig_intelligentsia = { has_ideology = ideology:ideology_communitarian } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_individualist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_individualist } }
 			}
 			OR = {
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_traditionalist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_traditionalist } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_conservative } ig:ig_bureaucrats = { has_ideology = ideology:ideology_conservative } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_progressive } ig:ig_bureaucrats = { has_ideology = ideology:ideology_progressive } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_traditionalist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_traditionalist } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_conservative } ig:ig_intelligentsia = { has_ideology = ideology:ideology_conservative } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_progressive } ig:ig_intelligentsia = { has_ideology = ideology:ideology_progressive } }
 			}
 			OR = {
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_monarchist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_monarchist } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_republican } ig:ig_bureaucrats = { has_ideology = ideology:ideology_republican } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_theocrat } ig:ig_bureaucrats = { has_ideology = ideology:ideology_theocrat } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_militarist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_militarist } }
-				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_communist } ig:ig_bureaucrats = { has_ideology = ideology:ideology_communist } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_monarchist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_monarchist } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_republican } ig:ig_intelligentsia = { has_ideology = ideology:ideology_republican } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_theocrat } ig:ig_intelligentsia = { has_ideology = ideology:ideology_theocrat } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_militarist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_militarist } }
+				AND = { any_interest_group = { ig_clout > 0.5 has_ideology = ideology:ideology_communist } ig:ig_intelligentsia = { has_ideology = ideology:ideology_communist } }
 			}
 			
 		}
@@ -1036,6 +1094,8 @@ state_has_sufficient_population = {
 
 is_a_useless_building = {
 
+	level > 0
+
 	OR = { 
 		weekly_profit <= 0
 		AND = { 
@@ -1044,7 +1104,7 @@ is_a_useless_building = {
 		}
 	}
 	OR = {
-		is_government_funded = no
+		private_ownership_fraction = 0
 		building_has_goods_shortage = yes
 		has_failed_hires = yes
 	}
@@ -1078,6 +1138,17 @@ is_a_capitalistic_economy = {
 	NOR = {
 		has_law = law_type:law_command_economy
 		has_law = law_type:law_semi_command_economy
+	}
+
+}
+
+is_a_socialist_economy = {
+
+	OR = {
+		has_law = law_type:law_command_economy
+		has_law = law_type:law_semi_command_economy
+		has_law = law_type:law_cooperative_ownership
+		has_law = law_type:law_state_capitalism
 	}
 
 }
@@ -1325,4 +1396,259 @@ construction_sector_auto_expand_rule = {
 	state.market_access >= 0.95
 	occupancy >= 0.95
 	
+}
+
+has_monuments_in_scope = {
+
+	OR = { 
+		has_building = building_eiffel_tower
+		has_building = building_angkor_wat
+		has_building = building_big_ben
+		has_building = building_forbidden_city
+		has_building = building_hagia_sophia
+		has_building = building_mosque_of_djenne
+		has_building = building_saint_basils_cathedral
+		has_building = building_statue_of_liberty
+		has_building = building_taj_mahal
+		has_building = building_vatican_city
+		has_building = building_white_house
+		has_building = building_machu_picchu
+		has_building = building_argebam
+		has_building = building_chichen_itza
+		has_building = building_easter_island_heads
+		has_building = building_eye_of_sahara
+		has_building = building_giza_necropolis
+		has_building = building_khaju_bridge
+		has_building = building_petra
+		has_building = building_capitol_hill
+		has_building = building_central_park
+		has_building = building_martandsuntemple
+		has_building = building_observatorygreenwich
+		has_building = building_temple_of_poseidon
+		has_building = building_wat_arun
+		has_building = building_cristo_redentor
+		
+		has_modifier = grand_capital
+	}
+
+}
+
+has_a_manchurian_candidate = { 
+	
+	has_diplomatic_pact = { who = ROOT type = conduct_hostile_espionage_8 is_initiator = yes }
+	
+}
+
+THIS_uses_proportional_representation = {
+
+	OR = {
+		c:ALG ?= this
+		c:ARM ?= this
+		c:AST ?= this
+		c:BEN ?= this
+		c:BOL ?= this
+		c:BOS ?= this
+		c:BUL ?= this
+		c:BUF ?= this
+		c:BRD ?= this
+		c:CPV ?= this
+		c:CHL ?= this
+		c:CLM ?= this
+		c:COS ?= this
+		c:CRO ?= this
+		c:CYP ?= this
+		c:CZH ?= this
+		c:BOH ?= this
+		c:DEN ?= this
+		c:DOM ?= this
+		c:ETM ?= this
+		c:ECU ?= this
+		c:ELS ?= this
+		c:EQG ?= this
+		c:EST ?= this
+		c:FAR ?= this
+		c:FIJ ?= this
+		c:FIN ?= this
+		c:GER ?= this
+		c:WGR ?= this
+		c:EGR ?= this
+		c:SGR ?= this
+		c:GRN ?= this
+		c:GUA ?= this
+		c:GNB ?= this
+		c:GUY ?= this
+		c:HON ?= this
+		c:ICL ?= this
+		c:IDO ?= this
+		c:IRE ?= this
+		c:NIR ?= this
+		c:SIR ?= this
+		c:ISR ?= this
+		c:KOS ?= this
+		c:LAT ?= this
+		c:LEB ?= this
+		c:LUX ?= this
+		c:MCD ?= this
+		c:MLT ?= this
+		c:MOL ?= this
+		c:MON ?= this
+		c:MOZ ?= this
+		c:NMB ?= this
+		c:NZL ?= this
+		c:NEP ?= this
+		c:NOR ?= this
+		c:PAL ?= this
+		c:PRG ?= this
+		c:PEU ?= this
+		c:POR ?= this
+		c:ROM ?= this
+		c:RWA ?= this
+		c:STP ?= this
+		c:SER ?= this
+		c:RSA ?= this
+		c:SRL ?= this
+		c:SWE ?= this
+		c:SWI ?= this
+		c:THI ?= this
+		c:TOG ?= this
+		c:TUN ?= this
+	}
+
+}
+
+THIS_uses_jefferson_system = {
+	
+	OR = {
+		c:ALB ?= this
+		c:ANG ?= this
+		c:ARG ?= this
+		c:AUS ?= this
+		c:EAU ?= this
+		c:WAU ?= this
+		c:BEL ?= this
+		c:BOL ?= this
+		c:BRZ ?= this
+		c:NET ?= this
+		c:POL ?= this
+		c:SLO ?= this
+		c:SPA ?= this
+		c:SUR ?= this
+		c:TUR ?= this
+		c:URU ?= this
+	}
+
+}
+
+goods_is_agricultural = {
+	OR = {
+		this = g:grain
+		this = g:wine
+		this = g:tobacco
+		this = g:meat
+	}
+}
+
+goods_is_artisanal = {
+	OR = {
+		this = g:groceries
+		this = g:furniture
+		this = g:telecommunications
+		this = g:computers
+	}
+}
+
+goods_is_industrial = {
+	OR = {
+		this = g:ammunition
+		this = g:small_arms
+		this = g:artillery
+		this = g:tanks
+		this = g:warplanes
+		this = g:ironclads
+		this = g:advanced_weaponry
+		this = g:aeroplanes
+		this = g:steamers
+		this = g:locomotives
+		this = g:automobiles
+		this = g:industrial_robots
+		this = g:steel
+		this = g:industrial_chemicals
+	}
+}
+
+can_impose_law_default = {
+
+	scope:target_country = {
+		is_subject_of = root
+		OR = {
+			is_subject_type = subject_type_puppet
+			is_subject_type = subject_type_special_administrative_region
+			is_subject_type = subject_type_dominion
+			is_subject_type = subject_type_semi_autonomous_colony
+			is_subject_type = subject_type_mandate
+		}
+	}
+
+}
+
+is_piracy_area = {
+
+	hidden_trigger = {
+		any_scope_state = {
+			is_piracy_zone = yes
+		}
+	}
+
+}
+
+is_piracy_zone = {
+
+	is_coastal = yes
+
+	OR = {
+	
+		#Piracy from lawlessness
+		turmoil >= 0.5
+	
+		#Piracy from historical locations
+		state_region = s:STATE_MALAYA
+		state_region = s:STATE_ACEH
+		state_region = s:STATE_NORTH_SUMATRA
+		
+		state_region = s:STATE_CELEBES
+		state_region = s:STATE_MOLUCCAS
+		
+		state_region = s:STATE_OMAN
+		state_region = s:STATE_YEMEN
+		state_region = s:STATE_ERITREA
+		state_region = s:STATE_SOMALILAND
+		state_region = s:STATE_KENYA
+		state_region = s:STATE_ZANZIBAR
+		
+		state_region = s:STATE_YORUBA_STATES
+		state_region = s:STATE_BENIN
+		state_region = s:STATE_NIGER_DELTA
+		state_region = s:STATE_SOUTH_CAMEROON
+		state_region = s:STATE_GABON
+		
+	}
+
+}
+
+issued_letters_of_marque = {
+
+	custom_tooltip = {
+		text = issued_letters_of_marque.tt
+		AND = { 
+			has_journal_entry = je_piracy_system
+			has_variable = issued_letters_of_marque
+		}
+	}
+	custom_tooltip = {
+		text = has_piracy.tt
+		scope:target_country = {
+			has_journal_entry = je_piracy_system
+		}
+	}
+
 }

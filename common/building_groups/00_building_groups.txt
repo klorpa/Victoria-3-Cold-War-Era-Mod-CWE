@@ -47,6 +47,7 @@ bg_manufacturing = {
 	}
 	
 	economy_of_scale_ai_factor = 4.0
+	foreign_investment_ai_factor = 0.20
 }
 
 bg_light_industry = {
@@ -56,6 +57,8 @@ bg_light_industry = {
 	
 	urbanization = 2
 	infrastructure_usage_per_level = 1
+	
+	foreign_investment_ai_factor = 0.10
 }
 
 bg_heavy_industry = {
@@ -65,6 +68,8 @@ bg_heavy_industry = {
 	
 	urbanization = 5
 	infrastructure_usage_per_level = 2
+	
+	foreign_investment_ai_factor = 0.05
 }
 
 bg_artillery_foundaries = {
@@ -116,6 +121,15 @@ bg_agriculture = {
 	}
 	
 	economy_of_scale_ai_factor = 2.0
+	foreign_investment_ai_factor = 0.50
+}
+
+bg_vineyard_plantation = {
+	parent_group = bg_agriculture
+	
+	always_possible = yes
+	
+	cash_reserves_max = 25000
 }
 
 bg_rye_farms = {
@@ -318,6 +332,7 @@ bg_mining = {
 	}
 	
 	economy_of_scale_ai_factor = 3.0
+	foreign_investment_ai_factor = 0.50
 }
 
 bg_gold_fields = {
@@ -500,6 +515,7 @@ bg_logging = {
 	}
 	
 	economy_of_scale_ai_factor = 2.0
+	foreign_investment_ai_factor = 0.50
 }
 
 bg_rubber = {
@@ -542,6 +558,8 @@ bg_urban_center = {
 	default_building = building_urban_center
 	
 	is_government_funded = yes
+	
+	always_self_owning = yes
 }
 
 bg_service = {
@@ -630,6 +648,61 @@ bg_nuclear_weapons = {
 	lens = military
 }
 
+# Needed for autonomous investment to track investments separately from other ownership buildings
+bg_financial_districts = {
+	parent_group = bg_owner_buildings
+	infrastructure_usage_per_level = 0.0
+}
+
+# Needed for autonomous investment to track investments separately from other ownership buildings
+bg_manor_houses = {
+	parent_group = bg_owner_buildings
+	infrastructure_usage_per_level = 0.0
+}
+
+bg_owner_buildings = {
+	parent_group = bg_urban_facilities
+	
+	min_productivity_to_hire = 10.0
+
+	category = urban
+
+	lens = trade
+
+	always_possible = yes
+	
+	can_use_slaves = yes
+
+	auto_place_buildings = yes
+
+	owns_other_buildings = yes
+	
+	always_self_owning = yes
+
+	min_hiring_rate = 1.0
+	max_hiring_rate = 1.0
+
+	ignores_productivity_when_hiring = yes
+
+	proportionality_limit = 1.0
+
+	economy_of_scale = no
+
+	#default_building = building_financial_district
+
+	cash_reserves_max = 10000
+
+	urbanization = 0
+
+	infrastructure_usage_per_level = 0.1
+
+	fired_pops_become_radical = no
+
+	should_auto_expand = {
+		always = no
+	}
+}
+
 # Infrastructure BG
 
 bg_infrastructure = {
@@ -644,6 +717,7 @@ bg_infrastructure = {
 	stateregion_max_level = yes
 	
 	economy_of_scale_ai_factor = 1.5
+	foreign_investment_ai_factor = 0.50
 }
 
 bg_public_infrastructure = {
@@ -693,12 +767,10 @@ bg_construction = {
 
 bg_canals = {
 	parent_group = bg_infrastructure
-	
-	economy_of_scale = no
-	
 	lens = special
-	
 	inheritable_construction = yes
+	
+	urbanization = 100
 }
 
 bg_trade = {
@@ -725,6 +797,8 @@ bg_trade = {
 	
 	subsidized = yes
 	
+	always_self_owning = yes
+	
 	default_building = building_trade_center
 	
 	cash_reserves_max = 5000	
@@ -741,7 +815,7 @@ bg_trade = {
 }
 
 bg_urban_facilities = {
-	parent_group = bg_infrastructure
+	category = urban
 	
 	lens = urban
 
@@ -751,12 +825,15 @@ bg_urban_facilities = {
 	
 	cash_reserves_max = 25000
 	
-	urbanization = 5
+	urbanization = 20
 	infrastructure_usage_per_level = 2
 	
 	should_auto_expand = { 
 		default_auto_expand_rule = yes
 	}
+	
+	economy_of_scale_ai_factor = 2.0
+	foreign_investment_ai_factor = 0.25
 }
 
 bg_arts = {

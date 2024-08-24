@@ -1,5 +1,5 @@
 ﻿non_aggression_pact = {
-	requires_approval = yes
+	groups= { general } requires_approval = yes
 	can_use_obligations = yes
 	should_notify_third_parties = no
 
@@ -60,6 +60,15 @@
 	
 	accept_effect = {
 		
+		#Lobby
+		add_lobby_appeasement_from_diplomacy_bidirectional = { 
+			FIRST = root
+			SECOND = scope:target_country 
+			PRO_AMOUNT = 2
+			ANTI_AMOUNT = -2
+			FACTOR = appeasement_defensive_pact_formed
+		}
+		
 		#Gain relations with TARGET
 		change_relations = { country = scope:target_country value = 20 }
 		
@@ -97,6 +106,14 @@
 		#Will slowly bring relations to neutral
 		relations_progress_per_day = 1 # At 100, +1 relations
 		relations_improvement_max = 0
+		
+		first_modifier = {
+			country_pact_leverage_generation_add = -100
+		}
+		
+		second_modifier = {
+			country_pact_leverage_generation_add = -100
+		}
 		
 		actor_can_break = {
 		
@@ -156,7 +173,7 @@
 		}
 
 		manual_break_effect = {
-			create_truce = { country = scope:target_country months = 12 }
+			create_bidirectional_truce = { country = scope:target_country months = 12 }
 			
 			#International community does not like this
 			change_relations = { country = scope:target_country value = -25 }
@@ -164,7 +181,7 @@
 		}
 		
 		auto_break_effect = {
-			create_truce = { country = scope:target_country months = 12 }
+			create_bidirectional_truce = { country = scope:target_country months = 12 }
 		}
 		
 	}
@@ -172,6 +189,10 @@
 	ai = {
 		check_acceptance_for_will_break = yes
 		check_acceptance_for_will_propose = yes
+	
+		evaluation_chance = {
+			value = 0.25		
+		}
 	
 		will_propose = {
 			

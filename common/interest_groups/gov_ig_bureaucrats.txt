@@ -1,4 +1,4 @@
-ig_bureaucrats = {
+ig_intelligentsia = {
 	color = hsv{ 0.65 0.54 0.52 }
 	texture = "gfx/interface/icons/ig_icons/intelligensia.dds"
 	layer = "revolution_dynamic_intelligentsia"
@@ -9,6 +9,17 @@ ig_bureaucrats = {
 		#Economic Ideologies
 		ideology_centre_economy 			#General Economic Beliefs 
 		ideology_no_economic_focus 			#Economic Specialisation
+		ideology_balanced_environment 		#Environmental Laws
+		ideology_regionalist 				#Foreign Economic Policy
+	
+		#Political Ideologies
+		ideology_authoritarian				#General Political Beliefs
+		ideology_conservative				#Specific Political Beliefs
+		ideology_militarist					#Government Types 
+		
+		#Dynamic Ideologies
+		#ideology_neutral_spending
+		#ideology_neutral_population
 		
 	}
 
@@ -24,7 +35,7 @@ ig_bureaucrats = {
 	}
 	
 	on_enable = {
-		ig:ig_bureaucrats = {
+		ig:ig_intelligentsia = {
 			set_ig_trait = ig_trait:ig_trait_compliant_civil_service
 			set_ig_trait = ig_trait:ig_trait_hostile_civil_service
 			set_ig_trait = ig_trait:ig_trait_propagandists
@@ -119,7 +130,7 @@ ig_bureaucrats = {
 		# Agitators will never be part of a marginalized IG
 		if = {
 			limit = {
-				owner.ig:ig_bureaucrats = {
+				owner.ig:ig_intelligentsia = {
 					is_marginal = yes
 				}
 			}

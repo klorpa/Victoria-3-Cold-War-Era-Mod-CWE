@@ -1,5 +1,5 @@
 ﻿confederal_state = {
-	requires_approval = yes
+	groups= { general } requires_approval = yes
 	can_use_obligations = yes
 	
 	unlocking_technologies = {
@@ -119,8 +119,12 @@
 	
 		has_junior_participant = yes
 		recipient_pays_maintenance = no
-		#is_customs_union = yes
 		is_trade_agreement = yes
+		
+		#Cash support to overlord
+		income_transfer = 0.05
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
 		
 		relations_progress_per_day = 1
 		relations_improvement_max = 50
@@ -146,7 +150,7 @@
 		}
 		
 		manual_break_effect = {
-			create_truce = { country = scope:target_country months = 60 }
+			create_bidirectional_truce = { country = scope:target_country months = 60 }
 			change_relations = {
 				country = scope:target_country
 				value = -50
@@ -154,7 +158,7 @@
 		}
 		
 		auto_break_effect = {
-			create_truce = { country = scope:target_country months = 60 }
+			create_bidirectional_truce = { country = scope:target_country months = 60 }
 		}
 		
 		requirement_to_maintain = { 
@@ -195,8 +199,9 @@
 						OR = {
 							AND = { is_a_democracy = yes scope:target_country = { is_a_democracy = yes } }
 							AND = { is_a_communist_government = yes scope:target_country = { is_a_communist_government = yes } }
-							AND = { is_a_nationalist_government = yes scope:target_country = { is_a_nationalist_government = yes } }
+							AND = { is_a_nationalist_government = yes scope:target_country = { OR = { is_a_nationalist_government = yes is_a_regime_monarchy = yes } } }
 							AND = { is_a_theocratic_government = yes scope:target_country = { is_a_theocratic_government = yes } }
+							AND = { OR = { is_a_nationalist_government = yes is_a_regime_monarchy = yes } scope:target_country = { is_a_regime_monarchy = yes } }
 						}
 					}
 					
@@ -227,6 +232,10 @@
 	
 	ai = {
 		check_acceptance_for_will_propose = yes
+		
+		evaluation_chance = {
+			value = 0.25		
+		}
 		
 		will_propose = { 
 			country_rank >= rank_value:major_power

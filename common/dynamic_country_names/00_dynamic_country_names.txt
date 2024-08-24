@@ -653,7 +653,7 @@ TUN = { # Tunis
 		trigger = {
 			OR = { 
 				NOT = { coa_def_absolute_monarchy_flag_trigger = yes }
-				scope:actor = { exists = c:FRA is_subject_of = c:FRA }
+				scope:actor = { exists = c:FRA is_subject_of = c:FRA is_not_sufficiently_independent = yes }
 			}
 		}
 	}
@@ -725,7 +725,7 @@ GHA = {
 		is_main_tag_only = yes
 		priority = 0
 		trigger = {
-			scope:actor = { exists = c:GBR is_subject_of = c:GBR }
+			scope:actor = { exists = c:GBR is_subject_of = c:GBR is_not_sufficiently_independent = yes }
 		}
 	}
 }
@@ -738,11 +738,26 @@ MAD = {
 		priority = 0
 		trigger = {
 			OR = { 
-				scope:actor = { exists = c:FRA is_subject_of = c:FRA }
+				scope:actor = { exists = c:FRA is_subject_of = c:FRA is_not_sufficiently_independent = yes }
 				AND = { 
 					game_date < 1975.12.30
 					scope:actor = { is_a_republican_democracy = yes }
 				}
+			}
+		}
+	}
+}
+
+MAL = {
+	dynamic_country_name = {
+		name = dyn_c_sudanese_republic
+		adjective = dyn_c_sudanese_republic_adj
+		is_main_tag_only = yes
+		priority = 0
+		trigger = {
+			scope:actor = { 
+				is_a_colonial_subject_gov = yes 
+				NOT = { is_a_monarchy = yes }
 			}
 		}
 	}
@@ -756,7 +771,7 @@ DJI = {
 		is_main_tag_only = yes
 		priority = 0
 		trigger = {
-			scope:actor = { exists = c:FRA is_subject_of = c:FRA }
+			scope:actor = { exists = c:FRA is_subject_of = c:FRA is_not_sufficiently_independent = yes }
 		}
 	}
 }
@@ -771,6 +786,7 @@ VAN = {
 			scope:actor = {
 				exists = c:GBR
 				is_subject_of = c:GBR
+				is_not_sufficiently_independent = yes
 			}
 		}
 	}
@@ -786,6 +802,7 @@ TVL = {
 			scope:actor = {
 				exists = c:GBR
 				is_subject_of = c:GBR
+				is_not_sufficiently_independent = yes
 			}
 		}
 	}
@@ -801,6 +818,7 @@ SYE = {
 			scope:actor = {
 				exists = c:GBR
 				is_subject_of = c:GBR
+				is_not_sufficiently_independent = yes
 			}
 		}
 	}
@@ -816,7 +834,7 @@ BUR = {
 		trigger = {
 			scope:actor = {
 				OR = { 
-					AND = { exists = c:GBR is_subject_of = c:GBR }
+					AND = { exists = c:GBR is_subject_of = c:GBR is_not_sufficiently_independent = yes }
 					
 					has_government_type = gov_parliamentary_regime
 					has_government_type = gov_parliamentary_democracy
@@ -837,9 +855,10 @@ JOR = {
 		trigger = {
 			scope:actor = {
 				OR = { 
-					AND = { 
+					AND = {
 						exists = c:GBR
 						is_subject_of = c:GBR
+						is_not_sufficiently_independent = yes
 					}
 					game_date < 1949.1.1
 				}
@@ -867,6 +886,7 @@ UAE = {
 			scope:actor = {
 				exists = c:GBR
 				is_subject_of = c:GBR
+				is_not_sufficiently_independent = yes
 			}
 		}
 	}
@@ -891,23 +911,7 @@ FAE = {
 			scope:actor = {
 				exists = c:GBR
 				is_subject_of = c:GBR
-			}
-		}
-	}
-}
-
-SUD = {
-	dynamic_country_name = {
-		# Anglo-Egyptian Sudan
-		name = dyn_c_anglo_egyptian_sudan
-		adjective = dyn_c_anglo_egyptian_sudan_adj
-		is_main_tag_only = yes
-		priority = 0
-		trigger = {
-			exists = c:EGY
-			scope:actor = {
-				exists = c:GBR
-				is_subject_of = c:GBR
+				is_not_sufficiently_independent = yes
 			}
 		}
 	}
@@ -924,6 +928,7 @@ CAR = {
 			scope:actor = {
 				exists = c:FRA
 				is_subject_of = c:FRA
+				is_not_sufficiently_independent = yes
 			}
 		}
 	}
@@ -964,6 +969,7 @@ CMR = {
 			scope:actor = {
 				exists = c:FRA
 				is_subject_of = c:FRA
+				is_not_sufficiently_independent = yes
 			}
 		}
 	}
@@ -991,7 +997,7 @@ BEN = {
 		priority = 0
 		trigger = {
 			OR = { 
-				scope:actor = { exists = c:FRA is_subject_of = c:FRA }
+				scope:actor = { exists = c:FRA is_subject_of = c:FRA is_not_sufficiently_independent = yes }
 				game_date < 1975.11.30
 			}
 		}
@@ -1006,7 +1012,7 @@ BUF = {
 		priority = 0
 		trigger = {
 			OR = { 
-				scope:actor = { exists = c:FRA is_subject_of = c:FRA }
+				scope:actor = { exists = c:FRA is_subject_of = c:FRA is_not_sufficiently_independent = yes }
 				game_date < 1984.8.4
 			}
 		}
@@ -1036,9 +1042,10 @@ SRL = {
 		trigger = {
 			scope:actor = {
 				exists = c:GBR
-				OR = { 
-					is_subject_of = c:GBR
-					is_subject_type = subject_type_personal_union
+				is_subject_of = c:GBR
+				OR = {
+					is_a_monarchy = yes
+					is_not_sufficiently_independent = yes
 				}
 			}
 		}
@@ -1055,6 +1062,7 @@ NAM = {
 			scope:actor = {
 				exists = c:GBR
 				is_subject_of = c:GBR
+				is_a_colonial_subject_gov = yes
 			}
 		}
 	}
@@ -1070,6 +1078,7 @@ MLW = {
 			scope:actor = {
 				exists = c:GBR
 				is_subject_of = c:GBR
+				is_a_colonial_subject_gov = yes
 			}
 		}
 	}
@@ -1086,6 +1095,7 @@ ZAM = {
 			scope:actor = {
 				exists = c:GBR
 				is_subject_of = c:GBR
+				is_a_colonial_subject_gov = yes
 			}
 		}
 	}
@@ -1101,6 +1111,7 @@ RHO = {
 			scope:actor = {
 				exists = c:GBR
 				is_subject_of = c:GBR
+				is_a_colonial_subject_gov = yes
 			}
 		}
 	}
@@ -1118,10 +1129,11 @@ CAF = {
 					AND = { 
 						exists = c:GBR
 						is_subject_of = c:GBR
+						is_not_sufficiently_independent = yes
 					}
 					AND = { 
 						is_subject = no
-						NOR = { 
+						NAND = { 
 							has_law = law_type:law_multicultural 
 							is_a_democracy = yes
 						}
@@ -1158,6 +1170,7 @@ LES = {
 			scope:actor = {
 				exists = c:GBR
 				is_subject_of = c:GBR
+				is_not_sufficiently_independent = yes
 			}
 		}
 	}
@@ -1183,8 +1196,7 @@ TOG = {
 		priority = 0
 		trigger = {
 			scope:actor = {
-				exists = c:GBR
-				is_subject_of = c:GBR
+				is_a_colonial_subject_gov = yes
 			}
 		}
 	}
@@ -1201,6 +1213,7 @@ BLZ = {
 			scope:actor = {
 				exists = c:GBR
 				is_subject_of = c:GBR
+				is_not_sufficiently_independent = yes
 			}
 		}
 	}
@@ -1244,6 +1257,7 @@ GUY = {
 			scope:actor = {
 				exists = c:GBR
 				is_subject_of = c:GBR
+				is_not_sufficiently_independent = yes
 			}
 		}
 	}
@@ -1259,6 +1273,7 @@ SAB = {
 			scope:actor = {
 				exists = c:GBR
 				is_subject_of = c:GBR
+				is_not_sufficiently_independent = yes
 			}
 		}
 	}
@@ -1274,6 +1289,7 @@ DAN = {
 			scope:actor = {
 				exists = c:NET
 				is_subject_of = c:NET
+				is_not_sufficiently_independent = yes
 			}
 		}
 	}
@@ -1730,6 +1746,39 @@ WGR = { # West Germany
 		trigger = {
 			scope:actor = { 
 				exists = c:SGR
+			}
+		}
+	}
+}
+
+CRI = { # Crimea
+	dynamic_country_name = {
+		name = TAR
+		adjective = TAR_ADJ
+		
+		is_main_tag_only = yes
+		priority = 1
+		
+		trigger = {
+			scope:actor = { 
+				capital ?= { NOT = { state_region = s:STATE_CRIMEA } }
+			}
+		}
+	}
+}
+
+ETM = { # East Timor
+	dynamic_country_name = {
+		name = dyn_c_Timor
+		adjective = dyn_c_Timor_adj
+		
+		is_main_tag_only = yes
+		priority = 0
+		
+		trigger = {
+			exists = scope:actor
+			scope:actor = {
+				owns_entire_state_region = STATE_SUNDA_ISLANDS
 			}
 		}
 	}

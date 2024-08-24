@@ -1,5 +1,5 @@
 ﻿conduct_hostile_espionage = {
-	requires_approval = no
+	groups= { general } requires_approval = no
 	should_notify_third_parties = no
 	show_effect_in_tooltip = yes
 
@@ -75,14 +75,68 @@
 		
 	}
 	
+	accept_effect = {
+		add_lobby_appeasement_from_diplomacy_unidirectional = { 
+			FIRST = root
+			SECOND = scope:target_country 
+			PRO_AMOUNT = -4
+			ANTI_AMOUNT = 4
+			FACTOR = appeasement_embargo_declared
+		}
+	}
+	
 	pact = {	
 		cost = 50
+		is_hostile = yes
 		is_two_sided_pact = no
 		infamy_affects_maintenance = yes
 		
 		income_transfer = 0.01
-		recipient_gets_income_transfer = yes
-		income_transfer_based_on_recipient = yes
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = yes
+		income_transfer_to_pops = {
+			allow_discriminated = yes
+			upper_strata_pops = {
+				value = 0.5
+				
+				if = {
+					limit = {
+						is_a_dictatorship = yes
+						NOT = { is_a_communist_government = yes }		
+					}
+					add = 0.5
+				}
+				
+				max = 1
+				min = 0
+			}
+			middle_strata_pops = {
+				value = 0.25
+				
+				if = {
+					limit = {
+						is_a_democracy = yes					
+					}
+					add = 0.25
+				}	
+
+				max = 1
+				min = 0				
+			}
+			lower_strata_pops = {
+				value = 0.0
+				
+				if = {
+					limit = {
+						is_a_communist_government = yes
+					}
+					add = 0.25
+				}	
+
+				max = 1
+				min = 0				
+			}
+		}
 		
 		### Validation requirements ###
 		
@@ -214,6 +268,10 @@
 	ai = {
 		max_influence_spending_fraction = 0.20
 	
+		evaluation_chance = {
+			value = 0.25		
+		}
+	
 		propose_score = {
 			value = 10
 		}
@@ -251,7 +309,7 @@
 
 #Instigate Domestic Unrest [ONLY possible if country has an open media]
 conduct_hostile_espionage_1 = {
-	requires_approval = no
+	groups= { general } requires_approval = no
 	should_notify_third_parties = no
 	show_effect_in_tooltip = yes
 
@@ -372,6 +430,10 @@ conduct_hostile_espionage_1 = {
 	
 	ai = {
 	
+		evaluation_chance = {
+			value = 0.25		
+		}
+	
 		propose_score = {
 			value = 10
 		}
@@ -393,7 +455,7 @@ conduct_hostile_espionage_1 = {
 
 #Conduct Economic Sabotage
 conduct_hostile_espionage_2 = {
-	requires_approval = no
+	groups= { general } requires_approval = no
 	should_notify_third_parties = no
 	show_effect_in_tooltip = yes
 
@@ -509,6 +571,10 @@ conduct_hostile_espionage_2 = {
 	
 	ai = {
 	
+		evaluation_chance = {
+			value = 0.25		
+		}
+	
 		propose_score = {
 			value = 10
 		}
@@ -530,7 +596,7 @@ conduct_hostile_espionage_2 = {
 
 #Instigate Secessionist Movement
 conduct_hostile_espionage_3 = {
-	requires_approval = no
+	groups= { general } requires_approval = no
 	should_notify_third_parties = no
 	show_effect_in_tooltip = yes
 
@@ -660,6 +726,10 @@ conduct_hostile_espionage_3 = {
 	
 	ai = {
 	
+		evaluation_chance = {
+			value = 0.25		
+		}
+	
 		propose_score = {
 			value = 10
 		}
@@ -681,7 +751,7 @@ conduct_hostile_espionage_3 = {
 
 #Election Interference [ONLY possible if country has a ruling party & is having elections]
 conduct_hostile_espionage_4 = {
-	requires_approval = no
+	groups= { general } requires_approval = no
 	should_notify_third_parties = no
 	show_effect_in_tooltip = yes
 
@@ -810,6 +880,10 @@ conduct_hostile_espionage_4 = {
 	
 	ai = {
 	
+		evaluation_chance = {
+			value = 0.25		
+		}
+	
 		propose_score = {
 			value = 10
 		}
@@ -831,7 +905,7 @@ conduct_hostile_espionage_4 = {
 
 #Terror attack
 conduct_hostile_espionage_5 = {
-	requires_approval = no
+	groups= { general } requires_approval = no
 	should_notify_third_parties = no
 	show_effect_in_tooltip = yes
 
@@ -961,6 +1035,10 @@ conduct_hostile_espionage_5 = {
 	
 	ai = {
 	
+		evaluation_chance = {
+			value = 0.25		
+		}
+	
 		propose_score = {
 			value = 10
 		}
@@ -983,7 +1061,7 @@ conduct_hostile_espionage_5 = {
 
 #Cyber attack
 conduct_hostile_espionage_6 = {
-	requires_approval = no
+	groups= { general } requires_approval = no
 	should_notify_third_parties = no
 	show_effect_in_tooltip = yes
 
@@ -1114,6 +1192,10 @@ conduct_hostile_espionage_6 = {
 	
 	ai = {
 	
+		evaluation_chance = {
+			value = 0.25		
+		}
+	
 		propose_score = {
 			value = 10
 		}
@@ -1126,6 +1208,874 @@ conduct_hostile_espionage_6 = {
 					attitude <= antagonistic
 				}
 				has_diplomatic_pact = { who = scope:target_country type = rivalry }
+				scope:target_country.relations:root < relations_threshold:poor
+			}
+		}
+		
+	}
+	
+}
+
+#Send agitator to TARGET
+conduct_hostile_espionage_7 = {
+	groups= { general } requires_approval = no
+	should_notify_third_parties = no
+	show_effect_in_tooltip = yes
+
+	unlocking_technologies = {
+		
+	}
+
+	potential = {
+	
+		has_journal_entry = je_secret_police_system
+	
+		#THIS has spies in TARGET
+		has_diplomatic_pact = {
+			who = scope:target_country
+			type = conduct_hostile_espionage
+			is_initiator = yes
+		}
+		
+	}
+	
+	possible = {
+		
+		#Has enough action points
+		custom_tooltip = {
+			text = secret_police_action_50_points.tt
+			has_variable = secret_police_action_points
+			root.var:secret_police_action_points > 50
+		}
+		
+		#Cooldown
+		custom_tooltip = {
+			text = secret_police_action_timer.tt
+			NOT = { has_variable = secret_police_action_timer }
+		}
+		
+		#TARGET has space for agitator
+		scope:target_country = { 
+			empty_agitator_slots >= 1 
+			NOT = { has_law = law_type:law_closed_borders }
+		}
+		
+	}
+	
+	accept_effect = {
+		
+		#Subtract action points
+		custom_tooltip = {
+			text = secret_police_action_subtract_50_points.tt
+			if = {
+				limit = { has_variable = secret_police_action_points }
+				change_variable = { 
+					name = secret_police_action_points
+					add = -50
+				}
+			}
+		}
+		
+		#Gain Loyalty
+		custom_tooltip = {
+			text = secret_police_gain_loyalty_5_points.tt
+			change_variable = { 
+				name = secret_police_loyalty
+				add = 5
+			}
+			clamp_variable = {
+				name = secret_police_loyalty
+				max = 100
+				min = 0
+			}
+		}
+		
+		#Send agitator to TARGET
+		if = {
+			limit = { is_a_democracy = yes }
+			if = {
+				limit = { 
+					any_scope_character = { 
+						has_role = agitator 
+						OR = {
+							has_ideology = ideology:ideology_agitator_pro_human_rights
+							has_ideology = ideology:ideology_agitator_anti_war_rights
+						
+							has_ideology = ideology:ideology_liberal
+							has_ideology = ideology:ideology_democratic
+						}
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+						is_historical = no
+					} 
+				}
+				random_scope_character = {
+					limit = {
+						has_role = agitator 
+						OR = {
+							has_ideology = ideology:ideology_agitator_pro_human_rights
+							has_ideology = ideology:ideology_agitator_anti_war_rights
+						
+							has_ideology = ideology:ideology_liberal
+							has_ideology = ideology:ideology_democratic
+						}
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+						is_historical = no
+					}
+					transfer_character = scope:target_country
+				}
+			}
+			else_if = {
+				limit = { 
+					any_character_in_exile_pool = {
+						has_role = agitator 
+						OR = {
+							has_ideology = ideology:ideology_agitator_pro_human_rights
+							has_ideology = ideology:ideology_agitator_anti_war_rights
+						
+							has_ideology = ideology:ideology_liberal
+							has_ideology = ideology:ideology_democratic
+						}
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+					}
+				}
+				random_character_in_exile_pool = {
+					limit = { 
+						has_role = agitator 
+						OR = {
+							has_ideology = ideology:ideology_agitator_pro_human_rights
+							has_ideology = ideology:ideology_agitator_anti_war_rights
+						
+							has_ideology = ideology:ideology_liberal
+							has_ideology = ideology:ideology_democratic
+						}
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+					}
+					transfer_character = scope:target_country
+				}
+			}
+			else = {
+				scope:target_country = {
+					create_character = {
+						is_agitator = yes
+						ideology = ideology_agitator_pro_human_rights
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = { NOT = { is_a_democracy = yes } }
+			if = {
+				limit = { 
+					any_scope_character = { 
+						has_role = agitator 
+						OR = {
+							has_ideology = ideology:ideology_agitator_anti_human_rights
+							has_ideology = ideology:ideology_agitator_pro_war_rights
+						
+							has_ideology = ideology:ideology_autocratic
+							has_ideology = ideology:ideology_power_hungry
+						}
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+						is_historical = no
+					} 
+				}
+				random_scope_character = {
+					limit = {
+						has_role = agitator 
+						OR = {
+							has_ideology = ideology:ideology_agitator_anti_human_rights
+							has_ideology = ideology:ideology_agitator_pro_war_rights
+						
+							has_ideology = ideology:ideology_autocratic
+							has_ideology = ideology:ideology_power_hungry
+						}
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+						is_historical = no
+					}
+					transfer_character = scope:target_country
+				}
+			}
+			else_if = {
+				limit = { 
+					any_character_in_exile_pool = {
+						has_role = agitator 
+						OR = {
+							has_ideology = ideology:ideology_agitator_anti_human_rights
+							has_ideology = ideology:ideology_agitator_pro_war_rights
+						
+							has_ideology = ideology:ideology_autocratic
+							has_ideology = ideology:ideology_power_hungry
+						}
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+					}
+				}
+				random_character_in_exile_pool = {
+					limit = { 
+						has_role = agitator 
+						OR = {
+							has_ideology = ideology:ideology_agitator_anti_human_rights
+							has_ideology = ideology:ideology_agitator_pro_war_rights
+						
+							has_ideology = ideology:ideology_autocratic
+							has_ideology = ideology:ideology_power_hungry
+						}
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+					}
+					transfer_character = scope:target_country
+				}
+			}
+			else = {
+				scope:target_country = {
+					create_character = {
+						is_agitator = yes
+						ideology = ideology_agitator_anti_human_rights
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = { 
+				is_a_communist_government = yes 
+				scope:target_country = { 
+					empty_agitator_slots >= 1 
+					NOT = { is_a_communist_government = yes }
+				}
+			}
+			if = {
+				limit = { 
+					any_scope_character = { 
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_communist
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+						is_historical = no
+					} 
+				}
+				random_scope_character = {
+					limit = {
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_communist
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+						is_historical = no
+					}
+					transfer_character = scope:target_country
+				}
+			}
+			else_if = {
+				limit = { 
+					any_character_in_exile_pool = {
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_communist
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+					}
+				}
+				random_character_in_exile_pool = {
+					limit = { 
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_communist
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+					}
+					transfer_character = scope:target_country
+				}
+			}
+			else = {
+				scope:target_country = {
+					create_character = {
+						is_agitator = yes
+						ideology = ideology_agitator_communist
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = { 
+				is_a_regime_monarchy = yes 
+				scope:target_country = { 
+					empty_agitator_slots >= 1 
+					NOT = { is_a_regime_monarchy = yes }
+				}
+			}
+			if = {
+				limit = { 
+					any_scope_character = { 
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_monarchist
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+						is_historical = no
+					} 
+				}
+				random_scope_character = {
+					limit = {
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_monarchist
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+						is_historical = no
+					}
+					transfer_character = scope:target_country
+				}
+			}
+			else_if = {
+				limit = { 
+					any_character_in_exile_pool = {
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_monarchist
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+					}
+				}
+				random_character_in_exile_pool = {
+					limit = { 
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_monarchist
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+					}
+					transfer_character = scope:target_country
+				}
+			}
+			else = {
+				scope:target_country = {
+					create_character = {
+						is_agitator = yes
+						ideology = ideology_agitator_monarchist
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = { 
+				is_a_nationalist_government = yes 
+				scope:target_country = { 
+					empty_agitator_slots >= 1 
+					NOT = { is_a_nationalist_government = yes }
+				}
+			}
+			if = {
+				limit = { 
+					any_scope_character = { 
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_nationalist
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+						is_historical = no
+					} 
+				}
+				random_scope_character = {
+					limit = {
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_nationalist
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+						is_historical = no
+					}
+					transfer_character = scope:target_country
+				}
+			}
+			else_if = {
+				limit = { 
+					any_character_in_exile_pool = {
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_nationalist
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+					}
+				}
+				random_character_in_exile_pool = {
+					limit = { 
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_nationalist
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+					}
+					transfer_character = scope:target_country
+				}
+			}
+			else = {
+				scope:target_country = {
+					create_character = {
+						is_agitator = yes
+						ideology = ideology_agitator_nationalist
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = { 
+				is_a_theocratic_government = yes 
+				scope:target_country = { 
+					empty_agitator_slots >= 1 
+					NOT = { is_a_theocratic_government = yes }
+				}
+			}
+			if = {
+				limit = { 
+					any_scope_character = { 
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_theocrat
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+						is_historical = no
+					} 
+				}
+				random_scope_character = {
+					limit = {
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_theocrat
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+						is_historical = no
+					}
+					transfer_character = scope:target_country
+				}
+			}
+			else_if = {
+				limit = { 
+					any_character_in_exile_pool = {
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_theocrat
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+					}
+				}
+				random_character_in_exile_pool = {
+					limit = { 
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_theocrat
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+					}
+					transfer_character = scope:target_country
+				}
+			}
+			else = {
+				scope:target_country = {
+					create_character = {
+						is_agitator = yes
+						ideology = ideology_agitator_theocrat
+					}
+				}
+			}
+		}
+		
+		if = {
+			limit = { 
+				is_a_democracy = yes 
+				scope:target_country = { 
+					empty_agitator_slots >= 1 
+					NOT = { is_a_democracy = yes }
+				}
+			}
+			if = {
+				limit = { 
+					any_scope_character = { 
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_republican
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+						is_historical = no
+					} 
+				}
+				random_scope_character = {
+					limit = {
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_republican
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+						is_historical = no
+					}
+					transfer_character = scope:target_country
+				}
+			}
+			else_if = {
+				limit = { 
+					any_character_in_exile_pool = {
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_republican
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+					}
+				}
+				random_character_in_exile_pool = {
+					limit = { 
+						has_role = agitator 
+						has_ideology = ideology:ideology_agitator_republican
+						NOT = {
+							culture = {
+								culture_is_discriminated_in = scope:target_country
+							}
+						}
+					}
+					transfer_character = scope:target_country
+				}
+			}
+			else = {
+				scope:target_country = {
+					create_character = {
+						is_agitator = yes
+						ideology = ideology_agitator_republican
+					}
+				}
+			}
+		}
+		
+		#Gain infamy
+		create_incident = {
+			country = scope:target_country
+			value = 5
+		}
+		
+	}
+	
+	ai = {
+	
+		evaluation_chance = {
+			value = 0.25		
+		}
+	
+		propose_score = {
+			value = 10
+		}
+		
+		will_propose = {
+			infamy < infamy_threshold:infamous
+			OR = { 
+				has_attitude = {
+					who = scope:target_country
+					attitude <= antagonistic
+				}
+				has_diplomatic_pact = { who = scope:target_country type = rivalry }
+				scope:target_country.relations:root < relations_threshold:poor
+			}
+		}
+		
+	}
+	
+}
+
+#Manipulate Politics
+conduct_hostile_espionage_8 = {
+	groups= { general } requires_approval = no
+	should_notify_third_parties = no
+	show_effect_in_tooltip = yes
+
+	unlocking_technologies = {
+		
+	}
+
+	potential = {
+	
+		has_journal_entry = je_secret_police_system
+	
+		#THIS has spies in TARGET
+		has_diplomatic_pact = {
+			who = scope:target_country
+			type = conduct_hostile_espionage
+			is_initiator = yes
+		}
+		
+	}
+	
+	possible = {
+		
+		#TARGET is an independent country
+		scope:target_country = { 
+			NOT = { is_subject_of = scope:actor }
+			NOT = { has_war_with = scope:actor }
+		}
+		
+		#TARGET politics is suceptible to manipulation
+		scope:target_country = {
+			OR = { 
+				is_a_democracy = yes
+				has_modifier = power_vacuum_modifier
+				has_modifier = domestic_unrest
+				has_modifier = stirrings_of_revolution
+			}
+		}
+		
+		#Has enough action points
+		custom_tooltip = {
+			text = secret_police_action_50_points.tt
+			has_variable = secret_police_action_points
+			root.var:secret_police_action_points > 50
+		}
+		
+		#Cooldown
+		custom_tooltip = {
+			text = secret_police_action_timer.tt
+			NOT = { has_variable = secret_police_action_timer }
+		}
+		
+	}
+	
+	accept_effect = {
+		
+		#Subtract action points
+		custom_tooltip = {
+			text = secret_police_action_subtract_50_points.tt
+			if = {
+				limit = { has_variable = secret_police_action_points }
+				change_variable = { 
+					name = secret_police_action_points
+					add = -50
+				}
+			}
+		}
+		
+		#Gain Loyalty
+		custom_tooltip = {
+			text = secret_police_gain_loyalty_5_points.tt
+			change_variable = { 
+				name = secret_police_loyalty
+				add = 5
+			}
+			clamp_variable = {
+				name = secret_police_loyalty
+				max = 100
+				min = 0
+			}
+		}
+		
+		#Gain infamy
+		change_infamy = 5
+		
+		#Reduce Relations
+		save_scope_as = manipulator_country
+		scope:target_country = { save_scope_as = manipulated_country }
+		custom_tooltip = manipulating_government.tt
+		change_relations = { country = scope:target_country value = -50 }
+		
+	}
+	
+	pact = {	
+		cost = 200
+		is_two_sided_pact = no
+		infamy_affects_maintenance = yes
+		
+		income_transfer = 0.01
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = yes
+		
+		### Validation requirements ###
+		
+		requirement_to_maintain = { 
+		
+			trigger = { 
+			
+				has_journal_entry = je_secret_police_system
+	
+				#THIS has spies in TARGET
+				has_diplomatic_pact = {
+					who = scope:target_country
+					type = conduct_hostile_espionage
+					is_initiator = yes
+				}
+				
+				#TARGET is an independent country
+				scope:target_country = { 
+					NOT = { is_subject_of = scope:actor }
+					NOT = { has_war_with = scope:actor }
+				}
+				
+				#TARGET politics is suceptible to manipulation
+				scope:target_country = { 
+					OR = { 
+						is_a_democracy = yes
+						has_modifier = power_vacuum_modifier
+						has_modifier = domestic_unrest
+						has_modifier = stirrings_of_revolution
+					}
+				}
+				
+			}
+			
+		}
+		
+		### Yearly Effect ###
+		
+		yearly_effect = {
+			
+			#Event to start enactment of law
+			ruler ?= {
+				interest_group = {
+					save_scope_as = manipulator_country_IG
+				}
+			}
+			scope:target_country = {
+				if = {
+					limit = { exists = scope:manipulator_country_IG }
+					random_interest_group = {
+						limit = { is_same_interest_group_type = scope:manipulator_country_IG }
+						save_scope_as = target_interest_group
+						random_preferred_law = {
+							limit = { can_be_enacted = yes }
+							save_scope_as = law_to_be_enacted
+						}
+					}
+				}
+				if = {
+					limit = { 
+						exists = scope:law_to_be_enacted
+						enacting_any_law = no 
+						NOT = { has_variable = manipulate_politics_timer }
+					}
+					if = {
+						limit = { NOT = { has_law = law_type:law_secret_police } }
+						random_list = {
+							1 = { 
+								trigger_event = { id = reserve_powers_system.6 } 
+								set_variable = {
+									name = manipulate_politics_timer
+									months = 1
+								}
+							}
+							1 = { }
+						}
+					}
+					else = {
+						random_list = {
+							1 = { 
+								trigger_event = { id = reserve_powers_system.6 } 
+								set_variable = {
+									name = manipulate_politics_timer
+									months = 1
+								}
+							}
+							4 = { }
+						}
+					}
+				}
+			}
+			
+		}
+		
+		# Break effects
+		manual_break_effect = {
+			change_infamy = -5
+		}
+		
+		auto_break_effect = {
+			change_infamy = -5
+		}
+		
+	}
+	
+	ai = {
+	
+		evaluation_chance = {
+			value = 0.25		
+		}
+	
+		propose_score = {
+			value = 10
+		}
+		
+		will_propose = {
+			infamy < infamy_threshold:infamous
+			OR = { 
+				has_attitude = {
+					who = scope:target_country
+					attitude <= antagonistic
+				}
 				scope:target_country.relations:root < relations_threshold:poor
 			}
 		}

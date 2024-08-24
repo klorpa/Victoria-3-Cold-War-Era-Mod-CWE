@@ -7,20 +7,16 @@ calculate_sovereign_wealth_fund = {
 	}
 	every_scope_building = {
 		limit = {
-			OR = { 
-				has_active_production_method = pm_semi_privately_owned_building_agriculture
-				has_active_production_method = pm_semi_publicly_traded_building_building_agriculture
-				has_active_production_method = pm_semi_privately_owned_building_infrastructure
-				has_active_production_method = pm_semi_publicly_traded_building_building_infrastructure
-				has_active_production_method = pm_semi_privately_owned_building_logging
-				has_active_production_method = pm_semi_publicly_traded_building_building_logging
-				has_active_production_method = pm_semi_privately_owned_building_manufacturing
-				has_active_production_method = pm_semi_publicly_traded_building_building_manufacturing
-				has_active_production_method = pm_semi_privately_owned_building_mining
-				has_active_production_method = pm_semi_publicly_traded_building_building_mining
-				has_active_production_method = pm_semi_privately_owned_building_services
-				has_active_production_method = pm_semi_publicly_traded_building_building_services
+			level > 0
+			OR = {
+				is_building_group = bg_manufacturing
+				is_building_group = bg_agriculture
+				is_building_group = bg_mining
+				is_building_group = bg_logging
+				is_building_group = bg_infrastructure
+				is_building_group = bg_service
 			}
+			private_ownership_fraction < 0.5
 		}
 		owner = {
 			change_variable = {
@@ -35,11 +31,12 @@ calculate_sovereign_wealth_fund = {
 	}
 	every_scope_building = {
 		limit = {
-			OR = { 
-				is_building_group = bg_agriculture
-				is_building_group = bg_logging
-				is_building_group = bg_mining
+			level > 0
+			OR = {
 				is_building_group = bg_manufacturing
+				is_building_group = bg_agriculture
+				is_building_group = bg_mining
+				is_building_group = bg_logging
 				is_building_group = bg_infrastructure
 				is_building_group = bg_service
 			}
@@ -55,9 +52,12 @@ calculate_sovereign_wealth_fund = {
 		name = sovereign_wealth_fund_proportion
 		value = root.var:sovereign_wealth_fund_gov_buildings
 	}
-	change_variable = {
-		name = sovereign_wealth_fund_proportion
-		divide = root.var:sovereign_wealth_fund_all_buildings
+	if = {
+		limit = { root.var:sovereign_wealth_fund_all_buildings > 0 }
+		change_variable = {
+			name = sovereign_wealth_fund_proportion
+			divide = root.var:sovereign_wealth_fund_all_buildings
+		}
 	}
 	set_variable = {
 		name = sovereign_wealth_fund_size
@@ -87,5 +87,129 @@ calculate_sovereign_wealth_fund = {
 		name = sovereign_wealth_fund_size_display
 		divide = 1000000
 	}
+
+}
+
+withdraw_sovereign_wealth_fund = {
+
+	#Withdraw money
+	if = {
+		limit = { 
+			investment_pool >= 10000
+			root.var:sovereign_wealth_fund_withdrawal_amount >= 10000
+			root.var:sovereign_wealth_fund_withdrawal_amount < 100000
+		}
+		add_treasury = 10000
+		add_investment_pool = -10000
+	}
+	if = {
+		limit = { 
+			investment_pool >= 100000
+			root.var:sovereign_wealth_fund_withdrawal_amount >= 100000
+			root.var:sovereign_wealth_fund_withdrawal_amount < 1000000
+		}
+		add_treasury = 100000
+		add_investment_pool = -100000
+	}
+	if = {
+		limit = { 
+			investment_pool >= 1000000
+			root.var:sovereign_wealth_fund_withdrawal_amount >= 1000000
+			root.var:sovereign_wealth_fund_withdrawal_amount < 10000000
+		}
+		add_treasury = 1000000
+		add_investment_pool = -1000000
+	}
+	if = {
+		limit = { 
+			investment_pool >= 10000000
+			root.var:sovereign_wealth_fund_withdrawal_amount >= 10000000
+			root.var:sovereign_wealth_fund_withdrawal_amount < 100000000
+		}
+		add_treasury = 10000000
+		add_investment_pool = -10000000
+	}
+	if = {
+		limit = { 
+			investment_pool >= 100000000
+			root.var:sovereign_wealth_fund_withdrawal_amount >= 100000000
+			root.var:sovereign_wealth_fund_withdrawal_amount < 1000000000
+		}
+		add_treasury = 100000000
+		add_investment_pool = -100000000
+	}
+	if = {
+		limit = { 
+			investment_pool >= 1000000000
+			root.var:sovereign_wealth_fund_withdrawal_amount >= 1000000000
+			root.var:sovereign_wealth_fund_withdrawal_amount < 10000000000
+		}
+		add_treasury = 1000000000
+		add_investment_pool = -1000000000
+	}
+	
+	calculate_sovereign_wealth_fund = yes
+
+}
+
+deposit_sovereign_wealth_fund = {
+
+	#Deposit money
+	if = {
+		limit = { 
+			gold_reserves >= 10000
+			root.var:sovereign_wealth_fund_withdrawal_amount >= 10000
+			root.var:sovereign_wealth_fund_withdrawal_amount < 100000
+		}
+		add_investment_pool = 10000
+		add_treasury = -10000
+	}
+	if = {
+		limit = { 
+			gold_reserves >= 100000
+			root.var:sovereign_wealth_fund_withdrawal_amount >= 100000
+			root.var:sovereign_wealth_fund_withdrawal_amount < 1000000
+		}
+		add_investment_pool = 100000
+		add_treasury = -100000
+	}
+	if = {
+		limit = { 
+			gold_reserves >= 1000000
+			root.var:sovereign_wealth_fund_withdrawal_amount >= 1000000
+			root.var:sovereign_wealth_fund_withdrawal_amount < 10000000
+		}
+		add_investment_pool = 1000000
+		add_treasury = -1000000
+	}
+	if = {
+		limit = { 
+			gold_reserves >= 10000000
+			root.var:sovereign_wealth_fund_withdrawal_amount >= 10000000
+			root.var:sovereign_wealth_fund_withdrawal_amount < 100000000
+		}
+		add_investment_pool = 10000000
+		add_treasury = -10000000
+	}
+	if = {
+		limit = { 
+			gold_reserves >= 100000000
+			root.var:sovereign_wealth_fund_withdrawal_amount >= 100000000
+			root.var:sovereign_wealth_fund_withdrawal_amount < 1000000000
+		}
+		add_investment_pool = 100000000
+		add_treasury = -100000000
+	}
+	if = {
+		limit = { 
+			gold_reserves >= 1000000000
+			root.var:sovereign_wealth_fund_withdrawal_amount >= 1000000000
+			root.var:sovereign_wealth_fund_withdrawal_amount < 10000000000
+		}
+		add_investment_pool = 1000000000
+		add_treasury = -1000000000
+	}
+	
+	calculate_sovereign_wealth_fund = yes
 
 }

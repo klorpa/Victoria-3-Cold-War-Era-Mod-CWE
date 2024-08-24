@@ -1,5 +1,5 @@
 ﻿conduct_biological_strike = {
-	requires_approval = no
+	groups= { general } requires_approval = no
 	should_notify_third_parties = yes
 
 	potential = {
@@ -39,6 +39,15 @@
 	}
 
 	accept_effect = {
+		
+		#Lobby
+		add_lobby_appeasement_from_diplomacy_unidirectional = { 
+			FIRST = root
+			SECOND = scope:target_country 
+			PRO_AMOUNT = -5
+			ANTI_AMOUNT = 5
+			FACTOR = appeasement_embargo_declared
+		}
 		
 		#THIS gains infamy and international hatred for biological attack
 		scope:actor = { change_infamy = 20 }
@@ -93,6 +102,10 @@
 	}
 	
 	ai = {
+	
+		evaluation_chance = {
+			value = 0.25		
+		}
 	
 		propose_score = {
 			value = 10

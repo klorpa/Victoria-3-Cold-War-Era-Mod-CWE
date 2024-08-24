@@ -1,5 +1,5 @@
 ﻿stop_endless_revolutions = {
-	requires_approval = yes
+	groups= { general } requires_approval = yes
 	can_use_obligations = no
 	
 	potential = {
@@ -114,6 +114,10 @@
 	}
 
 	ai = {
+	
+		evaluation_chance = {
+			value = 0.25		
+		}
 	
 		propose_score = {
 			value = 10

@@ -1,0 +1,222 @@
+﻿force_regime_change = {
+	groups= {
+		power_bloc_leader
+	}
+	show_in_lens = no
+
+	texture = "gfx/interface/icons/diplomatic_action_icons/force_regime_change.dds"
+	
+	selectable = {
+		is_power_bloc_leader = yes
+		power_bloc ?= {
+			modifier:power_bloc_leader_can_regime_change_bool = yes
+		}		
+	}	
+	
+	potential = {
+	
+		power_bloc ?= {
+			scope:target_country.power_bloc ?= this
+		}
+		
+		#THIS and TARGET are not enemies in a DP
+		hidden_trigger = { NOT = { is_diplomatic_play_enemy_of = scope:target_country } }
+		
+	}
+	
+	possible = {
+	
+		#THIS does not share the same government type as TARGET
+		custom_tooltip = {
+			text = "FORCE_REGIME_CHANGE_GOV_PRINCIPLES_DIST_POWER_PROGRESSIVENESS_DIFFERENCE"
+			OR = {
+			
+				#Legislature laws
+				AND = { has_law = law_type:law_appointed_legislature scope:target_country = { NOT = { has_law = law_type:law_appointed_legislature } } }
+				AND = { has_law = law_type:law_technocratic_legislature scope:target_country = { NOT = { has_law = law_type:law_technocratic_legislature } } }
+				AND = { has_law = law_type:law_democratic_legislature scope:target_country = { NOT = { has_law = law_type:law_democratic_legislature } } }
+				
+				#Head of State laws
+				AND = { has_law = law_type:law_HOS_monarch scope:target_country = { NOR = { has_law = law_type:law_HOS_monarch has_law = law_type:law_HOS_president } } }
+				AND = { has_law = law_type:law_HOS_president scope:target_country = { NOR = { has_law = law_type:law_HOS_president has_law = law_type:law_HOS_monarch } } }
+				AND = { has_law = law_type:law_HOS_religious_leader scope:target_country = { NOT = { has_law = law_type:law_HOS_religious_leader } } }
+				AND = { has_law = law_type:law_HOS_nationalist_leader scope:target_country = { NOT = { has_law = law_type:law_HOS_nationalist_leader } } }
+				AND = { has_law = law_type:law_HOS_communist_leader scope:target_country = { NOT = { has_law = law_type:law_HOS_communist_leader } } }
+				
+			}
+		}
+	
+		power_bloc = {
+			current_cohesion_percentage >= 0.5
+		}
+		scope:target_country = {
+			tenure_in_current_power_bloc_years >= 5
+		}
+		prestige >= {
+			value = scope:target_country.prestige
+			multiply = 3
+		}
+		
+		#THIS is not at war with TARGET
+		NOT = { has_war_with = scope:target_country }
+		OR = { 
+			AND = {
+				has_truce_with = scope:target_country
+				scope:target_country = { is_subject_of = scope:actor }
+			}
+			NOT = { has_truce_with = scope:target_country }
+		}
+		
+		#THIS is legally and politically capable of intervention
+		OR = { 
+			has_interventionist_fp = yes
+			is_a_dictatorship = yes
+		}
+		
+	}
+	
+	accept_effect = {
+	
+		#Infamy
+		change_infamy = 5
+	
+		#Replace laws
+		scope:target_country = { copy_laws = scope:actor }
+		scope:target_country = {
+			add_modifier = {
+				name = installed_regime
+				months = normal_modifier_time
+				multiplier = 0.2
+			}
+		}
+		
+		power_bloc = {
+			add_cohesion_percent = scaled_cohesion_cost
+		}
+		
+		#Ruler of TARGET is removed from office, if ruler is not the same interest group
+		scope:target_country = {
+			if = {
+				limit = {
+					ruler ?= { interest_group = { NOT = { is_same_interest_group_type = scope:actor.ruler.interest_group } } }
+				}
+				random_list = { 
+					1 = { 
+						random_scope_character = { limit = { is_ruler = yes } kill_character = yes }
+					}
+					1 = { 
+						random_scope_character = { limit = { is_ruler = yes } convert_IG_ideology_to_agitator_ideology = yes exile_character_with_martyrdom = yes } 
+						get_ruler_for:presidential_elective = {
+							set_character_as_ruler = yes
+						}
+					}
+				}
+			}
+		}
+		
+		scope:target_country = {
+			#Lobby
+			add_lobby_appeasement_from_diplomacy_unidirectional = { 
+				FIRST = scope:target_country
+				SECOND = scope:actor
+				PRO_AMOUNT = -10
+				ANTI_AMOUNT = 10
+				FACTOR = appeasement_embargo_declared
+			}
+		}
+		
+	}
+	
+	ai = {
+		evaluation_chance = {
+			value = 0.25
+		}
+		
+		will_propose = {
+		
+			OR = {
+			
+				AND = {
+				
+					NOT = { has_global_variable = historical_railroading_active }
+					
+					infamy < infamy_threshold:notorious
+					
+					power_bloc = { current_cohesion_percentage >= 0.75 }
+					
+					"ai_ideological_opinion(scope:target_country)" <= -50			
+					OR = {
+						"ai_ideological_opinion(scope:target_country)" <= -100
+						has_attitude = {
+							who = scope:target_country
+							attitude = domineering
+						}
+						AND = {
+							has_radical_leftist_government = no			
+							scope:target_country = {
+								has_radical_leftist_government = yes
+							}
+						}
+						AND = {
+							has_radical_leftist_economy = no			
+							scope:target_country = {
+								has_radical_leftist_economy = yes
+							}
+						}
+					}
+					
+				}
+				
+				AND = {
+					scope:actor = { is_a_communist_government = yes }
+					scope:target_country = {
+						is_subject_of = scope:actor
+						NOT = { is_a_communist_government = yes }
+					}
+				}
+				
+				AND = {
+					scope:actor = { is_a_theocratic_government = yes }
+					scope:target_country = {
+						is_subject_of = scope:actor
+						NOT = { is_a_theocratic_government = yes }
+					}
+				}
+				
+				AND = {
+					scope:actor = { is_a_nationalist_government = yes }
+					scope:target_country = {
+						is_subject_of = scope:actor
+						NOT = { is_a_nationalist_government = yes }
+					}
+				}
+				
+			}
+			
+		}
+
+		propose_score = {								
+			value = 10
+
+			if = {
+				limit = {
+					OR = {					
+						AND = {
+							has_radical_leftist_government = no			
+							scope:target_country = {
+								has_radical_leftist_government = yes
+							}
+						}
+						AND = {
+							has_radical_leftist_economy = no			
+							scope:target_country = {
+								has_radical_leftist_economy = yes
+							}
+						}				
+					}
+				}
+				add = 100
+			}				
+		}
+	}
+}

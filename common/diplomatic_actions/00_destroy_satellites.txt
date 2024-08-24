@@ -1,4 +1,5 @@
 destroy_satellites = {
+	groups= { general }
 	should_notify_third_parties = yes
 
 	unlocking_technologies = {
@@ -67,6 +68,15 @@ destroy_satellites = {
 	
 	accept_effect = {
 		
+		#Lobby
+		add_lobby_appeasement_from_diplomacy_unidirectional = { 
+			FIRST = root
+			SECOND = scope:target_country 
+			PRO_AMOUNT = -5
+			ANTI_AMOUNT = 5
+			FACTOR = appeasement_embargo_declared
+		}
+		
 		scope:target_country = { 
 			save_scope_as = target_country_scope
 		}
@@ -95,6 +105,10 @@ destroy_satellites = {
 	}
 	
 	ai = {
+	
+		evaluation_chance = {
+			value = 0.25		
+		}
 	
 		propose_score = {
 			value = 10

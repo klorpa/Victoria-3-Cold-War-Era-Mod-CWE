@@ -1,5 +1,5 @@
 ﻿station_nuclear_weapons = {
-	requires_approval = yes
+	groups= { general } requires_approval = yes
 	can_use_obligations = yes
 
 	unlocking_technologies = {
@@ -94,13 +94,22 @@
 	}
 	
 	accept_effect = {
+	
+		#Lobby
+		add_lobby_appeasement_from_diplomacy_bidirectional = { 
+			FIRST = root
+			SECOND = scope:target_country 
+			PRO_AMOUNT = 2
+			ANTI_AMOUNT = -2
+			FACTOR = appeasement_defensive_pact_formed
+		}
+	
 		change_relations = { country = scope:target_country value = 10 }
 	}
 	
 	decline_effect = {
 		change_relations = { country = scope:target_country value = -10 }
 	}
-	
 	
 	pact = {
 		cost = 50
@@ -109,8 +118,12 @@
 		
 		#THIS pays TARGET to station nuclear weapons
 		income_transfer = 0.05
-		recipient_gets_income_transfer = yes
-		income_transfer_based_on_recipient = yes
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = yes
+		
+		second_modifier = {
+			country_pact_leverage_generation_add = 200
+		}
 
 		requirement_to_maintain = { 
 		
@@ -198,6 +211,10 @@
 	ai = {
 		check_acceptance_for_will_break = yes
 		check_acceptance_for_will_propose = yes
+	
+		evaluation_chance = {
+			value = 0.25		
+		}
 	
 		accept_score = {
 			value = 0

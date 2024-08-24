@@ -1188,7 +1188,7 @@ historical_economy.15 = {
 			has_law = law_type:law_command_economy
 			has_law = law_type:law_semi_command_economy
 			has_law = law_type:law_state_capitalism
-			has_law = law_type:law_interventionism
+			#has_law = law_type:law_interventionism
 		}
 		
 		#Western Bloc countries only
@@ -1201,12 +1201,8 @@ historical_economy.15 = {
 		is_sufficiently_independent = yes						# is_vassal = no
 		
 		#1980s onwards only OR Cold War is over
+		game_date >= 1980.1.1
 		OR = {
-		
-			AND = { 
-				has_technology_researched = tech_economy_5
-				has_technology_researched = tech_politics_5
-			}
 		
 			NOT = { 
 				any_country = {
@@ -1220,11 +1216,15 @@ historical_economy.15 = {
 			}
 			
 			AND = { 
-				game_date >= 1980.1.1
 				right_wing_ruling_coalition = yes
+				OR = {
+					has_technology_researched = tech_economy_5
+					has_technology_researched = tech_politics_5
+				}
 			}
 			
 		}
+		
 		game_date < 2010.1.1
 		
 		# Event has not been fired before
@@ -1693,6 +1693,772 @@ historical_economy.20 = {
 		add_radicals = {
 			value = large_radicals
 			strata = poor
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Bulgarian New System of Management, 1960s
+historical_economy.21 = {
+    type = country_event
+
+    title = BUL_NEM_Reforms.t 								# Title of the event; ADD LOCALISATION
+    desc = BUL_NEM_Reforms.d 								# Description of the event; ADD LOCALISATION
+    #flavor = BUL_NEM_Reforms.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:BUL ?= this
+		game_date >= 1964.1.1									# START DATE: Date colony became self governing ****
+		game_date < 1974.1.1									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_communist_government = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		has_law = law_type:law_command_economy
+		
+		#Zhikov
+		ruler ?= { 
+			NOT = { character_is_autocratic = yes } 
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = BUL_NEM_Reforms_hee }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = BUL_NEM_Reforms_hee						# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Enact new regime
+		activate_law = law_type:law_semi_command_economy
+		activate_law = law_type:law_free_trade
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = large_radicals
+			strata = poor
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Opening up of China
+historical_economy.22 = {
+    type = country_event
+
+    title = CHI_USA_Investment.t 								# Title of the event; ADD LOCALISATION
+    desc = CHI_USA_Investment.d 								# Description of the event; ADD LOCALISATION
+    #flavor = CHI_USA_Investment.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Sino Soviet Split
+		has_global_variable = sino_soviet_split_global_var
+		
+		#Overlord conditions
+		OR = { c:CHI ?= this c:PRC ?= this }
+		game_date >= 1991.1.1									# START DATE: Date colony became self governing ****
+		game_date < 2001.1.1									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = CHI_USA_Investment_hee }			# CHANGE ****
+		
+		#No longer a command economy
+		NOT = { is_a_command_economy = yes }
+		
+		is_a_communist_government = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#International situation
+		exists = c:USA
+		c:USA ?= {
+			country_rank >= rank_value:super_power
+			
+			is_a_democracy = yes
+			is_sufficiently_independent = yes
+			is_at_war = no
+			
+			NOT = { is_a_command_economy = yes }
+			NOT = { has_law = law_type:law_isolationism }
+			
+			NOT = { has_diplomatic_pact = { who = ROOT type = foreign_investment_agreement } }
+		}
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = CHI_USA_Investment_hee					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Create investment agreement with China
+		every_country = {
+			limit = { 
+				is_player = no 
+				
+				country_rank >= rank_value:major_power
+				is_a_democracy = yes
+				is_sufficiently_independent = yes
+				is_at_war = no
+				
+				NOT = { is_a_command_economy = yes }
+				NOT = { has_law = law_type:law_isolationism }
+			}
+			create_diplomatic_pact = {
+				country = ROOT
+				type = foreign_investment_agreement
+			}
+		}
+		
+		#Adjust laws
+		if = {
+			limit = { has_law = law_type:law_isolationism }
+			activate_law = law_type:law_protectionism
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = large_radicals
+			strata = rich
+		}
+		add_radicals = {
+			value = large_radicals
+			strata = middle
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Opening up of Vietnam
+historical_economy.23 = {
+    type = country_event
+
+    title = DAI_USA_Investment.t 								# Title of the event; ADD LOCALISATION
+    desc = DAI_USA_Investment.d 								# Description of the event; ADD LOCALISATION
+    #flavor = DAI_USA_Investment.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		OR = { c:DAI ?= this c:NVM ?= this }
+		game_date >= 1990.1.1									# START DATE: Date colony became self governing ****
+		game_date < 1996.1.1									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = DAI_USA_Investment_hee }			# CHANGE ****
+		
+		#No longer a command economy
+		NOT = { is_a_command_economy = yes }
+		
+		is_a_communist_government = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#International situation
+		exists = c:USA
+		c:USA ?= {
+			country_rank >= rank_value:super_power
+			
+			is_a_democracy = yes
+			is_sufficiently_independent = yes
+			is_at_war = no
+			
+			NOT = { is_a_command_economy = yes }
+			NOT = { has_law = law_type:law_isolationism }
+			
+			NOT = { has_diplomatic_pact = { who = ROOT type = foreign_investment_agreement } }
+		}
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = DAI_USA_Investment_hee					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Create investment agreement with Vietnam
+		every_country = {
+			limit = { 
+				is_player = no 
+				
+				country_rank >= rank_value:major_power
+				is_a_democracy = yes
+				is_sufficiently_independent = yes
+				is_at_war = no
+				
+				NOT = { is_a_command_economy = yes }
+				NOT = { has_law = law_type:law_isolationism }
+			}
+			create_diplomatic_pact = {
+				country = ROOT
+				type = foreign_investment_agreement
+			}
+		}
+		
+		#Adjust laws
+		if = {
+			limit = { has_law = law_type:law_isolationism }
+			activate_law = law_type:law_protectionism
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = large_radicals
+			strata = rich
+		}
+		add_radicals = {
+			value = large_radicals
+			strata = middle
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Opening up of USSR
+historical_economy.24 = {
+    type = country_event
+
+    title = SOV_USA_Investment.t 								# Title of the event; ADD LOCALISATION
+    desc = SOV_USA_Investment.d 								# Description of the event; ADD LOCALISATION
+    #flavor = SOV_USA_Investment.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		OR = { c:SOV ?= this c:RUS ?= this }
+		game_date >= 1990.1.1									# START DATE: Date colony became self governing ****
+		game_date < 2000.1.1									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = SOV_USA_Investment_hee }			# CHANGE ****
+		
+		#No longer a command economy
+		NOT = { is_a_command_economy = yes }
+		
+		is_a_communist_government = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#International situation
+		exists = c:USA
+		c:USA ?= {
+			country_rank >= rank_value:super_power
+			
+			is_a_democracy = yes
+			is_sufficiently_independent = yes
+			is_at_war = no
+			
+			NOT = { is_a_command_economy = yes }
+			NOT = { has_law = law_type:law_isolationism }
+			
+			NOT = { has_diplomatic_pact = { who = ROOT type = foreign_investment_agreement } }
+		}
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = SOV_USA_Investment_hee					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Create investment agreement with USSR
+		every_country = {
+			limit = { 
+				is_player = no 
+				
+				country_rank >= rank_value:major_power
+				is_a_democracy = yes
+				is_sufficiently_independent = yes
+				is_at_war = no
+				
+				NOT = { is_a_command_economy = yes }
+				NOT = { has_law = law_type:law_isolationism }
+			}
+			create_diplomatic_pact = {
+				country = ROOT
+				type = foreign_investment_agreement
+			}
+		}
+		
+		#Adjust laws
+		if = {
+			limit = { has_law = law_type:law_isolationism }
+			activate_law = law_type:law_protectionism
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = large_radicals
+			strata = rich
+		}
+		add_radicals = {
+			value = large_radicals
+			strata = middle
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Chinese Land Reform, 1951
+historical_economy.25 = {
+    type = country_event
+
+    title = PRC_LRR_Reforms.t 								# Title of the event; ADD LOCALISATION
+    desc = PRC_LRR_Reforms.d 								# Description of the event; ADD LOCALISATION
+    #flavor = PRC_LRR_Reforms.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		OR = { c:CHI ?= this c:PRC ?= this }
+		game_date >= 1951.5.1									# START DATE: Date colony became self governing ****
+		game_date < 1961.5.1									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_communist_government = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#Has some form of private land ownership
+		NOT = { has_law = law_type:law_no_private_land_ownership }
+		
+		#Maoist
+		ruler ?= { 
+			interest_group = { is_interest_group_type = ig_trade_unions }
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = PRC_LRR_Reforms_hee }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = PRC_LRR_Reforms_hee						# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Enact new regime
+		activate_law = law_type:law_no_private_land_ownership
+		
+		#Major discontent
+		add_radicals = {
+			value = large_radicals
+			strata = rich
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = large_radicals
+			strata = poor
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Vietnamese Land Reform, 1954
+historical_economy.26 = {
+    type = country_event
+
+    title = NVM_LRR_Reforms.t 								# Title of the event; ADD LOCALISATION
+    desc = NVM_LRR_Reforms.d 								# Description of the event; ADD LOCALISATION
+    #flavor = NVM_LRR_Reforms.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		OR = { c:DAI ?= this c:NVM ?= this }
+		game_date >= 1954.5.1									# START DATE: Date colony became self governing ****
+		game_date < 1964.5.1									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_communist_government = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#Has some form of private land ownership
+		NOT = { has_law = law_type:law_no_private_land_ownership }
+		
+		#Maoist
+		ruler ?= { 
+			interest_group = { is_interest_group_type = ig_trade_unions }
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = NVM_LRR_Reforms_hee }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = NVM_LRR_Reforms_hee						# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Enact new regime
+		activate_law = law_type:law_no_private_land_ownership
+		
+		#Major discontent
+		add_radicals = {
+			value = large_radicals
+			strata = rich
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = large_radicals
+			strata = poor
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Sri Lankan Economic Reforms
+historical_economy.27 = {
+    type = country_event
+
+    title = SRL_NEM_Reforms.t 								# Title of the event; ADD LOCALISATION
+    desc = SRL_NEM_Reforms.d 								# Description of the event; ADD LOCALISATION
+    #flavor = SRL_NEM_Reforms.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:SRL ?= this
+		game_date >= 1978.2.4									# START DATE: Date colony became self governing ****
+		game_date < 1988.2.4									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_republican_democracy = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		is_a_socialist_economy = yes
+		
+		# Event has not been fired before
+		NOT = { has_variable = SRL_NEM_Reforms_hee }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = SRL_NEM_Reforms_hee						# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Enact new regime
+		activate_law = law_type:law_laissez_faire
+		
+		#Junius Richard Jayewardene
+		create_character = {
+			first_name = "Junius_Richard_Jayewardene_first_name"
+			last_name = "Junius_Richard_Jayewardene_last_name"
+			ruler = yes ig_leader = yes historical = yes
+			birth_date = 1906.9.17
+			interest_group = ig_industrialists
+			ideology = ideology_elitist
+			traits = {
+				charismatic
+				innovative
+				persistent
+			}
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = large_radicals
+			strata = poor
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Iranian White Revolution
+historical_economy.28 = {
+    type = country_event
+
+    title = PER_NEM_Reforms.t 								# Title of the event; ADD LOCALISATION
+    desc = PER_NEM_Reforms.d 								# Description of the event; ADD LOCALISATION
+    #flavor = PER_NEM_Reforms.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:PER ?= this
+		game_date >= 1963.1.26									# START DATE: Date colony became self governing ****
+		game_date < 1973.1.26									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_regime_monarchy = yes								# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		# Event has not been fired before
+		NOT = { has_variable = PER_NEM_Reforms_hee }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = PER_NEM_Reforms_hee						# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Enact new regime
+		activate_law = law_type:law_social_capitalism
+		activate_law = law_type:law_limited_private_land_ownership
+		activate_law = law_type:law_full_womens_rights
+		if = {
+			limit = { 
+				NOT = { has_law = law_type:law_public_schools } 
+			}
+			activate_law = law_type:law_public_schools
+		}
+		if = {
+			limit = { 
+				has_law = law_type:law_child_labor_allowed
+			}
+			activate_law = law_type:law_restricted_child_labor
+		}
+		if = {
+			limit = { 
+				NOT = { has_law = law_type:law_high_social_security }
+			}
+			activate_law = law_type:law_high_social_security
+		}
+		
+		#Major discontent
+		add_radicals = {
+			value = large_radicals
+			interest_group = ig:ig_devout
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = large_radicals
+			strata = middle
 		}
 		
 		ai_chance = { 

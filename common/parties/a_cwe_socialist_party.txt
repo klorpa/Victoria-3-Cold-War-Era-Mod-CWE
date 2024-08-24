@@ -7,6 +7,15 @@ socialist_party = {
 	name = {
 		first_valid = {
 			triggered_desc = {
+				desc = party_socialist_faction
+				trigger = {
+					OR = { 
+						has_law = law_type:law_parties_not_allowed
+						has_law = law_type:law_single_party_state
+					}
+				}
+			}
+			triggered_desc = {
 				desc = party_socialist
 				trigger = {
 					always = yes
@@ -31,13 +40,11 @@ socialist_party = {
 			owner = { has_law = law_type:law_parties_allowed }
 			
 			#Country allows only 1 party
-			owner = {
-				has_law = law_type:law_single_party_state
-				any_interest_group = {
-					has_ideology = ideology:ideology_left_economy
-					has_ideology = ideology:ideology_communitarian
-					is_in_government = yes
+			AND = {
+				owner = {
+					has_law = law_type:law_single_party_state
 				}
+				is_in_government = yes
 			}
 			
 		}

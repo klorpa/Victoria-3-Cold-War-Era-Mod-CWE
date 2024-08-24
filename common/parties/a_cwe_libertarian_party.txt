@@ -7,6 +7,15 @@ libertarian_party = {
 	name = {
 		first_valid = {
 			triggered_desc = {
+				desc = party_libertarian_faction
+				trigger = {
+					OR = { 
+						has_law = law_type:law_parties_not_allowed
+						has_law = law_type:law_single_party_state
+					}
+				}
+			}
+			triggered_desc = {
 				desc = party_libertarian
 				trigger = {
 					always = yes
@@ -30,16 +39,11 @@ libertarian_party = {
 			owner = { has_law = law_type:law_parties_allowed }
 			
 			#Country allows only 1 party
-			owner = {
-				has_law = law_type:law_single_party_state
-				any_interest_group = {
-					exists = leader leader = {
-						has_ideology = ideology:ideology_liberal
-					}
-					has_ideology = ideology:ideology_individualist
-					has_ideology = ideology:ideology_far_right_economy
-					is_in_government = yes
+			AND = {
+				owner = {
+					has_law = law_type:law_single_party_state
 				}
+				is_in_government = yes
 			}
 			
 		}

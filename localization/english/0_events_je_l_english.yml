@@ -841,8 +841,10 @@
     portuguese_sao_tome.indy.d:0 "$generic_independence_decolonisation_loc_desc$"
     portuguese_timor.indy.t:0 "Independence of East Timor?"
     portuguese_timor.indy.d:0 "$generic_independence_decolonisation_loc_desc$"
+    portuguese_macau.sgc.t:0 "Devolution in Macau?"
+    portuguese_macau.sgc.d:0 "After the 1974 revolution in Portugal, a decolonisation policy paved the way for Macau's retrocession to the People's Republic of China (PRC). On 17 February 1976, the Portuguese parliament passed the Organic Statute of Macau, which called it a "territory under Portuguese administration". This term was also put in Portugal's 1976 constitution, replacing Macau's designation as an overseas province. Unlike previous constitutions, Macau was not included as an integral part of Portuguese territory."
     
-    portuguese_decolonisation.option.1:0 "Let the colony be self-governing"
+    portuguese_decolonisation.option.1:0 "Accept the demands"
     portuguese_decolonisation.option.2:0 "They do not deserve any autonomy"
     
     french_cameroon.indy.t:0 "Independence of Cameroon?"
@@ -999,6 +1001,20 @@
     KAS_HND_union.d:0 "By executing an Instrument of Accession under the provisions of the Indian Independence Act 1947, Maharaja Hari Singh agreed to accede his state to the Dominion of India."
     NET_IDO_union.t:0 "The Netherlands-Indonesia Union?"
     NET_IDO_union.d:0 "The Netherlands-Indonesia Union was a confederal relationship between the Netherlands and Indonesia that existed between 1949 and 1956. Agreed in 1949, It was an attempt by the Netherlands to continue to bind its former colony of the Dutch East Indies (now Indonesia) to the Netherlands in a confederal manner, at least within the framework of a personal union, even after independence had been granted."
+    MLT_GBR_union.t:0 "The Maltese-British Integration Referendum"
+    MLT_GBR_union.d:0 "A referendum on integration with the United Kingdom was held in Malta on 11 and 12 February 1956. The proposals were approved by 77% of those who voted, on a turnout of 59%; the low turnout was partly because of a boycott by the Nationalist Party. The proposals were never fully implemented, and the country became an independent Realm within the British Commonwealth titled the State of Malta eight years later."
+    FRA_GBR_union.t:0 "The Franco-British Union?"
+    FRA_GBR_union.d:0 "In September 1956, due to a common foe during the Suez Crisis, an Anglo-French Task Force was created. French Prime Minister Guy Mollet proposed a union between the United Kingdom and the French Union with Elizabeth II as head of state and a common citizenship. As an alternative, Mollet proposed that France join the Commonwealth. British Prime Minister Anthony Eden rejected both proposals; France went on to join the Treaty of Rome, which established the European Economic Community."
+    YUG_BUL_union.t:0 "The Balkan Federation?"
+    YUG_BUL_union.d:0 "The Bled agreement was signed on 1 August 1947 by Georgi Dimitrov and Josip Broz Tito in Bled, PR Slovenia, FPR Yugoslavia and paved the way for a future unification of Bulgaria and Yugoslavia in a new Balkan Federation. The policies resulting from the agreement were reversed after the Tito–Stalin split in June 1948, when Bulgaria, not wanting to be a seventh republic of Yugoslavia as Tito imagined and being tied to the interests of the Soviet Union, took a stance against Yugoslavia. When the Cominform campaign against Yugoslavia severed the Yugoslav Communist Party leadership, the government of Bulgaria on 1 October 1949 deleted the Treaty on Friendship, Cooperation and Mutual Assistance of Bled with all its agreements."
+    LBY_EGY_union.t:0 "The Federation of Arab Republics?"
+    LBY_EGY_union.d:0 "The Federation of Arab Republics was an unsuccessful attempt by Muammar Gaddafi to merge Libya, Egypt and Syria in order to create a unified Arab state. Although approved by a referendum in each country on 1 September 1971, the three countries disagreed on the specific terms of the merger. The federation lasted from 1 January 1972 to 19 November 1977."
+    IRQ_SYR_union.t:0 "The Union of Arab Republics?"
+    IRQ_SYR_union.d:0 "In March 1972, Ba'athist Iraq proposed to Egypt and Syria a re-establishment of the United Arab Republic, which failed in 1963. The Iraqi proposal was an immediate reaction to Jordan's proposal for a United Arab Kingdom but collided with the already established Federation of Arab Republics and failed because of Iraqi–Syrian differences."
+    UAR_NYE_union.t:0 "The United Arab States?"
+    UAR_NYE_union.d:0 "The United Arab Republic was a sovereign state formed by the union of Egypt and Syria in 1958. The same year, the Kingdom of Yemen (North Yemen), which had already signed a defense pact with Egypt, joined with the new state on March 8, 1958, in a loose confederation called the United Arab States. One reason for this decision was that, for a long time, Yemen had felt threatened by its considerably larger and more powerful northern neighbour, Saudi Arabia, and thus saw the confederation as a source of security. However, unlike the member countries of the United Arab Republic, North Yemen remained an independent sovereign state."
+    GHA_GUI_union.t:0 "The Union of African States"
+    GHA_GUI_union.d:0 "The Union of African States, sometimes called the Ghana–Guinea–Mali Union, was a short-lived and loose regional organization formed in 1958 linking the West African nations of Ghana and Guinea as the Union of Independent African States. Mali joined in 1961. It disbanded in 1963."
     
     historical_union_formation.option.1:0 "Yes"
     historical_union_formation.option.2:0 "No, we shall remain independent!"
@@ -1066,6 +1082,10 @@
     transfer_territory_port_bornholm.d:0 "On 9 May Soviet troops landed on the island, and after a short fight, the German garrison (about 12,000 strong) surrendered. Soviet forces left the island on 5 April 1946."
     transfer_territory_port_dodecanese.t:0 "Transfer the Dodecanese Islands to Greece?"
     transfer_territory_port_dodecanese.d:0 "After the war, the islands became a British military protectorate and were almost immediately allowed to run their own civil affairs, whereupon they became informally united with Greece, though under separate sovereignty and military control. Despite objections from Turkey, which desired the islands as well, they were formally united with Greece by the 1947 Peace Treaty with Italy."
+    transfer_territory_british_newfoundland.t:0 "Confederate Newfoundland with Canada?"
+    transfer_territory_british_newfoundland.d:0 "The Newfoundland referendums of 1948 were a series of two referendums to decide the political future of the Dominion of Newfoundland. Before the referendums, Newfoundland was in debt and went through several delegations to determine whether the country would join Canada ("confederation"), remain under British rule or regain independence. The voting for the referendums occurred on June 3 and July 22, 1948. The eventual result was for Newfoundland to enter into Confederation, which it did on March 31, 1949, becoming the tenth province of Canada."
+    transfer_territory_british_sarawak.t:0 "Annex Sarawak?"
+    transfer_territory_british_sarawak.d:0 "The Kingdom of Sarawak was an independent state founded in 1841, in a treaty of protection with the United Kingdom starting from 1888. In 1888, the Raj acquired protected state status from the British Government whilst avoiding annexation. World War II and the arrival of Japanese forces ultimately brought an end to the Raj, with the territory placed under a military administration on the Japanese capitulation in 1945, and annexed by Britain as its last acquisition as a Crown Colony in 1946, contrary to the Atlantic Charter."
     
     historical_territorial_transfers.option.1:0 "Transfer the territories"
     historical_territorial_transfers.option.2:0 "Those territories shall remain ours!"
@@ -1105,6 +1125,8 @@
     SKN_GBR_dissolution.d:0 "After a brief period as part of the West Indies Federation, the island of Anguilla became part of the associated state of Saint Kitts-Nevis-Anguilla with full internal autonomy in 1967. However many Anguillans had no wish to be a part of this union, and resented the dominance of St Kitts within it. In 1980, Anguilla was finally allowed to formally secede from Saint Kitts and Nevis and become a separate British Overseas Territory."
     FRA_NCD_dissolution.t:0 "The New Caledonian Independence Referendum"
     FRA_NCD_dissolution.d:0 "An independence referendum was held in New Caledonia, a French territory in the South Pacific, on 12 December 2021. The vote was the third and final to be held under the terms of the Nouméa Accord, following votes in 2018 and 2020, in which independence was rejected by 57% and 53% respectively."
+    UAS_GHA.t:0 "Dissolution of the Union of African States"
+    UAS_GHA.d:0 "The union was dissolved without much attention in May 1963. Different explanations have been offered for the failure of the UAS, such as competing nationalisms and intrinsic flaws in the U.S. model of federation that Nkrumah was influenced by. Adom Getachew argues that the failure was caused by deep disagreements about the precise balance between federal union and independence of member states."
     
     historical_union_dissolution.option.1:0 "Grant them independence"
     historical_union_dissolution.option.2:0 "Our country cannot be fragmented!"
@@ -1210,6 +1232,18 @@
     arab_israeli_war.d:0 "The 1948 Arab–Israeli War, also known as the First Arab–Israeli War, followed the civil war in Mandatory Palestine as the second and final stage of the 1948 Palestine war. The civil war became a war of separate states with the Israeli Declaration of Independence on 14 May 1948, the end of the British Mandate for Palestine at midnight, and the entry of a military coalition of Arab states into the territory of Mandatory Palestine the following morning."
     first_indo_pakistan_war.t:0 "The First Indo-Pakistan War?"
     first_indo_pakistan_war.d:0 "The Indo-Pakistani war of 1947–1948, also known as the first Kashmir war, was a war fought between India and Pakistan over the princely state of Jammu and Kashmir from 1947 to 1948."
+    football_war.t:0 "The Football War?"
+    football_war.d:0 "The Football War was a brief military conflict fought between El Salvador and Honduras in 1969. Existing tensions between the two countries coincided with rioting during a 1970 FIFA World Cup qualifier. The war began on 14 July 1969 when the Salvadoran military launched an attack against Honduras."
+    agacher_strip_war.t:0 "The Agacher Strip War?"
+    agacher_strip_war.d:0 "The Agacher Strip War was a war fought by Burkina Faso and Mali over a 160-kilometre-long (100 mi) strip of land along the border in northern Burkina Faso from 25 to 30 December 1985. The war ended in a ceasefire."
+    ISR_LEB_war.t:0 "Operation Litani?"
+    ISR_LEB_war.d:0 "On 11 March 1978, eleven PLO militants made a beach landing 30 km. south of Haifa, Israel, where they seized a bus, full of people, killing those on board in what is known as the Coastal Road massacre. In response, on 14 March 1978, Israel launched Operation Litani occupying southern Lebanon, except for the city of Tyre, with 25,000 troops."
+    SYR_LEB_war.t:0 "The Syrian Invasion of Lebanon?"
+    SYR_LEB_war.d:0 "On May 31, 1976, the Syrian Army invaded Lebanon with 2,000 troops and 60 tanks in a three-pronged offensive. The first column marched south across Shuf towards Sidon, where it was halted by PLO forces. The second column moved west along the Beirut–Damascus axis, before being stopped at Beirut. Another column moved north through the Bekaa valley, before then going west towards Tripoli, where it was stopped by Christian forces. The offensive had been halted by 10 June."
+    transfer_territory_lebanon_ISR.t:0 "End the Occupation of Lebanon?"
+    transfer_territory_lebanon_ISR.d:0 "Before the Israeli election in May 1999 the prime minister of Israel, Ehud Barak, promised that within a year all Israeli forces would withdraw from Southern Lebanon, effectively dropping the support for the South Lebanon Army. When negotiation efforts between Israel and Syria, the goal of which was to bring a peace agreement between Israel and Lebanon as well, failed due to Syrian control of Lebanon (until 2005), Barak led to the decision of withdrawal of the IDF to the Israeli border."
+    transfer_territory_lebanon_SYR.t:0 "End the Occupation of Lebanon?"
+    transfer_territory_lebanon_SYR.d:0 "After the Israeli withdrawal from southern Lebanon and the death of Hafez al-Assad in 2000, the Syrian military presence faced criticism and resistance from the Lebanese population. With the consequent adoption of UN Security Council Resolution 1559 and following the assassination of the Lebanese ex-premier Rafik Hariri and allegations of Syrian involvement in his death, a public uprising nicknamed the Cedar Revolution swept the country. On 5 March 2005, Syrian President Bashar Al-Assad announced that Syrian forces would begin its withdrawal from Lebanon in his address to the Syrian parliament. Syria completed its full withdrawal from Lebanon on 30 April 2005."
     
     korean_war:0 "The Korean War"
     portugal_india_war:0 "Annexation of Goa"
@@ -1257,6 +1291,17 @@
     
     CZH_1968_revolution.t:0 "The Prague Spring?"
     CZH_1968_revolution.d:0 "The Prague Spring was a period of political liberalization and mass protest in the Czechoslovak Socialist Republic. It began on 5 January 1968, when reformist Alexander Dubček was elected First Secretary of the Communist Party of Czechoslovakia (KSČ), and continued until 21 August 1968, when the Soviet Union and most Warsaw Pact members invaded the country to suppress the reforms."
+    CZH_1968_revolution_1.t:0 "The Rise of Alexander Dubček?"
+    CZH_1968_revolution_1.d:0 "In January, 1968, the questions of leadership and reform were turned over to the Czechoslovak Party Central Committee. They voted no confidence in Novotný by splitting the functions of the president and party leader. He remained president but was replaced by Dubček as First Secretary. Novotný resisted, attempting to mobilise elements of the army to prevent his loss of power. Ironically, investigation into this led to Novotný being completely removed from office a few months later."
+    CZH_1969_revolution.t:0 "The Normalisation of Czechoslovakia?"
+    CZH_1969_revolution.d:0 "When Husák replaced Dubček as leader of the KSČ in April 1969, his regime acted quickly to ‘normalise’ the country's political situation. The chief objectives of Husák's normalisation were the restoration of firm party rule and the re-establishment of Czechoslovakia's status as a committed member of the socialist bloc. In the two years following the invasion, the new leadership revoked some reformist laws (such as the National Front Act and the Press Act) and simply did not enforce others. It returned economic enterprises, which had been given substantial independence during the Prague Spring, to centralised control through contracts based on central planning and production quotas."
+    CZH_1969_revolution_1.t:0 "The Czechoslovak Federation?"
+    CZH_1969_revolution_1.d:0 "The promulgation of the Constitutional Law of the Federation amended fifty-eight articles of the 1960 Constitution of Czechoslovakia concerning government structure. The Czechoslovak state was declared to be a federation of "two equal fraternal nations," the Czech Socialist Republic and the Slovak Socialist Republic, each with a national administration paralleling and, at least in theory, equal in status to the federal government. Dual citizenship was established. Many of the former functions of the central government were instead placed under the jurisdiction of the two national governments. The federal government retained exclusive jurisdiction over foreign affairs, national defense, federal reserves, and national resources."
+    
+    BUL_1954_revolution.t:0 "The April Line?"
+    BUL_1954_revolution.d:0 "After Joseph Stalin's death, an emphasis on shared leadership emerged. When the hardline Stalinist Chervenkov gave up his post as General Secretary of the BCP in 1954, Zhivkov took his place, but Chervenkov retained most of his powers as prime minister. After Nikita Khrushchev delivered his famous secret speech against Stalin at the Communist Party of the Soviet Union 20th Congress, a BCP Central Committee plenary meeting was convened in April 1956 to agree to adopt a new Krushchevite line. At that plenum, Zhivkov criticised Chervenkov as a disciple of Stalin, had him demoted from prime minister to a cabinet post. Subsequently, Zhivkov carried out a policy of relative sociopolitical liberalisation and de-Stalinization in Bulgaria, similar to the Khrushchev Thaw in the Soviet Union."
+    BUL_1965_revolution.t:0 "The April Conspiracy?"
+    BUL_1965_revolution.d:0 "With the increasingly strengthening positions of Zhivkov as the country's and Communist party's leader, former partisan leaders and active military took a critical stance on what they viewed as the revisionist policies of Zhivkov's leadership. In the events described as the "April Conspiracy" of 1965, general Ivan Todorov-Gorunya, general Tsvyatko Anev and Tsolo Krastev organised a group of high-ranking military officers planning to overthrow the regime. Their plan was to establish a pro-Chinese leadership in the country, based on Stalinist-Maoist principles. The coup was exposed and between 28 March and 12 April 1965 and most of the plotters were arrested and expelled from the party."
     
     BYE_1994_revolution.t:0 "Presidency of Alexander Lukashenko?"
     BYE_1994_revolution.d:0 "Before embarking on his political career, Lukashenko worked as the director of a state farm (sovkhoz) and served in both the Soviet Border Troops and the Soviet Army. In 1990, Lukashenko was elected to the Supreme Soviet of the Byelorussian Soviet Socialist Republic. Following the dissolution of the Soviet Union, he assumed the position of head of the interim anti-corruption committee of the Supreme Council of Belarus. In 1994, he won the presidency in the country's inaugural presidential election after the adoption of a new constitution."
@@ -1289,6 +1334,49 @@
     SUD_1985_revolution.d:0 "The 1985 Sudanese coup d'état was a military coup that occurred in Sudan on 6 April 1985. The coup was staged by a group of military officers and led by the Defense Minister and Armed Forces Commander-in-Chief, Field Marshal Abdel Rahman Swar al-Dahab, against the government of President Gaafar Nimeiry. "
     SUD_2019_revolution.t:0 "The Sudanese coup d'état?"
     SUD_2019_revolution.d:0 "A coup d'état took place in Sudan in the late afternoon on 11 April 2019, when President Omar al-Bashir was overthrown by the Sudanese Armed Forces after popular protests demanded his departure. At that time, the army, led by Ahmed Awad Ibn Auf, toppled the government and National Legislature and declared a state of emergency in the country for a period of 3 months, followed by a transitional period of two years before an agreement was reached later."
+    
+    NGE_1966_revolution.t:0 "The Nigerian coup d'état?"
+    NGE_1966_revolution.d:0 "The military dictatorship in Nigeria was a period when members of the Nigerian Armed Forces held power in Nigeria from 1966 to 1999 with an interregnum from 1979 to 1983. The military was able to rise to power often with the tacit support of the elite through coup d'états."
+    NGE_1999_revolution.t:0 "The Return to Democracy?"
+    NGE_1999_revolution.d:0 "Due to massive civilian protests that effectively shut down the country for weeks. The President finally kept his promise to relinquish power to a civilian government. The ban on political activities was lifted, and political prisoners were released from detention facilities. An election was then called to elect the new president."
+    
+    IVC_1960_revolution.t:0 "The New Ivorian Strongman?"
+    IVC_1960_revolution.d:0 "The Ivory Coast achieved independence in 1960, led by Félix Houphouët-Boigny, who ruled the country until 1993. Relatively stable by regional standards, Ivory Coast established close political-economic ties with its West African neighbours while maintaining close relations with the West, especially France. Its stability was diminished by a coup d'état in 1999 and two civil wars—first between 2002 and 2007 and again during 2010–2011."
+    IVC_2000_revolution.t:0 "The Return to Democracy?"
+    IVC_2000_revolution.d:0 "Due to massive civilian protests that effectively shut down the country for weeks. The President finally kept his promise to relinquish power to a civilian government. The ban on political activities was lifted, and political prisoners were released from detention facilities. An election was then called to elect the new president."
+    
+    MAL_1960_revolution.t:0 "The Malian coup d'état?"
+    MAL_1960_revolution.d:0 "After Senegal's withdrawal, the Republic of Mali was established. After a long period of one-party rule, a coup in 1991 led to a new constitution and the establishment of Mali as a democratic, multi-party state. In January 2012, an armed conflict broke out in northern Mali, in which Tuareg rebels took control of a territory in the north, and in April declared the secession of a new state, Azawad. The conflict was complicated by a military coup in March 2012 and later fighting between Tuareg and other rebel factions."
+    MAL_1991_revolution.t:0 "The Return to Democracy?"
+    MAL_1991_revolution.d:0 "After a long period of one-party rule, a coup in 1991 led to a new constitution and the establishment of Mali as a democratic, multi-party state. In January 2012, an armed conflict broke out in northern Mali. The conflict was complicated by a military coup in March 2012 and later fighting between Tuareg and other rebel factions. The coup was followed by "unanimous" international condemnation, harsh sanctions by Mali's neighbors, and the swift loss of northern Mali to Tuareg forces. On 6 April, the junta agreed  that they would step down from power in return for the end of sanctions, giving power to a transitional government led by parliament speaker Dioncounda Traoré."
+    
+    CHA_1960_revolution.t:0 "The Chadian coup d'état?"
+    CHA_1960_revolution.d:0 "In 1960, Chad obtained independence under the leadership of François Tombalbaye. Resentment towards his policies in the Muslim north culminated in the eruption of a long-lasting civil war in 1965. In 1979 the rebels conquered the capital and put an end to the South's hegemony. The rebel commanders then fought amongst themselves until Hissène Habré defeated his rivals. The Chadian–Libyan conflict erupted in 1978 by the Libyan invasion which stopped in 1987 with a French military intervention (Operation Épervier). Hissène Habré was overthrown in turn in 1990 by his general Idriss Déby."
+    CHA_1991_revolution.t:0 "The Chadian coup d'état?"
+    CHA_1991_revolution.d:0 "Déby took power by leading a coup d'état against Habré in December 1990. Despite introducing a multi-party system in 1992 after several decades of one-party rule under his predecessors, throughout his presidency, his Patriotic Salvation Movement was the dominant party. Déby won presidential elections in 1996 and 2001, and after term limits were eliminated he won again in 2006, 2011, 2016, and 2021."
+    
+    RWA_1973_revolution.t:0 "The Rwandan coup d'état?"
+    RWA_1973_revolution.d:0 "An ethnic Hutu, Habyarimana served in several security positions including minister of defense under Rwanda's first president, Grégoire Kayibanda. After overthrowing Kayibanda in a coup in 1973, he became the country's new president and eventually continued his predecessor's pro-Hutu policies. During his rule, Rwanda became a totalitarian, one-party state in which his MRND-party enforcers required people to chant and dance in adulation of the President at mass pageants of political "animation"."
+    RWA_1994_revolution.t:0 "The Fall of the Hutu Regime?"
+    RWA_1994_revolution.d:0 "In 1990, the Tutsi-led Rwandan Patriotic Front (RPF) launched the Rwandan Civil War against his government. After three years of war, Habyarimana signed the Arusha Accords in 1993 with the RPF as a peace agreement. The following year, he died under mysterious circumstances when his plane, also carrying the President of Burundi, Cyprien Ntaryamira, was shot down by a missile near Kigali. His assassination ignited ethnic tensions in the region and helped spark the genocide against the Tutsi. The Tutsi RPF restarted their offensive, and took control of the country methodically, gaining control of the whole country by mid-July."
+    RWA_2000_revolution.t:0 "The Rise of Paul Kagame?"
+    RWA_2000_revolution.d:0 "Bizimungu resigned in 2000, most likely having been forced to do so, following a falling out with the RPF. He was replaced by Kagame. Bizimungu was later imprisoned for corruption and inciting ethnic violence, charges that human rights groups described as politically motivated. Kagame's rule is considered authoritarian, and human rights groups accuse him of political repression."
+    
+    GHA_1960_revolution.t:0 "The Rule of Kwame Nkrumah?"
+    GHA_1960_revolution.d:0 "Francis Kwame Nkrumah was a Ghanaian politician, political theorist, and revolutionary. He served as Prime Minister of the Gold Coast from 1952 until 1957, when it gained independence from Britain. He was then the first Prime Minister and then the President of Ghana, from 1957 until 1966. His administration was primarily socialist as well as nationalist. It funded national industrial and energy projects, developed a strong national education system and promoted a pan-Africanist culture. Under Nkrumah, Ghana played a leading role in African international relations during the decolonization period."
+    GHA_1966_revolution.t:0 "The Ghanaian Coup?"
+    GHA_1966_revolution.d:0 "In February 1966, while Nkrumah was on a state visit to North Vietnam and China, his government was overthrown in a violent coup d'état led by the national military and police forces, with backing from the civil service. The conspirators, led by Joseph Arthur Ankrah, named themselves the National Liberation Council and ruled as a military government for three years. The leaders of the coup that overthrew Nkrumah immediately opened the country's borders and its prison gates to allow the return from exile or release from preventive detention of all opponents of Nkrumah. It appointed a cabinet of civil servants and promised to restore democratic government as quickly as possible."
+    GHA_1979_revolution.t:0 "The Ghanaian Coup?"
+    GHA_1979_revolution.d:0 "The June 4th Revolution was an uprising in Ghana in 1979 that arose due to a conflict between the lower ranks and officers in the Ghana armed forces. Rawlings was then appointed the head of the Armed Forces Revolutionary Council (AFRC) by the revolting junior military officers to run the country until the ongoing election was completed. Rawlings handed over his Power to Dr. Hilla Limann in September 1979. Rawlings later overthrew Limann's Government on 31 December 1981."
+    GHA_1992_revolution.t:0 "The Restoration of Democracy?"
+    GHA_1992_revolution.d:0 "Jerry Rawlings, who had led the country since taking power in a 1981 coup, had grudgingly agreed to hold multiparty elections earlier in the year. Rawlings ran as the candidate of the Progressive Alliance, which included his National Democratic Congress, and won 58.4% of the vote, enough to win without the need for a runoff. Voter turnout was 50.2%."
+    
+    GUI_1960_revolution.t:0 "The Rule of Ahmed Sékou Touré?"
+    GUI_1960_revolution.d:0 "Ahmed Sékou Touré was a Guinean political leader and African statesman who became the first president of Guinea, serving from 1958 until his death in 1984. Touré was among the primary Guinean nationalists involved in gaining independence of the country from France. In 1960, Touré declared the PDG to be the only legal party, though the country had effectively been a one-party state since independence. For the next 24 years, Touré effectively held all governing power in the nation."
+    GUI_1984_revolution.t:0 "The Guinean coup d'état?"
+    GUI_1984_revolution.d:0 "The 1984 Guinean coup d'état was the bloodless military coup that took place in Guinea on 3 April 1984, led by Colonel Lansana Conté. It led to the deposition of Prime Minister Louis Lansana Beavogui, who had held the office since 1972, and had been serving as interim president since March, when longtime President Ahmed Sékou Touré died during an emergency heart operation at the Cleveland Clinic in the United States."
+    GUI_1993_revolution.t:0 "The Restoration of Democracy?"
+    GUI_1993_revolution.d:0 "The first multi-party presidential election held since independence was conducted on 19 December 1993. Conté, candidate of the newly formed Party of Unity and Progress (PUP), won 51.7% of the vote—just barely enough to avoid a runoff. Alpha Condé of the Rally of the Guinean People (RPG) was second with 19.6% of the vote."
     
     CUB_1959_revolution.t:0 "The Cuban Revolution?"
     CUB_1959_revolution.d:0 "The Cuban Revolution was an armed uprising led by Fidel Castro that eventually toppled the brutal dictatorship of Fulgencio Batista. The revolution began with a failed assault on Cuban military barracks on July 26, 1953, but by the end of 1958, the guerrilla revolutionaries in Castro’s 26th of July Movement had gained the upper hand in Cuba, forcing Batista to flee the island on January 1, 1959."
@@ -1395,21 +1483,18 @@
     
     PEU_1963_revolution.t:0 "Election of Fernando Belaúnde?"
     PEU_1963_revolution.d:0 "Belaúnde ran for president in the general elections of 1962, this time with his own party, Acción Popular. The results were very tight, he ended in second place, following Víctor Raúl Haya de la Torre (APRA), by less than 14,000 votes. Since none of the candidates managed to get the constitutionally-established minimum of one third of the vote required to win outright, selection of the President would fall to Congress. The long-held antagonistic relationship between the military and APRA prompted Haya de la Torre to make a deal with former dictator Odría, who had come in third, which would result in Odría taking the Presidency in a coalition government. However, widespread allegations of fraud prompted the Peruvian military to depose Prado and install a military junta, led by Ricardo Pérez Godoy. Pérez Godoy ran a short transitional government and held new elections in 1963, which were won by Belaúnde by a more comfortable but still narrow five percent margin."
-    
     PEU_1968_revolution.t:0 "Peruvian coup d'état?"
     PEU_1968_revolution.d:0 "The 1968 Peruvian coup d'état took place during the first presidency of Fernando Belaúnde (1963–1968), as a result of political disputes becoming norms, serious arguments between President Belaúnde and Congress rising, dominated by the APRA-UNO (Unión Nacional Odríista) coalition, and even clashes between the President and his own Acción Popular (Popular Action) party were common. Following the coup d'état, at 7 AM, Belaúnde was taken to a barracks and was forcibly taken to Jorge Chavez International Airport in Callao, Peru. Velasco, having assumed authority, immediately ordered Belaúnde to be deported."
-    
     PEU_1975_revolution.t:0 "Peruvian coup d'état?"
     PEU_1975_revolution.d:0 "Economic difficulties such as inflation, unemployment, food shortages and increased political opposition after the 1974 crackdown on the press ultimately increased pressures on the Velasco administration and led to its downfall. On August 29, 1975, a number of prominent military commanders initiated a coup. Prime Minister Francisco Morales Bermúdez was then appointed president, by unanimous decision of the new military junta."
-    
     PEU_1980_revolution.t:0 "Return to democracy?"
     PEU_1980_revolution.d:0 "Around the end of Morales Bermúdez's tenure, a housing crisis emerged which started the Lost Decade. Morales Bermúdez, politically pressured from all sides, failed in enacting successful political and economic reform. A Constituent Assembly convened by the Morales Bermudez administration was created in 1978, which replaced the 1933 Constitution enacted during Óscar R. Benavides's presidency. After elections were held in 1980, he returned power over to the first democratically elected government after 12 years of military rule, headed by President Fernando Belaúnde."
-    
     PEU_1990_revolution.t:0 "Presidency of Alberto Fujimori?"
     PEU_1990_revolution.d:0 "Fujimori won the 1990 presidential election as a dark horse candidate under the banner of Cambio 90 defeating Vargas Llosa in a surprising upset. He capitalised on profound disenchantment with outgoing president Alan García and the American Popular Revolutionary Alliance party (APRA). He changed the constitution and served as a figurehead president under Montesinos and the Peruvian Armed Forces and would reportedly adopt Plan Verde – a plan that involved the genocide of impoverished and indigenous Peruvians, the control or censorship of media in the nation and the establishment of a neoliberal economy controlled by a military junta."
-    
     PEU_2000_revolution.t:0 "The Fall of Alberto Fujimori?"
     PEU_2000_revolution.d:0 "A corruption scandal involving Vladimiro Montesinos broke out, and exploded into full force on the evening of 14 September 2000, when the cable television station Canal N broadcast footage of Montesinos apparently bribing opposition congressman Alberto Kouri for defecting to Fujimori's Peru 2000 party. Fujimori's support virtually collapsed, and a few days later he announced in a nationwide address that he would shut down the SIN and call new elections, in which he would not be a candidate. On 10 November, Fujimori won approval from Congress to hold elections on 8 April 2001. On 13 November, Fujimori left Peru for a visit to Brunei to attend the Asia-Pacific Economic Cooperation forum. On 17 November, Fujimori travelled from Brunei to Tokyo, where he submitted his presidential resignation via fax. Congress refused to accept his resignation, instead voting 62–9 to remove Fujimori from office."
+    PEU_2022_revolution.t:0 "The Peruvian Self-Coup Attempt?"
+    PEU_2022_revolution.d:0 "On December 7, 2022, Pedro Castillo, the then-President of Peru, made an attempt to illegally dissolve the Congress amidst looming removal proceedings. This move included the immediate imposition of a curfew, an attempt to establish an emergency government, and a call for the formation of a constituent assembly."
     
     URU_1973_revolution.t:0 "The Civic-military dictatorship of Uruguay?"
     URU_1973_revolution.d:0 "The civic-military dictatorship of Uruguay (1973–85), also known as the Uruguayan Dictatorship, was an authoritarian military dictatorship that ruled Uruguay for 12 years, from June 27, 1973 (after the 1973 coup d'état) until March 1, 1985. The dictatorship has been the subject of much controversy due to its violations of human rights, use of torture, and the unexplained disappearances of many Uruguayans."
@@ -1427,18 +1512,29 @@
     GRE_1974_revolution.t:0 "Fall of the Junta?"
     GRE_1974_revolution.d:0 "The collapse of the junta both ideologically and politically was triggered by a series of events which unfolded soon after Papadopoulos' attempt at liberalisation, with ideological collapse preceding its eventual political collapse. During and following this ill-fated process the internal political strains of the junta came to the fore and pitted the junta factions against each other, thus destroying the seemingly monolithic cohesion of the dictatorship."
     
+    CYP_1974_revolution.t:0 "The Cypriot coup d'état?"
+    CYP_1974_revolution.d:0 "The 1974 Cypriot coup d'état was a military coup d'état executed by the Cypriot National Guard and sponsored by the Greek military junta. On 15 July 1974 the coup plotters removed the sitting President of Cyprus, Archbishop Makarios III, from office and installed pro-Enosis nationalist Nikos Sampson."
+    
     FRA_1958_revolution.t:0 "The Fifth French Republic?"
     FRA_1958_revolution.d:0 "The Fifth Republic emerged from the collapse of the Fourth Republic, replacing the former parliamentary republic with a semi-presidential (or dual-executive) system that split powers between a president as head of state and a prime minister as head of government. The 1958 constitution also replaced the French Union with the French Community, which allowed fourteen member territories (excluding Algeria) to assert their independence."
     
     RUS_1993_revolution.t:0 "The Russian Constitutional Crisis?"
     RUS_1993_revolution.d:0 "In September and October 1993, a constitutional crisis arose in the Russian Federation from a conflict between President Boris Yeltsin and Russia's parliament. President Yeltsin performed a self-coup, dissolving parliament and instituting a presidential rule by decree system. The crisis ended with Yeltsin using military force to attack Moscow's House of Soviets and arrest the lawmakers. In the wake of the events, Yeltsin consolidated his position, further expanded the powers of the executive, and pushed through the adoption of the 1993 constitution of the Russian Federation."
-    RUS_2000_revolution.t:0 "The Rise of Oligarchy?"
+    RUS_2000_revolution.t:0 "The Rise of Vladimir Putin?"
     RUS_2000_revolution.d:0 "On 31 December 1999, president Yeltsin unexpectedly resigned, handing the post to the recently appointed prime minister and his chosen successor, Vladimir Putin. Putin then won the 2000 presidential election, and defeated the Chechen insurgency in the Second Chechen War. Putin's rule increased stability, while transforming Russia into an authoritarian state."
     RUS_2023_revolution.t:0 "The Wagner Group Rebellion?"
     RUS_2023_revolution.d:0 "On 23 June 2023, the Wagner Group, a Russian private military company, engaged in a major uprising against the Government of Russia. It marked the climax of the Wagner Group–Ministry of Defense conflict, which had begun about six months earlier. Russian oligarch Yevgeny Prigozhin, who had been leading Wagner Group activities in Ukraine, stood down after reaching an agreement a day later."
+    RUS_2020_revolution.t:0 "The Russian Constitutional Amendment?"
+    RUS_2020_revolution.d:0 "The amendments of 2020, which were proposed in January 2020, are the second substantial amendments to the Constitution of Russia of 1993. To introduce these amendments, Vladimir Putin, president of Russia, held a national vote. They were approved on 1 July by a popular vote."
     
+    UKR_2004_revolution.t:0 "The Orange Revolution?"
+    UKR_2004_revolution.d:0 "The Orange Revolution was a series of protests, that lead to political upheaval in Ukraine from late November 2004 to January 2005. It gained momentum primarily due to the initiative of the general population, sparked by the aftermath of the 2004 Ukrainian presidential election run-off which was claimed to be marred by massive corruption, voter intimidation and electoral fraud. The nationwide protests succeeded when the results of the original run-off were annulled, and a revote was ordered by Ukraine's Supreme Court for 26 December 2004. Under intense scrutiny by domestic and international observers, the second run-off was declared to be "free and fair". The final results showed a clear victory for Yushchenko, who received about 52% of the vote, compared to Yanukovych's 44%."
+    UKR_2010_revolution.t:0 "The Election of Viktor Yanukovych?"
+    UKR_2010_revolution.d:0 "Presidential elections were held in Ukraine on 17 January 2010. As no candidate received a majority of the vote, a run-off election was held between Prime Minister Yulia Tymoshenko and opposition leader Viktor Yanukovych on 7 February. On 14 February Yanukovych was declared President-elect and winner with 50% of the popular vote."
     UKR_2014_revolution.t:0 "The Maidan Revolution?"
     UKR_2014_revolution.d:0 "The Revolution of Dignity, also known as the Maidan Revolution, took place in Ukraine in February 2014 at the end of the Euromaidan protests, when deadly clashes between protesters and state forces in the capital Kyiv culminated in the ousting of elected President Viktor Yanukovych, the return to the 2004 Constitution of Ukraine, and the outbreak of the 2014 Russo-Ukrainian War."
+    UKR_2019_revolution.t:0 "The Election of Volodymyr Zelenskyy?"
+    UKR_2019_revolution.d:0 "Zelenskyy announced his candidacy in the 2019 presidential election on the evening of 31 December 2018, alongside the New Year's Eve address of then-president Petro Poroshenko. He won the election with 73.23 percent of the vote in the second round, defeating Poroshenko. He has positioned himself as an anti-establishment and anti-corruption figure."
     
     YUG_1974_revolution.t:0 "The 1974 Constitution?"
     YUG_1974_revolution.d:0 "With 406 original articles, the 1974 constitution was one of the longest constitutions in the world. It added elaborate language protecting the self-management system from state interference and expanding representation of republics and provinces in all electoral and policy forums. The Constitution called the restructured Federal Assembly the highest expression of the self-management system."
@@ -1447,7 +1543,7 @@
     
     tito_death.option:0 "Rest in Peace"
     
-    SER_2000_revolution.t:0 "The Overthrow of Slobodan Milošević?"
+    SER_2000_revolution.t:0 "The Return to Democracy?"
     SER_2000_revolution.d:0 "Milošević's rule has been described by observers as authoritarian or autocratic, as well as kleptocratic, with numerous accusations of electoral frauds, political assassinations, suppression of media freedom and police brutality. The overthrow of Slobodan Milošević began in the Federal Republic of Yugoslavia after the general election on 24 September 2000 and culminated in the downfall of Slobodan Milošević's government on 5 October 2000."
     
     ALB_1997_revolution.t:0 "The Albanian Monarchy Referendum"
@@ -1455,12 +1551,22 @@
     
     ROM_1965_revolution.t:0 "Rise of Nicolae Ceaușescu?"
     ROM_1965_revolution.d:0 "Ceaușescu rose up through the ranks of Gheorghe Gheorghiu-Dej's Socialist government and, upon Gheorghiu-Dej's death in 1965, he succeeded to the leadership of the Romanian Communist Party as general secretary. Upon his rise to power, he eased press censorship and openly condemned the Warsaw Pact invasion of Czechoslovakia in his speech on 21 August 1968, which resulted in a surge in popularity. However, the resulting period of stability was brief as his government soon became totalitarian and was considered the most repressive in the Eastern Bloc at the time."
+    ROM_1967_revolution.t:0 "Issue Decree 770?"
+    ROM_1967_revolution.d:0 "Decree 770 was a decree of the communist Romanian government of Nicolae Ceaușescu, signed in 1967. It restricted abortion and contraception, and was intended to create a new and large Romanian population."
+    ROM_1974_revolution.t:0 "Enact Systematisation?"
+    ROM_1974_revolution.d:0 "Systematisation refers to the program of urban planning carried out under Ceaușescu's regime. Beginning in 1974, systematisation consisted largely of the demolition and reconstruction of existing villages, towns, and cities, in whole or in part, with the stated goal of turning Romania into a "multilaterally developed socialist society". During the 1980s, Ceaușescu became obsessed with building himself a palace of unprecedented proportions, along with an equally grandiose neighborhood, Centrul Civic, to accompany it."
     
     EGR_1950_revolution.t:0 "Rise of Walter Ulbricht?"
     EGR_1950_revolution.d:0 "After the end of World War II, Ulbricht re-organised the German Communist Party in the Soviet occupation zone along Stalinist lines. He played a key role in the forcible merger of the KPD and SPD into the Socialist Unity Party of Germany (SED) in 1946. He became the First Secretary of the SED and effective leader of the recently established East Germany in 1950."
-    
     EGR_1971_revolution.t:0 "Rise of Erich Honecker?"
     EGR_1971_revolution.d:0 "In 1970, Honecker initiated a political power struggle that led, with support of Soviet leader Leonid Brezhnev, to him replacing Walter Ulbricht as General Secretary of the SED and chairman of the National Defence Council."
+    
+    POL_1956_revolution.t:0 "The Polish October?"
+    POL_1956_revolution.d:0 "The Polish October was a change in the politics of the Polish People's Republic that occurred in October 1956. Władysław Gomułka was appointed First Secretary of the ruling Polish United Workers' Party (PZPR) marking the end of Stalinism in Poland. The Soviets were pressured to compromise with the Gomułka faction, leading to brief but tense negotiations. The Soviets gave permission for Gomułka to stay in power and greater autonomy to Poland in exchange for maintaining its loyalty to Moscow."
+    POL_1970_revolution.t:0 "The December Protests?"
+    POL_1970_revolution.d:0 "The 1970 Polish protests, also known as the December 1970 Events, occurred in northern Poland during 14–19 December 1970. The protests were sparked by a sudden increase in the prices of food and other everyday items. The Party leadership met in Warsaw and decided that a full-scale working-class revolt was inevitable unless drastic steps were taken. With the consent of Leonid Brezhnev in Moscow, Gomułka, Kliszko, and other leaders were forced to resign: if the price rises had been a plot against Gomułka, it succeeded. Since Moscow would not accept Mieczysław Moczar, Edward Gierek was drafted as the new leader."
+    POL_1981_revolution.t:0 "The Martial Law?"
+    POL_1981_revolution.d:0 "On 11 February 1981, Jaruzelski was named Chairman of the Council of Ministers (Prime Minister). On 18 October, Stanisław Kania was ousted as First Secretary of the Central Committee of the Polish United Workers' Party after a listening device recorded him criticising the Soviet leadership. Jaruzelski was elected his successor. On 13 December 1981, Jaruzelski announced the introduction of martial law in a televised speech, following the vote of the Council of State the previous day which formally authorised its introduction."
     
     IRQ_1958_revolution.t:0 "The July Revolution?"
     IRQ_1958_revolution.d:0 "The 14 July Revolution, also known as the 1958 Iraqi military coup, was a coup d'état that took place on 14 July 1958 in Iraq which resulted in the toppling of King Faisal II and the overthrow of the Hashemite-led Kingdom of Iraq. The Iraqi Republic established in its wake ended the Hashemite Arab Federation between Iraq and Jordan that had been established just six months earlier."
@@ -1499,12 +1605,26 @@
     CNG_1965_revolution.d:0 "Mobutu orchestrated another coup d'état on November 25, 1965, removed both the President and Prime Minister, and took control of the government. Despite periodic uprisings and unrest, Mobutu ruled the Congo (renamed Zaire in 1971) until the mid-1990s."
     CNG_1971_revolution.t:0 "The Republic of Zaire?"
     CNG_1971_revolution.d:0 "From 1965, Mobutu dominated the political life of the country, restructuring the state on more than one occasion, and claiming the title of "Father of the Nation". He announced the renaming of the country as the Republic of Zaire on 27 October 1971."
+    CNG_1997_revolution.t:0 "The Fall of Zaire?"
+    CNG_1997_revolution.d:0 "Zaire collapsed in the late 1990s, amid the destabilisation of the eastern parts of the country in the aftermath of the Rwandan genocide and growing ethnic violence. In 1996, Laurent-Désiré Kabila, the head of the AFDL militia, led a popular rebellion against Mobutu. With rebel forces making gains westward, Mobutu fled the country, leaving Kabila's forces in charge of the country. The country's name was restored to the Democratic Republic of the Congo the following year."
+    
+    CNG_2006_revolution.t:0 "The Return of Democracy?"
+    CNG_2006_revolution.d:0 "General elections were held in the Democratic Republic of the Congo on 30 July 2006. They were the first multiparty elections in the country in 41 years, and the first since the overthrow of longtime leader Mobutu Sese Seko nine years earlier. Voters went to the polls to elect both a new President of the Republic and a new National Assembly, the lower-house of the Parliament."
     
     UGA_1971_revolution.t:0 "Ugandan coup d'état?"
     UGA_1971_revolution.d:0 "The 1971 Ugandan coup d'état was a military coup d'état executed by the Ugandan military, led by general Idi Amin, against the government of President Milton Obote on 25 January 1971. The seizure of power took place while Obote was abroad attending the Commonwealth Heads of Government Meeting in Singapore. Amin was afraid that Obote might dismiss him, and installed himself as dictator."
     
     BRD_1966_revolution.t:0 "Burundian coup d'état?"
     BRD_1966_revolution.d:0 "On 28 November 1966, Michel Micombero, Burundi's 26-year-old Prime Minister, ousted the 19-year-old king (mwami) of Burundi, Ntare V, in a coup d'état. Ntare was out of the country at the time and the coup leaders quickly succeeded in taking control."
+    BRD_1976_revolution.t:0 "Burundian coup d'état?"
+    BRD_1976_revolution.d:0 "In 1976, Colonel Jean-Baptiste Bagaza, a Tutsi, led a bloodless coup to topple Micombero and set about promoting reform. His administration drafted a new constitution in 1981, which maintained Burundi's status as a one-party state. In August 1984, Bagaza was elected head of state. During his tenure, Bagaza suppressed political opponents and religious freedoms."
+    BRD_1987_revolution.t:0 "Burundian coup d'état?"
+    BRD_1987_revolution.d:0 "Major Pierre Buyoya, a Tutsi, overthrew Bagaza in 1987, suspended the constitution and dissolved political parties. He reinstated military rule by a Military Committee for National Salvation (CSMN)."
+    BRD_1993_revolution.t:0 "The Constitutional Reform?"
+    BRD_1993_revolution.d:0 "Buyoya established a National Reconciliation Commission that created a new constitution in 1992 which allowed for a multi-party system and a non-ethnic government. Running as a candidate in the 1993 Burundian presidential election, he was defeated by Hutu candidate Melchior Ndadaye of the FRODEBU opposition party."
+    
+    ZAN_1964_revolution.t:0 "The Zanzibar Revolution?"
+    ZAN_1964_revolution.d:0 "The Zanzibar Revolution began on 12 January 1964 and led to the overthrow of the Sultan of Zanzibar Jamshid bin Abdullah and his mainly Arab government by the island's majority Black African population. Karume succeeded in negotiating a merger of Zanzibar with Tanganyika to form the new nation of Tanzania. Contemporary media assessed this merger as an attempt to prevent communist subversion of Zanzibar. The revolution ended more than 250 years of Arab dominance in Zanzibar."
     
     ETH_1974_revolution.t:0 "Ethiopian coup d'état?"
     ETH_1974_revolution.d:0 "On 12 September 1974, Emperor Haile Selassie was deposed by the Coordinating Committee of the Armed Forces, Police, and Territorial Army, a Soviet-backed military junta that consequently ruled Ethiopia as the Derg until 28 May 1991."
@@ -1514,8 +1634,14 @@
     ANG_1991_revolution.t:0 "Transition to Democracy?"
     ANG_1991_revolution.d:0 "The Bicesse Accords, also known as the Estoril Accords, laid out a transition to multi-party democracy in Angola under the supervision of the United Nations' UNAVEM II mission. President José Eduardo dos Santos of the MPLA and Jonas Savimbi of UNITA signed the accord in Lisbon, Portugal on May 31, 1991."
     
-    BUF_1983_revolution.t:0 "Coup d'état of Thomas Sankara?"
+    BUF_1983_revolution.t:0 "The Burkinabé revolution?"
     BUF_1983_revolution.d:0 "On 4 August 1983, a coup d'état was launched in the Republic of Upper Volta in an event sometimes referred to as the August revolution or Burkinabé revolution. It was carried out by radical elements of the army led by Thomas Sankara and Blaise Compaoré, against the regime of Major Jean-Baptiste Ouédraogo."
+    BUF_1987_revolution.t:0 "The Burkina Faso coup d'état?"
+    BUF_1987_revolution.d:0 "The 1987 Burkina Faso coup d'état was a bloody military coup in Burkina Faso, which took place on 15 October 1987. The coup was organised by Captain Blaise Compaoré against incumbent far-left President Captain Thomas Sankara, his former friend and associate during the 1983 upheaval."
+    BUF_2014_revolution.t:0 "The Return of Democracy?"
+    BUF_2014_revolution.d:0 "Blaise Compaoré won elections in 1991, 1998, 2005, and 2010, in what were considered unfair circumstances. His attempt to amend the constitution to extend his 27-year term caused the 2014 Burkinabé uprising. On 31 October 2014, Compaoré resigned, whereupon he fled to the Ivory Coast."
+    BUF_2022_revolution.t:0 "The Burkina Faso coup d'état?"
+    BUF_2022_revolution.d:0 "Traoré was part of the group of army officers that supported the January 2022 Burkina Faso coup d'état and brought the Patriotic Movement for Safeguard and Restoration military junta to power. When the plotters launched their coup on 30 September, Traoré still held the rank of Captain. The operation was carried out with support of the "Cobra" unit. In the direct aftermath of the coup, Traoré declared himself the new head of the Patriotic Movement for Safeguard and Restoration. On 6 October, he also assumed the position of Interim President as "Head of State, Supreme Head of the Armed Forces"."
     
     MAD_1975_revolution.t:0 "Malagasy Socialist Revolution?"
     MAD_1975_revolution.d:0 "Didier Ratsiraka was elected to a seven-year term as president in a national referendum on 21 December 1975, confirming the mandate for consensus and inaugurating Madagascar's Second Republic. The guiding principle of Ratsiraka's administration was the need for a socialist 'revolution from above'."
@@ -1583,6 +1709,8 @@
     MSY_1969_revolution.d:0 "The 13 May incident was an episode of Sino-Malay sectarian violence that took place in Kuala Lumpur, the capital of Malaysia, on 13 May 1969. The riot occurred in the aftermath of the 1969 Malaysian general election when opposition parties such as the Democratic Action Party and Gerakan made gains at the expense of the ruling coalition, the Alliance Party. The racial riots led to a declaration of a state of national emergency by the Yang di-Pertuan Agong (King), resulting in the suspension of Parliament. A National Operations Council (NOC) was established as a caretaker government to temporarily govern the country between 1969 and 1971."
     MSY_1971_revolution.t:0 "The Malaysian New Economic Policy?"
     MSY_1971_revolution.d:0 "The New Economic Policy (NEP) was a social re-engineering and affirmative action program formulated by the National Operations Council (NOC) in the aftermath of 13 May Incident in Malaysia. Pro-Bumiputera affirmative action was intensively pursued."
+    MSY_1981_revolution.t:0 "The New UMNO?"
+    MSY_1981_revolution.d:0 "During Mahathir's first tenure, Malaysia underwent modernisation and economic growth, and his government initiated widespread industry privatisation and a series of bold infrastructure projects. Mahathir was a dominant political figure, winning five consecutive general elections and fending off several rivals for UMNO's leadership. He centralised power through undermining judicial independence and supporting a constitutional amendment to remove legal immunity for royalty. He also continued pro-bumiputera policies."
     MSY_1998_revolution.t:0 "The Anwar Ibrahim Sodomy Trials?"
     MSY_1998_revolution.d:0 "During the 1997 Asian Financial Crisis, Anwar supported the IMF plan as a finance minister. Mahathir blamed currency speculators like George Soros for the crisis and supported currency controls and tighter regulation of foreign investment. However, in that year, matters between Anwar and Mahathir came to a head around the quadrennial UMNO General Assembly. Anwar was fired from the Cabinet on 2 September 1998, amid police reports that he was under investigation. The following day, he was expelled from UMNO. Munawar Anees, Anwar's former speechwriter, and Sukma Darmawan Sasmita Atmadja, Anwar's adoptive brother, were arrested under suspicion of engaging in homosexual acts."
     MSY_2018_revolution.t:0 "The Fall of Najib Razak?"
@@ -1598,6 +1726,10 @@
     THI_1973_revolution.d:0 "The popular uprising of 14 October 1973 was a watershed event in Thailand's history. The uprising resulted in the end of the ruling military dictatorship of anti-communist Thanom Kittikachorn and altered the Thai political system. Notably, it highlighted the growing influence of Thai university students in politics."
     THI_2014_revolution.t:0 "The Coup of Prayut Chan-o-cha?"
     THI_2014_revolution.d:0 "On 22 May 2014, the Royal Thai Armed Forces, led by General Prayut Chan-o-cha, Commander of the Royal Thai Army (RTA), launched a coup d'état, the 12th since the country's first coup in 1932, against the caretaker government of Thailand, following six months of political crisis. The military established a junta called the National Council for Peace and Order (NCPO) to govern the nation. The coup ended the political conflict between the military-led regime and democratic power, which had been present since the 2006 Thai coup d'état known as the 'unfinished coup'."
+    
+    JAP_1947_revolution.t:0 "The Post War Constitution of Japan?"
+    JAP_1947_revolution.d:0 "The Constitution of Japan is the constitution of Japan and the supreme law in the state. It was written primarily by American civilian officials working under the Allied occupation of Japan after World War II. The current Japanese constitution was promulgated as an amendment of the Meiji Constitution of 1890 on 3 November 1946 when it came into effect on 3 May 1947."
+    notice_of_3P_action.option:0 "It is what it is."
     
     NKO_1994_revolution.t:0 "The Rise of Kim Jong Il?"
     NKO_1994_revolution.d:0 "Kim Jong Il was a North Korean politician who was the second supreme leader of North Korea. He led North Korea from the death of his father Kim Il Sung in 1994 until his own death in 2011, when he was succeeded by his son, Kim Jong Un."
@@ -1617,6 +1749,10 @@
     SKO_2016_revolution.t:0 "The Impeachment of Park Geun-hye?"
     SKO_2016_revolution.d:0 "The impeachment of Park Geun-hye, President of South Korea, was the culmination of a political scandal involving interventions to the presidency from her aide, Choi Soon-sil. Revelations emerged in late October 2016, that President Park Geun-hye's aide, Choi Soon-sil, who did not have an official position in the government, had used her position to seek donations of money from several business conglomerates (known as chaebol), including Samsung, Hyundai, SK Group and Lotte, to two foundations she controlled. The impeachment vote took place on 9 December 2016, with 234 members of the 300-member National Assembly voting in favour of the impeachment and temporary suspension of Park Geun-hye's presidential powers and duties."
     
+    ROC_1975_revolution.t:0 "Death of Chiang Kai Shek?"
+    ROC_1975_revolution.d:0 "In 1975, 26 years after Chiang had come to Taiwan, he died in Taipei at the age of 87. He had suffered a heart attack and pneumonia in the foregoing months, and died from kidney failure aggravated by advanced heart failure on 5 April. Chiang's funeral was held on 16 April. Yen Chia-kan became the second President following the death of Chiang Kai-shek."
+    ROC_1978_revolution.t:0 "The Rise of Chiang Ching-kuo?"
+    ROC_1978_revolution.d:0 "As Chiang Kai-shek entered his final years, he gradually gave more responsibilities to his son, and when he died in April 1975, Vice President Yen Chia-kan became president for the balance of Chiang Kai-shek's term, while Chiang Ching-kuo succeeded to the leadership of the KMT (he opted for the title "Chairman" rather than the elder Chiang's title of "Director-General"). Chiang Ching-kuo was elected president of the ROC in the 1978 Taiwanese presidential election by the National Assembly on 20 May 1978."
     ROC_1996_revolution.t:0 "Democratisation of Taiwan?"
     ROC_1996_revolution.d:0 "In 1987, martial law was lifted and Taiwan began a democratisation process, beginning with the abolition of the Temporary Provisions and culminating with the first direct president election in 1996."
     
@@ -1852,6 +1988,12 @@
     chinese_civil_wars.option.2:0 "To Hainan, then to Taiwan!"
     maluku_war.IDO.t:0 "The South Maluku Uprising"
     maluku_war.IDO.d:0 "Distrusting the Javanese and Muslim-dominated Republic of Indonesia, the largely Protestant and pro-Dutch South Moluccans - who had long contributed forces to the Royal Netherlands East Indies Army (KNIL) - declared the independence of the Republic of South Maluku in Ambon and Seram on 25 April 1950. This was not acknowledged by Sukarno and on his orders, the Indonesian military invaded the Moluccan island of Buru and a part of the island of Ceram."
+    khuzestan_war.PER.t:0 "The Khuzestan Uprising"
+    khuzestan_war.PER.d:0 "The 1979 Khuzestan uprising was one of the nationwide uprisings in Iran, which erupted in the aftermath of the Iranian Revolution. The unrest was fed by Arab demands for autonomy. The uprising was effectively quelled by Iranian security forces, resulting in more than a hundred people on both sides killed."
+    azawad_war.MAL.t:0 "The Mali War"
+    azawad_war.MAL.d:0 "On 22 March 2012, President Amadou Toumani Touré was ousted in a coup d'état over his handling of the crisis, a month before a presidential election was to have taken place. Mutinous soldiers, calling themselves the National Committee for the Restoration of Democracy and State (CNRDR), took control and suspended the constitution of Mali. As a consequence of the instability following the coup, Mali's three largest northern cities—Kidal, Gao and Timbuktu—were overrun by the rebels on three consecutive days. On 5 April 2012, after the capture of Douentza, the MNLA said that it had accomplished its goals and called off its offensive. The following day, it proclaimed the independence of northern Mali from the rest of the country, renaming it Azawad."
+    kurdish_war.PER.t:0 "The Kurdish Rebellion"
+    kurdish_war.PER.d:0 "The 1979 Kurdish rebellion in Iran was one of the largest nationwide uprisings in the country against the new state following the Iranian Revolution. The Kurdish rebellion began in mid-March, just two months after the Revolution ended, and was one of the most intense Kurdish rebellions in modern Iran."
     
     historical_civil_wars.option.1:0 "Start the war!"
     historical_civil_wars.option.2:0 "Take the peaceful option."
@@ -1889,6 +2031,22 @@
     EGR_NES_Reforms.d:0 "The New Economic System was an economic policy that was implemented by the ruling Socialist Unity Party (SED) of the German Democratic Republic (GDR) in 1963. Its purpose was to replace the system of Five-Year Plans which had been used to run the GDR's economy from 1951 onwards. The System was introduced by Walter Ulbricht to try to improve the performance of the existing central planning, so that the economy might be run in as efficient a manner as possible."
     SOV_economic_perestroika.t:0 "The Law on Cooperatives?"
     SOV_economic_perestroika.d:0 "The Law on Cooperatives, enacted in May 1988, was perhaps the most radical of the economic reforms during the early part of the Gorbachev era. For the first time since Vladimir Lenin's New Economic Policy was abolished in 1928, the law permitted private ownership of businesses in the services, manufacturing, and foreign-trade sectors."
+    BUL_NEM_Reforms.t:0 "The New System of Management?"
+    BUL_NEM_Reforms.d:0 "Specific incentives to reform were shortages of labour and energy and the growing importance of foreign trade in the "thaw" years of the mid-1960s. Consequently, in 1962 the Fourth Five-Year Plan began an era of economic reform that brought a series of new approaches to the old goal of intensive growth. In industry the "New System of Management" was introduced in 1964 and lasted until 1968. This approach intended to streamline economic units and make enterprise managers more responsible for performance."
+    CHI_USA_Investment.t:0 "Promote Foreign Investment in China?"
+    CHI_USA_Investment.d:0 "During the Cold War, a meaningful segment of China's trade with the Third World was financed through grants, credits, and other forms of assistance. However, after Mao Zedong's death in 1976, these efforts were scaled back. After which, trade with developing countries became negligible, though during that time, Hong Kong and Taiwan both began to emerge as major trading partners. Since economic reforms began in the late 1970s, China sought to decentralise its foreign trade system to integrate itself into the international trading system."
+    DAI_USA_Investment.t:0 "Promote Foreign Investment in Vietnam?"
+    DAI_USA_Investment.d:0 "In 1990, Law on Private Enterprises which provided a legal basis to private firms was enacted, while Companies Law acknowledged Joint-stock company and private limited liability company. In the same year, the Party began discussing the potential of privatizing state-owned enterprises (SOEs), while also normalizing relations with the People's Republic of China. Subsequently, the 1992 Constitution officially recognized the role of the private sector. While foreign trade was centrally controlled by the state, the state started to loosen control of foreign trade."
+    SOV_USA_Investment.t:0 "Promote Foreign Investment in the Soviet Union?"
+    SOV_USA_Investment.d:0 "Gorbachev brought perestroika to the Soviet Union's foreign economic sector with measures that Soviet economists considered bold at that time. His program virtually eliminated the monopoly that the Ministry of Foreign Trade had once held on most trade operations. It permitted the ministries of the various industrial and agricultural branches to conduct foreign trade in sectors under their responsibility, rather than having to operate indirectly through the bureaucracy of trade ministry organisations. In addition, regional and local organizations and individual state enterprises were permitted to conduct foreign trade."
+    PRC_LRR_Reforms.t:0 "The Land Reform Movement?"
+    PRC_LRR_Reforms.d:0 "The Land Reform Movement was a mass movement led by the Chinese Communist Party (CCP) leader Mao Zedong during the late phase of the Chinese Civil War after the Second Sino-Japanese War ended in 1945 and in the early People's Republic of China, which achieved land redistribution to the peasantry. Landlords – whose status was theoretically defined through the percentage of income derived from exploitation as opposed to labor – had their land confiscated and they were subjected to mass killing by the CCP and former tenants, with the estimated death toll ranging from hundreds of thousands to millions."
+    NVM_LRR_Reforms.t:0 "The Land Reform Campaign?"
+    NVM_LRR_Reforms.d:0 "In the year of 1953, a series of decrees and laws on land reform were released. VWP central committee assessed the possibility of moving on to the last phase of land revolution: redistribution of agricultural land, which was followed by the most crucial land reform law publicized on 19 December 1953, which can be regarded as the platform and premise for land reform. Very soon after the law was passed in national congress, the experimental wave of land reform took place between December 1953 and March 1954 in Thai Nguyen province. Land reform then expanded to larger areas by five waves."
+    SRL_NEM_Reforms.t:0 "Sri Lankan Economic Reforms?"
+    SRL_NEM_Reforms.d:0 "Junius Richard Jayewardene was a Sri Lankan lawyer, Public official and a statesman who served as Prime Minister of Sri Lanka from 1977 to 1978 and as the second President of Sri Lanka from 1978 to 1989. A controversial figure in the history of Sri Lanka, while the open economic system he introduced in 1978 brought the country out of the economic turmoil Sri Lanka was facing as the result of the preceding closed economic policies."
+    PER_NEM_Reforms.t:0 "The White Revolution?"
+    PER_NEM_Reforms.d:0 "The White Revolution was a far-reaching series of reforms resulting in aggressive modernisation in the Imperial State of Iran launched on 26 January 1963 by the Shah, Mohammad Reza Pahlavi, which lasted until 1979. The reforms resulted in a great redistribution of wealth to Iran's working class, explosive economic growth in subsequent decades, rapid urbanisation, and deconstruction of Iran's feudalist customs."
     
     western_economic_liberalisation.t:0 "Economic Liberalisation?"
     western_economic_liberalisation.d:0 "Neoliberalism is associated with free-market capitalism after it fell into decline following the Second World War. A prominent factor in the rise of conservative and right-libertarian organisations, political parties, and think tanks, and predominantly advocated by them, it is generally associated with policies of economic liberalisation, including privatisation, deregulation, globalisation, free trade, monetarism, austerity, and reductions in government spending in order to increase the role of the private sector in the economy and society."
@@ -1975,7 +2133,7 @@
     
     national_pride_modifier:0 "National Pride"
     
-    has_same_gov_type_tt:0 "Shares the same government type as our country"
+    has_same_gov_type_tt:0 "Shares the same [concept_government_type]"
     union_annexation_tt:0 "Union Country annexes all other union candidates"
     is_sufficiently_independent_tt:0 "Country is sufficiently independent (i.e. Country can start its own diplomatic plays)"
     is_not_sufficiently_independent_tt:0 "Country is NOT sufficiently independent (i.e. Country cannot start its own diplomatic plays)"
@@ -2013,12 +2171,12 @@
     je_austrian_unification:0 "Austrian Unification"
     je_austrian_unification_reason:0 "The time has come to make a decisive push for Austrian unification. As one of the foremost Austrian states, it is our duty to bring about this goal."
     
-    je_term_limits.tt:0 "[GetPlayer.GetRuler.GetFullName] will step down from the Presidency"
-    je_term_limits.1.tt:0 "[GetPlayer.GetRuler.GetFullName] is sworn in as President"
-    je_term_limits.2.tt:0 "[GetPlayer.GetRuler.GetFullName] is no longer President and the new President is no longer from the [SCOPE.gsInterestGroup('the_current_president_ig_scope').GetName] Interest Group"
-    je_term_limits:0 "Presidency of [ROOT.GetCountry.GetRuler.GetFullName]"
-    je_term_limits_reason:0 "Under the Constitution of [COUNTRY.GetName], no person shall be elected to the office of the President more than twice, and no person who has held the office of President, or acted as President, for more than two years of a term to which some other person was elected President shall be elected to the office of the President more than once. [ROOT.GetCountry.GetRuler.GetFullName] will therefore have to leave office once the term limit of 8 years has been reached."
-    je_term_limits_goal:0 "President [ROOT.GetCountry.GetRuler.GetFullName] has reached the term limit"
+    je_term_limits.tt:0 "[GetPlayer.GetRuler.GetFullName] will step down as [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]"
+    je_term_limits.1.tt:0 "[GetPlayer.GetRuler.GetFullName] is sworn in as [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]"
+    je_term_limits.2.tt:0 "[GetPlayer.GetRuler.GetFullName] is no longer [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] and the new [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] is no longer from the [SCOPE.gsInterestGroup('the_current_president_ig_scope').GetName] Interest Group"
+    je_term_limits:0 "Rule of [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [ROOT.GetCountry.GetRuler.GetFullName]"
+    je_term_limits_reason:0 "Under the Constitution of [COUNTRY.GetName], no person shall be elected to the office of the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] more than twice, and no person who has held the office of [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')], or acted as [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')], for more than two years of a term to which some other person was elected [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] shall be elected to the office of the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] more than once. [ROOT.GetCountry.GetRuler.GetFullName] will therefore leave office once the term limit of 8 years has been reached."
+    je_term_limits_goal:0 "[ROOT.GetCountry.GetRuler.GetFullName] has served his term fully"
     je_term_limits_status:0 "Served [GetPlayer.MakeScope.Var('term_limit_var').GetValue] / 8 years"
     
     je_term_limits_swiss:0 "Presidency of [ROOT.GetCountry.GetRuler.GetFullName]"
@@ -2058,6 +2216,7 @@
     je_elections_system_electoral_fraud_button_desc:0 "The [concept_government] can rig the votes in the present election so that the incumbent [concept_ruler] will remain in power regardless of who actually won the [concept_election]."
     electoral_fraud_committed.tt:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [SCOPE.sCharacter('the_current_ruler_scope').GetFullName] and the [SCOPE.gsInterestGroup('the_current_ruler_scope_ig_scope').GetName] [concept_interest_group] will win the [concept_election] through electoral fraud."
     electoral_fraud_ongoing.tt:0 "Electoral fraud is not already ongoing"
+    enforce_ruler_restriction.tt:0 "A [concept_politician] from an [concept_interest_group] compatible with the [concept_government_type] of [ROOT.GetCountry.GetName] will become the next [concept_ruler]"
     
     election_fluctuation_economy_display:0 "\n\n- Economic Outlook: [GetPlayer.MakeScope.Var('election_fluctuation_economy_display').GetValue]% / month"
     election_fluctuation_politics_display:0 "\n\n- Political Instability: [GetPlayer.MakeScope.Var('election_fluctuation_politics_display').GetValue]% / month"
@@ -2066,7 +2225,7 @@
     election_fluctuation_incumbency_display:0 "\n\n- Incumbency Disadvantage: [GetPlayer.MakeScope.Var('election_fluctuation_incumbency_display').GetValue]% / month"
     
     je_judiciary:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('supreme_court_name')]"
-    je_judiciary_reason:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('supreme_court_name')] is the highest court in the judiciary of [ROOT.GetCountry.GetName]. It has ultimate appellate jurisdiction over all court cases that involve a point of Constitutional or Statutory law and, depending on the level of autonomy the Justices have, may unilaterally amend laws.\n\nJustices are normally appointed by the Government if the appointment process is politicised. Otherwise, a neutral Justice will be appointed through an independent committee.\n\n Total Number of Justices: #BOLD [GetPlayer.MakeScope.Var('judiciary_size').GetValue]#!\n\n Number of [concept_progressive_judiciary] Justices: #BOLD [GetPlayer.MakeScope.Var('judiciary_progressiveness').GetValue] #! \n\nNote: [concept_progressive_judiciary] Judges will support more democratic [Concept('concept_law','$concept_laws$')] in the $HUMAN_RIGHTS$ and $POWER_STRUCTURE$ category."
+    je_judiciary_reason:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('supreme_court_name')] is the highest court in the judiciary of [ROOT.GetCountry.GetName]. It has ultimate appellate jurisdiction over all court cases that involve a point of Constitutional or Statutory law and, depending on the level of autonomy the Justices have, may unilaterally amend laws.\n\nJustices are normally appointed by the Government if the appointment process is politicised. Otherwise, a neutral Justice will be appointed through an independent committee.\n\nTotal Number of Justices: #BOLD [GetPlayer.MakeScope.Var('judiciary_size').GetValue]#!\n\nNumber of [concept_progressive_judiciary] Justices: #BOLD [GetPlayer.MakeScope.Var('judiciary_progressiveness').GetValue] #! \n\nNote: [concept_progressive_judiciary] Judges will support more democratic [Concept('concept_law','$concept_laws$')] in the $HUMAN_RIGHTS$ and $POWER_STRUCTURE$ category."
     je_judiciary_status:0 "[GetPlayer.MakeScope.Var('judiciary_progressiveness').GetValue] / [GetPlayer.MakeScope.Var('judiciary_size').GetValue] Judges are [concept_progressive_judiciary]"
     je_judiciary_appoint_judges_button:0 "Appoint a Judge"
     je_judiciary_appoint_judges_button_desc:0 "The [concept_government] can appoint a judge to the [SCOPE.GetRootScope.GetCountry.GetCustom('supreme_court_name')] to replace an outgoing one. Doing so may then alter the ideological composition of the court."
@@ -2154,27 +2313,37 @@
     judiciary_system_reject_option:0 "Legislate to overturn the Court's judgement"
     
     je_lower_house:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')]"
-    je_lower_house_reason:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] is the democratically elected parliament of [ROOT.GetCountry.GetName], responsible for making laws and checking the work of Government. \n\nThe [concept_government] needs to have at least a Simple Majority of [SCOPE.GetRootScope.GetCountry.GetCustom('MPs_name')]s in the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] to pass any [concept_law]. \n\nGovernment Control: #BOLD [GetPlayer.MakeScope.Var('lower_house_majority_var').GetValue]%#!. \n\nNote: Gain 10% [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] for every [GetPlayer.MakeScope.Var('lower_house_010_var').GetValue]% [concept_clout] that a [concept_government] [concept_interest_group] has."
+    je_lower_house_reason:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] is the democratically elected parliament of [ROOT.GetCountry.GetName], responsible for making laws and checking the work of Government. \n\nThe [concept_government] needs to have at least a Simple Majority of [SCOPE.GetRootScope.GetCountry.GetCustom('MPs_name')]s in the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] to pass any [concept_law]. \n\nGovernment Control: #BOLD [GetPlayer.MakeScope.Var('lower_house_majority_var').GetValue]%#!. \n\nNote:[SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_voting_system_label')]"
     je_lower_house_status:0 "[GetPlayer.MakeScope.Var('lower_house_majority_var').GetValue]% Pro-[concept_government] Members"
     
+    propotional_representation_lower_house:0 "\n\n- Gain #BOLD 10%#! [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] for every [GetPlayer.MakeScope.Var('lower_house_010_var').GetValue]% [concept_clout] that a [concept_government] [concept_interest_group] has."
+    jefferson_system_lower_house:0 "\n\n- Gain #BOLD 7.5%#! [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] for every [GetPlayer.MakeScope.Var('lower_house_010_var').GetValue]% [concept_clout] that a [concept_government] [concept_interest_group] has. \n\n- Gain #BOLD 2.5%#! [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] from every 10 [concept_legitimacy]."
+    first_past_the_post_lower_house:0 "\n\n- Gain #BOLD 5%#! [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] for every [GetPlayer.MakeScope.Var('lower_house_010_var').GetValue]% [concept_clout] that a [concept_government] [concept_interest_group] has. \n\n- Gain #BOLD 5%#! [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] from every 10 [concept_legitimacy]."
+    
     notification_lower_house_composition_updated_name:0 "#o [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')]#! Rearranged!"
-    notification_lower_house_composition_updated_desc:0 "The composition of [SCOPE.GetRootScope.GetCountry.GetCustom('MPs_name')]s in the #o [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')]#! has changed. The [concept_government] now has [GetPlayer.MakeScope.Var('lower_house_majority_var').GetValue]% control of the #o [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')]#!."
+    notification_lower_house_composition_updated_desc:0 "The composition of [SCOPE.GetRootScope.GetCountry.GetCustom('MPs_name')]s in the #o [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')]#! has changed. The [concept_government] now has #g [GetPlayer.MakeScope.Var('lower_house_majority_var').GetValue]%#! control of the #o [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')]#!."
     
     lower_house_notification_loc:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')]"
     
     representative_name:0 "Representative"
     MP_name:0 "Parliamentarian"
     
+    has_lower_house_support_50.tt:0 "[concept_government] has more than 50% control of the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')]"
+    
     has_lower_house_simple_majority.tt:0 "[concept_government] has more than 50% control of the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')]"
-    has_lower_house_super_majority.tt:0 "[concept_government] has more than 66.7% control of the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')]"
+    has_lower_house_super_majority.tt:0 "[concept_government] has more than 66.6% control of the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')]"
     
     unicameralism.tt:0 "Create an Single Legislative Chamber"
-    hybrid_chamber.tt:0 "Give Reserve Powers to either the $ig_bureaucrats$ or $ig_armed_forces$"
+    hybrid_chamber.tt:0 "Give Reserve Powers to either the $ig_intelligentsia$ or $ig_armed_forces$"
     bicameralism.tt:0 "Create an Upper House"
     
     je_upper_house:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')]"
-    je_upper_house_reason:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] is the upper chamber of the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')]. It has several powers of advice and consent. These include the power to approval of treaties, and the confirmation of Cabinet secretaries, judges (including justices of the Supreme Court), flag officers, regulatory officials, ambassadors, other executive officials and uniformed officers. The [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] may also veto bills passed in the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')].\n\nHaving a Pro-Government majority in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] will allow the [concept_government] to pass a [concept_law].\n\nTotal Number of [SCOPE.GetRootScope.GetCountry.GetCustom('senator_name')]s: #BOLD [GetPlayer.MakeScope.Var('upper_house_size_var').GetValue]#!\n\nNumber of Pro-Government [SCOPE.GetRootScope.GetCountry.GetCustom('senator_name')]s: #BOLD [GetPlayer.MakeScope.Var('pro_government_senators_var').GetValue]#!\n\nGovernment Control: #BOLD [GetPlayer.MakeScope.Var('upper_house_majority_var').GetValue]%#! \n\nNote: \n\nGain 2 Pro-Government [SCOPE.GetRootScope.GetCountry.GetCustom('senator_name')]s for every [concept_incorporated_state] where a [concept_government] [concept_interest_group] has [GetPlayer.MakeScope.Var('upper_house_upper_limit_var_display').GetValue]% or more [concept_clout].\n\nGain 1 Pro-Government [SCOPE.GetRootScope.GetCountry.GetCustom('senator_name')] for every [concept_incorporated_state] where a [concept_government] [concept_interest_group] has more than [GetPlayer.MakeScope.Var('upper_house_lower_limit_var_display').GetValue]% but less than [GetPlayer.MakeScope.Var('upper_house_upper_limit_var_display').GetValue]% [concept_clout]."
-    je_upper_house_status:0 "[GetPlayer.MakeScope.Var('pro_government_senators_var').GetValue] / [GetPlayer.MakeScope.Var('upper_house_size_var').GetValue] Pro-[concept_government] Members ([GetPlayer.MakeScope.Var('upper_house_majority_var').GetValue]%)"
+    je_upper_house_reason:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] is the upper chamber of the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')]. It has several powers of advice and consent. These include the power to approval of treaties, and the confirmation of Cabinet secretaries, judges (including justices of the Supreme Court), flag officers, regulatory officials, ambassadors, other executive officials and uniformed officers. The [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] may also veto bills passed in the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')].\n\nHaving a Pro-Government majority in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] will allow the [concept_government] to pass a [concept_law]. \n\nGovernment Support: #BOLD [GetPlayer.MakeScope.Var('upper_house_majority_var').GetValue]%#! \n\nNote: [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_voting_system_label')]"
+    je_upper_house_status:0 "[GetPlayer.MakeScope.Var('upper_house_majority_var').GetValue]% Pro-[concept_government] Members"
+    
+    first_past_the_post_upper_house:0 "\n\n- Gain #BOLD [GetPlayer.MakeScope.Var('upper_house_increment_FTP_upper_var').GetValue]%#! more [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] for every [concept_incorporated_state] where a [concept_government] [concept_interest_group] has [GetPlayer.MakeScope.Var('upper_house_upper_limit_var_display').GetValue]% or more [concept_clout].\n\n- Gain #BOLD [GetPlayer.MakeScope.Var('upper_house_increment_FTP_lower_var').GetValue]%#! more [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] for every [concept_incorporated_state] where a [concept_government] [concept_interest_group] has more than [GetPlayer.MakeScope.Var('upper_house_lower_limit_var_display').GetValue]% but less than [GetPlayer.MakeScope.Var('upper_house_upper_limit_var_display').GetValue]% [concept_clout]."
+    jefferson_system_upper_house:0 "\n\n- Gain #BOLD [GetPlayer.MakeScope.Var('upper_house_increment_FTP_upper_var').GetValue]%#! more [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] for every [concept_incorporated_state] where a [concept_government] [concept_interest_group] has [GetPlayer.MakeScope.Var('upper_house_upper_limit_var_display').GetValue]% or more [concept_clout].\n\n- Gain #BOLD [GetPlayer.MakeScope.Var('upper_house_increment_FTP_lower_var').GetValue]%#! more [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] for every [concept_incorporated_state] where a [concept_government] [concept_interest_group] has more than [GetPlayer.MakeScope.Var('upper_house_lower_limit_var_display').GetValue]% but less than [GetPlayer.MakeScope.Var('upper_house_upper_limit_var_display').GetValue]% [concept_clout]. \n\n- Gain #BOLD [GetPlayer.MakeScope.Var('upper_house_increment_PR_var').GetValue]%#! more [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] for every [GetPlayer.MakeScope.Var('upper_house_005_var').GetValue]% [concept_clout] that a [concept_government] [concept_interest_group] has in every [concept_state]."
+    propotional_representation_upper_house:0 "\n\n- Gain #BOLD [GetPlayer.MakeScope.Var('upper_house_increment_PR_var').GetValue]%#! more [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] for every [GetPlayer.MakeScope.Var('upper_house_005_var').GetValue]% [concept_clout] that a [concept_government] [concept_interest_group] has in every [concept_state]."
     
     house_of_councillors_upper_house:0 "House of Councillors"
     house_of_lords_upper_house:0 "House of Lords"
@@ -2212,14 +2381,14 @@
     us_congress_name:0 "U.S. Congress"
     congress_name:0 "[ROOT.GetCountry.GetAdjectiveNoFlag] Congress"
     
-    has_upper_house_support_50.tt:0 "There are more than 50% Pro-Government Members in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')]"
-    has_upper_house_support_60.tt:0 "There are more than 60% Pro-Government Members in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')]"
-    has_upper_house_support_667.tt:0 "There are more than 66.7% Pro-Government Members in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')]"
+    has_upper_house_support_50.tt:0 "[concept_government] has more than 50% control of the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')]"
+    has_upper_house_support_60.tt:0 "[concept_government] has more than 60% control of the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')]"
+    has_upper_house_support_667.tt:0 "[concept_government] has more than 66.6% control of the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')]"
     has_upper_house_filibuster.tt:0 "Filibuster rule in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')]"
     has_no_upper_house_filibuster.tt:0 "No filibuster rule in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')]"
     
     notification_upper_house_composition_updated_name:0 "#o [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')]#! Rearranged!"
-    notification_upper_house_composition_updated_desc:0 "The composition of [SCOPE.GetRootScope.GetCountry.GetCustom('senator_name')]s in the #o [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')]#! has changed. There are now [GetPlayer.MakeScope.Var('pro_government_senators_var').GetValue] / [GetPlayer.MakeScope.Var('upper_house_size_var').GetValue] Pro-Government [SCOPE.GetRootScope.GetCountry.GetCustom('senator_name')]s. This gives the [concept_government] [GetPlayer.MakeScope.Var('upper_house_majority_var').GetValue]% control over the #o [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')]#!."
+    notification_upper_house_composition_updated_desc:0 "The composition of [SCOPE.GetRootScope.GetCountry.GetCustom('senator_name')]s in the #o [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')]#! has changed. The [concept_government] now has #g [GetPlayer.MakeScope.Var('upper_house_majority_var').GetValue]%#! control over the #o [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')]#!."
     
     has_no_upper_house.tt:0 "Has no [concept_upper_house]"
     
@@ -2233,14 +2402,20 @@
     je_reserved_powers:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('government_ceremonial_body_custom_title')]"
     je_reserved_powers_reason:0 "Under the Constitution of [ROOT.GetCountry.GetName], the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ceremonial_body_custom_title')] has a limited veto right over any bills passed in the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')]. However, while the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ceremonial_body_custom_title')] can veto the law, the veto can be subsequently overruled by a majority vote in the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')].\n\n#BOLD [SCOPE.GetRootScope.GetCountry.GetCustom('government_ceremonial_ruler_custom_title')]: #! [SCOPE.sCharacter('ceremonial_head_of_state').GetFullName] ([SCOPE.sCharacter('ceremonial_head_of_state').GetInterestGroup.GetName]) \n\nNote: The [SCOPE.GetRootScope.GetCountry.GetCustom('government_ceremonial_ruler_custom_title')] will veto any laws that are being enacted by the [concept_government] if the [SCOPE.sCharacter('ceremonial_head_of_state').GetInterestGroup.GetName] either Disapproves or Strongly Disapproves of the law."
     
-    ig_bureaucrats_ceremonial_leader:0 "Controller: @intelligentsia! $ig_bureaucrats$"
+    ig_intelligentsia_ceremonial_leader:0 "Controller: @intelligentsia! $ig_intelligentsia$"
     ig_armed_forces_ceremonial_leader:0 "Controller: @armed_forces! $ig_armed_forces$"
     
     reserve_powers_veto.t:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('government_ceremonial_body_custom_title')] Vetoes Bill"
-    reserve_powers_veto.d:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('government_ceremonial_ruler_custom_title')] [SCOPE.sCharacter('ceremonial_head_of_state').GetFullName] has vetoed the bill currently being enacted in the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')]. The Government can however overrule the veto if it has a super majority in the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')]."
+    reserve_powers_veto.d:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('government_ceremonial_ruler_custom_title')] [SCOPE.sCharacter('ceremonial_head_of_state').GetFullName] has vetoed the bill in the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')] to enact [SCOPE.sLaw('current_law_scope').GetName]. The Government can however overrule the veto if it has a super majority in the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')]."
     reserve_powers_veto.f:0 "This event fired because [SCOPE.gsInterestGroup('ceremonial_head_of_state_ig').GetName] either disapproves or strongly disapproves of the law that is currently being enacted."
     reserve_powers_system_accept_option:0 "Accept the veto and drop the bill."
     reserve_powers_system_reject_option:0 "Veto the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ceremonial_body_custom_title')]'s veto!"
+    
+    judiciary_veto.t:0 "Legal Challenge to Law Enactment"
+    judiciary_veto.d:0 "Leading members from the [SCOPE.gsInterestGroup('legal_challenge_plaintiff_scope').GetName] filed a lawsuit in [SCOPE.GetRootScope.GetCountry.GetCustom('supreme_court_name')] to challenge the legality of the [concept_government]'s bill to enact [SCOPE.sLaw('current_law_scope').GetName]. They claimed that the bill infringes the constitutional law of [ROOT.GetCountry.GetName] and should be pre-emptively blocked by the [SCOPE.GetRootScope.GetCountry.GetCustom('supreme_court_name')]. This argument held sway with the justices who summarily issued an order in their favour."
+    judiciary_veto.f:0 "This event fired because there is an [concept_interest_group] which disapproves or strongly disapproves of [SCOPE.sLaw('current_law_scope').GetName] and the [SCOPE.GetRootScope.GetCountry.GetCustom('supreme_court_name')] is either progressive or regressive enough to support that [concept_interest_group]'s attempt to stall the law through judicial means."
+    judicial_veto_accept_option:0 "Accept the court's judgement!"
+    judicial_veto_reject_option:0 "We shall legislate around the court's judgement."
     
     ig_angry_with_government:0 "Provoked Interest Group"
     
@@ -2312,9 +2487,9 @@
     survived_backbenchers_plot:0 "Survived a Backbencher Plot"
     party_in_chaos_modifier:0 "Internal Chaos"
     je_backbenchers_plot_system:0 "Backbencher Plot to Oust [SCOPE.sCharacter('backbenchers_plot_prime_minister_scope').GetFullName]"
-    je_backbenchers_plot_system_reason:0 "Under the parliamentary system of [ROOT.GetCountry.GetName], a [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] can only remain in office by commanding the confidence of parliament and the ruling party or coalition. A [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] would normally obtain his or her support from members of parliament the same party or ruling coalition however there may be times when those members seek to oust the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] by declaring that they no longer support the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] or starting an internal party leadership challenge.\n\n[SCOPE.sCharacter('backbenchers_plot_prime_minister_scope').GetFullName] is so hated by powerful members of the ruling party that backbenchers have launched a leadership challenge to unseat the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] from office.\n\n[SCOPE.sCharacter('backbenchers_plot_prime_minister_scope').GetFullName] will be removed from office if any Interest Group in the Government does not have at least Neutral approval when the timer runs out."
-    je_backbenchers_plot_system_1.tt:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [SCOPE.sCharacter('backbenchers_plot_prime_minister_scope').GetFullName] loses the party leadership challenge and is removed from office"
-    je_backbenchers_plot_system_2.tt:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [SCOPE.sCharacter('backbenchers_plot_prime_minister_scope').GetFullName] wins the party leadership challenge is not removed from office"
+    je_backbenchers_plot_system_reason:0 "Under the parliamentary system of [ROOT.GetCountry.GetName], a [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] can only remain in office by commanding the confidence of parliament and the ruling party or coalition. A [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] would normally obtain his or her support from members of parliament the same party or ruling coalition however there may be times when those members seek to oust the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] by declaring that they no longer support the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] or starting an internal party leadership challenge.\n\n[SCOPE.sCharacter('backbenchers_plot_prime_minister_scope').GetFullName] is so hated by powerful members of the ruling party that backbenchers have launched a leadership challenge to unseat the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] from office.\n\n@warning! [SCOPE.sCharacter('backbenchers_plot_prime_minister_scope').GetFullName] will be removed from office if any [concept_interest_group] in the [concept_government] does not have at least #yellow Neutral#! approval when the timer runs out."
+    je_backbenchers_plot_system_1.tt:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [SCOPE.sCharacter('backbenchers_plot_prime_minister_scope').GetFullName] is removed from office"
+    je_backbenchers_plot_system_2.tt:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [SCOPE.sCharacter('backbenchers_plot_prime_minister_scope').GetFullName] is not removed from office"
     je_backbenchers_plot_system_3.tt:0 "[SCOPE.sCharacter('backbenchers_plot_prime_minister_scope').GetFullName] has not recently been the target of a backbenchers plot"
     je_backbenchers_plot_system_4.tt:0 "[SCOPE.sCharacter('backbenchers_plot_prime_minister_scope').GetFullName] is no longer the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]"
     je_backbenchers_plot_system_5.tt:0 "[SCOPE.sCharacter('backbenchers_plot_prime_minister_scope').GetFullName] is either corrupt, a traitor, is seizing power unlawfully or there is at least 1 Unhappy [concept_interest_group] in the [concept_government]"
@@ -2356,17 +2531,17 @@
     je_espionage_system_1_tt:0 "This country is no longer conducting hostile espionage against any country"
     je_espionage_system_2_tt:0 "This country is conducting hostile espionage against at least 1 country"
     
-    je_subverted_civil_service_3.tt:0 "The $ig_bureaucrats$ [concept_interest_group] does not share the same [concept_ideology] as the most powerful [concept_interest_group] in the [concept_government]"
-    je_subverted_civil_service_2.tt:0 "The $ig_bureaucrats$ [concept_interest_group] shares the same [concept_ideology] as the most powerful [concept_interest_group] in the [concept_government]"
+    je_subverted_civil_service_3.tt:0 "The $ig_intelligentsia$ [concept_interest_group] does not share the same [concept_ideology] as the most powerful [concept_interest_group] in the [concept_government]"
+    je_subverted_civil_service_2.tt:0 "The $ig_intelligentsia$ [concept_interest_group] shares the same [concept_ideology] as the most powerful [concept_interest_group] in the [concept_government]"
     je_subverted_civil_service_1.tt:0 "The Civil Service is subverted and its leader will be replaced with one that is ideologically aligned with the [concept_ruler]"
     je_subvert_civil_service:0 "Purging the Civil Service"
-    je_subvert_civil_service_reason:0 "Due to [ROOT.GetCountry.GetName] having the $law_politicised_bureaucrats$ [concept_law], the [concept_government] is able to nominate Civil Servants who share the same ideological beliefs as the most powerful [concept_interest_group] in the [concept_government]. This means that given a sufficiently long period of time, the Civil Service will be fully converted to the ideological beliefs of the [concept_government]. \n\nThere would be a random chance every month for an [concept_ideology] of the $ig_bureaucrats$ to be changed to match that of the most powerful [concept_interest_group] in the [concept_government]."
+    je_subvert_civil_service_reason:0 "Due to [ROOT.GetCountry.GetName] having the $law_politicised_bureaucrats$ [concept_law], the [concept_government] is able to nominate Civil Servants who share the same ideological beliefs as the most powerful [concept_interest_group] in the [concept_government]. This means that given a sufficiently long period of time, the Civil Service will be fully converted to the ideological beliefs of the [concept_government]. \n\nThere would be a random chance every month for an [concept_ideology] of the $ig_intelligentsia$ to be changed to match that of the most powerful [concept_interest_group] in the [concept_government]."
     
-    je_evolved_civil_service_3.tt:0 "The $ig_bureaucrats$ [concept_interest_group] does not share the same [concept_ideology] as the most powerful [concept_interest_group] in the country"
-    je_evolved_civil_service_2.tt:0 "The $ig_bureaucrats$ [concept_interest_group] shares the same [concept_ideology] as the most powerful [concept_interest_group] in the country"
+    je_evolved_civil_service_3.tt:0 "The $ig_intelligentsia$ [concept_interest_group] does not share the same [concept_ideology] as the most powerful [concept_interest_group] in the country"
+    je_evolved_civil_service_2.tt:0 "The $ig_intelligentsia$ [concept_interest_group] shares the same [concept_ideology] as the most powerful [concept_interest_group] in the country"
     je_evolved_civil_service_1.tt:0 "The Civil Service changes its ideology and its leader will be replaced with one that is ideologically aligned with the leader of the most powerful [concept_interest_group] in the country"
     je_evolve_civil_service:0 "Reforming the Civil Service"
-    je_evolve_civil_service_reason:0 "Due to [ROOT.GetCountry.GetName] having the $law_elitist_bureaucrats$ [concept_law], the Civil Service nomination process has become elitist and politicised. This means that given a sufficiently long period of time, the Civil Service will be fully converted to the ideological beliefs of the most powerful [concept_interest_group] in [ROOT.GetCountry.GetName]. \n\nThere would be a random chance every month for an [concept_ideology] of the $ig_bureaucrats$ to be changed to match that of the most powerful [concept_interest_group] in [ROOT.GetCountry.GetName]." 
+    je_evolve_civil_service_reason:0 "Due to [ROOT.GetCountry.GetName] having the $law_elitist_bureaucrats$ [concept_law], the Civil Service nomination process has become elitist and politicised. This means that given a sufficiently long period of time, the Civil Service will be fully converted to the ideological beliefs of the most powerful [concept_interest_group] in [ROOT.GetCountry.GetName]. \n\nThere would be a random chance every month for an [concept_ideology] of the $ig_intelligentsia$ to be changed to match that of the most powerful [concept_interest_group] in [ROOT.GetCountry.GetName]." 
     
     neutralise_civil_service.tt:0 "Make the Civil Service politically neutral"
     
@@ -2447,6 +2622,12 @@
     generic_decolonisation_indy.3.d:0 "The [SCOPE.sCulture('primary_culture_scope').GetName] people in [SCOPE.sState('state_to_release').GetName] were unable to decide on how to decolonise their country and so the colony will revert back to direct rule by a foreign power."
     generic_decolonisation_indy.3.f:0 "This event fired because there was no eligible country that the [SCOPE.sCountry('failed_country_scope').GetName] country tag could turn into. [SCOPE.sCountry('failed_country_scope').GetName] will therefore be re-annexed by its overlord and if there is no overlord, any country which it shares a [concept_primary_cultures] with."
     generic_decolonisation_indy_3.option:0 "Sad but not unfortunate."
+    
+    generic_decolonisation_indy.4.t:0 "The Independence of [ROOT.GetCountry.GetNameNoFlag]"
+    generic_decolonisation_indy.4.d:0 "At an elaborate ceremony held in [SCOPE.sState('indy_capital').GetCityHubName], [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [ROOT.GetCountry.GetRuler.GetFullName] conducted the transfer of power from the foreign masters of [ROOT.GetCountry.GetName] to the people of [ROOT.GetCountry.GetName]. This was followed by the raising of the new [ROOT.GetCountry.GetAdjective] state flag to joy of the attending crowds."
+    generic_decolonisation_indy.4.f:0 "We the people of [ROOT.GetCountry.GetNameNoFlag] do hereby declare the independence of [ROOT.GetCountry.GetNameNoFlag]. Matters concerning the transfer of power and other matters will be executed in an orderly manner and in the shortest possible time. \n\nIn the name of the people of [ROOT.GetCountry.GetNameNoFlag] \n\n[ROOT.GetCountry.GetRuler.GetFullName]"
+    generic_decolonisation_indy.4.option.1:0 "We shall forge a nation for all peoples!"
+    generic_decolonisation_indy.4.option.2:0 "Long live the [SCOPE.sCulture('preferred_culture').GetName] cause!"
     
     special_administrative_region.tt:0 "Create a $special_administrative_region$ in [SCOPE.sCulture('culture_to_release').GetName]"
     devolution_system_1a.t:0 "[SCOPE.sCulture('culture_to_release').GetName] $special_administrative_region$?"
@@ -2599,6 +2780,10 @@
     je_wartime_measures_war_bonds_button_desc:0 "A war bond is a debt security issued by a government to finance military operations during times of war or conflict. Because war bonds offered a rate of return below the market rate, investment was achieved by making emotional appeals to patriotic citizens to lend the government money."
     recently_enacted_wartime_measures_war_bonds.tt:0 "War Bonds have not been issued in the last 1 month"
     
+    je_wartime_measures_total_war_button:0 "Declare Total War"
+    je_wartime_measures_total_war_button_desc:0 "The government will mobilise every sector of society to wage the war and all able bodied men will be conscripted."
+    wartime_measures_total_war:0 "Total War"
+    
     remove_all_wartime_measures.tt:0 "Remove all Wartime Measures"
     
     je_historical_currency_union_1.tt:0 "This country is in a [concept_currency_union] with 5 or more sufficiently independent countries"
@@ -2727,18 +2912,26 @@
     je_sovereign_wealth_fund:0 "[ROOT.GetCountry.GetAdjectiveNoFlag] Sovereign Wealth Fund"
     je_sovereign_wealth_fund_reason:0 "The [ROOT.GetCountry.GetAdjectiveNoFlag] Investment Corporation is a government owned company that enables the State to invest in the [ROOT.GetCountry.GetAdjective] private sector. The dividends from such investment activity are then pooled into a Sovereign Wealth Fund run by the Government. This system effectively allows the Government to inject and withdraw money from the [concept_investment_pool] at amounts scaled to the level of government ownership of the private sector. \n\n#BOLD Size of Sovereign Wealth Fund:#! #Green @money![GetPlayer.MakeScope.Var('sovereign_wealth_fund_size_display').GetValue]M#! \n\n#BOLD Maximum injection or withdrawal per month:#! @money![GetPlayer.MakeScope.Var('sovereign_wealth_fund_withdrawal_amount').GetValue] \n\n#BOLD No. of State Owned Private Companies:#! [GetPlayer.MakeScope.Var('sovereign_wealth_fund_gov_buildings').GetValue] / [GetPlayer.MakeScope.Var('sovereign_wealth_fund_all_buildings').GetValue] \n\n#BOLD Chairperson:#! [ROOT.GetCountry.GetRuler.GetFullName]"
     je_sovereign_wealth_fund_status:0 "Balance: #Green @money![GetPlayer.MakeScope.Var('sovereign_wealth_fund_size_display').GetValue]M#!"
-    je_withdraw_sovereign_fund_button:0 "Withdraw Funds"
-    je_withdraw_sovereign_fund_button_desc:0 "The Government will transfer money from the Sovereign Wealth Fund to the [ROOT.GetCountry.GetAdjectiveNoFlag] [concept_gold_reserves]."
-    je_inject_sovereign_fund_button:0 "Inject Funds"
-    je_inject_sovereign_fund_button_desc:0 "The Government will transfer money from the [ROOT.GetCountry.GetAdjectiveNoFlag] [concept_gold_reserves] to the Sovereign Wealth Fund."
-    withdraw_deposit_sovereign_fund.tt:0 "Did not withdraw or inject money into the Sovereign Wealth Fund in the last 1 month"
+    
+    je_start_withdraw_sovereign_fund_button:0 "Start Withdrawing Funds"
+    je_start_withdraw_sovereign_fund_button_desc:0 "The [concept_government] will transfer money from the [concept_investment_pool] to the [ROOT.GetCountry.GetAdjectiveNoFlag] [concept_treasury] every month if the [concept_investment_pool] has at least @money!#yellow 10000#!."
+    je_stop_withdraw_sovereign_fund_button:0 "Stop Withdrawing Funds"
+    je_stop_withdraw_sovereign_fund_button_desc:0 "The [concept_government] will stop transfering money from the [concept_investment_pool] to the [ROOT.GetCountry.GetAdjectiveNoFlag] [concept_treasury] every month."
+    je_start_inject_sovereign_fund_button:0 "Start Injecting Funds"
+    je_start_inject_sovereign_fund_button_desc:0 "The [concept_government] will transfer money from the [ROOT.GetCountry.GetAdjectiveNoFlag] [concept_treasury] to the [concept_investment_pool] every month if the [concept_treasury] has at least @money!#yellow 10000#!."
+    je_stop_inject_sovereign_fund_button:0 "Stop Injecting Funds"
+    je_stop_inject_sovereign_fund_button_desc:0 "The [concept_government] will stop transferring money from the [ROOT.GetCountry.GetAdjectiveNoFlag] [concept_treasury] to the [concept_investment_pool] every month."
+    
+    withdraw_deposit_sovereign_fund.tt:0 "Did not start withdrawing or injecting money into the Sovereign Wealth Fund in the last 1 month"
     has_government_owned_companies.tt:0 "Has at least 1 [concept_building] with the $pm_semi_privately_owned_building_agriculture$ or $pm_semi_publicly_traded_building_building_agriculture$ [concept_production_method]"
     has_no_government_owned_companies.tt:0 "No [concept_building] has the $pm_semi_privately_owned_building_agriculture$ or $pm_semi_publicly_traded_building_building_agriculture$ [concept_production_method]"
     double_key_system_inject.tt:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('government_ceremonial_body_custom_title')] ([SCOPE.sCharacter('ceremonial_head_of_state').GetInterestGroup.GetName]) does not Disapprove or Strongly Disapprove of $law_very_expansionary_monetary_policy$ or $law_expansionary_monetary_policy$"
     double_key_system_withdraw.tt:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('government_ceremonial_body_custom_title')] ([SCOPE.sCharacter('ceremonial_head_of_state').GetInterestGroup.GetName]) does not Disapprove or Strongly Disapprove of $law_very_deflationary_monetary_policy$ or $law_deflationary_monetary_policy$"
+    inject_sovereign_fund_minimum.tt:0 "The minimum injection amount limit is at least @money!#yellow 10000#!"
+    withdraw_sovereign_fund_minimum.tt:0 "The minimum injection amount limit is at least @money!#yellow 10000#!"
     
     je_cabinet:0 "The [ROOT.GetCountry.GetRuler.GetLastName] [SCOPE.GetRootScope.GetCountry.GetCustom('cabinet_name_custom_title')]"
-    je_cabinet_reason:0 "$RULING_PARTY_IDEOLOGY_cabinet_JE$ \n\nThe [SCOPE.GetRootScope.GetCountry.GetCustom('cabinet_name_custom_title')] is a body of advisers to a head of state who also serve as the heads of government departments. Its members are appointed by the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]. \n\n[SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [ROOT.GetCountry.GetRuler.GetFullName] may invite any [concept_government] [concept_interest_group] to join the [SCOPE.GetRootScope.GetCountry.GetCustom('cabinet_name_custom_title')] by giving its leader a Cabinet Position using Character Interactions. Every [concept_government] [concept_interest_group] which has a $cabinet_minister_ig$ will then form part of the [SCOPE.GetRootScope.GetCountry.GetCustom('cabinet_name_custom_title')]. \n\n#BOLD Cabinet Unity:#! #BOLD [SCOPE.GetRootScope.GetCountry.GetCustom('cabinet_unity_level_custom_title')] ([GetPlayer.MakeScope.Var('cabinet_unity_var').GetValue]%)#! \n\nCabinet Unity is calculated by dividing 100 by the number of [concept_government] [Concept('concept_interest_group', '$concept_interest_groups$')] ([GetPlayer.MakeScope.Var('cabinet_unity_divisor_var').GetValue]) who do not have at least #BOLD 0#! [concept_approval]. $HOG_cabinet$ \n\n#BOLD [Concept('concept_interest_group', '$concept_interest_groups$')] in the Cabinet:#! $ig_armed_forces_minister$ $ig_bureaucrats_minister$ $ig_rural_folk_minister$ $ig_landowners_minister$ $ig_trade_unions_minister$ $ig_petty_bourgeoisie_minister$ $ig_industrialists_minister$ \n\n#BOLD Head of the Civil Service:#! [SCOPE.gsInterestGroup('ig_bureaucrats_cabinet_scope').GetLeader.GetFullName] \n\n#BOLD Chief of the Armed Forces:#! [SCOPE.gsInterestGroup('ig_armed_forces_cabinet_scope').GetLeader.GetFullName]"
+    je_cabinet_reason:0 "$RULING_PARTY_IDEOLOGY_cabinet_JE$ \n\nThe [SCOPE.GetRootScope.GetCountry.GetCustom('cabinet_name_custom_title')] is a body of advisers to a head of state who also serve as the heads of government departments. Its members are appointed by the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]. \n\n[SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [ROOT.GetCountry.GetRuler.GetFullName] may invite any [concept_government] [concept_interest_group] to join the [SCOPE.GetRootScope.GetCountry.GetCustom('cabinet_name_custom_title')] by giving its leader a Cabinet Position using Character Interactions. Every [concept_government] [concept_interest_group] which has a $cabinet_minister_ig$ will then form part of the [SCOPE.GetRootScope.GetCountry.GetCustom('cabinet_name_custom_title')]. \n\n#BOLD Cabinet Unity:#! #BOLD [SCOPE.GetRootScope.GetCountry.GetCustom('cabinet_unity_level_custom_title')] ([GetPlayer.MakeScope.Var('cabinet_unity_var').GetValue]%)#! \n\nCabinet Unity is calculated by dividing 100 by the number of [concept_government] [Concept('concept_interest_group', '$concept_interest_groups$')] ([GetPlayer.MakeScope.Var('cabinet_unity_divisor_var').GetValue]) who do not have at least #BOLD 0#! [concept_approval]. $HOG_cabinet$ \n\n#BOLD [Concept('concept_interest_group', '$concept_interest_groups$')] in the Cabinet:#! $ig_armed_forces_minister$ $ig_intelligentsia_minister$ $ig_rural_folk_minister$ $ig_landowners_minister$ $ig_trade_unions_minister$ $ig_petty_bourgeoisie_minister$ $ig_industrialists_minister$ \n\n#BOLD Head of the Civil Service:#! [SCOPE.gsInterestGroup('ig_intelligentsia_cabinet_scope').GetLeader.GetFullName] \n\n#BOLD Chief of the Armed Forces:#! [SCOPE.gsInterestGroup('ig_armed_forces_cabinet_scope').GetLeader.GetFullName]"
     je_cabinet_status:0 "Cabinet Unity: [GetPlayer.MakeScope.Var('cabinet_unity_var').GetValue]%"
     je_issue_executive_order_button:0 "Issue an Executive Order"
     je_issue_executive_order_button_desc:0 "An Executive Order will allow us to bypass the need to have a majority in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] and increase [concept_legitimacy]."
@@ -2748,7 +2941,7 @@
     
     je_call_elections_button:0 "Call Elections"
     je_call_elections_button_desc:0 "Under the parliamentary system of [ROOT.GetCountry.GetName], the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] may dissolve parliament at anytime to call an [concept_election]."
-    je_enact_state_of_emergency_button:0 "Declare a State of Emergency"
+    je_enact_state_of_emergency_button:0 "Declare State of Emergency"
     je_enact_state_of_emergency_button_desc:0 "A State of Emergency gives the [concept_government] more [concept_legitimacy] and suspends the need to hold an [concept_election]."
     je_lift_state_of_emergency_button:0 "End State of Emergency"
     je_lift_state_of_emergency_button_desc:0 "The [concept_government] will lift the State of Emergency in [ROOT.GetCountry.GetName]. This re-enables [Concept('concept_election', '$concept_elections$')]."
@@ -2767,7 +2960,7 @@
     HOG_cabinet:0 "\n\n#BOLD Head of Government:#! [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [ROOT.GetCountry.GetRuler.GetFullName] ([ROOT.GetCountry.GetRuler.GetInterestGroup.GetName])"
     
     ig_armed_forces_minister:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('ig_armed_forces_minister_custom_title')]"
-    ig_bureaucrats_minister:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('ig_bureaucrats_minister_custom_title')]"
+    ig_intelligentsia_minister:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('ig_intelligentsia_minister_custom_title')]"
     ig_rural_folk_minister:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('ig_rural_folk_minister_custom_title')]"
     ig_devout_minister:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('ig_devout_minister_custom_title')]"
     ig_landowners_minister:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('ig_landowners_minister_custom_title')]"
@@ -2776,7 +2969,7 @@
     ig_industrialists_minister:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('ig_industrialists_minister_custom_title')]"
     
     ig_armed_forces_minister_yes:0 "\n\n@armed_forces! $ig_armed_forces$"
-    ig_bureaucrats_minister_yes:0 "\n\n@intelligentsia! $ig_bureaucrats$"
+    ig_intelligentsia_minister_yes:0 "\n\n@intelligentsia! $ig_intelligentsia$"
     ig_rural_folk_minister_yes:0 "\n\n@rural_folk! $ig_rural_folk$"
     ig_devout_minister_yes:0 "\n\n- @devout! $ig_devout$"
     ig_landowners_minister_yes:0 "\n\n@landowners! $ig_landowners$"
@@ -2905,9 +3098,22 @@
     cir_furniture:0 "\n\n@furniture! $furniture$"
     cir_telecommunications:0 "\n\n@telecommunications! $telecommunications$"
     
-    European_Central_Bank_custom_loc:0 "European Central Bank"
-    South_American_Central_Bank_custom_loc:0 "South American Central Bank"
+    XNA_Central_Bank_custom_loc:0 "North American Central Bank"
+    XCA_Central_Bank_custom_loc:0 "Central American Central Bank"
+    XSA_Central_Bank_custom_loc:0 "South American Central Bank"
+    XEU_Central_Bank_custom_loc:0 "European Central Bank"
+    XER_Central_Bank_custom_loc:0 "Eurasian Central Bank"
+    XAL_Central_Bank_custom_loc:0 "Arab Central Bank"
+    XAU_Central_Bank_custom_loc:0 "African Central Bank"
+    XEA_Central_Bank_custom_loc:0 "East Asian Central Bank"
+    XSE_Central_Bank_custom_loc:0 "South East Asian Central Bank"
+    XPI_Central_Bank_custom_loc:0 "Pacific Islands Central Bank"
+    
     superstate_bank_custom_loc:0 "Superstate Central Bank"
+    
+    adopt_superstate_currency.tt:0 "Adopt the #yellow [SCOPE.GetRootScope.GetCountry.GetCustom('je_superstate_adjective_custom_title')]#! Currency and the #yellow [SCOPE.GetRootScope.GetCountry.GetCustom('je_superstate_adjective_custom_title')] Central Bank#! will become the #o Central Bank#! of [ROOT.GetCountry.GetName]"
+    
+    abandon_superstate_currency.tt:0 "Abandon the #yellow [SCOPE.GetRootScope.GetCountry.GetCustom('je_superstate_adjective_custom_title')]#! Currency and leave the jurisdiction of the #yellow [SCOPE.GetRootScope.GetCountry.GetCustom('je_superstate_adjective_custom_title')] Central Bank#!"
     
     monetary_authority_custom_loc:0 "Monetary Authority of [ROOT.GetCountry.GetNameNoFlag]"
     reserve_bank_custom_loc:0 "Reserve Bank of [ROOT.GetCountry.GetNameNoFlag]"
@@ -2942,7 +3148,7 @@
     
     won_nobel_peace_prize.t:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] Wins the Nobel Peace Prize"
     won_nobel_peace_prize.d:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [GetPlayer.GetRuler.GetFullName] has been awarded the Nobel Peace Prize for outstanding contributions to peace within the last 1 year."
-    won_nobel_peace_prize.f:0 "This event fired because [ROOT.GetCountry.GetName] entered into one of the following [concept_diplomatic_pact]s within the last 12 months: $demand_nuclear_weapons_removal$, $nuclear_de_escalation_treaty$, $pause_nuclear_weapons_development$, $non_aggression_pact$ (with a Rival)."
+    won_nobel_peace_prize.f:0 "This event fired because [ROOT.GetCountry.GetName] entered into one of the following [concept_diplomatic_pact]s within the last 12 months: $demand_nuclear_weapons_removal$, $nuclear_de_escalation_treaty$, $pause_nuclear_weapons_development$, $non_aggression_pact$ (with a rival)."
     
     ig_angry_with_witch_hunt:0 "Angry with Witch Hunt"
     indicted_character:0 "Indicted for Crimes"
@@ -2956,6 +3162,7 @@
     unjustly_convicted_character_ig:0 "A Member was Unjustly Convicted"
     
     not_on_trial.tt:0 "[concept_character] is not on trial"
+    indicted_character_is_acquitted.tt:0 "[SCOPE.sCharacter('indicted_character_scope').GetFullName] has been acquitted or the charges have been dropped"
     
     je_political_trials_system:0 "Trial of [SCOPE.sCharacter('indicted_character_scope').GetFullName]"
     je_political_trials_system_reason:0 "The [concept_government] has indicted [SCOPE.sCharacter('indicted_character_scope').GetFullName] from the [SCOPE.gsInterestGroup('indicted_character_ig_scope').GetName] for High Crimes against [ROOT.GetCountry.GetName]. \n\n[SCOPE.sCharacter('indicted_character_scope').GetFullName] is now on trial in the [SCOPE.GetRootScope.GetCountry.GetCustom('supreme_court_name')] where the accused can be either convicted of the crime and imprisoned or be acquitted."
@@ -3006,7 +3213,7 @@
     economic_strength_wars:0 "\n\nPolitical Instability: [GetPlayer.MakeScope.Var('economic_strength_wars_display_var').GetValue]"
     
     je_nuclear_weapons_info_panel:0 "Nuclear Arms Race"
-    je_nuclear_weapons_info_panel_reason:0 "[ROOT.GetCountry.GetName] is currently in a Nuclear Arms Race with a Rival country. We must therefore strive to ensure that [ROOT.GetCountry.GetName] has more nuclear strike power than all nuclear-armed countries which have Poor or lower relations with this country. \n\nGross Nuclear Strike Power: [GetPlayer.MakeScope.Var('nuclear_strike_power_display').GetValue] \n\nNuclear Strike Defence: [GetPlayer.MakeScope.Var('nuclear_strike_defence_display').GetValue] \n\nEnemy Gross Nuclear Strike Power: [GetPlayer.MakeScope.Var('nuclear_strike_power_enemy_display').GetValue] \n\nEnemy Nuclear Strike Defence: [GetPlayer.MakeScope.Var('nuclear_strike_defence_enemy_display').GetValue] \n\nEstimated Net Nuclear Strike Strength: [GetPlayer.MakeScope.Var('nuclear_strike_power_THIS_enemy_ratio').GetValue] \n\nEstimated Net Enemy Nuclear Strike Strength: [GetPlayer.MakeScope.Var('nuclear_strike_power_enemy_THIS_ratio').GetValue] \n\nNumber of Enemies: [GetPlayer.MakeScope.Var('nuclear_enemy_counter_display').GetValue] \n\nNuclear Weapons Superiority Score: [GetPlayer.MakeScope.Var('nuclear_strike_power_ratio').GetValue]"
+    je_nuclear_weapons_info_panel_reason:0 "[ROOT.GetCountry.GetName] is currently in a Nuclear Arms Race with a rival country. We must therefore strive to ensure that [ROOT.GetCountry.GetName] has more nuclear strike power than all nuclear-armed countries which have Poor or lower relations with this country. \n\nGross Nuclear Strike Power: [GetPlayer.MakeScope.Var('nuclear_strike_power_display').GetValue] \n\nNuclear Strike Defence: [GetPlayer.MakeScope.Var('nuclear_strike_defence_display').GetValue] \n\nEnemy Gross Nuclear Strike Power: [GetPlayer.MakeScope.Var('nuclear_strike_power_enemy_display').GetValue] \n\nEnemy Nuclear Strike Defence: [GetPlayer.MakeScope.Var('nuclear_strike_defence_enemy_display').GetValue] \n\nEstimated Net Nuclear Strike Strength: [GetPlayer.MakeScope.Var('nuclear_strike_power_THIS_enemy_ratio').GetValue] \n\nEstimated Net Enemy Nuclear Strike Strength: [GetPlayer.MakeScope.Var('nuclear_strike_power_enemy_THIS_ratio').GetValue] \n\nNumber of Enemies: [GetPlayer.MakeScope.Var('nuclear_enemy_counter_display').GetValue] \n\nNuclear Weapons Superiority Score: [GetPlayer.MakeScope.Var('nuclear_strike_power_ratio').GetValue]"
     je_nuclear_weapons_info_panel_status:0 "Nuclear Superiority Score: [GetPlayer.MakeScope.Var('nuclear_strike_power_ratio').GetValue]"
     
     ig_angry_with_weak_nuclear_weapons:0 "Losing Nuclear Arms Race"
@@ -3018,6 +3225,15 @@
     
     retire_civil_servant:0 "Dismiss Civil Servant"
     retire_civil_servant.tt:0 "[concept_character] retires from politics"
+    
+    create_space_agency_decision:0 "Start a Space Program"
+    create_space_agency_decision_desc:0 "Space exploration is the use of astronomy and space technology to explore outer space. While the exploration of space is currently carried out mainly by astronomers with telescopes, its physical exploration is conducted both by uncrewed robotic space probes and human spaceflight."
+    
+    je_space_race_space_program_public_button:0 "Nationalise Space Program"
+    je_space_race_space_program_public_button_desc:0 "The [ROOT.GetCountry.GetAdjectiveNoFlag] Space Program will be funded using taxpayer's money."
+    
+    je_space_race_space_program_private_button:0 "Privatise Space Program"
+    je_space_race_space_program_private_button_desc:0 "The [ROOT.GetCountry.GetAdjectiveNoFlag] Space Program will be funded using money from the [concept_investment_pool]."
     
     je_space_race_system:0 "The [ROOT.GetCountry.GetAdjectiveNoFlag] Space Program"
     je_space_race_system_reason:0 "Space exploration is the use of astronomy and space technology to explore outer space. While the exploration of space is currently carried out mainly by astronomers with telescopes, its physical exploration is conducted both by uncrewed robotic space probes and human spaceflight. \n\nCurrent Space Project: [SCOPE.GetRootScope.GetCountry.GetCustom('space_project_custom_title')]"
@@ -3064,6 +3280,20 @@
     je_space_race_mars_mission_button_desc:0 "A Mars landing is the arrival of a spacecraft on the surface of Mars."
     je_space_race_moon_base_button_desc:0 "A Moon base is a facility on or below the surface of the Moon, enabling human activity on the Moon."
     je_space_race_mars_base_button_desc:0 "A Mars base is a facility on or below the surface of the Mars, enabling human activity on Mars."
+    
+    je_space_race_fake_moon_mission_button:0 "Fake a Moon Landing"
+    je_space_race_fake_moon_mission_button_desc:0 "We will pay our best movie studios to produce a realistic looking film of a [ROOT.GetCountry.GetAdjectiveNoFlag] landing on the Moon in the hopes of fooling the world that [ROOT.GetCountry.GetNameNoFlag] did actually land on the Moon."
+    moon_mission_faked.t:0 "Fake Moon Landing Exposed"
+    moon_mission_faked.d:0 "The [ROOT.GetCountry.GetNameNoFlag]'s attempt to fool the world with a crudely produce video of a [ROOT.GetCountry.GetAdjectiveNoFlag] person landing on the Moon has convinced no one and has instead attracted widespread ridicule of the country."
+    moon_mission_faked_success.t:0 "Fake Moon Landing Successful"
+    moon_mission_faked_success.d:0 "A fabricated video of a [ROOT.GetCountry.GetAdjectiveNoFlag] astronaut landing on the Moon has successfully fooled the world into thinking that [ROOT.GetCountry.GetNameNoFlag] did actually land on the Moon."
+    
+    je_space_race_fake_mars_mission_button:0 "Fake a Mars Landing"
+    je_space_race_fake_mars_mission_button_desc:0 "We will pay our best movie studios to produce a realistic looking film of a [ROOT.GetCountry.GetAdjectiveNoFlag] landing on Mars in the hopes of fooling the world that [ROOT.GetCountry.GetNameNoFlag] did actually land on Mars."
+    mars_mission_faked.t:0 "Fake Mars Landing Exposed"
+    mars_mission_faked.d:0 "The [ROOT.GetCountry.GetNameNoFlag]'s attempt to fool the world with a crudely produce video of a [ROOT.GetCountry.GetAdjectiveNoFlag] person landing on Mars has convinced no one and has instead attracted widespread ridicule of the country."
+    moon_mission_faked_success.t:0 "Fake Mars Landing Successful"
+    moon_mission_faked_success.d:0 "A fabricated video of a [ROOT.GetCountry.GetAdjectiveNoFlag] astronaut landing on Mars has successfully fooled the world into thinking that [ROOT.GetCountry.GetNameNoFlag] did actually land on Mars."
     
     completed_space_race_je.tt:0 "This country has completed all possible Space Programs"
     
@@ -3141,11 +3371,24 @@
     je_world_tension_system:0 "World Tension"
     je_world_tension_system_reason:0 "World Tension represents the overall level of fear and anxiety that exists among the nations of the World. The number displayed can be between 0% and 100%. \n\nGenerally, the higher the World Tension, the more popular support nations have for taking belligerent actions. \n\nWorld Tension has a variety of effects on the game, from influencing AI aggression and the level of militarisation to impacting the Stock Market. \n\nCurrent World Tension: [GetPlayer.MakeScope.Var('world_tension_amount_display').GetValue]%"
     
-    je_very_low_world_tension:0 "Amount: Very Low ([GetPlayer.MakeScope.Var('world_tension_amount_display').GetValue]%)"
-    je_low_world_tension:0 "Amount: Low ([GetPlayer.MakeScope.Var('world_tension_amount_display').GetValue]%)"
-    je_medium_world_tension:0 "Amount: Medium ([GetPlayer.MakeScope.Var('world_tension_amount_display').GetValue]%)"
-    je_high_world_tension:0 "Amount: High ([GetPlayer.MakeScope.Var('world_tension_amount_display').GetValue]%)"
-    je_very_high_world_tension:0 "Amount: Very High ([GetPlayer.MakeScope.Var('world_tension_amount_display').GetValue]%)"
+    je_very_low_world_tension:0 "Amount: #green Very Low#! ([GetPlayer.MakeScope.Var('world_tension_amount_display').GetValue]%) $defcon_level_custom_loc_label$"
+    je_low_world_tension:0 "Amount: #green Low#! ([GetPlayer.MakeScope.Var('world_tension_amount_display').GetValue]%) $defcon_level_custom_loc_label$"
+    je_medium_world_tension:0 "Amount: #yellow Medium#! ([GetPlayer.MakeScope.Var('world_tension_amount_display').GetValue]%) $defcon_level_custom_loc_label$"
+    je_high_world_tension:0 "Amount: #o High#! ([GetPlayer.MakeScope.Var('world_tension_amount_display').GetValue]%) $defcon_level_custom_loc_label$"
+    je_very_high_world_tension:0 "Amount: #r Very High#! ([GetPlayer.MakeScope.Var('world_tension_amount_display').GetValue]%) $defcon_level_custom_loc_label$"
+    
+    je_world_tension_increase_defcon_button:0 "Increase DEFCON"
+    je_world_tension_increase_defcon_button_desc:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [GetPlayer.GetRuler.GetFullName] will order the [ROOT.GetCountry.GetAdjective] Armed Forces to increase its combat readiness."
+    je_world_tension_decrease_defcon_button:0 "Decrease DEFCON"
+    je_world_tension_decrease_defcon_button_desc:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [GetPlayer.GetRuler.GetFullName] will order the [ROOT.GetCountry.GetAdjective] Armed Forces to decrease its combat readiness."
+    
+    defcon_1:0 "Military Readiness: #white DEFCON 1#!"
+    defcon_2:0 "Military Readiness: #r DEFCON 2#!"
+    defcon_3:0 "Military Readiness: #yellow DEFCON 3#!"
+    defcon_4:0 "Military Readiness: #green DEFCON 4#!"
+    defcon_5:0 "Military Readiness: #blue DEFCON 5#!"
+    
+    defcon_level_custom_loc_label:0 "\n[SCOPE.GetRootScope.GetCountry.GetCustom('defcon_level_custom_loc')]"
     
     assassinated_by_the_state.tt:0 "[concept_interest_group]'s leader was assassinated by the state"
     assassinated_or_imprisoned_by_the_state.tt:0 "[SCOPE.gsInterestGroup('coup_ig').GetLeader.GetFullName] from the [SCOPE.gsInterestGroup('coup_ig').GetName] was either imprisoned or assassinated by the state"
@@ -3175,6 +3418,10 @@
     SOV_NVM_form.d:0 "The Soviet Union was the first country, along with its satellite states in Eastern Europe and the newly established People's Republic of China, to diplomatically recognize the Democratic Republic of Vietnam during the First Indochina War in January 1950."
     USA_YUG_form.t:0 "The American-Yugoslav Thaw?"
     USA_YUG_form.d:0 "The 1948 Tito-Stalin split represented the major turning point in the relations of United States and the new socialist republic. Yugoslavia first requested assistance from the United States in summer 1948. The Truman administration decided to provide substantial aid, loans and military assistance to Yugoslavia. This marked the beginning of US military aid to a communist nation in order to counter Soviet ambitions in the region, leading to greater strives in United States–Yugoslavia relations. Tito received US backing in Yugoslavia's successful 1949 bid for a seat on the United Nations Security Council, against Soviet opposition. In 1949, the United States provided loans to Yugoslavia, and in 1950 the loans were increased and followed by large grants and military aid."
+    PRC_PB_form.t:0 "Form the Sinosphere?"
+    PRC_PB_form.d:0 "In 1956, Soviet leader Nikita Khrushchev denounced Stalin and Stalinism. Mao and the Chinese leadership were appalled as the PRC and the USSR progressively diverged in their interpretations and applications of Leninist theory. By 1961, their intractable ideological differences provoked the PRC's formal denunciation of Soviet communism as the work of "revisionist traitors" in the USSR. For Eastern Bloc countries, the Sino-Soviet split was a question of who would lead the revolution for world communism, and to whom (China or the USSR) the vanguard parties of the world would turn for political advice, financial aid, and military assistance. In that vein, both countries competed for the leadership of world communism through the vanguard parties native to the countries in their spheres of influence."
+    NAM_PB_form.t:0 "The Non-Aligned Movement?"
+    NAM_PB_form.d:0 "The Non-Aligned Movement (NAM) was founded with the view to advancing interests of developing countries in the context of Cold War confrontation. In its first three decades, the Movement played a crucial role in decolonisation, formation of new independent states, and democratisation of international relations."
     
     historical_alliances_system.option.1:0 "Yes"
     historical_alliances_system.option.2:0 "No"
@@ -3240,7 +3487,7 @@
     cold_war_is_over.tt:0 "The Cold War is Over"
     
     je_corruption_system:0 "Corruption in [ROOT.GetCountry.GetNameNoFlag]"
-    je_corruption_system_reason:0 "[concept_corruption] is the use of powers by government officials or their network contacts for illegitimate private gain. Forms of corruption vary, but can include bribery, lobbying, extortion, cronyism, nepotism, parochialism, patronage, influence peddling, graft, and embezzlement. \n\nCorruption is present in the [ROOT.GetCountry.GetAdjective] [concept_government] and so it is necessary to enact stronger $lawgroup_corruption_policy$ to remove this problem. \n\nThe @armed_forces! $ig_armed_forces$ and @intelligentsia! $ig_bureaucrats$ will however oppose any attempt to reduce corruption in the country and so radicalism amongst the people who support those [Concept('concept_interest_group', '$concept_interest_groups$')] will increase for the duration of any attempt to enact stronger $lawgroup_corruption_policy$."
+    je_corruption_system_reason:0 "[concept_corruption] is the use of powers by government officials or their network contacts for illegitimate private gain. Forms of corruption vary, but can include bribery, lobbying, extortion, cronyism, nepotism, parochialism, patronage, influence peddling, graft, and embezzlement. \n\nCorruption is present in the [ROOT.GetCountry.GetAdjective] [concept_government] and so it is necessary to enact stronger $lawgroup_corruption_policy$ to remove this problem. \n\nThe @armed_forces! $ig_armed_forces$ and @intelligentsia! $ig_intelligentsia$ will however oppose any attempt to reduce corruption in the country and so radicalism amongst the people who support those [Concept('concept_interest_group', '$concept_interest_groups$')] will increase for the duration of any attempt to enact stronger $lawgroup_corruption_policy$."
     
     very_high_corruption:0 "Very High [concept_corruption]"
     high_corruption:0 "High [concept_corruption]"
@@ -3444,7 +3691,7 @@
     request_imf_loan_button_desc:0 "$request_imf_loan_decision_desc$"
     
     je_climate_change_system:0 "Global Climate Change"
-    je_climate_change_system_reason:0 "Climate Change refers to long-term shifts in temperatures and weather patterns. These shifts may be natural, but since the 1800s, human activities have been the main driver of climate change, primarily due to the burning of fossil fuels (like coal, oil and gas), which produces heat-trapping gases. \n\nCurrent Climate Condition: [SCOPE.GetRootScope.GetCountry.GetCustom('climate_effect_name')] \n\nObjective: Climate Benchmark must not rise above +2.0°C \n\nCurrent Global Temperature: +[GetPlayer.MakeScope.Var('climate_change_status_total_display').GetValue]°C \n\nAnnual Global Temperature Change: +[GetPlayer.MakeScope.Var('climate_change_progress_rate_display').GetValue]°C \n\nTip: The rate of climate change can be slowed down by enacting a better $lawgroup_environmental_policy$ [concept_law]."
+    je_climate_change_system_reason:0 "Climate Change refers to long-term shifts in temperatures and weather patterns. These shifts may be natural, but since the 1800s, human activities have been the main driver of climate change, primarily due to the burning of fossil fuels (like coal, oil and gas), which produces heat-trapping gases. \n\nCurrent Climate Condition: [SCOPE.GetRootScope.GetCountry.GetCustom('climate_effect_name')] \n\nObjective: Climate Benchmark must not rise above +2.0°C \n\nCurrent Global Temperature: +[GetPlayer.MakeScope.Var('climate_change_status_total_display').GetValue]°C \n\nAnnual Global Temperature Change: [GetPlayer.MakeScope.Var('climate_change_progress_rate_display').GetValue]°C \n\nTip: The rate of climate change can be slowed down by enacting a better $lawgroup_environmental_policy$ [concept_law]."
     je_climate_change_system_status:0 "Climate Benchmark: +[GetPlayer.MakeScope.Var('climate_change_status_total_display').GetValue]°C"
     
     climate_change_effects_1:0 "Minimal Climate Anomalies"
@@ -3482,8 +3729,8 @@
     je_climate_change_recycling_end_button_desc:0 "Recycling is the process of converting waste materials into new materials and objects. This concept often includes the recovery of energy from waste materials. The recyclability of a material depends on its ability to reacquire the properties it had in its original state."
     je_climate_change_carbon_capture_start_button:0 "Start Carbon Capture Policy"
     je_climate_change_carbon_capture_start_button_desc:0 "Carbon capture and storage is a process in which a relatively pure stream of carbon dioxide from industrial sources is separated, treated and transported to a long-term storage location. \n\nEnacting this policy will slow down the rate of climate change."
-    je_climate_change_carbon_capture_start_button:0 "End Carbon Capture Policy"
-    je_climate_change_carbon_capture_start_button_desc:0 "Carbon capture and storage is a process in which a relatively pure stream of carbon dioxide from industrial sources is separated, treated and transported to a long-term storage location."
+    je_climate_change_carbon_capture_end_button:0 "End Carbon Capture Policy"
+    je_climate_change_carbon_capture_end_button_desc:0 "Carbon capture and storage is a process in which a relatively pure stream of carbon dioxide from industrial sources is separated, treated and transported to a long-term storage location."
     
     climate_change_recycling_timer.tt:0 "Did not enact a Recycling Policy in the last 5 years"
     climate_change_reforestation_timer.tt:0 "Did not enact a Reforestation Policy in the last 5 years"
@@ -3550,10 +3797,19 @@
     MSY_historical_election_system.t:0 "Malaysian General Election"
     MSY_historical_election_system.d:0 "The prime minister of Malaysia is the head of government of Malaysia. The prime minister directs the executive branch of the federal government. The Yang di-Pertuan Agong appoints the prime minister as a member of Parliament (MP) who, in his opinion, is most likely to command the confidence of a majority of MPs. The Prime Minister is usually the leader of the party winning the most seats in a general election. "
     
-    historical_election_system.f:0 "This is a historical event. Choosing the non-historical option will keep the current [concept_ruler] as the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]."
+    RUS_historical_election_system.t:0 "Russian Presidential Election"
+    RUS_historical_election_system.d:0 "The president of the Russian Federation is the executive head of state of Russia. The president is the chair of the Federal State Council and the supreme commander-in-chief of the Russian Armed Forces. It is the highest office in Russia."
+    
+    SOV_historical_election_system.t:0 "Soviet Presidential Election"
+    SOV_historical_election_system.d:0 "The 1990 Soviet Union presidential election was held in the Soviet Union on 14 March 1990 to elect a president for a five-year term. This was the first and only presidential election to be held in the Soviet Union. This was due to the office of president being established in 1990, a year before the dissolution of the Soviet Union in 1991. The elections were uncontested, with Mikhail Gorbachev, then-General Secretary of the Communist Party of the Soviet Union as the only candidate."
+    
+    ROC_historical_election_system.t:0 "[ROOT.GetCountry.GetAdjectiveNoFormatting] Presidential Election"
+    ROC_historical_election_system.d:0 "The president of the Republic of China, also referred to as the president of Taiwan, is the head of state of the Republic of China (Taiwan) as well as the commander-in-chief of the Republic of China Armed Forces. The position once had authority of ruling over Mainland China before 1949, but its remaining jurisdictions has been limited to Taiwan, Penghu, Kinmen, Matsu, and other smaller islands since the conclusion of the Chinese Civil War."
+    
+    historical_election_system.f:0 "This is a historical event and the purpose of it is to set the current [concept_ruler] as the historical [concept_ruler]. Choosing the non-historical option will keep the current [concept_ruler] as the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]."
     
     historical_election_system.option.1:0 "Follow history!"
-    historical_election_system.option.2:0 "We prefer the current President..."
+    historical_election_system.option.2:0 "We prefer the current [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]..."
     
     je_olympic_games:0 "The [GetPlayer.MakeScope.Var('olympic_games_year_display').GetValue] [SCOPE.sState('olympic_games_summit_location').GetCityHubName] Olympics"
     je_olympic_games_reason:0 "The Summer Olympic Games, also known as the Games of the Olympiad, and often referred to as the Summer Olympics, is a major international multi-sport event normally held once every four years on leap years. \n\nConstruct Olympic Infrastructure to avoid a bad Olympic Games. \n\nThe [GetPlayer.MakeScope.Var('olympic_games_year_display').GetValue] Olympic Games will be held in [SCOPE.sState('olympic_games_summit_location').GetCityHubName], [SCOPE.sState('olympic_games_summit_location').GetName] ([ROOT.GetCountry.GetName])."
@@ -3749,6 +4005,48 @@
     HND_Anti_Sikh_Riots.d:0 "The 1984 anti-Sikh riots, also known as the 1984 Sikh massacre, was a series of organised pogroms against Sikhs in India following the assassination of Indira Gandhi by her Sikh bodyguards. Government estimates project that about 2,800 Sikhs were killed in Delhi and 3,350 nationwide."
     ITA_Piazza_Fontana_attack_1969.t:0 "The Piazza Fontana Bombing"
     ITA_Piazza_Fontana_attack_1969.d:0 "The Piazza Fontana bombing was a terrorist attack that occurred on 12 December 1969 when a bomb exploded at the headquarters of Banca Nazionale dell'Agricoltura (the National Agricultural Bank) in Piazza Fontana (near the Duomo) in Milan, Italy, killing 17 people and wounding 88. The attack was carried out by the Third Position, neo-fascist paramilitary terrorist group Ordine Nuovo and possibly certain undetermined collaborators."
+    HND_assassinate_MKG.t:0 "The Assassination of Mahatma Gandhi?"
+    HND_assassinate_MKG.d:0 "At 5:17 p.m. on 30 January 1948, Gandhi was with his grandnieces in the garden of Birla House (now Gandhi Smriti), on his way to address a prayer meeting, when Nathuram Godse, a Hindu nationalist, fired three bullets into Gandhi's chest from a pistol at close range. According to some accounts, Gandhi died instantly."
+    USA_taft_act.t:0 "The Taft–Hartley Act?"
+    USA_taft_act.d:0 "The Labor Management Relations Act of 1947, better known as the Taft–Hartley Act, is a United States federal law that restricts the activities and power of labor unions. It was enacted by the 80th United States Congress over the veto of President Harry S. Truman, becoming law on June 23, 1947. Taft–Hartley was introduced in the aftermath of a major strike wave in 1945 and 1946."
+    PRC_tibetan_uprising.t:0 "The Tibetan Uprising"
+    PRC_tibetan_uprising.d:0 "The 1959 Tibetan uprising began on 10 March 1959, when a revolt erupted in Lhasa, the capital of Tibet, which had been under the effective control of the People's Republic of China (PRC) since the Seventeen Point Agreement was reached in 1951. The initial uprising occurred amid general Chinese-Tibetan tensions and a context of confusion, because Tibetan protesters feared that the Chinese government might arrest the 14th Dalai Lama. The protests were also fueled by anti-Chinese sentiment and separatism."
+    HND_tibetan_movement.t:0 "The Dalai Lama in Exile?"
+    HND_tibetan_movement.d:0 "At the outset of the 1959 Tibetan uprising, fearing for his life, the Dalai Lama and his retinue fled Tibet with the help of the CIA's Special Activities Division, crossing into India on 30 March 1959, reaching Tezpur in Assam on 18 April. Some time later he set up the Government of Tibet in Exile in Dharamshala, India, which is often referred to as "Little Lhasa". After the founding of the government in exile he re-established the approximately 80,000 Tibetan refugees who followed him into exile in agricultural settlements."
+    HND_tibetan_movement.option.1:0 "Let him be in India."
+    HND_tibetan_movement.option.2:0 "No thanks!"
+    POL_pope_movement.t:0 "The Election of Pope John Paul II?"
+    POL_pope_movement.d:0 "Pope John Paul II provided a moral focus for anti-communism; a visit to his native Poland in 1979 stimulated a religious and nationalist resurgence centered on the Solidarity movement trade union that galvanized opposition and may have led to his attempted assassination two years later."
+    POL_pope_movement.option.1:0 "He is a troublemaker!"
+    POL_pope_movement.option.2:0 "Agree to some religious freedom."
+    POL_solidarity_movement.t:0 "The Solidarity Movement"
+    POL_solidarity_movement.d:0 "Solidarity is a Polish trade union founded in August 1980 at the Lenin Shipyard in Gdańsk, Poland. The union's membership peaked at 10 million in September 1981, representing one-third of the country's working-age population. In the 1980s, Solidarity was a broad anti-authoritarian social movement, using methods of civil resistance to advance the causes of workers' rights and social change. The Government attempted in the early 1980s to destroy the union through the imposition of martial law in Poland and the use of political repressions."
+    AFG_mujahideen_movement.t:0 "The Afghan Mujahideen"
+    AFG_mujahideen_movement.d:0 "The Afghan mujahideen were Islamist resistance groups that fought the Democratic Republic of Afghanistan and the Soviet Union during the Soviet–Afghan War and the subsequent First Afghan Civil War. "
+    JAP_recruit_scandal.t:0 "The Recruit Scandal"
+    JAP_recruit_scandal.d:0 "The Recruit scandal was an insider trading and corruption scandal that forced many prominent Japanese politicians to resign in 1988. Among the politicians involved in the scandal were Prime Minister Noboru Takeshita, former Prime Minister Yasuhiro Nakasone, and Chief Cabinet Secretary Takao Fujinami. In addition to members of the LDP government, leaders of the Komeito, Democratic Party of Japan, and Japan Socialist Party were also found to be involved."
+    ITA_maxi_trial.t:0 "The Maxi Trial?"
+    ITA_maxi_trial.d:0 "The Maxi Trial was a criminal trial against the Sicilian Mafia that took place in Palermo, Sicily. The trial lasted from 10 February 1986 (the first day of the Corte d'Assise) to 30 January 1992 (the final day of the Supreme Court of Cassation), and was held in a bunker-style courthouse specially constructed for this purpose inside the walls of the Ucciardone prison."
+    GBR_poll_tax_riots.t:0 "The Poll Tax?"
+    GBR_poll_tax_riots.d:0 "The poll tax riots were a series of riots in British towns and cities during protests against the Community Charge (commonly known as the "poll tax"), introduced by the Conservative government of Prime Minister Margaret Thatcher. The largest protest occurred in central London on Saturday 31 March 1990, shortly before the tax was due to come into force in England and Wales."
+    FRA_yellow_vests.t:0 "The Yellow Vests Protests"
+    FRA_yellow_vests.d:0 "The Yellow Vests Protests were a series of populist, grassroots weekly protests in France that began on 17 November 2018. The movement was initially motivated by rising crude oil and fuel prices, a high cost of living, and economic inequality. The movement argued that a disproportionate burden of taxation in France was falling on the working and middle classes, especially in rural and peri-urban areas. The protesters called for lower fuel taxes, a reintroduction of the solidarity tax on wealth, a minimum wage increase, among other things."
+    RUS_Khodorkovsky_Case.t:0 "The Trial of Mikhail Khodorkovsky?"
+    RUS_Khodorkovsky_Case.d:0 "In 2001, Khodorkovsky founded Open Russia, a reform-minded organization intending to "build and strengthen civil society" in the country. In October 2003, he was arrested by Russian authorities and charged with fraud. The government of President Vladimir Putin then froze shares of Yukos shortly thereafter on tax charges. Putin's government took further actions against Yukos, leading to a collapse of the company's share price and the evaporation of much of Khodorkovsky's wealth. In May 2005, he was found guilty and sentenced to nine years in prison."
+    RUS_Politkovskaya_murder.t:0 "The Assassination of Anna Politkovskaya?"
+    RUS_Politkovskaya_murder.d:0 "On 7 October 2006, Russian journalist, writer and human rights activist Anna Politkovskaya was shot dead in the elevator of her apartment block in central Moscow. She was known for her opposition to the Chechen conflict and for criticism of Vladimir Putin. She authored several books about the Chechen wars, as well as Putin's Russia, and received several international awards for her work. Her murder, believed to be a contract killing, sparked a strong international reaction."
+    RUS_snow_revolution.t:0 "The Snow Revolution?"
+    RUS_snow_revolution.d:0 "The Snow Revolution began in 2011 (as protests against the 2011 Russian legislative election results) and continued into 2012 and 2013. The protests were motivated by claims of Russian and foreign journalists, political activists and members of the public that the election process was fraudulent."
+    RUS_Navalny_murder.t:0 "The Death of Alexei Navalny?"
+    RUS_Navalny_murder.d:0 "Alexei Anatolyevich Navalny was a Russian opposition leader, lawyer, anti-corruption activist, and political prisoner. In January 2021, Navalny returned to Russia and was immediately detained on accusations of violating parole conditions while he was hospitalised in Germany. In August 2023, Navalny was sentenced to an additional 19 years in prison on extremism charges. In December 2023, Navalny went missing from prison for almost three weeks. He re-emerged in an Arctic Circle corrective colony in the Yamalo-Nenets Autonomous Okrug. On 16 February 2024, the Russian prison service reported that Navalny had died at the age of 47."
+    BYE_Minsk_attack_2011.t:0 "The Minsk Metro Bombing"
+    BYE_Minsk_attack_2011.d:0 "The 2011 Minsk Metro bombing took place on 11 April 2011 when 15 people were killed and 204 were injured when a bomb exploded within the Minsk Metro, Belarus. The explosion happened at the central Kastryčnickaja station at 1755 local time. The Prosecution Office launched a criminal investigation and classified the event as a terrorist attack. Two suspects arrested on 13 April confessed to the bombing but the motives remained unclear. In March 2012, both perpetrators, Dzmitry Kanavalau and Uladzislau Kavalyou, were executed by shooting."
+    BYE_May_Protests.t:0 "The May Mass Protests"
+    BYE_May_Protests.d:0 "The 2020–2021 Belarusian protests were a series of mass political demonstrations and protests against the Belarusian government and President Alexander Lukashenko. The largest anti-government protests in the history of Belarus, the demonstrations began in the lead-up to and during the 2020 presidential election, in which Lukashenko sought his sixth term in office. In response to the demonstrations, a number of relatively small pro-government rallies were held."
+    JAP_1970_uprising.t:0 "The Attempted Coup by Yukio Mishima"
+    JAP_1970_uprising.d:0 "On 25 November 1970, Mishima and four members of his militia entered a military base in central Tokyo, took its commandant hostage, and unsuccessfully tried to inspire the Japan Self-Defense Forces to rise up and overthrow Japan's 1947 Constitution (which he called "a constitution of defeat"). After his speech and screaming of "Long live the Emperor!", he committed seppuku."
+    USA_assassinate_DJT.t:0 "The Attempted Assassination of Donald Trump"
+    USA_assassinate_DJT.d:0 "On July 13, 2024, Donald Trump, a former president of the United States and the presumptive nominee of the Republican Party in the 2024 presidential election, survived an assassination attempt while speaking at an open-air campaign rally near Butler, Pennsylvania."
     
     in_a_defensive_war.tt:0 "This country is in a defensive [concept_war] with an independent country."
     alliance_leader_label.tt:0 "Leader: [SCOPE.sCountry('alliance_leader_scope_label').GetName]"
@@ -3854,10 +4152,12 @@
     je_tekhpromfinplans_reason:0 "Under the [ROOT.GetCountry.GetAdjective] $law_semi_command_economy$, investment decisions are decentralised. Enterprises are to submit annual plans, called tekhpromfinplans, stipulating production plans by quarter and month. State Planning Officials would then approve these plans (or not) and allocate supplies and money. The enterprise then sells its products, within the constraints of the plan. \n\nThis system allows the [concept_government] to transfer funds from the [concept_gold_reserves] to the [concept_investment_pool] to enable the state enterprises to construct [Concept('concept_building', '$concept_buildings$')] autonomously."
     je_tekhpromfinplans_status:0 "[concept_investment_pool]: #Green [GetPlayer.MakeScope.Var('tekhpromfinplans_fund_size').GetValue]M#!"
     
-    je_inject_tekhpromfinplans_button:0 "Approve Projects"
-    je_inject_tekhpromfinplans_button_desc:0 "The [concept_government] will approve the investment plans submitted by the decentralised State Enterprises and transfer funds from the [concept_gold_reserves] to the [concept_investment_pool] to enable those plans to be executed."
+    je_start_inject_tekhpromfinplans_button:0 "Start Approving Projects"
+    je_start_inject_tekhpromfinplans_button_desc:0 "The [concept_government] will approve the investment plans submitted by the decentralised State Enterprises and transfer funds from the [concept_treasury] to the [concept_investment_pool] to enable those plans to be executed every month if Weekly Net Fixed Income is at least @money!#yellow 10000#!."
+    je_stop_inject_tekhpromfinplans_button:0 "Stop Approving Projects"
+    je_stop_inject_tekhpromfinplans_button_desc:0 "The [concept_government] will stop approving the investment plans submitted by the decentralised State Enterprises."
     
-    start_tekhpromfinplans.tt:0 "Did not approve any projects within the last 1 month"
+    start_tekhpromfinplans.tt:0 "Did not start or stop approving any projects within the last 1 month"
     
     je_constitutional_monarchy:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('monarchy_type_custom_title')]"
     je_constitutional_monarchy_reason:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('monarch_custom_title')] is the ceremonial Head of State of [ROOT.GetCountry.GetName]. However, although the monarchy does not exercise executive power, the [SCOPE.GetRootScope.GetCountry.GetCustom('monarch_custom_title')] still remains a highly influential figure in the country by being a visible symbol of national unity. \n\n[SCOPE.GetRootScope.GetCountry.GetCustom('monarchy_type_custom_desc')]"
@@ -4016,3 +4316,150 @@
     eastern_europe_sovietisation.option.2:0 "It is not necessary."
     eastern_europe_sovietisation_target.option.1:0 "Accept [SCOPE.sCountry('eastern_europe_sovietisation_initiator').GetAdjective] domination."
     eastern_europe_sovietisation_target.option.2:0 "We will be free!"
+    Turkish_Straits_Crisis.t:0 "The Turkish Straits Crisis?"
+    Turkish_Straits_Crisis.d:0 "The Turkish Straits crisis was a Cold War-era territorial conflict between the Soviet Union and Turkey. After WW2 ended, Turkey was pressured by the Soviet government to institute joint military control of passage through Turkish Straits, which connected the Black Sea to the Mediterranean. When the Turkish government refused, tensions in the region rose, leading to a Soviet show of force and demands for territorial concessions along the Georgia–Turkey border."
+    Turkish_Straits_Crisis.1.option.1:0 "Demand Turkish concessions!"
+    Turkish_Straits_Crisis.1.option.2:0 "Leave Turkey alone."
+    Turkish_Straits_Crisis.2.option.1:0 "Refuse the Soviet demands!"
+    Turkish_Straits_Crisis.2.option.2:0 "Accept Soviet domination!"
+    Turkish_Straits_Crisis.3.t:0 "Turkey Resists Soviet Pressure"
+    Turkish_Straits_Crisis.3.d:0 "Buckling under the mounting pressure from the Soviets, in a matter of days Turkey appealed to the United States for aid. After consulting his administration, President Truman sent a naval task force to Turkey. On 9 October 1946, the respective governments of the United States and United Kingdom reaffirmed their support for Turkey. On 26 October, the Soviet Union withdrew its specific request for a new summit on the control of the Turkish Straits (but not its opinions) and sometime shortly thereafter pulled out most of the intimidatory military forces from the region."
+    Turkish_Straits_Crisis.3.option.1:0 "Abandon our demands!"
+    Turkish_Straits_Crisis.3.option.2:0 "Time for war!"
+    Berlin_Crisis.t:0 "The Berlin Crisis?"
+    Berlin_Crisis.d:0 "The Berlin Crisis of 1961 was the last major European political and military incident of the Cold War concerning the status of the German capital city, Berlin, and of post–World War II Germany. The crisis culminated in the city's de facto partition with the East German erection of the Berlin Wall. The Berlin Crisis began in June 1961 when Soviet Premier Nikita Khrushchev, meeting with US President John F. Kennedy at the Vienna summit, reissued an ultimatum which demanded the withdrawal of all armed forces from Berlin, including the Western armed forces in West Berlin."
+    Berlin_Crisis.1.option.1:0 "Demand control over Berlin!"
+    Berlin_Crisis.1.option.2:0 "Leave West Germany alone."
+    Berlin_Crisis.2.option.1:0 "Refuse the Soviet demands!"
+    Berlin_Crisis.2.option.2:0 "Accept Soviet domination!"
+    Berlin_Crisis.3.t:0 "The United States Resists Soviet Pressure"
+    Berlin_Crisis.3.d:0 "No agreement was reached and in August 1961, with Khrushchev's backing, East German leader Walter Ulbricht ordered the closing of the border and the construction of a wall around West Berlin. A brief stand-off between American and Soviet tanks occurred at Checkpoint Charlie in October following a dispute over free movement of Allied personnel; the confrontation ended peacefully after Khrushchev and Kennedy agreed to withdraw the tanks and reduce tensions."
+    Berlin_Crisis.3.option.1:0 "Abandon our demands!"
+    Berlin_Crisis.3.option.2:0 "Time for war!"
+    Berlin_Ultimatum.t:0 "The Berlin Ultimatum?"
+    Berlin_Ultimatum.d:0 "In November 1958, Khrushchev issued the Western powers an ultimatum to withdraw from Berlin within six months and make it a free, demilitarised city. Khrushchev declared that, at the end of that period, the Soviet Union would turn over control of all lines of communication with West Berlin to East Germany, meaning the western powers would have access to West Berlin only when East Germany permitted it."
+    Berlin_Ultimatum.1.option.1:0 "Demand control over Berlin!"
+    Berlin_Ultimatum.1.option.2:0 "Leave Berlin alone."
+    Berlin_Ultimatum.2.option.1:0 "Refuse the Soviet demands!"
+    Berlin_Ultimatum.2.option.2:0 "Accept the Soviet ultimatum!"
+    Berlin_Ultimatum.3.t:0 "The United States Resists Soviet Pressure"
+    Berlin_Ultimatum.3.d:0 "From the NATO perspective West Berlin—deep in Communist territory—had no military value. However it was the preeminent symbol of resistance to Soviet takeover of Europe. Eisenhower commented that Berlin was an "instance in which our political posture requires us to assume military postures that are wholly illogical.” British Prime Minister Harold Macmillan visited Moscow for extended discussions with Khrushchev in February 1959. The meetings were mostly cordial; the ultimatum was dropped."
+    Berlin_Ultimatum.3.option.1:0 "Abandon our demands!"
+    Berlin_Ultimatum.3.option.2:0 "Time for war!"
+    Berlin_Blockade.t:0 "The Berlin Blockade?"
+    Berlin_Blockade.d:0 "The Berlin Blockade was one of the first major international crises of the Cold War. During the multinational occupation of post–World War II Germany, the Soviet Union blocked the Western Allies' railway, road, and canal access to the sectors of Berlin under Western control. The Soviets offered to drop the blockade if the Western Allies withdrew the newly introduced Deutsche Mark from West Berlin."
+    Berlin_Blockade.1.option.1:0 "Demand control over Berlin!"
+    Berlin_Blockade.1.option.2:0 "Leave Berlin alone."
+    Berlin_Blockade.2.option.1:0 "Refuse the Soviet demands!"
+    Berlin_Blockade.2.option.2:0 "Accept the Soviet ultimatum!"
+    Berlin_Blockade.3.t:0 "The United States Resists Soviet Pressure"
+    Berlin_Blockade.3.d:0 "The Western Allies organised the Berlin Airlift from 26 June 1948 to 30 September 1949 to carry supplies to the people of West Berlin, a difficult feat given the size of the city and the population. Having initially concluded there was no way the airlift could work, the Soviets found its continued success an increasing embarrassment. On 12 May 1949, the USSR lifted the blockade of West Berlin, due to economic issues in East Berlin, although for a time the Americans and British continued to supply the city by air as they were worried that the Soviets would resume the blockade and were only trying to disrupt western supply lines."
+    Berlin_Blockade.3.option.1:0 "Abandon our demands!"
+    Berlin_Blockade.3.option.2:0 "Time for war!"
+    
+    renovate_capital_decision:0 "Reconstruct the Capital"
+    renovate_capital_decision_desc:0 "Our [concept_capital_state] is an old city but the cramped, medieval-style streets and buildings certainly doesn't do it any favours. In order to implement a modern transportation network and to eliminate potential sanitary problems, we can invest in a renovation of [concept_capital_state] to make it a city worthy of being a capital of our country."
+    
+    je_renovate_capital_system:0 "Reconstructing [ROOT.GetCountry.GetCapital.GetCityHubName]"
+    je_renovate_capital_system_reason:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]'s personal architect has been given the task of transforming [ROOT.GetCountry.GetCapital.GetCityHubName] from the sprawling metropolis that it is into #yellow [ROOT.GetCountry.GetAdjectiveNoFlag]ia#!, the gleaming new capital of a Greater [ROOT.GetCountry.GetAdjectiveNoFlag] ‘World Empire’, the centrepiece of the civilised world. It will be a vast undertaking. \n\nNational newspapers state that the designs were ‘truly monumental … far exceeding all expectations’, while the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] himself proclaimed grandly that ‘from this desert of stone, shall emerge the capital of a thousand-year empire’. The foreign press, though less effusive, nonetheless concurred. A foreign newspaper, for instance, described the project as ‘perhaps the most ambitious planning scheme’ of the modern era."
+    je_renovate_capital_system_goal:0 "Reconstruction of [ROOT.GetCountry.GetCapital.GetCityHubName] is completed"
+    
+    renovate_capital_dev_cost:0 "Capital Reconstruction Costs"
+    grand_capital:0 "City of Grandeur"
+    
+    foreign_triggered_enactment.t:0 "[SCOPE.sCountry('manipulator_country').GetAdjectiveNoFlag] Meddling in [ROOT.GetCountry.GetAdjectiveNoFlag] Politics"
+    foreign_triggered_enactment.d:0 "Agents belonging to [SCOPE.sCountry('manipulator_country').GetName] have agitated for the [ROOT.GetCountry.GetAdjective] [concept_government] to enact [SCOPE.sLaw('law_to_be_enacted').GetName]. \n\nFailure to do so will antagonise the [SCOPE.gsInterestGroup('target_interest_group').GetName], the pro-[SCOPE.sCountry('manipulator_country').GetAdjectiveNoFlag] political faction in [ROOT.GetCountry.GetName]."
+    foreign_triggered_enactment.f:0 "This event fired because [SCOPE.sCountry('manipulator_country').GetName] has the $conduct_hostile_espionage_8$ [concept_diplomatic_pact] against [ROOT.GetCountry.GetName]."
+    
+    foreign_triggered_enactment.option.1:0 "Give in to foreign influence."
+    foreign_triggered_enactment.option.2:0 "We must resist the pressure!"
+    
+    seikan_tunnel_decision:0 "Construct the Seikan Tunnel"
+    seikan_tunnel_decision_desc:0 "The Seikan Tunnel is a 53.85 km (33.46 mi) dual-gauge railway tunnel in Japan, with a 23.3 km (14.5 mi) portion under the seabed of the Tsugaru Strait, which separates Aomori Prefecture on the main Japanese island of Honshu from the northern island of Hokkaido."
+    channel_tunnel_decision:0 "Construct the Channel Tunnel"
+    channel_tunnel_decision_desc:0 "The Channel Tunnel is a 50.46-kilometre (31.35 mi) undersea railway tunnel, opened in 1994, that connects Folkestone (Kent, England) with Coquelles (Pas-de-Calais, France) beneath the English Channel at the Strait of Dover. It is the only fixed link between the island of Great Britain and the European mainland."
+    zhuhai_bridge_decision:0 "Construct the Hong Kong–Zhuhai–Macau Bridge"
+    zhuhai_bridge_decision_desc:0 "The Hong Kong–Zhuhai–Macau Bridge (HZMB) is a 55-kilometre (34 mi) bridge–tunnel system consisting of a series of three cable-stayed bridges, an undersea tunnel, and four artificial islands. It is both the longest sea crossing and the longest open-sea fixed link in the world. The HZMB spans the Lingding and Jiuzhou channels, connecting Hong Kong and Macau with Zhuhai — a major city on the Pearl River Delta in China."
+    palm_islands_decision:0 "Construct the Palm Islands"
+    palm_islands_decision_desc:0 "The Palm Islands consist of three artificial archipelagos: Palm Jumeirah, Deira Islands, and Palm Jebel Ali, on the coast of Dubai, United Arab Emirates."
+    
+    seikan_tunnel:0 "Seikan Tunnel"
+    channel_tunnel:0 "Channel Tunnel"
+    zhuhai_bridge:0 "Hong Kong–Zhuhai–Macau Bridge"
+    palm_islands:0 "Palm Islands"
+    
+    seikan_tunnel.tt:0 "$STATE_HOKKAIDO$ or $STATE_TOHOKU$ is owned by a sufficiently independent country which is at peace and has Cordial relations with this country"
+    channel_tunnel.tt:0 "$STATE_HOME_COUNTIES$ or $STATE_FRENCH_LOW_COUNTRIES$ is owned by a sufficiently independent country which is at peace and has Cordial relations with this country"
+    zhuhai_bridge.tt:0 "$STATE_SHAOZHOU$ or $STATE_GUANGDONG$ is owned by a sufficiently independent country which is at peace and has Cordial relations with this country"
+    
+    spending_policy_ideology.t:0 "New Public Opinion on Government Spending"
+    spending_policy_ideology.d:0 "Reacting to the new economic situation in [ROOT.GetCountry.GetName], the [concept_opposition] has changed their stance of the appropriate level of government spending."
+    spending_policy_ideology.f:0 "This event fired because the economic conditions no longer match the appropriate dynamic [concept_ideology] for Government Spending."
+    
+    population_policy_ideology.t:0 "New Public Opinion on Population Policies"
+    population_policy_ideology.d:0 "Reacting to the new socio-economic situation in [ROOT.GetCountry.GetName], the [concept_opposition] has changed their stance of the appropriate level of government intervention in the realm of population growth."
+    population_policy_ideology.f:0 "This event fired because the average [concept_sol] no longer matches the appropriate dynamic [concept_ideology] for Population Policies."
+    
+    dynamic_ideology_system.option:0 "It is noted."
+    
+    changing_civil_defence_level:0 "Recently Changed Civil Defence Level"
+    
+    je_civil_defence:0 "[ROOT.GetCountry.GetAdjectiveNoFlag] Civil Defence"
+    je_civil_defence_reason:0 "Civil defence is an effort to protect the citizens of a state (generally non-combatants) from human-made and natural disasters. It uses the principles of emergency operations: prevention, mitigation, preparation, response, or emergency evacuation and recovery. \n\nIn this mod, civil defence will reduce the effects of nuclear war and strategic bombardments. \n\nNote: The strength of civil defence can be increased by researching more advanced military technology."
+    je_civil_defence_increase_civil_defence_button:0 "Increase Funding"
+    je_civil_defence_increase_civil_defence_button_desc:0 "The state will increase its level of Civil Defence by increasing the funding allocated to it."
+    je_civil_defence_decrease_civil_defence_button:0 "Decrease Funding"
+    je_civil_defence_decrease_civil_defence_button_desc:0 "The state will decrease its level of Civil Defence by decreasing the funding allocated to it."
+    
+    USA_PER_Hostage_Crisis.t:0 "The Iranian Hostage Crisis?"
+    USA_PER_Hostage_Crisis.d:0 "The Iranian hostage crisis was a diplomatic standoff between Iran and the United States. Fifty-three American diplomats and citizens were held hostage after a group of militarised Iranian college students belonging to the Muslim Student Followers of the Imam's Line, who supported the Iranian Revolution, including Hossein Dehghan, Mohammad Ali Jafari and Mohammad Bagheri, took over the U.S. Embassy in Tehran and took them as hostages."
+    USA_SOV_U2_Incident.t:0 "The U-2 Incident?"
+    USA_SOV_U2_Incident.d:0 "On 1 May 1960, a United States U-2 spy plane was shot down by the Soviet Air Defence Forces while conducting photographic aerial reconnaissance deep inside Soviet territory. Flown by American pilot Francis Gary Powers, the aircraft had taken off from Peshawar, Pakistan, and crashed near Sverdlovsk (present-day Yekaterinburg), after being hit by a surface-to-air missile. Powers parachuted to the ground and was captured."
+    
+    historical_diplomatic_incidents.option.1:0 "Accept"
+    historical_diplomatic_incidents.option.2:0 "Refuse"
+    
+    BRITISH_EMPIRE:0 "Commonwealth of Nations"
+    FRENCH_EMPIRE:0 "La Francophonie"
+    COMINTERN:0 "Eastern Bloc"
+    WESTERN_BLOC:0 "Western Bloc"
+    SINOSPHERE:0 "Sinosphere"
+    NON_ALIGNED_MOVEMENT:0 "Non-Aligned Movement"
+    one_belt_one_road:0 "Belt & Road Initiative"
+    
+    North_American_Union:0 "$XNA$"
+    Central_American_Union:0 "$XCA$"
+    South_American_Union:0 "$XSA$"
+    European_Union:0 "$XEU$"
+    Eurasian_Union:0 "$XER$"
+    Arab_Union:0 "$XAL$"
+    African_Union:0 "$XAU$"
+    East_Asian_Union:0 "$XEA$"
+    South_East_Asian_Union:0 "$XSE$"
+    Pacific_Union:0 "$XPI$"
+    
+    identity_superstate:0 "Superstate Union"
+    identity_superstate_desc:0 "This Identity seeks to unify all countries in a region into a single country."
+    
+    je_piracy_system:0 "Piracy in [ROOT.GetCountry.GetAdjectiveNoFlag] Waters"
+    je_piracy_system_reason:0 "Piracy and armed robbery at sea are not relics of the past. These modern-day threats continue to plague the maritime industry, jeopardising the safety of seafarers and vessels worldwide. Their consequences extend far beyond the immediate danger – they have a ripple effect, impacting shipping companies, disrupting global trade, and destabilising entire regions. \n\nDetours due to piracy hotspots add significant distances to shipping routes. This translates to higher fuel consumption, longer journey times, and ultimately, increased transportation costs for consumers and businesses. Furthermore, the increased risk drives up insurance premiums for ships and cargo. This additional cost burden further impacts shipping companies and potentially gets passed on to consumers. \n\nOn the other hand, piracy disrupts the smooth flow of goods around the world. Cargo delays or rerouting can lead to shortages, price fluctuations, and unreliable delivery schedules. This can affect entire supply chains and hinder economic activity."
+    piracy_ongoing:0 "Coastal Piracy"
+    is_piracy_area.tt:0 "Adjacent to a piracy zone"
+    has_piracy.tt:0 "Target country has Piracy in Territorial Waters"
+    je_hire_privateers_button:0 "Hire Privateers"
+    je_hire_privateers_button_desc:0 "[ROOT.GetCountry.GetName] will issue letters of marque authorising certain private persons or ships to seize [concept_convoys] belonging to another nation. \n\nThis will allow [ROOT.GetCountry.GetName] to use the $seize_shipping$ [concept_diplomatic_action] against other countries with a piracy problem."
+    je_fire_privateers_button:0 "Fire Privateers"
+    je_fire_privateers_button_desc:0 "[ROOT.GetCountry.GetName] revoke the letters of marque authorising certain private persons or ships to seize [concept_convoys] belonging to another nation."
+    issued_letters_of_marque.tt:0 "Issued letters of marque"
+    start_letters_of_marque.tt:0 "Did not issue letters of marque in the last 1 month"
+    notification_issued_letters_of_marque_notification_name:0 "[SCOPE.sCountry('letters_of_marque_issuer').GetAdjectiveNoFlag] #o Letters of Marque#! Issued!"
+    notification_issued_letters_of_marque_notification_desc:0 "The [concept_government] of [SCOPE.sCountry('letters_of_marque_issuer').GetName] has authorised pirates to seize [concept_convoys] belonging to another nation. This allows [SCOPE.sCountry('letters_of_marque_issuer').GetName] to use the $seize_shipping$ [concept_diplomatic_action] against this country."
+    letters_of_marque:0 "Issued Letters of Marque"
+    issued_letters_of_marque:0 "Piracy System:"
+    piracy_ongoing_country:0 "Disrupted Trade Routes"
+    
+    institutional_veto.t:0 "Institutional Opposition to [SCOPE.sLaw('current_law_scope').GetName]"
+    institutional_veto.d:0 "Influential members of the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')], [SCOPE.GetRootScope.GetCountry.GetCustom('supreme_court_name')] and [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetNameWithCountryVariant] have come out in opposition to [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [ROOT.GetCountry.GetRuler.GetFullName]'s attempt to turn [ROOT.GetCountry.GetName] into a [SCOPE.sLaw('current_law_scope').GetName]. These hardline defenders of the present regime demand that all attempts to change the country's [concept_government_type] be halted and there be a full return to the status quo."
+    institutional_veto.f:0 "This event fired because [ROOT.GetCountry.GetName] is a dictatorship and enacting [SCOPE.sLaw('current_law_scope').GetName] will fundamentally alter the [concept_government_type] of [ROOT.GetCountry.GetName]."
+    institutional_veto_accept_option:0 "Drop the bill to enact [SCOPE.sLaw('current_law_scope').GetName]."
+    institutional_veto_reject_option:0 "Who cares about such trivial opposition!"

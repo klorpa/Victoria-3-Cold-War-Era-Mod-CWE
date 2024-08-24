@@ -1,0 +1,61 @@
+namespace = forced_labour_system
+
+#Create slaves
+forced_labour_system.1 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		
+		#Disabled for now
+		always = no
+		
+		#Has slavery
+		OR = {
+			has_law = law_type:law_slavery_cultural
+			has_law = law_type:law_slavery_political
+		}
+		
+	}
+
+	immediate = {
+		
+		#Convert pops into slaves
+		if = {
+			limit = { has_law = law_type:law_slavery_cultural }
+			enslave_discriminated_pops = yes
+		}
+		if = {
+			limit = { has_law = law_type:law_slavery_political }
+			enslave_angry_pops = yes
+		}
+		
+		#Liberate some slaves
+		liberate_angry_pops = yes
+		
+	}
+
+}
+
+#Remove slaves
+forced_labour_system.2 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		
+		#DEBUG
+		
+	}
+
+	immediate = {
+		
+		#Remove slaves
+		custom_tooltip = {
+			text = liberate_slaves_tt
+			liberate_slaves = yes
+		}
+		
+	}
+
+}

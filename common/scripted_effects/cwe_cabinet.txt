@@ -26,9 +26,16 @@ calculate_cabinet_unity = {
 		}
 	}
 	
-	change_variable = {
-		name = cabinet_unity_var
-		divide = root.var:cabinet_unity_divisor_var
+	if = {
+		limit = {
+			has_variable = cabinet_unity_var
+			has_variable = cabinet_unity_divisor_var
+			root.var:cabinet_unity_divisor_var > 0
+		}
+		change_variable = {
+			name = cabinet_unity_var
+			divide = root.var:cabinet_unity_divisor_var
+		}
 	}
 	
 	remove_variable = strong_cabinet_unity
@@ -49,6 +56,32 @@ calculate_cabinet_unity = {
 	change_variable = {
 		name = cabinet_unity_divisor_var
 		add = -1
+	}
+
+}
+
+remove_non_government_characters_from_cabinet = {
+
+	#Clear Ruler modifier
+	every_scope_character = {
+		limit = {
+			has_modifier = THIS_is_ruler
+			is_ruler = no 
+		}
+		remove_modifier = THIS_is_ruler
+	}
+	
+	#Clear cabinet modifiers
+	every_scope_character = {
+		limit = {
+			OR = { 
+				has_modifier = cabinet_minister
+				interest_group = { has_modifier = cabinet_minister_ig }
+			}
+			interest_group = { is_in_government = no }
+		}
+		remove_modifier = cabinet_minister
+		interest_group = { remove_modifier = cabinet_minister_ig }
 	}
 
 }

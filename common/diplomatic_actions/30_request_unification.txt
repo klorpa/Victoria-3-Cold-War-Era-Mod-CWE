@@ -1,5 +1,5 @@
 request_unification = {
-	requires_approval = yes
+	groups= { general } requires_approval = yes
 	can_use_obligations = no
 
 	potential = {
@@ -13,11 +13,23 @@ request_unification = {
 		scope:target_country = { is_revolutionary = no is_secessionist = no } 
 		
 		#Cultural similarity
-		scope:target_country = { 
-			any_primary_culture = { 
-				OR = { 
-					is_primary_culture_of = scope:actor
-					shares_non_heritage_trait_with_any_primary_culture = scope:actor
+		OR = {
+			scope:target_country = {
+				any_primary_culture = {
+					OR = { 
+						is_primary_culture_of = scope:actor
+						shares_non_heritage_trait_with_any_primary_culture = scope:actor
+					}
+				}
+			}
+			AND = {
+				is_power_bloc_leader = yes
+				hidden_trigger = { is_in_same_power_bloc = scope:target_country }
+				scope:target_country = {
+					is_adjacent_to_country = scope:actor
+					any_primary_culture = { 
+						shares_trait_with_any_primary_culture = scope:actor
+					}
 				}
 			}
 		}
@@ -60,10 +72,35 @@ request_unification = {
 			}
 		}
 		
-		#Cultural similarity
+		#Unification pathways
 		OR = {
-			scope:target_country = { capital = { is_homeland_of_country_cultures = scope:actor } }
-			scope:target_country = { is_subject_type = subject_type_confederal_state }
+		
+			#Cultural similarity
+			scope:target_country = { capital ?= { is_homeland_of_country_cultures = scope:actor } }
+			
+			#Confederation
+			scope:target_country = { 
+				is_subject_type = subject_type_confederal_state 
+				is_direct_subject_of = scope:actor 
+			}
+			
+			#Capable of regional unification on ideological lines
+			AND = {
+				is_power_bloc_leader = yes
+				trigger_if = {
+					limit = { is_power_bloc_leader = yes }
+					hidden_trigger = { is_in_same_power_bloc = scope:target_country }
+					power_bloc ?= {
+						has_principle_group = principle_group:principle_group_market_unification
+						has_principle_group = principle_group:principle_group_freedom_of_movement
+						has_principle_group = principle_group:principle_group_defensive_cooperation
+						has_principle_group = principle_group:principle_group_creative_legislature
+					}
+				}
+				is_some_kind_of_democracy = yes
+				scope:target_country = { is_some_kind_of_democracy = yes }
+			}
+			
 		}
 		
 		#Ideological similarity
@@ -116,6 +153,10 @@ request_unification = {
 	
 		check_acceptance_for_will_propose = yes
 	
+		evaluation_chance = {
+			value = 0.25		
+		}
+	
 		propose_score = {
 			value = 10
 		}
@@ -136,6 +177,24 @@ request_unification = {
 			add = {
 				desc = "DIPLOMATIC_ACCEPTANCE_BASE"
 				value = -100
+			}
+			
+			#Partial democracies
+			if = {
+				limit = { 
+					scope:actor = { 
+						is_power_bloc_leader = yes
+						is_a_regime_type_government = yes 
+					}
+					scope:target_country = {
+						is_in_same_power_bloc = scope:actor
+						is_a_regime_type_government = yes
+					}
+				}
+				add = {
+					desc = "DIPLOMATIC_ACCEPTANCE_SAME_POWER_BLOC"
+					value = 40
+				}
 			}
 			
 			#No economic incentive to unite
@@ -224,7 +283,13 @@ request_unification = {
 			if = {
 				limit = {
 					scope:actor = {
-						has_diplomatic_pact = { who = scope:target_country type = customs_union }
+						is_in_same_power_bloc = scope:target_country
+						power_bloc ?= { 
+							OR = { 
+								has_identity = identity:identity_trade_league
+								has_identity = identity:identity_superstate
+							} 
+						}
 					}
 				}
 				add = {
@@ -272,6 +337,17 @@ request_unification = {
 				add = {
 					desc = "DIPLOMATIC_ACCEPTANCE_IS_SUBJECT_OF_THIS"
 					value = 20
+				}
+			}
+			if = {
+				limit = {
+					scope:target_country = {
+						ruler ?= { culture = { NOT = { culture_is_discriminated_in = scope:actor } } }
+					}
+				}
+				add = {
+					desc = "DIPLOMATIC_ACCEPTANCE_SIMILAR_CULTURE"
+					value = 25
 				}
 			}
 			

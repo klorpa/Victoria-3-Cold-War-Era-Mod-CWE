@@ -2101,3 +2101,1951 @@ historical_domestic_unrest.23 = {
     }
 	
 }
+
+# Assassination of Mahatma Gandhi
+historical_domestic_unrest.24 = {
+    type = country_event
+
+    title = HND_assassinate_MKG.t 								# Title of the event; ADD LOCALISATION
+    desc = HND_assassinate_MKG.d 								# Description of the event; ADD LOCALISATION
+    #flavor = HND_assassinate_MKG.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_public_figure_assassination.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		has_global_variable = 1946_start_date
+		
+		#Overlord conditions
+		c:HND ?= this											# Change TAG of the overlord ****
+		game_date >= 1948.1.30									# START DATE: Date colony became self governing ****
+		game_date < 1958.1.30									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		# Event has not been fired before
+		NOT = { has_variable = HND_assassinate_MKG_hdu }		# CHANGE ****
+		
+		#Cause of unrest
+		exists = c:PAK
+		c:PAK = {
+			is_sufficiently_independent = yes
+		}
+		any_scope_character = {
+			has_role = agitator
+			has_variable = Mohandas_Karamchand_Gandhi
+		}
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = HND_assassinate_MKG_hdu					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		default_option = yes
+		
+		#Kill character
+		random_scope_character = {
+			limit = { has_variable = Mohandas_Karamchand_Gandhi }
+			kill_character = yes
+		}
+		
+		#Domestic reaction
+		add_radicals = {
+			value = large_radicals
+			religion = rel:sunni
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2				# No
+		
+		#Major discontent
+		add_radicals = {
+			value = large_radicals
+			religion = rel:hindu
+		}
+		add_modifier = { 
+			name = stirrings_of_revolution
+			months = 60 
+			is_decaying = yes 
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# The Taft–Hartley Act
+historical_domestic_unrest.25 = {
+    type = country_event
+
+    title = USA_taft_act.t 										# Title of the event; ADD LOCALISATION
+    desc = USA_taft_act.d 										# Description of the event; ADD LOCALISATION
+    #flavor = USA_taft_act.f 									# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		has_global_variable = 1946_start_date
+		
+		#Overlord conditions
+		c:USA ?= this											# Change TAG of the overlord ****
+		game_date >= 1947.6.23									# START DATE: Date colony became self governing ****
+		game_date < 1957.6.23									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		# Event has not been fired before
+		NOT = { has_variable = USA_taft_act_hdu }				# CHANGE ****
+		
+		#Cause of unrest
+		has_law = law_type:law_full_trade_unions
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = USA_taft_act_hdu							# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		
+		#Curtail trade unions
+		activate_law = law_type:law_restricted_trade_unions
+		
+		#Domestic reaction
+		add_radicals = {
+			value = large_radicals
+			strata = poor
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2				# No
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = large_radicals
+			strata = rich
+		}
+		add_modifier = { 
+			name = stirrings_of_revolution
+			months = 12
+			is_decaying = yes 
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# 1959 Tibetan Uprising
+historical_domestic_unrest.26 = {
+    type = country_event
+	placement = scope:tibetan_capital
+
+    title = PRC_tibetan_uprising.t 								# Title of the event; ADD LOCALISATION
+    desc = PRC_tibetan_uprising.d 								# Description of the event; ADD LOCALISATION
+    #flavor = PRC_tibetan_uprising.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		OR = { c:PRC ?= this c:CHI ?= this }					# Change TAG of the overlord ****
+		game_date >= 1959.3.10									# START DATE: Date colony became self governing ****
+		game_date < 1969.3.10									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_communist_government = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#Cause of unrest
+		NOT = { exists = c:TIB }
+		has_state_in_state_region = STATE_LHASA
+		
+		# Event has not been fired before
+		NOT = { has_variable = PRC_tibetan_uprising_hdu }		# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		random_scope_state = {
+			limit = { state_region = s:STATE_LHASA }
+			save_scope_as = tibetan_capital
+		}
+	
+		# Fire only once
+		set_variable = PRC_tibetan_uprising_hdu					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		
+		#Nationalist agitation
+		every_scope_state = {
+			limit = {
+		 		state_region = { is_homeland = cu:tibetan }	# Change homeland identity to match colony to be released ****
+				OR = {
+					state_region = s:STATE_LHASA
+					state_region = s:STATE_NGARI
+				}
+		 	}
+			add_radicals_in_state = {
+				value = large_radicals
+				culture = cu:tibetan						# Change culture ****
+			}
+			add_modifier = { name = nationalist_agitation months = 60 is_decaying = yes } 
+		}
+		
+		change_infamy = 10
+		
+		set_global_variable = 1959_tibetan_uprising
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2			# No
+		default_option = yes
+		
+		#Set Tibet free
+		create_country = {
+			tag = TIB										# Change TAG of country being released ****
+			origin = ROOT									# TAG where the created country takes tech from
+			state = scope:tibetan_capital
+			
+			on_created = {									# Set government laws & rulers here
+				
+				# Laws
+				effect_starting_politics_theocratic_republic = yes
+				effect_starting_politics_dictatorship = yes
+				effect_starting_politics_constitutional_unitary_state = yes
+				effect_starting_politics_war_policy_pro_military = yes
+				effect_starting_politics_economic_policy_interventionism = yes
+				effect_starting_politics_trade_policy_free_trade = yes
+				effect_starting_politics_anti_nuclear_policy = yes
+				
+				effect_starting_politics_specialisation_natural_resource = yes
+				
+				effect_starting_politics_semi_gold_system = yes
+				
+				# CREATE leader for colony ****
+				create_character = {
+					first_name = "tenzin_gyatso_first_name"
+					last_name = "tenzin_gyatso_last_name"
+					ruler = yes ig_leader = yes historical = yes
+					birth_date = 1935.7.6
+					interest_group = ig_devout
+					ideology = ideology_democratic
+					religion = rel:gelugpa
+					culture = cu:tibetan
+					traits = {
+						innovative
+						charismatic
+						tactful
+					}
+				}
+				
+				# Set diplomatic recognition
+				set_country_type = unrecognized
+				
+			}
+		}
+		if = {
+			limit = { exists = c:TIB }
+			every_scope_state = {
+				limit = {
+					state_region = { is_homeland = cu:tibetan }		# Change homeland identity to match colony to be released ****
+					OR = {
+						state_region = s:STATE_LHASA
+						state_region = s:STATE_NGARI
+					}
+				}
+				set_state_owner = c:TIB								# Change TAG to colony ****
+			}
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Tenzin Gyatso in India
+historical_domestic_unrest.27 = {
+    type = country_event
+
+    title = HND_tibetan_movement.t 								# Title of the event; ADD LOCALISATION
+    desc = HND_tibetan_movement.d 								# Description of the event; ADD LOCALISATION
+    #flavor = HND_tibetan_movement.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		has_global_variable = 1959_tibetan_uprising
+		
+		#Overlord conditions
+		c:HND ?= this											# Change TAG of the overlord ****
+		game_date >= 1959.3.30									# START DATE: Date colony became self governing ****
+		game_date < 1969.3.30									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#Cause of unrest
+		OR = { 
+			AND = { 
+				exists = c:PRC
+				c:PRC ?= {
+					is_a_communist_government = yes
+					has_state_in_state_region = STATE_LHASA
+					is_adjacent_to_country = ROOT
+				}
+			}
+			AND = { 
+				exists = c:CHI
+				c:CHI ?= {
+					is_a_communist_government = yes
+					has_state_in_state_region = STATE_LHASA
+					is_adjacent_to_country = ROOT
+				}
+			}
+		}
+		
+		#Have space for agitator
+		empty_agitator_slots >= 1
+		
+		# Event has not been fired before
+		NOT = { has_variable = HND_tibetan_movement_hdu }		# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = HND_tibetan_movement_hdu					# Change variable ****
+		
+	}
+    
+    option = {
+        name = HND_tibetan_movement.option.1					# Yes
+        highlighted_option = yes
+		
+		#Create agitator
+		create_character = {
+			first_name = "tenzin_gyatso_first_name"
+			last_name = "tenzin_gyatso_last_name"
+			is_agitator = yes historical = yes
+			birth_date = 1935.7.6
+			interest_group = ig_devout
+			ideology = ideology_democratic
+			culture = cu:tibetan
+			religion = rel:gelugpa
+			traits = {
+				innovative
+				charismatic
+				tactful
+			}
+			on_created = { change_character_religion = rel:gelugpa }
+		}
+		
+		random_country = {
+			limit = { 
+				OR = { c:CHI ?= this c:PRC ?= this } 
+				has_state_in_state_region = STATE_LHASA
+			}
+			change_relations = { country = ROOT value = -50 }
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = HND_tibetan_movement.option.2				# No
+		default_option = yes
+		
+		random_country = {
+			limit = { 
+				OR = { c:CHI ?= this c:PRC ?= this } 
+				has_state_in_state_region = STATE_LHASA
+			}
+			change_relations = { country = ROOT value = 25 }
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Pope John Paul II
+historical_domestic_unrest.28 = {
+    type = country_event
+	placement = scope:rome_state_scope
+
+    title = POL_pope_movement.t 								# Title of the event; ADD LOCALISATION
+    desc = POL_pope_movement.d 									# Description of the event; ADD LOCALISATION
+    #flavor = POL_pope_movement.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:POL ?= this											# Change TAG of the overlord ****
+		game_date >= 1978.10.16									# START DATE: Date colony became self governing ****
+		game_date < 1988.10.16									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_communist_government = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		has_law = law_type:law_state_atheism
+		
+		# Event has not been fired before
+		NOT = { has_variable = POL_pope_movement_hdu }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		#Mark Rome
+		random_state = {
+			limit = { state_region = s:STATE_LAZIO }
+			save_scope_as = rome_state_scope
+		}
+	
+		# Fire only once
+		set_variable = POL_pope_movement_hdu					# Change variable ****
+		
+	}
+    
+    option = {
+        name = POL_pope_movement.option.1						# Yes
+        highlighted_option = yes
+		default_option = yes
+		
+		#Create agitator
+		create_character = {
+			first_name = "John_Paul_II_first_name"
+			last_name = "John_Paul_II_last_name"
+			is_agitator = yes historical = yes
+			birth_date = 1920.5.18
+			interest_group = ig_devout
+			ideology = ideology_agitator_pro_human_rights
+            culture = cu:polish
+			religion = rel:catholic
+			traits = {
+				charismatic
+				pious
+				honorable
+			}
+			on_created = { set_variable = John_Paul_II }
+		}
+		
+		#Domestic reaction
+		add_radicals = {
+			value = very_large_radicals
+			religion = rel:catholic
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = POL_pope_movement.option.2					# No
+		
+		#Enact new regime
+		activate_law = law_type:law_freedom_of_conscience
+		
+		#Create agitator
+		create_character = {
+			first_name = "John_Paul_II_first_name"
+			last_name = "John_Paul_II_last_name"
+			is_agitator = yes historical = yes
+			birth_date = 1920.5.18
+			interest_group = ig_devout
+			ideology = ideology_agitator_pro_human_rights
+            culture = cu:polish
+			religion = rel:catholic
+			traits = {
+				charismatic
+				pious
+				honorable
+			}
+			on_created = { set_variable = John_Paul_II }
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Polish crisis of 1980–1981
+historical_domestic_unrest.29 = {
+    type = country_event
+
+    title = POL_solidarity_movement.t 							# Title of the event; ADD LOCALISATION
+    desc = POL_solidarity_movement.d 							# Description of the event; ADD LOCALISATION
+    #flavor = POL_solidarity_movement.f 						# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:POL ?= this											# Change TAG of the overlord ****
+		game_date >= 1980.7.8									# START DATE: Date colony became self governing ****
+		game_date < 1990.7.8									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_communist_government = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		# Event has not been fired before
+		NOT = { has_variable = POL_solidarity_movement_hdu }	# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		#Create agitator
+		create_character = {
+			first_name = "Lech_Walesa_first_name"
+			last_name = "Lech_Walesa_last_name"
+			ig_leader = yes historical = yes
+			birth_date = 1943.9.29
+			interest_group = ig_petty_bourgeoisie
+			ideology = ideology_liberal
+            culture = cu:polish
+			religion = rel:catholic
+			traits = {
+				charismatic
+				pious
+				honorable
+			}
+		}
+	
+		# Fire only once
+		set_variable = POL_solidarity_movement_hdu				# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		default_option = yes
+		
+		#Create agitator
+		create_character = {
+			first_name = "Anna_Walentynowicz_first_name"
+			last_name = "Anna_Walentynowicz_last_name"
+			is_agitator = yes historical = yes female = yes
+			birth_date = 1929.8.15
+			interest_group = ig_trade_unions
+			ideology = ideology_agitator_pro_human_rights
+            culture = cu:polish
+			religion = rel:catholic
+			traits = {
+				charismatic
+				persistent
+				brave
+			}
+		}
+		
+		#Domestic reaction
+		add_radicals = {
+			value = very_large_radicals
+			strata = poor
+		}
+		add_modifier = { 
+			name = stirrings_of_revolution
+			months = 12
+			is_decaying = yes 
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2				# No
+		
+		#Enact new regime
+		effect_starting_politics_democratic = yes
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# The Afghan Mujahideen, 1975
+historical_domestic_unrest.30 = {
+    type = country_event
+
+    title = AFG_mujahideen_movement.t 							# Title of the event; ADD LOCALISATION
+    desc = AFG_mujahideen_movement.d 							# Description of the event; ADD LOCALISATION
+    #flavor = AFG_mujahideen_movement.f 						# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:AFG ?= this											# Change TAG of the overlord ****
+		game_date >= 1979.12.24									# START DATE: Date colony became self governing ****
+		game_date < 1989.12.24									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_communist_government = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		# Event has not been fired before
+		NOT = { has_variable = AFG_mujahideen_movement_hdu }	# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = AFG_mujahideen_movement_hdu				# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		default_option = yes
+		
+		#Create agitator
+		create_character = {
+			first_name = "Osama_bin_Laden_first_name"
+			last_name = "Osama_bin_Laden_last_name"
+			is_agitator = yes historical = yes
+			birth_date = 1957.3.10
+			interest_group = ig_devout
+			ideology = ideology_agitator_theocrat
+            culture = cu:bedouin
+			religion = rel:sunni
+			traits = {
+				charismatic
+				persistent
+				cruel
+			}
+		}
+		
+		#Domestic reaction
+		add_radicals = {
+			value = very_large_radicals
+			strata = poor
+		}
+		add_modifier = { 
+			name = stirrings_of_revolution
+			months = 12
+			is_decaying = yes 
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2				# No
+		
+		if = {
+			limit = { is_subject = yes }
+			make_independent = yes
+		}
+		
+		#Enact new regime
+		effect_starting_politics_theocratic_republic = yes
+		effect_starting_politics_dictatorship = yes
+		effect_traditionalist_ruling_coalition = yes
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# The Recruit Scandal, 1988
+historical_domestic_unrest.31 = {
+    type = country_event
+
+    title = JAP_recruit_scandal.t 								# Title of the event; ADD LOCALISATION
+    desc = JAP_recruit_scandal.d 								# Description of the event; ADD LOCALISATION
+    #flavor = JAP_recruit_scandal.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/africa_public_protest.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:JAP ?= this											# Change TAG of the overlord ****
+		game_date >= 1988.6.18									# START DATE: Date colony became self governing ****
+		game_date < 1998.6.18									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		OR = { 
+			NOT = { has_law = law_type:law_very_high_anti_corruption }
+			has_global_variable = historical_railroading_active
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = JAP_recruit_scandal_hdu }		# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = JAP_recruit_scandal_hdu					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		
+		#Make some characters corrupt
+		ruler ?= {
+			if = {
+				limit = { NOT = { has_trait = grifter } }
+				add_trait = grifter
+			}
+			add_modifier = { name = corrupt_connections_exposed years = 5 is_decaying = yes }
+		}
+		random_scope_character = {
+			limit = { 
+				has_role = politician 
+				interest_group = { is_interest_group_type = ig_trade_unions }
+				NOT = { has_modifier = corrupt_connections_exposed }
+			}
+			if = {
+				limit = { NOT = { has_trait = grifter } }
+				add_trait = grifter
+			}
+			add_modifier = { name = corrupt_connections_exposed years = 5 is_decaying = yes }
+		}
+		random_scope_character = {
+			limit = { 
+				has_role = politician 
+				interest_group = { is_interest_group_type = ig_petty_bourgeoisie }
+				NOT = { has_modifier = corrupt_connections_exposed }
+			}
+			if = {
+				limit = { NOT = { has_trait = grifter } }
+				add_trait = grifter
+			}
+			add_modifier = { name = corrupt_connections_exposed years = 5 is_decaying = yes }
+		}
+		random_scope_character = {
+			limit = { 
+				has_role = politician 
+				interest_group = { is_interest_group_type = ig_industrialists }
+				NOT = { has_modifier = corrupt_connections_exposed }
+			}
+			if = {
+				limit = { NOT = { has_trait = grifter } }
+				add_trait = grifter
+			}
+			add_modifier = { name = corrupt_connections_exposed years = 5 is_decaying = yes }
+		}
+		random_scope_character = {
+			limit = { 
+				has_role = politician 
+				interest_group = { is_interest_group_type = ig_rural_folk }
+				NOT = { has_modifier = corrupt_connections_exposed }
+			}
+			if = {
+				limit = { NOT = { has_trait = grifter } }
+				add_trait = grifter
+			}
+			add_modifier = { name = corrupt_connections_exposed years = 5 is_decaying = yes }
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2				# No
+		default_option = yes
+		
+		activate_law = law_type:law_very_low_anti_corruption
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# The Maxi Trial, 1986
+historical_domestic_unrest.32 = {
+    type = country_event
+
+    title = ITA_maxi_trial.t 									# Title of the event; ADD LOCALISATION
+    desc = ITA_maxi_trial.d 									# Description of the event; ADD LOCALISATION
+    #flavor = ITA_maxi_trial.f 									# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_vandalized_storefront.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:ITA ?= this											# Change TAG of the overlord ****
+		game_date >= 1986.2.10									# START DATE: Date colony became self governing ****
+		game_date < 1996.2.10									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		OR = { 
+			NOT = { has_law = law_type:law_draconian_policing }
+			has_global_variable = historical_railroading_active
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = ITA_maxi_trial_hdu }				# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = ITA_maxi_trial_hdu						# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		
+		if = {
+			limit = { NOT = { has_law = law_type:law_draconian_policing } }
+			activate_law = law_type:law_strict_policing
+		}
+		
+		#Domestic reaction
+		add_radicals = {
+			value = large_radicals
+			strata = rich
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2				# No
+		default_option = yes
+		
+		activate_law = law_type:law_lenient_policing
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# The Poll Tax Riots, 1990
+historical_domestic_unrest.33 = {
+    type = country_event
+
+    title = GBR_poll_tax_riots.t 									# Title of the event; ADD LOCALISATION
+    desc = GBR_poll_tax_riots.d 									# Description of the event; ADD LOCALISATION
+    #flavor = GBR_poll_tax_riots.f 									# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_vandalized_storefront.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:GBR ?= this											# Change TAG of the overlord ****
+		game_date >= 1990.3.31									# START DATE: Date colony became self governing ****
+		game_date < 2000.3.31									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#Cause of unrest
+		OR = { 
+			has_law = law_type:law_taxation_4
+			has_law = law_type:law_taxation_5
+		}
+		ruler ?= { interest_group = { is_interest_group_type = ig_industrialists } }
+		
+		# Event has not been fired before
+		NOT = { has_variable = GBR_poll_tax_riots_hdu }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = GBR_poll_tax_riots_hdu					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		
+		activate_law = law_type:law_taxation_3
+		
+		#Domestic reaction
+		add_loyalists = {
+			value = large_radicals
+			strata = rich
+		}
+		add_radicals = {
+			value = medium_radicals
+			strata = middle
+		}
+		add_radicals = {
+			value = large_radicals
+			strata = poor
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2				# No
+		default_option = yes
+		
+		#Domestic reaction
+		add_radicals = {
+			value = large_radicals
+			strata = rich
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# The Yellow Vests Protests, 2018
+historical_domestic_unrest.34 = {
+    type = country_event
+
+    title = FRA_yellow_vests.t 										# Title of the event; ADD LOCALISATION
+    desc = FRA_yellow_vests.d 										# Description of the event; ADD LOCALISATION
+    #flavor = FRA_yellow_vests.f 									# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_vandalized_storefront.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:FRA ?= this											# Change TAG of the overlord ****
+		game_date >= 2018.11.17									# START DATE: Date colony became self governing ****
+		game_date < 2028.11.17									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#Cause of unrest
+		OR = { 
+			NOT = { has_law = law_type:law_taxation_5 }
+			NOT = { has_law = law_type:law_high_social_security }
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = FRA_yellow_vests_hdu }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = FRA_yellow_vests_hdu						# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		
+		if = {
+			limit = { NOT = { has_law = law_type:law_taxation_5 } }
+			activate_law = law_type:law_taxation_5
+		}
+		if = {
+			limit = { NOT = { has_law = law_type:law_high_social_security } }
+			activate_law = law_type:law_high_social_security
+		}
+		
+		#Domestic reaction
+		add_radicals = {
+			value = large_radicals
+			strata = rich
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2				# No
+		default_option = yes
+		
+		#Domestic reaction
+		add_loyalists = {
+			value = large_radicals
+			strata = rich
+		}
+		add_radicals = {
+			value = medium_radicals
+			strata = middle
+		}
+		add_radicals = {
+			value = large_radicals
+			strata = poor
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# The Khodorkovsky Case
+historical_domestic_unrest.35 = {
+    type = country_event
+
+    title = RUS_Khodorkovsky_Case.t 							# Title of the event; ADD LOCALISATION
+    desc = RUS_Khodorkovsky_Case.d 								# Description of the event; ADD LOCALISATION
+    #flavor = RUS_Khodorkovsky_Case.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/middleeast_police_breaking_door.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:RUS ?= this											# Change TAG of the overlord ****
+		game_date >= 2003.10.25									# START DATE: Date colony became self governing ****
+		game_date < 2013.10.25									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		OR = { 
+			is_a_republican_regime = yes
+			AND = { 
+				is_a_presidential_democracy = yes
+				ruler ?= { has_variable = Vladimir_Vladimirovich_Putin }
+				ruler ?= { has_variable = Dmitry_Medvedev }
+			}
+		}
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#Right wing
+		ruler ?= { interest_group = { is_interest_group_type = ig_industrialists } }
+		
+		# Event has not been fired before
+		NOT = { has_variable = RUS_Khodorkovsky_Case_hdu }		# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		#Create agitator
+		create_character = {
+			first_name = "Mikhail_B_Khodorkovsky_first_name"
+			last_name = "Mikhail_B_Khodorkovsky_last_name"
+			is_agitator = yes historical = yes
+			birth_date = 1963.6.26
+			interest_group = ig_petty_bourgeoisie
+			ideology = ideology_agitator_pro_human_rights
+            culture = cu:russian
+			religion = rel:orthodox
+			traits = {
+				charismatic
+				grifter
+				persistent
+			}
+			on_created = { set_variable = Mikhail_B_Khodorkovsky }
+		}
+	
+		# Fire only once
+		set_variable = RUS_Khodorkovsky_Case_hdu				# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		
+		#Weaken electoral and judiciary laws
+		if = { 
+			limit = { NOT = { has_law = law_type:law_no_voting } }
+			activate_law = law_type:law_rigged_voting
+		}
+		if = { 
+			limit = { NOR = { has_law = law_type:law_politicised_judiciary has_law = law_type:law_partially_politicised_judiciary } }
+			activate_law = law_type:law_partially_politicised_judiciary
+		}
+		
+		#Domestic reaction
+		add_radicals = {
+			value = large_radicals
+			strata = middle
+		}
+		
+		#Infamy
+		change_infamy = 5
+		
+		#Exile agitator
+		random_scope_character = {
+			limit = { has_variable = Mikhail_B_Khodorkovsky }
+			exile_character_with_martyrdom = yes
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2					# No
+		default_option = yes
+		
+		#Domestic reaction
+		add_radicals = {
+			value = large_radicals
+			strata = rich
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# The Assassination of Anna Politkovskaya
+historical_domestic_unrest.36 = {
+    type = country_event
+
+    title = RUS_Politkovskaya_murder.t 							# Title of the event; ADD LOCALISATION
+    desc = RUS_Politkovskaya_murder.d 							# Description of the event; ADD LOCALISATION
+    #flavor = RUS_Politkovskaya_murder.f 						# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_public_figure_assassination.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:RUS ?= this											# Change TAG of the overlord ****
+		game_date >= 2006.10.7									# START DATE: Date colony became self governing ****
+		game_date < 2016.10.7									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		OR = { 
+			is_a_republican_regime = yes
+			AND = { 
+				is_a_presidential_democracy = yes
+				ruler ?= { has_variable = Vladimir_Vladimirovich_Putin }
+				ruler ?= { has_variable = Dmitry_Medvedev }
+			}
+		}
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#Target
+		any_scope_character = { has_variable = Anna_S_Politkovskaya }
+		
+		# Event has not been fired before
+		NOT = { has_variable = RUS_Politkovskaya_murder_hdu }	# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = RUS_Politkovskaya_murder_hdu				# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		
+		#Strengthen censorship laws and police activity
+		if = { 
+			limit = { NOR = { has_law = law_type:law_censorship has_law = law_type:law_outlawed_dissent } }
+			activate_law = law_type:law_censorship
+		}
+		if = { 
+			limit = { NOT = { has_law = law_type:law_draconian_policing } }
+			activate_law = law_type:law_draconian_policing
+		}
+		if = { 
+			limit = { NOT = { has_law = law_type:law_secret_police } }
+			activate_law = law_type:law_secret_police
+		}
+		
+		#Domestic reaction
+		add_radicals = {
+			value = large_radicals
+			strata = middle
+		}
+		
+		#Infamy
+		change_infamy = 5
+		
+		#Exile agitator
+		random_scope_character = {
+			limit = { has_variable = Anna_S_Politkovskaya }
+			kill_character = yes
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2					# No
+		default_option = yes
+		
+		#Domestic reaction
+		add_radicals = {
+			value = large_radicals
+			strata = rich
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# The Snow Revolution, 2011
+historical_domestic_unrest.37 = {
+    type = country_event
+
+    title = RUS_snow_revolution.t 								# Title of the event; ADD LOCALISATION
+    desc = RUS_snow_revolution.d 								# Description of the event; ADD LOCALISATION
+    #flavor = RUS_snow_revolution.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/africa_public_protest.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:USA ?= this											# Change TAG of the overlord ****
+		game_date >= 2011.12.4									# START DATE: Date colony became self governing ****
+		game_date < 2021.12.4									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		OR = { 
+			is_a_republican_regime = yes
+			AND = { 
+				is_a_presidential_democracy = yes
+				ruler ?= { has_variable = Vladimir_Vladimirovich_Putin }
+				ruler ?= { has_variable = Dmitry_Medvedev }
+			}
+		}
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		# Event has not been fired before
+		NOT = { has_variable = RUS_snow_revolution_hdu }		# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = RUS_snow_revolution_hdu					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		
+		#Enact new regime
+		if = {
+			limit = {
+				is_a_presidential_democracy = yes
+				ruler ?= { has_variable = Vladimir_Vladimirovich_Putin }
+				ruler ?= { has_variable = Dmitry_Medvedev }
+			}
+			effect_starting_politics_regime = yes
+			activate_law = law_type:law_yes_term_limit
+		}
+		
+		#Create agitator
+		create_character = {
+			first_name = "Alexei_Anatolyevich_Navalny_first_name"
+			last_name = "Alexei_Anatolyevich_Navalny_last_name"
+			is_agitator = yes historical = yes
+			birth_date = 1976.6.4
+			interest_group = ig_petty_bourgeoisie
+			ideology = ideology_agitator_pro_human_rights
+            culture = cu:russian
+			religion = rel:orthodox
+			traits = {
+				charismatic
+				brave
+				persistent
+			}
+			on_created = { set_variable = Alexei_Anatolyevich_Navalny }
+		}
+		
+		#Domestic reaction
+		add_radicals = {
+			value = large_radicals
+			strata = middle
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2					# No
+		default_option = yes
+		
+		#Enact new regime
+		if = {
+			limit = { is_a_republican_regime = yes }
+			effect_starting_politics_very_democratic = yes
+		}
+		
+		#Major discontent
+		add_radicals = {
+			value = very_large_radicals
+			strata = rich
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# The Death of Alexei Navalny
+historical_domestic_unrest.38 = {
+    type = country_event
+
+    title = RUS_Navalny_murder.t 								# Title of the event; ADD LOCALISATION
+    desc = RUS_Navalny_murder.d 								# Description of the event; ADD LOCALISATION
+    #flavor = RUS_Navalny_murder.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_public_figure_assassination.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:RUS ?= this											# Change TAG of the overlord ****
+		game_date >= 2024.2.16									# START DATE: Date colony became self governing ****
+		game_date < 2034.2.16									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_republican_regime = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#Target
+		any_scope_character = { has_variable = Alexei_Anatolyevich_Navalny }
+		
+		# Event has not been fired before
+		NOT = { has_variable = RUS_Navalny_murder_hdu }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = RUS_Navalny_murder_hdu					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		
+		#Domestic reaction
+		add_radicals = {
+			value = large_radicals
+			strata = middle
+		}
+		
+		#Infamy
+		change_infamy = 5
+		
+		#Exile agitator
+		random_scope_character = {
+			limit = { has_variable = Alexei_Anatolyevich_Navalny }
+			kill_character = yes
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2					# No
+		default_option = yes
+		
+		#Domestic reaction
+		add_radicals = {
+			value = large_radicals
+			strata = rich
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# 2011 Minsk Metro bombing
+historical_domestic_unrest.39 = {
+    type = country_event
+	placement = scope:terror_attack_state
+
+    title = BYE_Minsk_attack_2011.t 							# Title of the event; ADD LOCALISATION
+    desc = BYE_Minsk_attack_2011.d 								# Description of the event; ADD LOCALISATION
+    #flavor = BYE_Minsk_attack_2011.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_vandalized_storefront.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_fire.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:BYE ?= this											# Change TAG of the overlord ****
+		game_date >= 2011.4.11									# START DATE: Date colony became self governing ****
+		game_date < 2021.4.11									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		#is_a_democracy = yes									# Correct gov types
+		#is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		# Event has not been fired before
+		NOT = { has_variable = BYE_Minsk_attack_2011_hdu }		# CHANGE ****
+		
+		#Cause of unrest
+		has_state_in_state_region = STATE_MINSK
+		
+    }
+	
+	immediate = {
+	
+		#Mark state
+		random_scope_state = {
+			limit = { state_region = s:STATE_MINSK }
+			save_scope_as = terror_attack_state
+		}
+	
+		# Fire only once
+		set_variable = BYE_Minsk_attack_2011_hdu				# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option				# Oh no
+		
+		#Property damage
+		random_scope_state = {
+			limit = { state_region = s:STATE_MINSK }
+			state_region = {
+				add_devastation = 10
+			}
+		}
+		
+		#Domestic reaction
+		add_loyalists = {
+			value = medium_radicals
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+}
+
+# The Belarusian Protests, 2020
+historical_domestic_unrest.40 = {
+    type = country_event
+
+    title = BYE_May_Protests.t 									# Title of the event; ADD LOCALISATION
+    desc = BYE_May_Protests.d 									# Description of the event; ADD LOCALISATION
+    #flavor = BYE_May_Protests.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/africa_public_protest.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:BYE ?= this											# Change TAG of the overlord ****
+		game_date >= 2020.5.24									# START DATE: Date colony became self governing ****
+		game_date < 2030.5.24									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_republican_regime = yes
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		# Event has not been fired before
+		NOT = { has_variable = BYE_May_Protests_hdu }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		#Create agitator
+		create_character = {
+			first_name = "Sviatlana_Tsikhanouskaya_first_name"
+			last_name = "Sviatlana_Tsikhanouskaya_last_name"
+			is_agitator = yes historical = yes female = yes
+			birth_date = 1982.9.11
+			interest_group = ig_petty_bourgeoisie
+			ideology = ideology_agitator_pro_human_rights
+            culture = cu:byelorussian
+			religion = rel:orthodox
+			traits = {
+				charismatic
+				brave
+				persistent
+			}
+			on_created = { set_variable = Sviatlana_Tsikhanouskaya }
+		}
+	
+		# Fire only once
+		set_variable = BYE_May_Protests_hdu						# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		
+		change_infamy = 5
+		
+		#Domestic reaction
+		add_radicals = {
+			value = large_radicals
+			strata = middle
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2				# No
+		default_option = yes
+		
+		#Enact new regime
+		effect_starting_politics_democratic = yes
+		random_scope_character = {
+			limit = { has_variable = BYE_May_Protests_hdu }
+			set_character_as_ruler = yes
+		}
+		
+		#Major discontent
+		add_radicals = {
+			value = very_large_radicals
+			strata = rich
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Yukio Mishima Uprising, 1970
+historical_domestic_unrest.41 = {
+    type = country_event
+
+    title = JAP_1970_uprising.t 								# Title of the event; ADD LOCALISATION
+    desc = JAP_1970_uprising.d 									# Description of the event; ADD LOCALISATION
+    #flavor = JAP_1970_uprising.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_public_figure_assassination.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:JAP ?= this											# Change TAG of the overlord ****
+		game_date >= 1970.11.25									# START DATE: Date colony became self governing ****
+		game_date < 1980.11.25									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democratic_monarchy = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		# Event has not been fired before
+		NOT = { has_variable = JAP_1970_uprising_hdu }			# CHANGE ****
+		
+		#Cause of unrest
+		any_scope_character = {
+			has_role = agitator
+			has_variable = Yukio_Mishima
+		}
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = JAP_1970_uprising_hdu					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		default_option = yes
+		
+		#Kill character
+		random_scope_character = {
+			limit = { has_variable = Yukio_Mishima }
+			kill_character = yes
+		}
+		
+		#Domestic reaction
+		add_radicals = {
+			value = large_radicals
+			interest_group = ig:ig_landowners
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2				# No
+		
+		#Enact new regime
+		effect_starting_politics_absolute_monarchy = yes
+		effect_starting_politics_dictatorship = yes
+		effect_starting_politics_war_policy_jingoism = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = very_large_radicals
+			interest_group = ig:ig_trade_unions
+		}
+		add_modifier = { 
+			name = stirrings_of_revolution
+			months = 60
+			is_decaying = yes 
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Attempted Assassination of Donald Trump
+historical_domestic_unrest.42 = {
+    type = country_event
+
+    title = USA_assassinate_DJT.t 								# Title of the event; ADD LOCALISATION
+    desc = USA_assassinate_DJT.d 								# Description of the event; ADD LOCALISATION
+    #flavor = USA_assassinate_DJT.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_public_figure_assassination.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/anarchy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:USA ?= this											# Change TAG of the overlord ****
+		game_date >= 2024.7.13									# START DATE: Date colony became self governing ****
+		game_date < 2034.7.13									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		# Event has not been fired before
+		NOT = { has_variable = USA_assassinate_DJT_hdu }		# CHANGE ****
+		
+		#Cause of unrest
+		any_scope_character = {
+			has_variable = character_is_Trump
+			has_role = politician
+			is_ruler = no
+		}
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = USA_assassinate_DJT_hdu					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_domestic_unrest.option.1				# Yes
+        highlighted_option = yes
+		default_option = yes
+		
+		random_scope_character = {
+			limit = { has_variable = character_is_Trump }
+			add_modifier = {
+				name = modifier_political_martyr
+				months = 60
+				is_decaying = yes 
+			}
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_domestic_unrest.option.2				# No
+		
+		#Kill character
+		random_scope_character = {
+			limit = { has_variable = character_is_Trump }
+			kill_character = yes
+		}
+		
+		#Major discontent
+		add_radicals = {
+			value = very_large_radicals
+			interest_group = ig:ig_industrialists
+		}
+		add_radicals = {
+			value = very_large_radicals
+			interest_group = ig:ig_landowners
+		}
+		add_radicals = {
+			value = very_large_radicals
+			interest_group = ig:ig_devout
+		}
+		add_radicals = {
+			value = very_large_radicals
+			interest_group = ig:ig_rural_folk
+		}
+		add_radicals = {
+			value = very_large_radicals
+			interest_group = ig:ig_armed_forces
+		}
+		add_modifier = { 
+			name = stirrings_of_revolution
+			months = 60 
+			is_decaying = yes 
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}

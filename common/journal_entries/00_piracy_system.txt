@@ -1,0 +1,130 @@
+﻿je_piracy_system = {
+	icon = "gfx/interface/icons/invention_icons/screw_frigate.dds"
+
+	group = je_group_crises
+	
+	scripted_button = je_hire_privateers_button
+	scripted_button = je_fire_privateers_button
+	
+	is_shown_when_inactive = {
+		
+		#Has port
+		has_port = yes
+		
+		#Has piracy areas
+		is_piracy_area = yes
+		
+	}
+	
+	possible = {
+		
+		#Too small a navy to fight piracy
+		OR = { 
+			navy_size < 50
+			in_default = yes
+		}
+		
+	}
+
+	immediate = {
+		
+		#Apply piracy modifier
+		every_scope_state = {
+			limit = { 
+				is_piracy_zone = yes 
+				NOT = { has_modifier = piracy_ongoing }
+			}
+			add_modifier = {
+				name = piracy_ongoing
+			}
+		}
+		
+	}
+	
+	on_yearly_pulse = {
+		
+		effect = {
+		
+			#Apply piracy modifier
+			every_scope_state = {
+				limit = { 
+					is_piracy_zone = yes 
+					NOT = { has_modifier = piracy_ongoing }
+				}
+				add_modifier = {
+					name = piracy_ongoing
+				}
+			}
+			
+		}
+		
+	}
+
+	complete = {
+		
+		OR = { 
+			NOT = { is_piracy_area = yes }
+			AND = {
+				navy_size >= 50
+				in_default = no
+			}
+		}
+		
+	}
+	
+	on_complete = {
+		
+		#Remove piracy modifier
+		every_scope_state = {
+			limit = { 
+				has_modifier = piracy_ongoing
+			}
+			remove_modifier = piracy_ongoing
+		}
+		
+		#Clear modifiers
+		remove_variable = issued_letters_of_marque
+		if = {
+			limit = { has_modifier = letters_of_marque }
+			remove_modifier = letters_of_marque
+		}
+		
+	}
+	
+	invalid = {
+		has_port = no
+	}
+
+	on_invalid = {
+		
+		#Remove piracy modifier
+		every_scope_state = {
+			limit = {
+				has_modifier = piracy_ongoing
+			}
+			remove_modifier = piracy_ongoing
+		}
+		
+		#Clear modifiers
+		remove_variable = issued_letters_of_marque
+		if = {
+			limit = { has_modifier = letters_of_marque }
+			remove_modifier = letters_of_marque
+		}
+		
+	}
+	
+	# zero or more static modifiers that will be applied to the Journal Entry when it activates, where they will propagate to the country
+	modifiers_while_active = {
+		piracy_ongoing_country
+	}
+
+	weight = 100
+
+	should_be_pinned_by_default = no
+
+	transferable = no
+
+	progressbar = no
+	
+}

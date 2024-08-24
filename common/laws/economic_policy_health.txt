@@ -2,7 +2,7 @@
 	group = lawgroup_health_system
 	icon = "gfx/interface/icons/law_icons/charitable_health_system.dds"
 	
-	can_impose = { is_subject_of = scope:initiator is_not_sufficiently_independent = yes } #progressiveness = 0
+	can_impose = { can_impose_law_default = yes } #progressiveness = 0
 	
 	disallowing_laws = {
 		law_command_economy
@@ -21,7 +21,6 @@
 
 	institution = institution_health_system
 	institution_modifier = {
-		state_mortality_wealth_mult = -0.001
 		interest_group_ig_devout_pol_str_mult = 0.1
 		state_pollution_reduction_health_mult = -0.025
 	}
@@ -128,7 +127,7 @@ law_private_health_insurance = {
 	group = lawgroup_health_system
 	icon = "gfx/interface/icons/law_icons/private_health_insurance.dds"
 	
-	can_impose = { is_subject_of = scope:initiator is_not_sufficiently_independent = yes } #progressiveness = 50
+	can_impose = { can_impose_law_default = yes } #progressiveness = 50
 	
 	disallowing_laws = {
 		law_command_economy
@@ -150,10 +149,10 @@ law_private_health_insurance = {
 	institution = institution_health_system
 	institution_modifier = {
 		interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.1
-		state_mortality_wealth_mult = -0.002
+		#state_mortality_mult = -0.01
 		state_pollution_reduction_health_mult = -0.05
-		state_rich_standard_of_living_add = 0.5
-		state_middle_standard_of_living_add = 0.25
+		state_rich_standard_of_living_add = 1
+		state_middle_standard_of_living_add = 0.5
 	}
 	
 	possible_political_movements = {
@@ -224,7 +223,7 @@ law_public_health_insurance = {
 	group = lawgroup_health_system
 	icon = "gfx/interface/icons/law_icons/public_health_insurance.dds"
 	
-	can_impose = { is_subject_of = scope:initiator is_not_sufficiently_independent = yes } #progressiveness = 100
+	can_impose = { can_impose_law_default = yes } #progressiveness = 100
 	
 	disallowing_laws = {
 		law_laissez_faire
@@ -243,11 +242,11 @@ law_public_health_insurance = {
 	
 	institution = institution_health_system
 	institution_modifier = {
-		state_mortality_mult = -0.005
+		#state_mortality_mult = -0.02
 		state_pollution_reduction_health_mult = -0.1
-		state_standard_of_living_add = 0.5
+		state_standard_of_living_add = 1
 		
-		interest_group_ig_bureaucrats_pol_str_mult = 0.05
+		interest_group_ig_intelligentsia_pol_str_mult = 0.05
 	}
 	
 	possible_political_movements = {

@@ -7,6 +7,15 @@ centrist_party = {
 	name = {
 		first_valid = {
 			triggered_desc = {
+				desc = party_centrist_faction
+				trigger = {
+					OR = { 
+						has_law = law_type:law_parties_not_allowed
+						has_law = law_type:law_single_party_state
+					}
+				}
+			}
+			triggered_desc = {
 				desc = party_centrist
 				trigger = {
 					always = yes
@@ -31,19 +40,21 @@ centrist_party = {
 			owner = { has_law = law_type:law_parties_allowed }
 			
 			#Country allows only 1 party
-			owner = {
-				has_law = law_type:law_single_party_state
-				any_interest_group = {
-					is_in_government = yes
+			AND = {
+				owner = {
+					has_law = law_type:law_single_party_state
 				}
+				is_in_government = yes
 			}
 			
 		}
 	}
 	
 	join_weight = {
+		
+		#Default party is Centrist
 		value = {
-			value = -8
+			value = 1
 			desc = "base_value"
 		}
 		
@@ -51,42 +62,12 @@ centrist_party = {
 		if = {
 			limit = {
 				exists = leader leader = {
-					OR = { 
-						has_ideology = ideology:ideology_elitist
-						has_ideology = ideology:ideology_democratic
-					}
-				}
-			}
-			add = {
-				value = 3
-				desc = "from_correct_leader_political_leaning"
-			}
-		}
-		
-		#IG has correct IG general political leaning
-		if = {
-			limit = {
-				has_ideology = ideology:ideology_communitarian
-			}
-			add = {
-				value = 3
-				desc = "from_correct_ig_general_political_leaning"
-			}
-		}
-		
-		#IG has correct IG specific political leaning
-		if = {
-			limit = {
-				OR = {
-					has_ideology = ideology:ideology_conservative
-					
-					has_ideology = ideology:ideology_republican
-					has_ideology = ideology:ideology_monarchist
+					has_ideology = ideology:ideology_elitist
 				}
 			}
 			add = {
 				value = 1
-				desc = "from_correct_ig_specific_political_leaning"
+				desc = "from_correct_leader_political_leaning"
 			}
 		}
 		
@@ -96,19 +77,8 @@ centrist_party = {
 				has_ideology = ideology:ideology_centre_economy
 			}
 			add = {
-				value = 3
-				desc = "from_correct_general_economic_leaning"
-			}
-		}
-		
-		#IG has correct IG specific economic leaning
-		if = {
-			limit = {
-				has_ideology = ideology:ideology_regionalist
-			}
-			add = {
 				value = 1
-				desc = "from_correct_specific_economic_leaning"
+				desc = "from_correct_general_economic_leaning"
 			}
 		}
 		

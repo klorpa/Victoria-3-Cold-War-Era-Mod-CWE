@@ -940,7 +940,7 @@ historical_interstate_wars.9 = {
 		}
 		add_radicals = {
 			value = large_radicals
-			interest_group = ig:ig_bureaucrats
+			interest_group = ig:ig_intelligentsia
 		}
 		
 		ai_chance = { 
@@ -2334,8 +2334,10 @@ historical_interstate_wars.23 = {
 		#Recipent conditions
 		exists = c:AFG
 		c:AFG = { 												# Change TAG of the transferee ****
-			NOT = { is_subject_of = ROOT }
-			NOT = { is_a_communist_government = yes }
+			OR = { 
+				NOT = { is_subject_of = ROOT }
+				NOT = { is_a_communist_government = yes }
+			}
 			is_sufficiently_independent = yes
 			is_at_war = no
 		}
@@ -2356,8 +2358,7 @@ historical_interstate_wars.23 = {
         name = historical_interstate_wars.option.1				# Declare war!
         highlighted_option = yes
 		
-		#Gulf War
-		
+		#Soviet Afghan War
 		create_diplomatic_play = {
 			name = soviet_afghan_war
 			type = dp_make_dominion
@@ -2526,10 +2527,13 @@ historical_interstate_wars.25 = {
 		#Overlord conditions
 		exists = c:RUS
 		this = c:RUS											# Change TAG of the overlord ****
-		game_date >= 2021.11.24									# START DATE: Date colony became self governing ****
+		game_date >= 2022.2.24									# START DATE: Date colony became self governing ****
 		game_date < 2032.2.24									# END DATE: All historical events must not fire 10 years after the START DATE ****
 		
-		is_a_dictatorship = yes									# Correct gov types
+		OR = { 
+			is_a_dictatorship = yes								# Correct gov types
+			ruler ?= { has_variable = Vladimir_Vladimirovich_Putin }
+		}
 		is_sufficiently_independent = yes						# is_vassal = no		
 		is_at_war = no											# war = no
 		
@@ -2570,7 +2574,7 @@ historical_interstate_wars.25 = {
 			type = dp_make_puppet
 			target_country = c:UKR
 			
-			#war = yes
+			war = yes
 			
 			#Russia's Goals
 			add_war_goal = {
@@ -2723,7 +2727,7 @@ historical_interstate_wars.26 = {
 		}
 		add_radicals = {
 			value = large_radicals
-			interest_group = ig:ig_bureaucrats
+			interest_group = ig:ig_intelligentsia
 		}
 		add_radicals = {
 			value = large_radicals
@@ -2905,6 +2909,7 @@ historical_interstate_wars.28 = {
 						has_diplomatic_pact = { type = protectorate who = ROOT }
 						is_subject_of = ROOT
 						is_a_democracy = yes
+						is_some_kind_of_democracy = yes
 					}
 					is_not_neutral = yes
 					has_strategic_adjacency = c:AFG
@@ -2937,6 +2942,7 @@ historical_interstate_wars.28 = {
 						has_diplomatic_pact = { type = protectorate who = ROOT }
 						is_subject_of = ROOT
 						is_a_democracy = yes
+						is_some_kind_of_democracy = yes
 					}
 					is_not_neutral = yes
 					has_strategic_adjacency = c:AFG
@@ -2999,7 +3005,7 @@ historical_interstate_wars.28 = {
 		}
 		add_radicals = {
 			value = large_radicals
-			interest_group = ig:ig_bureaucrats
+			interest_group = ig:ig_intelligentsia
 		}
 		add_radicals = {
 			value = large_radicals
@@ -3108,7 +3114,7 @@ historical_interstate_wars.29 = {
 		}
 		add_radicals = {
 			value = large_radicals
-			interest_group = ig:ig_bureaucrats
+			interest_group = ig:ig_intelligentsia
 		}
 		add_radicals = {
 			value = large_radicals
@@ -3501,7 +3507,11 @@ historical_interstate_wars.32 = {
 		# Event has not fired before
 		NOT = { has_variable = russia_georgia_war_hiw }			# CHANGE ****
 		
-		is_a_republican_regime = yes							# Correct gov types
+		OR = { 
+			is_a_republican_regime = yes
+			ruler ?= { has_variable = Vladimir_Vladimirovich_Putin }
+			ruler ?= { has_variable = Dmitry_Medvedev }
+		}
 		is_sufficiently_independent = yes						# is_vassal = no		
 		is_at_war = no											# war = no
 		
@@ -3665,7 +3675,7 @@ historical_interstate_wars.32 = {
 		}
 		add_radicals = {
 			value = large_radicals
-			interest_group = ig:ig_bureaucrats
+			interest_group = ig:ig_intelligentsia
 		}
 		add_radicals = {
 			value = large_radicals
@@ -4173,7 +4183,7 @@ historical_interstate_wars.37 = {
 		}
 		add_radicals = {
 			value = large_radicals
-			interest_group = ig:ig_bureaucrats
+			interest_group = ig:ig_intelligentsia
 		}
 		add_radicals = {
 			value = large_radicals
@@ -4282,7 +4292,7 @@ historical_interstate_wars.38 = {
 		}
 		add_radicals = {
 			value = large_radicals
-			interest_group = ig:ig_bureaucrats
+			interest_group = ig:ig_intelligentsia
 		}
 		add_radicals = {
 			value = large_radicals
@@ -4394,7 +4404,7 @@ historical_interstate_wars.39 = {
 		}
 		add_radicals = {
 			value = large_radicals
-			interest_group = ig:ig_bureaucrats
+			interest_group = ig:ig_intelligentsia
 		}
 		add_radicals = {
 			value = large_radicals
@@ -4859,7 +4869,7 @@ historical_interstate_wars.43 = {
 		}
 		add_radicals = {
 			value = large_radicals
-			interest_group = ig:ig_bureaucrats
+			interest_group = ig:ig_intelligentsia
 		}
 		add_radicals = {
 			value = large_radicals
@@ -4972,7 +4982,7 @@ historical_interstate_wars.44 = {
 		}
 		add_radicals = {
 			value = large_radicals
-			interest_group = ig:ig_bureaucrats
+			interest_group = ig:ig_intelligentsia
 		}
 		add_radicals = {
 			value = large_radicals
@@ -5089,7 +5099,7 @@ historical_interstate_wars.45 = {
 		}
 		add_radicals = {
 			value = large_radicals
-			interest_group = ig:ig_bureaucrats
+			interest_group = ig:ig_intelligentsia
 		}
 		add_radicals = {
 			value = large_radicals
@@ -5749,7 +5759,7 @@ historical_interstate_wars.51 = {
 		}
 		add_radicals = {
 			value = large_radicals
-			interest_group = ig:ig_bureaucrats
+			interest_group = ig:ig_intelligentsia
 		}
 		add_radicals = {
 			value = large_radicals
@@ -5800,6 +5810,7 @@ historical_interstate_wars.52 = {
 		c:HYD = { 												# Change TAG of the transferee ****
 			is_sufficiently_independent = yes
 			is_at_war = no
+			has_revolution = no
 		}
 		
 		# Event has not been fired before
@@ -6126,7 +6137,6 @@ historical_interstate_wars.55 = {
 		#Recipent conditions
 		exists = c:HND
 		c:HND = { 												# Change TAG of the transferee ****
-			exists = yes
 			is_sufficiently_independent = yes
 			has_state_in_state_region = STATE_KASHMIR
 		}
@@ -6175,6 +6185,404 @@ historical_interstate_wars.55 = {
 		#Minor discontent
 		add_radicals = {
 			value = small_radicals
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+### The Football War ###
+
+historical_interstate_wars.56 = {
+    type = country_event
+
+    title = football_war.t 										# Title of the event; ADD LOCALISATION
+    desc = football_war.d 										# Description of the event; ADD LOCALISATION
+    #flavor = football_war.f 									# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/bicorne_hat.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		exists = c:ELS
+		this = c:ELS											# Change TAG of the overlord ****
+		game_date >= 1969.7.14									# START DATE: Date colony became self governing ****
+		game_date < 1979.7.14									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		#is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		is_not_neutral = yes									# No legal or political restrictions on going to war
+		
+		#Recipent conditions
+		exists = c:HON
+		c:HON = { 												# Change TAG of the transferee ****
+			is_sufficiently_independent = yes
+			is_adjacent_to_country = ROOT
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = football_war_hiw }				# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = football_war_hiw							# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_interstate_wars.option.1				# Declare war!
+        highlighted_option = yes
+		
+		# War
+		create_diplomatic_play = {
+			name = football_war
+			type = dp_humiliation
+			target_country = c:HON
+			
+			war = yes
+
+			add_war_goal = {
+				holder = c:HON
+				type = humiliation
+				target_country = ROOT
+			}
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_interstate_wars.option.2				# Peace option
+		default_option = yes
+		
+		#Minor discontent
+		add_radicals = {
+			value = small_radicals
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+### The Agacher Strip War ###
+
+historical_interstate_wars.57 = {
+    type = country_event
+
+    title = agacher_strip_war.t 								# Title of the event; ADD LOCALISATION
+    desc = agacher_strip_war.d 									# Description of the event; ADD LOCALISATION
+    #flavor = agacher_strip_war.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/bicorne_hat.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:MAL ?= this											# Change TAG of the overlord ****
+		game_date >= 1985.12.25									# START DATE: Date colony became self governing ****
+		game_date < 1995.12.25									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_nationalist_government = yes						# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		is_not_neutral = yes									# No legal or political restrictions on going to war
+		
+		#Recipent conditions
+		exists = c:BUF
+		c:BUF = { 												# Change TAG of the transferee ****
+			is_sufficiently_independent = yes
+			is_adjacent_to_country = ROOT
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = agacher_strip_war_hiw }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = agacher_strip_war_hiw					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_interstate_wars.option.1				# Declare war!
+        highlighted_option = yes
+		
+		# War
+		create_diplomatic_play = {
+			name = agacher_strip_war
+			type = dp_humiliation
+			target_country = c:BUF
+			
+			war = yes
+
+			add_war_goal = {
+				holder = c:BUF
+				type = humiliation
+				target_country = ROOT
+			}
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_interstate_wars.option.2				# Peace option
+		default_option = yes
+		
+		#Minor discontent
+		add_radicals = {
+			value = small_radicals
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+### Operation Litani ###
+
+historical_interstate_wars.58 = {
+    type = country_event
+
+    title = ISR_LEB_war.t 										# Title of the event; ADD LOCALISATION
+    desc = ISR_LEB_war.d 										# Description of the event; ADD LOCALISATION
+    #flavor = ISR_LEB_war.f 									# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/bicorne_hat.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:ISR ?= this											# Change TAG of the overlord ****
+		game_date >= 1978.3.14									# START DATE: Date colony became self governing ****
+		game_date < 1988.3.14									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		is_not_neutral = yes									# No legal or political restrictions on going to war
+		
+		#Cause of conflict
+		NOT = { exists = c:PAL }
+		
+		#Recipent conditions
+		exists = c:LEB
+		c:LEB = { 												# Change TAG of the transferee ****
+			NOT = { is_a_communist_government = yes }
+			is_sufficiently_independent = yes
+			is_at_war = no
+			is_adjacent_to_country = ROOT
+		}
+		p:xA050E0 ?= {
+			owner = c:LEB
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = ISR_LEB_war_hiw }				# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = ISR_LEB_war_hiw							# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_interstate_wars.option.1				# Declare war!
+        highlighted_option = yes
+		
+		#Israel-Lebanon War
+		c:LEB = {
+			s:STATE_LEBANON = {
+				set_owner_of_provinces = {
+					country = ROOT
+					provinces = { xA050E0 }
+				}
+			}
+		}
+		create_diplomatic_play = {
+			name = ISR_LEB_war
+			type = dp_regime_change
+			target_country = c:LEB
+			
+			war = yes
+			
+			add_war_goal = {
+				holder = c:LEB
+				type = return_state
+				target_state = s:STATE_LEBANON.region_state:ISR
+			}
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_interstate_wars.option.2				# Peace option
+		default_option = yes
+		
+		#Minor discontent
+		add_radicals = {
+			value = small_radicals
+			culture = cu:palestinian
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+### Syrian invasion of Lebanon ###
+
+historical_interstate_wars.59 = {
+    type = country_event
+
+    title = SYR_LEB_war.t 										# Title of the event; ADD LOCALISATION
+    desc = SYR_LEB_war.d 										# Description of the event; ADD LOCALISATION
+    #flavor = SYR_LEB_war.f 									# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/bicorne_hat.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:SYR ?= this											# Change TAG of the overlord ****
+		game_date >= 1976.5.31									# START DATE: Date colony became self governing ****
+		game_date < 1986.5.31									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_nationalist_government = yes						# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		is_not_neutral = yes									# No legal or political restrictions on going to war
+		
+		#Cause of conflict
+		NOT = { exists = c:PAL }
+		
+		#Recipent conditions
+		exists = c:LEB
+		c:LEB = { 												# Change TAG of the transferee ****
+			NOT = { is_a_communist_government = yes }
+			is_sufficiently_independent = yes
+			is_at_war = no
+			is_adjacent_to_country = ROOT
+		}
+		p:xECCAC7 ?= {
+			owner = c:LEB
+		}
+		p:x6010E0 ?= {
+			owner = c:LEB
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = SYR_LEB_war_hiw }				# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = SYR_LEB_war_hiw							# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_interstate_wars.option.1				# Declare war!
+        highlighted_option = yes
+		
+		#Syria-Lebanon War
+		c:LEB = {
+			s:STATE_LEBANON = {
+				set_owner_of_provinces = {
+					country = ROOT
+					provinces = { xECCAC7 x6010E0 }
+				}
+			}
+		}
+		create_diplomatic_play = {
+			name = SYR_LEB_war
+			type = dp_humiliation
+			target_country = c:LEB
+			
+			war = yes
+			
+			add_war_goal = {
+				holder = c:LEB
+				type = return_state
+				target_state = s:STATE_LEBANON.region_state:SYR
+			}
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_interstate_wars.option.2				# Peace option
+		default_option = yes
+		
+		#Minor discontent
+		add_radicals = {
+			value = small_radicals
+			culture = cu:syrian
 		}
 		
 		ai_chance = { 

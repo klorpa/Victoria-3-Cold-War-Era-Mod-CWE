@@ -1,5 +1,5 @@
 demand_capitulation = {
-	requires_approval = yes
+	groups= { general } requires_approval = yes
 	should_notify_third_parties = yes
 
 	potential = {
@@ -131,6 +131,15 @@ demand_capitulation = {
 	
 	accept_effect = {
 		
+		#Lobby
+		add_lobby_appeasement_from_diplomacy_unidirectional = { 
+			FIRST = root
+			SECOND = scope:target_country 
+			PRO_AMOUNT = -5
+			ANTI_AMOUNT = 5
+			FACTOR = appeasement_embargo_declared
+		}
+		
 		scope:target_country = { save_scope_as = target_country_scope }
 		
 		#TARGET gains relations with THIS
@@ -248,6 +257,10 @@ demand_capitulation = {
 	
 	ai = {
 	
+		evaluation_chance = {
+			value = 0.25		
+		}
+		
 		propose_score = {
 			value = 10
 		}

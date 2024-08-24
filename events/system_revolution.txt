@@ -704,7 +704,6 @@ revolution_system.7 = {
 		#}
 		
 		# Consequences of revolution
-		capital = { state_region = { add_devastation = 20 } }
 		change_infamy = 5
 		
 	}

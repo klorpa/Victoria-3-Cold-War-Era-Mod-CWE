@@ -1,6 +1,6 @@
 select_new_monarch = {
 
-	#Select Monarch
+	#Select Monarch modifier
 	if = { limit = { has_modifier = monarch_ig_landowners } remove_modifier = monarch_ig_landowners }
 	if = { limit = { has_modifier = monarch_ig_devout } remove_modifier = monarch_ig_devout }
 	if = { limit = { has_modifier = monarch_ig_rural_folk } remove_modifier = monarch_ig_rural_folk }
@@ -15,12 +15,38 @@ select_new_monarch = {
 		1 = { add_modifier = { name = monarch_ig_petty_bourgeoisie } modifier = { if = { limit = { has_variable = block_monarch_ig_petty_bourgeoisie } add = -10 } } }
 		1 = { add_modifier = { name = monarch_ig_trade_unions } modifier = { if = { limit = { has_variable = block_monarch_ig_trade_unions } add = -10 } } }
 	}
+	
+	#Elective Monarchy
 	if = {
+		limit = { 
+			has_variable = elective_monarchy_system
+		}
+		remove_variable = female_monarch_var
+		set_variable = { 
+			name = elective_monarchy_system_timer
+			years = 5
+		}
+	}
+	
+	#Select female monarch
+	if = {
+		limit = {
+			is_subject = yes
+			shares_same_monarch = yes
+			any_overlord_or_above = {
+				is_a_monarchy = yes
+				has_variable = female_monarch_var
+			}
+		}
+		set_variable = female_monarch_var
+	}
+	else_if = {
 		limit = { 
 			NOR = {
 				country_has_state_religion = rel:sunni
 				country_has_state_religion = rel:shiite
 				c:JAP ?= this
+				c:THI ?= this
 			}
 		}
 		if = {
@@ -39,16 +65,6 @@ select_new_monarch = {
 				1 = { set_variable = female_monarch_var }
 				1 = { }
 			}
-		}
-	}
-	
-	if = {
-		limit = { 
-			has_variable = elective_monarchy_system 
-		}
-		set_variable = { 
-			name = elective_monarchy_system_timer
-			years = 5
 		}
 	}
 	

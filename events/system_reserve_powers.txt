@@ -48,6 +48,10 @@ reserve_powers_system.1 = {
 			save_scope_as = ceremonial_head_of_state_ig
 		}
 		
+		currently_enacting_law = {
+    		save_scope_as = current_law_scope
+    	}
+		
 	}
 
 	option = {
@@ -515,6 +519,327 @@ reserve_powers_system.5 = {
 		if = {
 			limit = { enacting_any_law = yes }
 			add_enactment_setback = 1
+		}
+		
+	}
+	
+}
+
+#Enactment by foreign agents
+reserve_powers_system.6 = {
+	type = country_event
+
+	title = foreign_triggered_enactment.t
+	desc = foreign_triggered_enactment.d
+	flavor = foreign_triggered_enactment.f
+
+	event_image = {
+		video = "gfx/event_pictures/asia_politician_parliament_motion.bk2"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/leader_speaking_to_a_group_of_people"
+
+	duration = 1
+
+	trigger = {
+		
+		#Triggered by diplo action
+		
+	}
+
+	immediate = {
+		
+		random_country = {
+			limit = { has_a_manchurian_candidate = yes }
+			save_scope_as = manipulator_country
+		}
+		
+		scope:manipulator_country ?= {
+			ruler ?= {
+				interest_group = {
+					save_scope_as = manipulator_country_IG
+				}
+			}
+		}
+		
+		if = {
+			limit = { exists = scope:manipulator_country_IG }
+			random_interest_group = {
+				limit = { is_same_interest_group_type = scope:manipulator_country_IG }
+				save_scope_as = target_interest_group
+			}
+		}
+		
+		scope:target_interest_group ?= {
+			random_preferred_law = {
+				limit = { can_be_enacted = yes }
+				save_scope_as = law_to_be_enacted
+			}
+		}
+		
+	}
+
+	option = {
+		name = foreign_triggered_enactment.option.1 		#Accept
+		default_option = yes
+		
+		start_enactment = scope:law_to_be_enacted.type
+		
+		if = {
+			limit = { exists = scope:target_interest_group }
+			add_loyalists = {
+				value = small_radicals
+				interest_group = ig:scope:target_interest_group
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+			modifier = { 
+				trigger = {
+					has_global_variable = historical_railroading_active
+				}
+				add = -100 
+			}
+		}
+		
+	}
+	
+	option = {
+		name = foreign_triggered_enactment.option.2 		#Reject the presidential veto
+		
+		if = {
+			limit = { exists = scope:manipulator_country }
+			scope:manipulator_country ?= { change_relations = { country = ROOT value = -10 } }
+		}
+		
+		if = {
+			limit = { exists = scope:target_interest_group }
+			add_radicals = {
+				value = small_radicals
+				interest_group = scope:target_interest_group
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+		}
+		
+	}
+	
+}
+
+#Institutional Veto
+reserve_powers_system.7 = {
+	type = country_event
+
+	title = institutional_veto.t
+	desc = institutional_veto.d
+	flavor = institutional_veto.f
+
+	event_image = {
+		video = "gfx/event_pictures/asia_politician_parliament_motion.bk2"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/unspecific/leader_speaking_to_a_group_of_people"
+
+	duration = 1
+
+	trigger = {
+		
+		enacting_any_law = yes
+		
+		NOT = { has_variable = institutional_veto_overruled }
+		
+		is_a_dictatorship = yes
+		
+		OR = {
+			AND = {
+				has_law = law_type:law_HOS_monarch
+				OR = {
+					#is_enacting_law = law_type:law_HOS_monarch
+					is_enacting_law = law_type:law_HOS_president
+					is_enacting_law = law_type:law_HOS_religious_leader
+					is_enacting_law = law_type:law_HOS_nationalist_leader
+					is_enacting_law = law_type:law_HOS_communist_leader
+				}
+			}
+			AND = {
+				has_law = law_type:law_HOS_president
+				OR = {
+					is_enacting_law = law_type:law_HOS_monarch
+					#is_enacting_law = law_type:law_HOS_president
+					is_enacting_law = law_type:law_HOS_religious_leader
+					is_enacting_law = law_type:law_HOS_nationalist_leader
+					is_enacting_law = law_type:law_HOS_communist_leader
+				}
+			}
+			AND = {
+				has_law = law_type:law_HOS_religious_leader
+				OR = {
+					is_enacting_law = law_type:law_HOS_monarch
+					is_enacting_law = law_type:law_HOS_president
+					#is_enacting_law = law_type:law_HOS_religious_leader
+					is_enacting_law = law_type:law_HOS_nationalist_leader
+					is_enacting_law = law_type:law_HOS_communist_leader
+				}
+			}
+			AND = {
+				has_law = law_type:law_HOS_nationalist_leader
+				OR = {
+					is_enacting_law = law_type:law_HOS_monarch
+					is_enacting_law = law_type:law_HOS_president
+					is_enacting_law = law_type:law_HOS_religious_leader
+					#is_enacting_law = law_type:law_HOS_nationalist_leader
+					is_enacting_law = law_type:law_HOS_communist_leader
+				}
+			}
+			AND = {
+				has_law = law_type:law_HOS_communist_leader
+				OR = {
+					is_enacting_law = law_type:law_HOS_monarch
+					is_enacting_law = law_type:law_HOS_president
+					is_enacting_law = law_type:law_HOS_religious_leader
+					is_enacting_law = law_type:law_HOS_nationalist_leader
+					#is_enacting_law = law_type:law_HOS_communist_leader
+				}
+			}
+		}
+		
+	}
+
+	immediate = {
+		
+		currently_enacting_law = {
+    		save_scope_as = current_law_scope
+    	}
+		
+	}
+
+	option = {
+		name = institutional_veto_accept_option 		#Accept the institutional veto
+		default_option = yes
+		
+		#Government will drop the law
+		if = {
+			limit = { enacting_any_law = yes }
+			add_enactment_setback = 3
+		}
+		
+		#IGs that low the current law will be even angrier
+		every_interest_group = {
+			limit = {
+				law_stance = {
+					law = owner.currently_enacting_law.type
+					value > approve
+				}
+			}
+			hidden_effect = {
+				remove_modifier = ig_angry_with_government
+			}
+			add_modifier = { name = ig_angry_with_government years = 2 is_decaying = yes }
+		}
+		
+		ai_chance = {
+			base = 90
+		}
+		
+	}
+	
+	option = {
+		name = institutional_veto_reject_option 		#Reject the institutional veto
+		
+		set_variable = institutional_veto_overruled
+		
+		#Add set back
+		if = {
+			limit = { 
+				enacting_any_law = yes
+				enactment_setback_count < 2 
+			}
+			add_enactment_setback = 1
+		}
+		else_if = {
+			limit = { 
+				enacting_any_law = yes
+			}
+			hidden_effect = {
+				remove_modifier = ruler_restrained
+			}
+			add_enactment_modifier = {
+				name = ruler_restrained
+			}
+		}
+		
+		#IGs that hate the current law will be even angrier
+		every_interest_group = {
+			limit = {
+				law_stance = {
+					law = owner.currently_enacting_law.type
+					value < neutral
+				}
+			}
+			hidden_effect = {
+				remove_modifier = ig_angry_with_government
+			}
+			add_modifier = { name = ig_angry_with_government years = 2 is_decaying = yes }
+		}
+		
+		#Antagonise naturally supporting IG
+		if = {
+			limit = { has_law = law_type:law_HOS_monarch }
+			add_radicals = {
+				value = large_radicals
+				interest_group = ig:ig_landowners
+			}
+		}
+		if = {
+			limit = { has_law = law_type:law_HOS_president }
+			add_radicals = {
+				value = large_radicals
+				interest_group = ig:ig_petty_bourgeoisie
+			}
+		}
+		if = {
+			limit = { has_law = law_type:law_HOS_religious_leader }
+			add_radicals = {
+				value = large_radicals
+				interest_group = ig:ig_devout
+			}
+		}
+		if = {
+			limit = { has_law = law_type:law_HOS_nationalist_leader }
+			add_radicals = {
+				value = large_radicals
+				interest_group = ig:ig_rural_folk
+			}
+			add_radicals = {
+				value = large_radicals
+				interest_group = ig:ig_armed_forces
+			}
+		}
+		if = {
+			limit = { has_law = law_type:law_HOS_communist_leader }
+			add_radicals = {
+				value = large_radicals
+				interest_group = ig:ig_trade_unions
+			}
+		}
+		
+		ai_chance = {
+			base = 10
+			modifier = { 
+				trigger = { 
+					has_global_variable = historical_railroading_active 
+				} 
+				add = -100 
+			}
 		}
 		
 	}

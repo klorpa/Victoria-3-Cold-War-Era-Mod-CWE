@@ -1,5 +1,5 @@
 ﻿request_homeland_return = {
-	requires_approval = yes
+	groups= { general } requires_approval = yes
 	can_use_obligations = yes
 
 	unlocking_technologies = {
@@ -86,6 +86,10 @@
 
 	ai = {
 		check_acceptance_for_will_propose = yes
+	
+		evaluation_chance = {
+			value = 0.25		
+		}
 	
 		accept_score = {
 			value = 0

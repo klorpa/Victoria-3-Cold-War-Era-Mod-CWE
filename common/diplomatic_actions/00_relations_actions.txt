@@ -1,6 +1,10 @@
 ﻿increase_relations = {
-	requires_approval = no
+	groups= { general } requires_approval = no
 	show_confirmation_box = no
+
+	selectable = {
+		NOT = { is_country_type = decentralized }
+	}
 
 	potential = {
 		NOT = { is_country_type = decentralized }
@@ -37,6 +41,10 @@
 		relations_progress_per_day = 3 # At 100, +1 relations
 		relations_improvement_max = 100
 		
+		first_modifier = {
+			country_pact_leverage_generation_add = 300
+		}
+		
 		requirement_to_maintain = { 
 		
 			trigger = {  
@@ -54,9 +62,12 @@
 				NOT = { has_diplomatic_pact = { who = scope:target_country type = damage_relations } }
 				
 				#THIS has room for improving relations further
-				custom_tooltip = {
-					text = DIPLO_ACTION_RELATIONS_FRIENDLY_NOT
-					scope:target_country.relations:root < relations_threshold:friendly
+				OR = {
+					scope:target_country = { is_power_bloc_leader = yes }
+					custom_tooltip = {
+						text = DIPLO_ACTION_RELATIONS_FRIENDLY_NOT
+						scope:target_country.relations:root < relations_threshold:friendly
+					}
 				}
 			
 			}
@@ -67,6 +78,10 @@
 	
 	ai = {
 		max_influence_spending_fraction = 0.25
+	
+		evaluation_chance = {
+			value = 0.5
+		}
 	
 		propose_score = {
 			value = 5	
@@ -159,8 +174,12 @@
 }
 
 damage_relations = {
-	requires_approval = no
+	groups= { general } requires_approval = no
 	show_confirmation_box = no
+	
+	selectable = {
+		NOT = { is_country_type = decentralized }	
+	}
 	
 	potential = {
 		NOT = { is_country_type = decentralized }
@@ -187,6 +206,7 @@ damage_relations = {
 
 	pact = {	
 		cost = 100
+		is_hostile = yes
 		is_two_sided_pact = no
 		infamy_affects_maintenance = no
 		show_in_outliner = yes
@@ -220,6 +240,10 @@ damage_relations = {
 	
 	ai = {
 		max_influence_spending_fraction = 0.15
+	
+		evaluation_chance = {
+			value = 0.5
+		}
 	
 		propose_score = {
 			value = 5

@@ -50,7 +50,7 @@ bureaucracy.1 = {
 			limit = {
 				has_law = law_type:law_elitist_bureaucrats
 			}
-			ig:ig_bureaucrats = {
+			ig:ig_intelligentsia = {
 				save_scope_as = bureaucrat_class
 			}
 		}
@@ -106,7 +106,7 @@ bureaucracy.1 = {
 	option = { # hire new bureaucrats
 		name = bureaucracy.1.e
 		trigger = {
-			enactment_setback_count < 2
+			enactment_setback_count < max_setbacks_minus_one
 		}
 		highlighted_option = yes
 		add_enactment_setback = 1
@@ -155,7 +155,7 @@ bureaucracy.2 = {
 			limit = {
 				is_enacting_law = law_type:law_elitist_bureaucrats
 			}
-			ig:ig_bureaucrats = {
+			ig:ig_intelligentsia = {
 				save_scope_as = meritocracy_ig
 			}
 		}

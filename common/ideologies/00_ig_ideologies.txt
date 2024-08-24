@@ -20,8 +20,10 @@ ideology_far_right_economy = {
 	lawgroup_economic_system = {
 		law_command_economy = strongly_disapprove
 		law_semi_command_economy = strongly_disapprove
+		law_cooperative_ownership = strongly_disapprove
 		law_state_capitalism = strongly_disapprove
-		law_interventionism = approve
+		law_interventionism = disapprove
+		law_social_capitalism = approve
 		law_laissez_faire = strongly_approve
 	}
 	
@@ -92,8 +94,10 @@ ideology_right_economy = {
 	lawgroup_economic_system = {
 		law_command_economy = strongly_disapprove
 		law_semi_command_economy = strongly_disapprove
+		law_cooperative_ownership = strongly_disapprove
 		law_state_capitalism = disapprove
-		law_interventionism = strongly_approve
+		law_interventionism = approve
+		law_social_capitalism = strongly_approve
 		law_laissez_faire = approve
 	}
 	
@@ -162,11 +166,13 @@ ideology_centre_economy = {
 	}
 	
 	lawgroup_economic_system = {
-		law_command_economy = disapprove
-		law_semi_command_economy = neutral
-		law_state_capitalism = approve
-		law_interventionism = neutral
-		law_laissez_faire = disapprove
+		law_command_economy = strongly_disapprove
+		law_semi_command_economy = disapprove
+		law_cooperative_ownership = approve
+		law_state_capitalism = strongly_approve
+		law_interventionism = approve
+		law_social_capitalism = disapprove
+		law_laissez_faire = strongly_disapprove
 	}
 	
 	lawgroup_education_system = {
@@ -234,10 +240,12 @@ ideology_left_economy = {
 	}
 	
 	lawgroup_economic_system = {
-		law_command_economy = approve
-		law_semi_command_economy = strongly_approve
+		law_command_economy = disapprove
+		law_semi_command_economy = approve
+		law_cooperative_ownership = strongly_approve
 		law_state_capitalism = approve
 		law_interventionism = disapprove
+		law_social_capitalism = strongly_disapprove
 		law_laissez_faire = strongly_disapprove
 	}
 	
@@ -308,7 +316,8 @@ ideology_far_left_economy = {
 	lawgroup_economic_system = {
 		law_command_economy = strongly_approve
 		law_semi_command_economy = approve
-		law_state_capitalism = approve
+		law_cooperative_ownership = disapprove
+		law_state_capitalism = strongly_disapprove
 		law_interventionism = strongly_disapprove
 		law_laissez_faire = strongly_disapprove
 	}
@@ -427,11 +436,6 @@ ideology_anti_environment = {
 		law_strong_environment_law = strongly_disapprove
 	}
 	
-	lawgroup_energy_policy = {
-		law_no_nuclear_energy = approve
-		law_nuclear_energy = disapprove
-	}
-	
 }
 ideology_balanced_environment = {
 	icon = "gfx/interface/icons/ideology_icons/buddhist_moralist.dds"
@@ -443,11 +447,6 @@ ideology_balanced_environment = {
 		law_strong_environment_law = disapprove
 	}
 	
-	lawgroup_energy_policy = {
-		law_no_nuclear_energy = approve
-		law_nuclear_energy = approve
-	}
-	
 }
 ideology_pro_environment = {
 	icon = "gfx/interface/icons/ideology_icons/buddhist_moralist.dds"
@@ -457,11 +456,6 @@ ideology_pro_environment = {
 		law_weak_environment_law = disapprove
 		law_moderate_environment_law = approve
 		law_strong_environment_law = strongly_approve
-	}
-	
-	lawgroup_energy_policy = {
-		law_no_nuclear_energy = disapprove
-		law_nuclear_energy = approve
 	}
 	
 }
@@ -704,12 +698,6 @@ ideology_traditionalist = {
 		law_anti_pop_growth_policy = disapprove
 	}
 	
-	lawgroup_space_program = {	
-		law_no_space_program = approve
-		law_space_program_public = disapprove
-		law_space_program_private = disapprove
-	}
-	
 }
 
 ideology_conservative = {
@@ -729,15 +717,9 @@ ideology_conservative = {
 	}
 	
 	lawgroup_pop_growth_policy = {
-		law_pro_pop_growth_policy = approve
-		law_no_pop_growth_policy = strongly_approve
-		law_anti_pop_growth_policy = disapprove
-	}
-	
-	lawgroup_space_program = {	
-		law_no_space_program = disapprove
-		law_space_program_public = approve
-		law_space_program_private = strongly_approve
+		law_pro_pop_growth_policy = neutral
+		law_no_pop_growth_policy = approve
+		law_anti_pop_growth_policy = neutral
 	}
 	
 }
@@ -760,14 +742,8 @@ ideology_progressive = {
 	
 	lawgroup_pop_growth_policy = {
 		law_pro_pop_growth_policy = disapprove
-		law_no_pop_growth_policy = approve
-		law_anti_pop_growth_policy = neutral
-	}
-	
-	lawgroup_space_program = {	
-		law_no_space_program = disapprove
-		law_space_program_public = strongly_approve
-		law_space_program_private = approve
+		law_no_pop_growth_policy = neutral
+		law_anti_pop_growth_policy = approve
 	}
 	
 }
@@ -779,10 +755,16 @@ ideology_monarchist = {
 	
 	lawgroup_governance_principles = {
 		law_HOS_monarch = strongly_approve
-		law_HOS_president = disapprove
+		law_HOS_president = strongly_disapprove
 		law_HOS_religious_leader = approve
-		law_HOS_nationalist_leader = disapprove
+		law_HOS_nationalist_leader = approve
 		law_HOS_communist_leader = strongly_disapprove
+	}
+	
+	lawgroup_land_ownership = {
+		law_no_private_land_ownership = strongly_disapprove
+		law_limited_private_land_ownership = disapprove
+		law_full_private_land_ownership = strongly_approve
 	}
 	
 }
@@ -798,6 +780,12 @@ ideology_republican = {
 		law_HOS_communist_leader = disapprove
 	}
 	
+	lawgroup_land_ownership = {
+		law_no_private_land_ownership = disapprove
+		law_limited_private_land_ownership = neutral
+		law_full_private_land_ownership = approve
+	}
+	
 }
 
 ideology_theocrat = {
@@ -811,17 +799,29 @@ ideology_theocrat = {
 		law_HOS_communist_leader = strongly_disapprove
 	}
 	
+	lawgroup_land_ownership = {
+		law_no_private_land_ownership = disapprove
+		law_limited_private_land_ownership = strongly_approve
+		law_full_private_land_ownership = approve
+	}
+	
 }
 
 ideology_militarist = {
 	icon = "gfx/interface/icons/ideology_icons/patriotic.dds"
 	
 	lawgroup_governance_principles = {
-		law_HOS_monarch = neutral
+		law_HOS_monarch = disapprove
 		law_HOS_president = approve
-		law_HOS_religious_leader = neutral
+		law_HOS_religious_leader = disapprove
 		law_HOS_nationalist_leader = strongly_approve
 		law_HOS_communist_leader = neutral
+	}
+	
+	lawgroup_land_ownership = {
+		law_no_private_land_ownership = disapprove
+		law_limited_private_land_ownership = strongly_approve
+		law_full_private_land_ownership = approve
 	}
 	
 }
@@ -831,10 +831,148 @@ ideology_communist = {
 	
 	lawgroup_governance_principles = {
 		law_HOS_monarch = strongly_disapprove
-		law_HOS_president = disapprove
+		law_HOS_president = approve
 		law_HOS_religious_leader = strongly_disapprove
 		law_HOS_nationalist_leader = approve
 		law_HOS_communist_leader = strongly_approve
+	}
+	
+	lawgroup_land_ownership = {
+		law_no_private_land_ownership = strongly_approve
+		law_limited_private_land_ownership = approve
+		law_full_private_land_ownership = strongly_disapprove
+	}
+	
+}
+
+#### Population Policies ####
+
+ideology_pro_population = {
+	icon = "gfx/interface/icons/generic_icons/employment_not_full_hiring.dds"
+	
+	lawgroup_pop_growth_policy = {
+		law_pro_pop_growth_policy = approve
+		law_no_pop_growth_policy = neutral
+		law_anti_pop_growth_policy = disapprove
+	}
+	
+}
+
+ideology_neutral_population = {
+	icon = "gfx/interface/icons/generic_icons/employment_not_hiring.dds"
+	
+	lawgroup_pop_growth_policy = {
+		law_pro_pop_growth_policy = disapprove
+		law_no_pop_growth_policy = approve
+		law_anti_pop_growth_policy = disapprove
+	}
+	
+}
+
+ideology_anti_population = {
+	icon = "gfx/interface/icons/generic_icons/employment_not_full.dds"
+	
+	lawgroup_pop_growth_policy = {
+		law_pro_pop_growth_policy = disapprove
+		law_no_pop_growth_policy = neutral
+		law_anti_pop_growth_policy = approve
+	}
+	
+}
+
+#### Spending Policies ####
+
+ideology_very_pro_spending = {
+	icon = "gfx/interface/icons/generic_icons/coin_icon_09.dds"
+	
+	lawgroup_space_program = {	
+		law_no_space_program = neutral
+		law_space_program_public = strongly_approve
+		law_space_program_private = approve
+	}
+	
+	lawgroup_monetary_policy = {
+		law_very_deflationary_monetary_policy = strongly_disapprove
+		law_deflationary_monetary_policy = disapprove
+		law_neutral_monetary_policy = neutral
+		law_expansionary_monetary_policy = approve
+		law_very_expansionary_monetary_policy = strongly_approve
+	}
+	
+}
+
+ideology_pro_spending = {
+	icon = "gfx/interface/icons/generic_icons/coin_icon_08.dds"
+	
+	lawgroup_space_program = {	
+		law_no_space_program = neutral
+		law_space_program_public = approve
+		law_space_program_private = strongly_approve
+	}
+	
+	lawgroup_monetary_policy = {
+		law_very_deflationary_monetary_policy = strongly_disapprove
+		law_deflationary_monetary_policy = disapprove
+		law_neutral_monetary_policy = neutral
+		law_expansionary_monetary_policy = strongly_approve
+		law_very_expansionary_monetary_policy = approve
+	}
+	
+}
+
+ideology_neutral_spending = {
+	icon = "gfx/interface/icons/generic_icons/coin_icon_07.dds"
+	
+	lawgroup_space_program = {	
+		law_no_space_program = neutral
+		law_space_program_public = disapprove
+		law_space_program_private = disapprove
+	}
+	
+	lawgroup_monetary_policy = {
+		law_very_deflationary_monetary_policy = strongly_disapprove
+		law_deflationary_monetary_policy = disapprove
+		law_neutral_monetary_policy = strongly_approve
+		law_expansionary_monetary_policy = disapprove
+		law_very_expansionary_monetary_policy = strongly_disapprove
+	}
+	
+}
+
+ideology_anti_spending = {
+	icon = "gfx/interface/icons/generic_icons/coin_icon_06.dds"
+	
+	lawgroup_space_program = {	
+		law_no_space_program = approve
+		law_space_program_public = disapprove
+		law_space_program_private = strongly_disapprove
+	}
+	
+	lawgroup_monetary_policy = {
+		law_very_deflationary_monetary_policy = approve
+		law_deflationary_monetary_policy = strongly_approve
+		law_neutral_monetary_policy = neutral
+		law_expansionary_monetary_policy = disapprove
+		law_very_expansionary_monetary_policy = strongly_disapprove
+	}
+	
+}
+
+ideology_very_anti_spending = {
+	icon = "gfx/interface/icons/generic_icons/coin_icon_05.dds"
+	
+	lawgroup_space_program = {	
+		law_no_space_program = strongly_approve
+		law_space_program_public = strongly_disapprove
+		law_space_program_private = disapprove
+	}
+	
+	lawgroup_monetary_policy = {
+		law_very_deflationary_monetary_policy = strongly_approve
+		law_deflationary_monetary_policy = approve
+		law_neutral_monetary_policy = neutral
+		law_expansionary_monetary_policy = disapprove
+		law_very_expansionary_monetary_policy = strongly_disapprove
 	}
 	
 }

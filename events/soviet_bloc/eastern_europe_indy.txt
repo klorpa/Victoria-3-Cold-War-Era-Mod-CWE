@@ -121,7 +121,7 @@ eastern_europe_indy.2 = {
 		game_date >= 1991.9.6									# START DATE: Date colony became self governing ****
 		game_date < 2001.9.6									# END DATE: All historical events must not fire 10 years after the START DATE ****
 		
-		is_a_communist_dictatorship = yes						# Correct gov types
+		is_a_communist_government = yes							# Correct gov types
 		is_sufficiently_independent = yes						# is_vassal = no		
 		is_at_war = no											# war = no
 		
@@ -228,11 +228,9 @@ eastern_europe_indy.3 = {
 		this = c:SOV											# Change TAG of the overlord ****
 		OR = {
 		
-			in_default = yes
-			has_healthy_economy = no
 			has_revolution = yes
-			
-			has_journal_entry = je_perestroika
+		
+			in_default = yes
 			
 			AND = {
 				game_date >= 1989.10.25
@@ -281,7 +279,7 @@ eastern_europe_indy.3 = {
 					is_subject_type = subject_type_puppet
 				}
 			}
-			make_independent = yes
+			change_subject_type = subject_type_protectorate
 		}
 		
 		#World is happy
@@ -601,8 +599,13 @@ eastern_europe_indy.5 = {
 		is_at_war = no											# war = no
 		
 		#Triggered by Khrushchev
-		exists = ruler
-		ruler = { interest_group = { is_interest_group_type = ig_rural_folk } is_historical = yes }
+		OR = {
+			AND = { 
+				exists = ruler
+				ruler = { interest_group = { is_interest_group_type = ig_rural_folk } is_historical = yes }
+			}
+			NOT = { has_modifier = communist_ruling_party_ideology }
+		}
 		
 		#Colony conditions
 		OR = {
@@ -613,9 +616,14 @@ eastern_europe_indy.5 = {
 					is_a_communist_government = yes
 					is_sufficiently_independent = yes
 					is_at_war = no
-					#Triggered by Mao
-					exists = ruler
-					ruler = { interest_group = { is_interest_group_type = ig_trade_unions } is_historical = yes }
+					OR = { 
+						#Triggered by Mao
+						AND = { 
+							exists = ruler
+							ruler = { interest_group = { is_interest_group_type = ig_trade_unions } is_historical = yes }
+						}
+						has_modifier = communist_ruling_party_ideology
+					}
 				}
 			}
 			AND = { 
@@ -625,9 +633,14 @@ eastern_europe_indy.5 = {
 					is_a_communist_government = yes
 					is_sufficiently_independent = yes
 					is_at_war = no
-					#Triggered by Mao
-					exists = ruler
-					ruler = { interest_group = { is_interest_group_type = ig_trade_unions } is_historical = yes }
+					OR = { 
+						#Triggered by Mao
+						AND = { 
+							exists = ruler
+							ruler = { interest_group = { is_interest_group_type = ig_trade_unions } is_historical = yes }
+						}
+						has_modifier = communist_ruling_party_ideology
+					}
 				}
 			}
 		}
@@ -684,7 +697,7 @@ eastern_europe_indy.5 = {
 			}
 			scope:communist_china_scope = {
 				create_diplomatic_pact = {
-					country = ROOT
+					country = c:ALB
 					type = satellite
 				}
 			}
@@ -770,6 +783,23 @@ eastern_europe_indy.6 = {
 			name = national_pride_modifier 
 			months = 60 
 			is_decaying = yes 
+		}
+		
+		#Create own bloc
+		if = {
+			limit = { is_in_power_bloc = no }
+			create_power_bloc = {
+				name = SINOSPHERE
+
+				map_color = { 255 165 0 }
+
+				identity = identity_ideological_union
+				principle = principle_defensive_cooperation_3
+				principle = principle_ideological_truth_3
+				principle = principle_foreign_investment_3
+
+				# subjects are automatically part of the bloc
+			}
 		}
 		
     }

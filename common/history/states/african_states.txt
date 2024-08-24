@@ -707,6 +707,7 @@ STATES = {
 			}
 		}
 		
+		add_claim = c:AZA add_homeland = cu:azawagh
 		add_claim = c:MAL add_homeland = cu:malian
 	}
 	s:STATE_HAUSALAND = {

@@ -1,10 +1,15 @@
 ﻿bankroll = {
-	requires_approval = no
+	groups= { general } requires_approval = no
 	should_notify_third_parties = no
 
 	unlocking_technologies = {
 		tech_geopolitics_1
 		tech_economy_1
+	}
+	
+	selectable = {
+		NOT = { is_country_type = decentralized }
+		is_revolutionary = no
 	}
 	
 	potential = {
@@ -38,8 +43,12 @@
 		relations_improvement_max = 100
 		
 		income_transfer = 0.25
-		recipient_gets_income_transfer = yes
-		income_transfer_based_on_recipient = yes
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = yes
+		
+		second_modifier = {
+			country_pact_leverage_generation_add = 200
+		}
 		
 		weekly_effect = {
 			if = {
@@ -99,6 +108,9 @@
 					NOT = { is_country_type = decentralized }
 				} 
 				
+				is_revolutionary = no is_secessionist = no
+				scope:target_country = { is_revolutionary = no is_secessionist = no }
+				
 				NOT = { has_war_with = scope:target_country }
 				
 				OR = {
@@ -114,8 +126,6 @@
 					}
 					
 				}
-				
-				is_revolutionary = no is_secessionist = no
 				
 				in_default = no
 				
@@ -138,6 +148,18 @@
 	
 	ai = {
 		max_influence_spending_fraction = 0.20
+		
+		evaluation_chance = {
+			value = 0.0
+
+			if = {
+				limit = { country_rank >= rank_value:major_power }
+				add = {
+					value = country_rank
+					multiply = 0.05
+				}				
+			}			
+		}
 		
 		# This is only used for determining the value of a bankroll in sways, so it follows different logic from normal action acceptance
 		# The format here is as if scope:actor was asking if root wants a bankroll
@@ -346,6 +368,12 @@
 		}
 		
 		will_break = { 
+			NOT = {
+				AND = {
+					has_variable = forced_bankroll_time
+					var:forced_bankroll_time ?= scope:target_country
+				}
+			}
 			OR = {		
 				scaled_debt > 0.25
 				AND = {

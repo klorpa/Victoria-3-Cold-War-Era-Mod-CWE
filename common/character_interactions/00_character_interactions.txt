@@ -30,6 +30,7 @@ grant_command_to_ruler = {
 		is_female = no
 		owner = {
 			ruler_can_have_command = yes
+			is_a_nationalist_government = yes
 		}
 		exists = owner.capital.land_hq
 	}
@@ -39,7 +40,7 @@ grant_command_to_ruler = {
 	}
 
 	ai_chance = {
-		value = 5
+		value = 0
 		if = {
 			limit = {
 				NOT = { is_interest_group_type = ig_armed_forces }
@@ -48,45 +49,22 @@ grant_command_to_ruler = {
 		}
 		if = {
 			limit = {
-				NOT = {
-					owner = {	
-						any_scope_general = {
-							exists = yes
-						}
-					}
-				}
-			}
-			add = 25
-		}	
-		if = {
-			limit = {
-				owner = {
+				AND = {
+					age <= 50
 					OR = {
-						is_diplomatic_play_committed_participant = yes
-						is_at_war = yes
+						has_trait = reckless
+						has_trait = direct
+						has_trait = imposing
 					}
-				}	
-			}
-			add = 25
-		}
-		if = {
-			limit = {
-				is_interest_group_type = ig_armed_forces
-			}
-			add = 25
-		}
-		if = {
-			limit = {
-				owner = {
-					any_scope_war = {
-						any_scope_front = {
-							is_vulnerable_front = root
-						}
+					NOR = {
+						has_trait = psychological_affliction
+						has_trait = wounded
+						has_trait = shellshocked
 					}
 				}
 			}
-			add = 50
-		}		
+			add = 100
+		}
 	}
 }
 
@@ -326,12 +304,15 @@ marry_ruler_or_heir = {
 	possible = {
 		any_country = {
 			NOT = { THIS = scope:actor }
+			NOT = { is_subject_type = subject_type_personal_union }
 			is_a_regime_monarchy = yes
 			religion = scope:actor.religion
 			ruler = {
 				age > 36
-				NOT = {
-					has_variable = marriage_target
+				hidden_trigger = {
+					NOT = {
+						has_variable = marriage_target
+					}
 				}
 			}
 		}
@@ -647,16 +628,6 @@ exile_character = {
 				}
 			}
 		}
-		if = {
-			limit = {
-				owner = {
-					is_player = yes
-					NOT = { has_variable = achievement_agitate_elsewhere_var }
-				}
-				popularity >= 100
-			}
-			owner = { set_variable = achievement_agitate_elsewhere_var }
-		}
 		hidden_effect = {
 			if = {
 				limit = {
@@ -759,7 +730,9 @@ exile_character = {
 				}
 			}
 		}
-		convert_IG_ideology_to_agitator_ideology = yes
+		hidden_effect = {
+			convert_IG_ideology_to_agitator_ideology = yes
+		}
 		custom_tooltip = {
 			text = exile_dissident_tt
 			exile_character_with_martyrdom = yes
@@ -919,6 +892,41 @@ invite_exile = {
 		custom_tooltip = invite_exile_start_join_movement_effect
 		hidden_effect = {
 			remove_modifier = in_exile_modifier
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = root.home_country
+					NOT = { root.home_country = scope:actor }
+				}
+				if = {
+					limit = {
+						root.home_country = {
+							any_interest_group = {
+								is_in_government = yes
+								OR = {
+									this.type = root.interest_group_type
+									this.leader.ideology = root.ideology
+								}
+							}
+						}
+					}
+					root.home_country = {
+						create_diplomatic_catalyst = {
+							type = catalyst_invited_exile_positive
+							target = scope:actor
+						}		
+					}
+				}
+				else = {
+					root.home_country = {
+						create_diplomatic_catalyst = {
+							type = catalyst_invited_exile_negative
+							target = scope:actor
+						}		
+					}
+				}
+			}
 		}
 	}
 

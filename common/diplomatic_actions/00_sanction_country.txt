@@ -1,5 +1,5 @@
 ﻿sanction_country = {
-	requires_approval = no
+	groups= { general } requires_approval = no
 	should_notify_third_parties = no
 	show_effect_in_tooltip = yes
 
@@ -93,8 +93,8 @@
 		
 		#Sanctions punish TARGET by diverting money to THIS
 		income_transfer = 0.05
-		recipient_gets_income_transfer = no
-		income_transfer_based_on_recipient = no
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = no
 		
 		### Validation requirements ###
 		
@@ -180,9 +180,22 @@
 		#THIS loses relations with TARGET
 		change_relations = { country = scope:target_country value = -50 } 
 		
+		#Lobby
+		add_lobby_appeasement_from_diplomacy_unidirectional = { 
+			FIRST = root
+			SECOND = scope:target_country 
+			PRO_AMOUNT = -5
+			ANTI_AMOUNT = 5
+			FACTOR = appeasement_embargo_declared
+		}
+		
 	}
 	
 	ai = {
+	
+		evaluation_chance = {
+			value = 0.25		
+		}
 	
 		propose_score = {
 			value = 10

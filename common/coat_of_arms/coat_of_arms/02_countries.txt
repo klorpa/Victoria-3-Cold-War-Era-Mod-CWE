@@ -4472,6 +4472,17 @@ CEL = {
 
 ZAN = {
 	pattern = "pattern_solid.tga"
+	color1 = "azure"
+
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "black"
+		color2 = "green"
+	}
+}
+
+ZAN_monarchy = {
+	pattern = "pattern_solid.tga"
 	color1 = "red"
 
 	colored_emblem = {
@@ -13542,6 +13553,23 @@ MAL_modern = { # Mali
 
 }
 
+MAL_french = { # Mali
+	pattern = "pattern_solid.tga"
+	color1 = "blue"
+
+	colored_emblem = {
+		texture = "ce_tricolor_vertical.dds"
+		color1 = "white"
+		color2 = "red"
+	}
+	colored_emblem = {
+		texture = "ce_kanaga.dds"
+		color1 = "black"
+		color2 = "black"
+		instance = { scale = { 0.6 0.6 } position = { 0.5 0.5 } }
+	}	
+}
+
 MAY = { # Maya
 	pattern = "pattern_solid.tga"
 	color1 = "white"
@@ -19338,6 +19366,19 @@ SOV_early = {
 	}
 }
 
+SOV_communist_subject = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	color2 = "yellow"
+
+	colored_emblem = {
+		texture = "ce_hammer_and_sickle.dds"
+		color1 = color2
+		color2 = color2
+		instance = { scale = { 0.9 0.9 } }
+	}
+}
+
 SAF = {
 	pattern = "pattern_solid.tga"
 	color1 = "orange"
@@ -24382,6 +24423,17 @@ TOG = { # Togo
 	
 }
 
+TOG_french = { # Togo
+	pattern = "pattern_solid.tga"
+	color1 = "green"
+
+	colored_emblem = {		
+		texture = "ce_border_TOG_french.dds"
+		color1 = "white"
+	}	
+	
+}
+
 IVC = { # Ivory Coast
 	pattern = "pattern_solid.tga"
 	color1 = "orange"
@@ -24633,7 +24685,7 @@ TGY = { # Tanganyika
 	color1 = "green"
 
 	colored_emblem = {		
-		texture = "ce_border_tanzania.dds"
+		texture = "ce_border_tanganyika.dds"
 		color1 = "yellow"
 		color2 = "black"
 	}	
@@ -24653,12 +24705,13 @@ TGY_subject = { # Tanganyika
 
 TAN = { # Tanzania
 	pattern = "pattern_solid.tga"
-	color1 = "green"
+	color1 = "azure"
 
 	colored_emblem = {		
 		texture = "ce_border_tanzania.dds"
 		color1 = "yellow"
 		color2 = "black"
+		color3 = "green"
 	}	
 	
 }
@@ -24706,7 +24759,7 @@ KEN = { # Kenya
 	}
 
 	colored_emblem = {		
-		texture = "ce_border_tanzania.dds"
+		texture = "ce_border_tanganyika.dds"
 		color1 = "white"
 		color2 = "red"
 	}
@@ -25234,6 +25287,31 @@ MCA_subject = { # Macau
 	
 }
 
+MCA_portuguese_colony = { # Macau
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "green"
+		color2 = "green"
+		instance = { scale = { @third 1.0 } position = { @[third/2] 0.5 } }			
+	}
+	colored_emblem = {
+		texture = "ce_armillary_sphere.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { scale = { 0.75 0.75 } position = { @third 0.5 } }
+	}
+	textured_emblem = {
+		texture = "te_coa_portuguese_republic.dds"
+		instance = { scale = { 0.55 0.55 } position = { @third 0.5 } }
+	}
+	textured_emblem = {
+		texture = "te_coa_MCA_POR.dds"
+	}
+}
+
 WPA = { # West Papua
 	pattern = "pattern_solid.tga"
 	color1 = "white"
@@ -25271,6 +25349,31 @@ ANG = { # Angola
 	
 }
 
+ANG_portuguese_colony = { # Angola
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "green"
+		color2 = "green"
+		instance = { scale = { @third 1.0 } position = { @[third/2] 0.5 } }			
+	}
+	colored_emblem = {
+		texture = "ce_armillary_sphere.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { scale = { 0.75 0.75 } position = { @third 0.5 } }
+	}
+	textured_emblem = {
+		texture = "te_coa_portuguese_republic.dds"
+		instance = { scale = { 0.55 0.55 } position = { @third 0.5 } }
+	}
+	textured_emblem = {
+		texture = "te_coa_ANG_POR.dds"
+	}
+}
+
 MOZ = { #Mozambique
 	pattern = "pattern_solid.tga"
 	color1 = "green"
@@ -25281,7 +25384,7 @@ MOZ = { #Mozambique
 	}
 
 	colored_emblem = {
-		texture = "ce_border_tanzania.dds"
+		texture = "ce_border_tanganyika.dds"
 		color1 = "white"
 		color2 = "black"
 	}
@@ -25294,6 +25397,31 @@ MOZ = { #Mozambique
 	
 	textured_emblem = {
 		texture = "te_coa_mozambique.dds"
+	}
+}
+
+MOZ_portuguese_colony = { # Mozambique
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "green"
+		color2 = "green"
+		instance = { scale = { @third 1.0 } position = { @[third/2] 0.5 } }			
+	}
+	colored_emblem = {
+		texture = "ce_armillary_sphere.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { scale = { 0.75 0.75 } position = { @third 0.5 } }
+	}
+	textured_emblem = {
+		texture = "te_coa_portuguese_republic.dds"
+		instance = { scale = { 0.55 0.55 } position = { @third 0.5 } }
+	}
+	textured_emblem = {
+		texture = "te_coa_MOZ_POR.dds"
 	}
 }
 
@@ -25369,6 +25497,31 @@ GNB = { # Guinea-Bissau
 		instance = { scale = { 0.35 0.35 } position = { 0.18 0.5 } }
 	}
 	
+}
+
+GNB_portuguese_colony = { # Guinea-Bissau
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "green"
+		color2 = "green"
+		instance = { scale = { @third 1.0 } position = { @[third/2] 0.5 } }			
+	}
+	colored_emblem = {
+		texture = "ce_armillary_sphere.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { scale = { 0.75 0.75 } position = { @third 0.5 } }
+	}
+	textured_emblem = {
+		texture = "te_coa_portuguese_republic.dds"
+		instance = { scale = { 0.55 0.55 } position = { @third 0.5 } }
+	}
+	textured_emblem = {
+		texture = "te_coa_GNB_POR.dds"
+	}
 }
 
 UAR = { # United Arab Republic
@@ -25520,6 +25673,31 @@ CPV_communist = { # Cape Verde
 	
 }
 
+CPV_portuguese_colony = { # Cape Verde
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "green"
+		color2 = "green"
+		instance = { scale = { @third 1.0 } position = { @[third/2] 0.5 } }			
+	}
+	colored_emblem = {
+		texture = "ce_armillary_sphere.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { scale = { 0.75 0.75 } position = { @third 0.5 } }
+	}
+	textured_emblem = {
+		texture = "te_coa_portuguese_republic.dds"
+		instance = { scale = { 0.55 0.55 } position = { @third 0.5 } }
+	}
+	textured_emblem = {
+		texture = "te_coa_CPV_POR.dds"
+	}
+}
+
 STP = { # São Tomé and Príncipe
 	pattern = "pattern_solid.tga"
 	color1 = "green"
@@ -25531,6 +25709,31 @@ STP = { # São Tomé and Príncipe
 		color3 = "red"
 	}
 	
+}
+
+STP_portuguese_colony = { # São Tomé and Príncipe
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "green"
+		color2 = "green"
+		instance = { scale = { @third 1.0 } position = { @[third/2] 0.5 } }			
+	}
+	colored_emblem = {
+		texture = "ce_armillary_sphere.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { scale = { 0.75 0.75 } position = { @third 0.5 } }
+	}
+	textured_emblem = {
+		texture = "te_coa_portuguese_republic.dds"
+		instance = { scale = { 0.55 0.55 } position = { @third 0.5 } }
+	}
+	textured_emblem = {
+		texture = "te_coa_STP_POR.dds"
+	}
 }
 
 NMB = { # Namibia
@@ -25984,6 +26187,31 @@ ETM = { # East Timor
 		color3 = "black"
 	}
 	
+}
+
+ETM_portuguese_colony = { # East Timor
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = "green"
+		color2 = "green"
+		instance = { scale = { @third 1.0 } position = { @[third/2] 0.5 } }			
+	}
+	colored_emblem = {
+		texture = "ce_armillary_sphere.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { scale = { 0.75 0.75 } position = { @third 0.5 } }
+	}
+	textured_emblem = {
+		texture = "te_coa_portuguese_republic.dds"
+		instance = { scale = { 0.55 0.55 } position = { @third 0.5 } }
+	}
+	textured_emblem = {
+		texture = "te_coa_ETM_POR.dds"
+	}
 }
 
 FEZ = { # Fezzan
@@ -27118,6 +27346,44 @@ SUT = { # South Tyrol
 		texture = "ce_border_SUT.dds"
 		color1 = "red"
 		color2 = "yellow"
+		color3 = "black"
+	}
+}
+
+FCB = { # Berlin
+	pattern = "pattern_solid.tga"
+	color1 = "white"
+	
+	colored_emblem = {
+		texture = "ce_border_FCB.dds"
+		color1 = "red"
+		color2 = "black"
+	}
+}
+
+KHU = { # Khuzestan
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "black"
+	}
+	colored_emblem = {
+		texture = "ce_border_KHU.dds"
+		color1 = "green"	
+	}
+}
+
+AZA = { # Azawad
+	pattern = "pattern_solid.tga"
+	color1 = "green"
+
+	colored_emblem = {
+		texture = "ce_border_AZA.dds"
+		color1 = "yellow"
+		color2 = "red"
 		color3 = "black"
 	}
 }

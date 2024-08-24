@@ -217,18 +217,18 @@ communication_services = {
 	
 	consumption_tax_cost = 200
 	
-	tradeable = no
+	#tradeable = no
 }
 
-construction_services = { #Basic Labour services
-	texture = "gfx/interface/icons/goods_icons/construction_services.dds"
-	cost = 50
-	category = staple
-	
-	prestige_factor = 1
-	
-	consumption_tax_cost = 200
-}
+#construction_services = { #Basic Labour services
+#	texture = "gfx/interface/icons/goods_icons/construction_services.dds"
+#	cost = 50
+#	category = staple
+#	
+#	prestige_factor = 1
+#	
+#	consumption_tax_cost = 200
+#}
 
 illegal_services = { #Produced by Financial Services and consumed by GA buildings when have poor anti corruption laws
 	texture = "gfx/interface/icons/goods_icons/services_illegal.dds"

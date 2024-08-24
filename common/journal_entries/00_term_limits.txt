@@ -4,8 +4,13 @@
 	group = je_group_political_organs
 
 	possible = {
-		NOT = { c:SWI ?= this }
-		is_a_presidential_democracy = yes
+		hidden_trigger = {
+			NOR = {
+				has_journal_entry = je_term_limits_swiss
+				has_journal_entry = je_term_limits_yugoslav
+			}
+		}
+		NOT = { is_a_regime_monarchy = yes } has_law = law_type:law_yes_term_limit
 		exists = ruler
 	}
 
@@ -30,7 +35,7 @@
 			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_landowners } } } set_variable = ig_landowners_president }
 			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_devout } } } set_variable = ig_devout_president }
 			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_rural_folk } } } set_variable = ig_rural_folk_president }
-			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_bureaucrats } } } set_variable = ig_bureaucrats_president }
+			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_intelligentsia } } } set_variable = ig_intelligentsia_president }
 			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_armed_forces } } } set_variable = ig_armed_forces_president }
 		}
 	}
@@ -47,7 +52,7 @@
 				AND = { ruler = { interest_group = { is_interest_group_type = ig_landowners } } has_variable = ig_landowners_president }
 				AND = { ruler = { interest_group = { is_interest_group_type = ig_devout } } has_variable = ig_devout_president }
 				AND = { ruler = { interest_group = { is_interest_group_type = ig_rural_folk } } has_variable = ig_rural_folk_president }
-				AND = { ruler = { interest_group = { is_interest_group_type = ig_bureaucrats } } has_variable = ig_bureaucrats_president }
+				AND = { ruler = { interest_group = { is_interest_group_type = ig_intelligentsia } } has_variable = ig_intelligentsia_president }
 				AND = { ruler = { interest_group = { is_interest_group_type = ig_armed_forces } } has_variable = ig_armed_forces_president }
 			}
 		}
@@ -63,7 +68,7 @@
 		remove_variable = ig_landowners_president
 		remove_variable = ig_devout_president
 		remove_variable = ig_rural_folk_president
-		remove_variable = ig_bureaucrats_president
+		remove_variable = ig_intelligentsia_president
 		remove_variable = ig_armed_forces_president
 		
 		#Reset Term Limits
@@ -74,7 +79,10 @@
 	invalid = {
 	
 		OR = {
-			NOT = { is_a_presidential_democracy = yes }
+		
+			is_a_regime_monarchy = yes
+		
+			NOT = { has_law = law_type:law_yes_term_limit }
 			
 			custom_tooltip = {
 				text = je_term_limits.3.tt
@@ -94,7 +102,7 @@
 		remove_variable = ig_landowners_president
 		remove_variable = ig_devout_president
 		remove_variable = ig_rural_folk_president
-		remove_variable = ig_bureaucrats_president
+		remove_variable = ig_intelligentsia_president
 		remove_variable = ig_armed_forces_president
 		
 		#Reset Term Limits
@@ -143,7 +151,7 @@
 			remove_variable = ig_landowners_president
 			remove_variable = ig_devout_president
 			remove_variable = ig_rural_folk_president
-			remove_variable = ig_bureaucrats_president
+			remove_variable = ig_intelligentsia_president
 			remove_variable = ig_armed_forces_president
 		
 			#Reset Term Limits
@@ -168,7 +176,7 @@
 	#		remove_variable = ig_landowners_president
 	#		remove_variable = ig_devout_president
 	#		remove_variable = ig_rural_folk_president
-	#		remove_variable = ig_bureaucrats_president
+	#		remove_variable = ig_intelligentsia_president
 	#		remove_variable = ig_armed_forces_president
 	#	
 	#		#Reset Term Limits
@@ -194,8 +202,9 @@ je_term_limits_swiss = {
 
 	possible = {
 		c:SWI ?= this
-		has_law = law_type:law_federal_state
 		is_a_presidential_democracy = yes
+		has_law = law_type:law_federal_state
+		has_law = law_type:law_yes_term_limit
 		exists = ruler
 	}
 
@@ -220,7 +229,7 @@ je_term_limits_swiss = {
 			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_landowners } } } set_variable = ig_landowners_president }
 			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_devout } } } set_variable = ig_devout_president }
 			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_rural_folk } } } set_variable = ig_rural_folk_president }
-			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_bureaucrats } } } set_variable = ig_bureaucrats_president }
+			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_intelligentsia } } } set_variable = ig_intelligentsia_president }
 			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_armed_forces } } } set_variable = ig_armed_forces_president }
 		}
 	}
@@ -237,7 +246,7 @@ je_term_limits_swiss = {
 				AND = { ruler = { interest_group = { is_interest_group_type = ig_landowners } } has_variable = ig_landowners_president }
 				AND = { ruler = { interest_group = { is_interest_group_type = ig_devout } } has_variable = ig_devout_president }
 				AND = { ruler = { interest_group = { is_interest_group_type = ig_rural_folk } } has_variable = ig_rural_folk_president }
-				AND = { ruler = { interest_group = { is_interest_group_type = ig_bureaucrats } } has_variable = ig_bureaucrats_president }
+				AND = { ruler = { interest_group = { is_interest_group_type = ig_intelligentsia } } has_variable = ig_intelligentsia_president }
 				AND = { ruler = { interest_group = { is_interest_group_type = ig_armed_forces } } has_variable = ig_armed_forces_president }
 			}
 		}
@@ -253,7 +262,7 @@ je_term_limits_swiss = {
 		remove_variable = ig_landowners_president
 		remove_variable = ig_devout_president
 		remove_variable = ig_rural_folk_president
-		remove_variable = ig_bureaucrats_president
+		remove_variable = ig_intelligentsia_president
 		remove_variable = ig_armed_forces_president
 		
 		#Reset Term Limits
@@ -265,7 +274,8 @@ je_term_limits_swiss = {
 		OR = {
 		
 			NAND = { 
-				is_a_presidential_democracy = yes 
+				NOT = { is_a_regime_monarchy = yes } 
+				has_law = law_type:law_yes_term_limit 
 				has_law = law_type:law_federal_state
 			}
 			
@@ -273,6 +283,8 @@ je_term_limits_swiss = {
 				text = je_term_limits.3.tt
 				has_journal_entry = je_term_limits
 			}
+			
+			hidden_trigger = { has_journal_entry = je_term_limits }
 			
 		}
 	}
@@ -286,7 +298,7 @@ je_term_limits_swiss = {
 		remove_variable = ig_landowners_president
 		remove_variable = ig_devout_president
 		remove_variable = ig_rural_folk_president
-		remove_variable = ig_bureaucrats_president
+		remove_variable = ig_intelligentsia_president
 		remove_variable = ig_armed_forces_president
 		
 		#Reset Term Limits
@@ -335,7 +347,7 @@ je_term_limits_swiss = {
 			remove_variable = ig_landowners_president
 			remove_variable = ig_devout_president
 			remove_variable = ig_rural_folk_president
-			remove_variable = ig_bureaucrats_president
+			remove_variable = ig_intelligentsia_president
 			remove_variable = ig_armed_forces_president
 		
 			#Reset Term Limits
@@ -360,7 +372,7 @@ je_term_limits_swiss = {
 	#		remove_variable = ig_landowners_president
 	#		remove_variable = ig_devout_president
 	#		remove_variable = ig_rural_folk_president
-	#		remove_variable = ig_bureaucrats_president
+	#		remove_variable = ig_intelligentsia_president
 	#		remove_variable = ig_armed_forces_president
 	#	
 	#		#Reset Term Limits
@@ -383,21 +395,18 @@ je_term_limits_yugoslav = {
 
 	group = je_group_political_organs
 
-	is_shown_when_inactive = {
-		c:YUG ?= this
-		is_a_communist_government = yes
-		exists = ruler
-	}
-
 	possible = {
 	
 		c:YUG ?= this
 		
-		hidden_trigger = { has_variable = YUG_1974_Constitution }
+		has_law = law_type:law_yes_term_limit
+		has_law = law_type:law_multicultural
 		
 		has_law = law_type:law_federal_state
 		
 		is_a_communist_government = yes
+		
+		exists = ruler
 		
 		ruler ?= { is_historical = no }
 		
@@ -424,7 +433,7 @@ je_term_limits_yugoslav = {
 			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_landowners } } } set_variable = ig_landowners_president }
 			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_devout } } } set_variable = ig_devout_president }
 			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_rural_folk } } } set_variable = ig_rural_folk_president }
-			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_bureaucrats } } } set_variable = ig_bureaucrats_president }
+			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_intelligentsia } } } set_variable = ig_intelligentsia_president }
 			if = { limit = { ruler = { interest_group = { is_interest_group_type = ig_armed_forces } } } set_variable = ig_armed_forces_president }
 		}
 	}
@@ -441,7 +450,7 @@ je_term_limits_yugoslav = {
 				AND = { ruler = { interest_group = { is_interest_group_type = ig_landowners } } has_variable = ig_landowners_president }
 				AND = { ruler = { interest_group = { is_interest_group_type = ig_devout } } has_variable = ig_devout_president }
 				AND = { ruler = { interest_group = { is_interest_group_type = ig_rural_folk } } has_variable = ig_rural_folk_president }
-				AND = { ruler = { interest_group = { is_interest_group_type = ig_bureaucrats } } has_variable = ig_bureaucrats_president }
+				AND = { ruler = { interest_group = { is_interest_group_type = ig_intelligentsia } } has_variable = ig_intelligentsia_president }
 				AND = { ruler = { interest_group = { is_interest_group_type = ig_armed_forces } } has_variable = ig_armed_forces_president }
 			}
 		}
@@ -457,7 +466,7 @@ je_term_limits_yugoslav = {
 		remove_variable = ig_landowners_president
 		remove_variable = ig_devout_president
 		remove_variable = ig_rural_folk_president
-		remove_variable = ig_bureaucrats_president
+		remove_variable = ig_intelligentsia_president
 		remove_variable = ig_armed_forces_president
 		
 		#Reset Term Limits
@@ -470,6 +479,8 @@ je_term_limits_yugoslav = {
 		
 			NAND = { 
 				is_a_communist_government = yes
+				has_law = law_type:law_yes_term_limit
+				has_law = law_type:law_multicultural
 				has_law = law_type:law_federal_state
 			}
 			
@@ -477,6 +488,8 @@ je_term_limits_yugoslav = {
 				text = je_term_limits.3.tt
 				has_journal_entry = je_term_limits
 			}
+			
+			hidden_trigger = { has_journal_entry = je_term_limits }
 			
 		}
 	}
@@ -490,7 +503,7 @@ je_term_limits_yugoslav = {
 		remove_variable = ig_landowners_president
 		remove_variable = ig_devout_president
 		remove_variable = ig_rural_folk_president
-		remove_variable = ig_bureaucrats_president
+		remove_variable = ig_intelligentsia_president
 		remove_variable = ig_armed_forces_president
 		
 		#Reset Term Limits
@@ -539,7 +552,7 @@ je_term_limits_yugoslav = {
 			remove_variable = ig_landowners_president
 			remove_variable = ig_devout_president
 			remove_variable = ig_rural_folk_president
-			remove_variable = ig_bureaucrats_president
+			remove_variable = ig_intelligentsia_president
 			remove_variable = ig_armed_forces_president
 		
 			#Reset Term Limits
@@ -564,7 +577,7 @@ je_term_limits_yugoslav = {
 	#		remove_variable = ig_landowners_president
 	#		remove_variable = ig_devout_president
 	#		remove_variable = ig_rural_folk_president
-	#		remove_variable = ig_bureaucrats_president
+	#		remove_variable = ig_intelligentsia_president
 	#		remove_variable = ig_armed_forces_president
 	#	
 	#		#Reset Term Limits

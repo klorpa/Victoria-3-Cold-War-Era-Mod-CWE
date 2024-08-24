@@ -365,6 +365,24 @@ british_decolonisation_indy.4 = {
 				
 				# Set diplomatic recognition
 				set_country_type = unrecognized
+				
+				# CREATE leader for colony ****
+				create_character = {
+					first_name = "Michael_Mouskos_first_name"
+					last_name = "Michael_Mouskos_last_name"
+					ruler = yes ig_leader = yes historical = yes
+					birth_date = 1913.8.13
+					interest_group = ig_devout
+					ideology = ideology_elitist
+					culture = cu:cypriot
+					religion = rel:orthodox
+					traits = {
+						charismatic
+						tactful
+						pious
+					}
+				}
+				
 			}
 		}
 		
@@ -4651,22 +4669,6 @@ british_decolonisation_indy.43 = {
 			}
 			c:TIB = { hidden_effect = { make_independent = yes } }
 		}
-		if = {
-			limit = { 
-				exists = c:TIB
-				has_diplomatic_pact = { who = c:TIB type = customs_union is_initiator = yes }
-			}
-			remove_diplomatic_pact = {
-				country = c:TIB
-				type = customs_union
-			}
-			c:HND = { 
-				create_diplomatic_pact = {
-					country = c:TIB
-					type = customs_union
-				}
-			}
-		}
 		
 		ai_chance = { 
 			base = 90 
@@ -4922,12 +4924,10 @@ british_decolonisation_indy.45 = {
 		# Colony becomes independent
 		c:JOR = { 												# Change TAG of the colony ****
 			make_independent = yes
-		}
-		
-		# Overlord create client state pact with colony
-		create_diplomatic_pact = {
-			country = c:JOR										# Change TAG ****
-			type = customs_union
+			if = {
+				limit = { ROOT = { is_power_bloc_leader = yes } }
+				join_power_bloc = ROOT
+			}
 		}
 		
 		ai_chance = { 
