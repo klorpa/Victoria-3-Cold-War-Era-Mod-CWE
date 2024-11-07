@@ -308,10 +308,7 @@ UKR_gov_changes.3 = {
 		
 		#High corruption
 		OR = {
-			AND = { 
-				NOT = { has_law = law_type:law_very_high_anti_corruption }
-				has_global_variable = historical_railroading_active
-			}
+			has_global_variable = historical_railroading_active
 			ruler ?= { has_variable = Viktor_Yanukovych }
 			has_law = law_type:law_very_low_anti_corruption
 			has_law = law_type:law_low_anti_corruption
@@ -324,15 +321,13 @@ UKR_gov_changes.3 = {
 				is_a_republican_regime = yes
 				AND = { 
 					is_a_presidential_democracy = yes
-					ruler ?= { has_variable = Vladimir_Vladimirovich_Putin }
-					ruler ?= { has_variable = Dmitry_Medvedev }
+					OR = { 
+						ruler ?= { has_variable = Vladimir_Vladimirovich_Putin }
+						ruler ?= { has_variable = Dmitry_Medvedev }
+					}
 				}
 			}
 			is_sufficiently_independent = yes
-		}
-		OR = {
-			c:RUS ?= { has_diplomatic_pact = { who = ROOT type = protectorate is_initiator = yes } }
-			is_direct_subject_of = c:RUS
 		}
 		
 		# Event has not been fired before

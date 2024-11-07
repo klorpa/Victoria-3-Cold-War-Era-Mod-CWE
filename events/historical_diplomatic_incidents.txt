@@ -216,8 +216,9 @@ historical_diplomatic_incidents.3 = {
 			country_rank = rank_value:super_power
 			
 			has_technology_researched = tech_military_support_3
+			
+			NOT = { is_subject_of = ROOT }
 		}
-		NOT = { is_subject_of = c:USA }
 		
 		# Event has not been fired before
 		NOT = { has_variable = USA_SOV_U2_Incident_hdi }		# CHANGE ****
@@ -339,6 +340,1681 @@ historical_diplomatic_incidents.4 = {
 				target_country = ROOT
 			}
 		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Exercise Able Archer 83 - USA
+historical_diplomatic_incidents.5 = {
+    type = country_event
+	placement = c:WGR
+
+    title = USA_SOV_Able_Archer.t 								# Title of the event; ADD LOCALISATION
+    desc = USA_SOV_Able_Archer.d 								# Description of the event; ADD LOCALISATION
+    #flavor = USA_SOV_Able_Archer.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/military_drill.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:USA ?= this											# Change TAG of the overlord ****
+		game_date >= 1983.11.7									# START DATE: Date colony became self governing ****
+		game_date < 1993.11.7									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		country_rank = rank_value:super_power
+		
+		has_modifier = nato_leader
+		
+		#Cause
+		exists = c:SOV
+		c:SOV = {
+			is_a_communist_government = yes						# Correct gov types
+			is_sufficiently_independent = yes					# is_vassal = no
+			is_at_war = no										# war = no
+			country_rank = rank_value:super_power
+			NOT = { is_subject_of = ROOT }
+			has_modifier = warsaw_pact_leader
+			ruler ?= { NOT = { character_is_democratic = yes } }
+		}
+		exists = c:WGR
+		c:WGR = {
+			is_subject_of = ROOT
+		}
+		exists = c:EGR
+		c:EGR = {
+			is_subject_of = c:SOV
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = USA_SOV_Able_Archer_hdi }		# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = USA_SOV_Able_Archer_hdi					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_diplomatic_incidents.option.1			# Yes
+        highlighted_option = yes
+		
+		#SOV to react
+		create_incident = {
+			country = c:SOV
+			value = 5
+		} 
+		c:SOV = { trigger_event = { id = historical_diplomatic_incidents.6 } }
+		
+		#Effect of intel
+		every_military_formation = { 
+			add_organization = 50
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_diplomatic_incidents.option.2			# No
+		default_option = yes
+		
+		#National humiliation
+		add_modifier = { 
+			name = national_humiliation 
+			years = 5
+			is_decaying = yes 
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Exercise Able Archer 83 - SOV
+historical_diplomatic_incidents.6 = {
+    type = country_event
+	placement = c:WGR
+
+    title = USA_SOV_Able_Archer.t 								# Title of the event; ADD LOCALISATION
+    desc = USA_SOV_Able_Archer.d 								# Description of the event; ADD LOCALISATION
+    #flavor = USA_SOV_Able_Archer.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/europenorthamerica_before_the_battle.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/military_drill.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 			# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		
+    }
+	
+	immediate = {
+		
+		
+	}
+    
+    option = {
+        name = historical_diplomatic_incidents.option.1			# Yes
+        highlighted_option = yes
+		
+		#Reaction
+		change_relations = { country = c:USA value = -100 }
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_diplomatic_incidents.option.2					# No
+		default_option = yes
+		
+		#Attack USA
+		create_diplomatic_play = {
+			name = USA_SOV_war
+			type = dp_make_dominion
+			target_country = c:USA
+			
+			add_war_goal = {
+				holder = ROOT
+				type = regime_change
+				target_country = c:USA
+			}
+			add_war_goal = {
+				holder = c:USA
+				type = make_tributary
+				target_country = ROOT
+			}
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# The Korean Air Lines Flight 007 Incident - SOV
+historical_diplomatic_incidents.7 = {
+    type = country_event
+
+    title = SOV_USA_KOR_Incident.t 								# Title of the event; ADD LOCALISATION
+    desc = SOV_USA_KOR_Incident.d 								# Description of the event; ADD LOCALISATION
+    #flavor = SOV_USA_KOR_Incident.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_airship.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/military_drill.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:SOV ?= this											# Change TAG of the overlord ****
+		game_date >= 1983.9.1									# START DATE: Date colony became self governing ****
+		game_date < 1993.9.1									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_communist_government = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		country_rank = rank_value:super_power
+		
+		has_state_in_state_region = STATE_SAKHALIN
+		
+		NOT = { has_law = law_type:law_peasant_levies }
+		
+		ruler ?= { NOT = { character_is_democratic = yes } }
+		
+		#Cause
+		exists = c:USA
+		c:USA = {
+			is_a_democracy = yes								# Correct gov types
+			is_sufficiently_independent = yes					# is_vassal = no
+			is_at_war = no										# war = no
+			country_rank = rank_value:super_power
+			NOT = { is_subject_of = ROOT }
+			relations:root <= relations_threshold:poor
+		}
+		OR = { 
+			AND = { 
+				exists = c:SKO
+				c:SKO = {
+					NOT = { is_a_communist_government = yes }
+				}
+			}
+			AND = { 
+				exists = c:NKO
+				c:NKO = {
+					NOT = { is_a_communist_government = yes }
+				}
+			}
+			AND = { 
+				exists = c:KOR
+				c:KOR = {
+					NOT = { is_a_communist_government = yes }
+				}
+			}
+		}
+		OR = { 
+			has_global_variable = very_high_world_tension
+			has_global_variable = high_world_tension
+			has_global_variable = historical_railroading_active
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = SOV_USA_KOR_Incident_hdi }		# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = SOV_USA_KOR_Incident_hdi					# Change variable ****
+		
+	}
+    
+    option = {
+        name = notice_of_3P_action.option						# Yes
+		
+		#Diplomatic reaction
+		create_incident = {
+			country = ROOT
+			value = 5
+		}
+		every_country = { 
+			limit = { 
+				OR = { 
+					c:USA ?= this
+					c:KOR ?= this
+					c:SKO ?= this
+					c:NKO ?= this
+				}
+				NOT = { is_a_communist_government = yes }
+			}
+			trigger_event = { id = historical_diplomatic_incidents.8 } 
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+
+}
+
+# The Korean Air Lines Flight 007 Incident - USA
+historical_diplomatic_incidents.8 = {
+    type = country_event
+
+    title = SOV_USA_KOR_Incident.t 								# Title of the event; ADD LOCALISATION
+    desc = SOV_USA_KOR_Incident.d 								# Description of the event; ADD LOCALISATION
+    #flavor = SOV_USA_KOR_Incident.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_airship.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/military_drill.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		
+    }
+	
+	immediate = {
+		
+		
+	}
+    
+    option = {
+        name = notice_of_3P_action.option						# Yes
+		
+		#Reaction
+		change_relations = { country = c:SOV value = -50 }
+		
+    }
+
+}
+
+# Operation PBSuccess
+historical_diplomatic_incidents.9 = {
+    type = country_event
+	placement = c:GUA
+
+    title = USA_GUA_Overthrow.t 								# Title of the event; ADD LOCALISATION
+    desc = USA_GUA_Overthrow.d 									# Description of the event; ADD LOCALISATION
+    #flavor = USA_GUA_Overthrow.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/military_drill.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:USA ?= this											# Change TAG of the overlord ****
+		game_date >= 1954.5.27									# START DATE: Date colony became self governing ****
+		game_date < 1964.5.27									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		country_rank = rank_value:super_power
+		
+		NOT = { has_law = law_type:law_no_espionage }
+		
+		#Target
+		exists = c:GUA
+		c:GUA ?= {
+			has_variable = GUA_decree_600
+			is_a_democracy = yes
+			is_sufficiently_independent = yes					# is_vassal = no		
+			is_at_war = no										# war = no
+		}
+		
+		#Cause of unrest
+		cold_war_ongoing = yes
+		
+		# Event has not been fired before
+		NOT = { has_variable = USA_GUA_Overthrow_hdi }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = USA_GUA_Overthrow_hdi					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_diplomatic_incidents.option.1			# Yes
+        highlighted_option = yes
+		
+		#Infamy
+		create_incident = {
+			country = c:GUA
+			value = 5
+		} 
+		
+		#Mark Guatemala for attack
+		c:GUA ?= {
+			set_variable = USA_GUA_Overthrow
+		}
+		change_relations = { 
+			country = c:GUA 
+			value = -100 
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_diplomatic_incidents.option.2			# No
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = small_radicals
+			interest_group = ig:ig_industrialists
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Operation Storm-333
+historical_diplomatic_incidents.10 = {
+    type = country_event
+	placement = c:AFG
+
+    title = SOV_AFG_Overthrow.t 								# Title of the event; ADD LOCALISATION
+    desc = SOV_AFG_Overthrow.d 									# Description of the event; ADD LOCALISATION
+    #flavor = SOV_AFG_Overthrow.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_public_figure_assassination.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/military_drill.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:SOV ?= this											# Change TAG of the overlord ****
+		game_date >= 1979.12.27									# START DATE: Date colony became self governing ****
+		game_date < 1989.12.27									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_communist_government = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		country_rank = rank_value:super_power
+		
+		NOT = { is_neutral = yes }
+		
+		#Target
+		exists = c:AFG
+		c:AFG ?= {
+			OR = { 
+				ruler ?= { has_variable = Hafizullah_Amin }
+				AND = {
+					ruler ?= { NOT = { has_variable = Nur_Muhammad_Taraki } }
+					has_global_variable = historical_railroading_active
+				}
+			}
+			is_a_communist_government = yes
+			is_sufficiently_independent = yes					# is_vassal = no		
+			OR = { 
+				has_war_with = ROOT
+				is_adjacent_to_country = ROOT
+			}
+		}
+		
+		#Cause of unrest
+		cold_war_ongoing = yes
+		
+		# Event has not been fired before
+		NOT = { has_variable = SOV_AFG_Overthrow_hdi }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = SOV_AFG_Overthrow_hdi					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_diplomatic_incidents.option.1			# Yes
+        highlighted_option = yes
+		
+		#Kill AFG ruler
+		c:AFG ?= { 
+			ruler ?= { kill_character = yes } 
+			create_character = {
+				first_name = "Babrak_Karmal_first_name"
+				last_name = "Babrak_Karmal_last_name"
+				ruler = yes ig_leader = yes historical = yes
+				birth_date = 1929.1.6
+				interest_group = ig_trade_unions
+				ideology = ideology_autocratic
+				traits = {
+					reserved
+					wrathful
+					imperious
+				}
+				on_created = { set_variable = Babrak_Karmal }
+			}
+		}
+		
+		#Infamy
+		create_incident = {
+			country = c:AFG
+			value = 5
+		} 
+		
+		#Mark AFG for attack
+		c:AFG ?= {
+			set_variable = SOV_AFG_Overthrow
+		}
+		change_relations = { 
+			country = c:AFG
+			value = -100 
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_diplomatic_incidents.option.2			# No
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = large_radicals
+			interest_group = ig:ig_armed_forces
+		}
+		add_radicals = {
+			value = large_radicals
+			interest_group = ig:ig_intelligentsia
+		}
+		add_radicals = {
+			value = large_radicals
+			interest_group = ig:ig_trade_unions
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# The Berlin Wall - EGR
+historical_diplomatic_incidents.11 = {
+    type = country_event
+
+    title = EGR_WGR_Berlin_Wall.t 								# Title of the event; ADD LOCALISATION
+    desc = EGR_WGR_Berlin_Wall.d 								# Description of the event; ADD LOCALISATION
+    #flavor = EGR_WGR_Berlin_Wall.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/middleeast_engineer_blueprint.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/military_drill.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:EGR ?= this											# Change TAG of the overlord ****
+		game_date >= 1961.4.13									# START DATE: Date colony became self governing ****
+		game_date < 1971.4.13									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_communist_government = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#Borders are not closed
+		NOT = { has_law = law_type:law_closed_borders }
+		has_state_in_state_region = STATE_BRANDENBURG
+		
+		#Cause of unrest
+		exists = c:WGR
+		c:WGR = {
+			is_a_democracy = yes								# Correct gov types
+			is_sufficiently_independent = yes					# is_vassal = no
+			is_at_war = no										# war = no
+			has_state_in_state_region = STATE_BRANDENBURG
+		}
+		NOT = { is_subject_of = c:WGR }
+		
+		# Event has not been fired before
+		NOT = { has_variable = EGR_WGR_Berlin_Wall_hdi }		# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = EGR_WGR_Berlin_Wall_hdi					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_diplomatic_incidents.option.1			# Yes
+        highlighted_option = yes
+		
+		#Close borders
+		activate_law = law_type:law_closed_borders
+		add_treasury = -100000
+		set_variable = Berlin_Wall_Constructed
+		
+		#WGR to react
+		change_relations = { country = c:WGR value = -100 }
+		create_incident = {
+			country = c:WGR
+			value = 20
+		}
+		
+		#Domestic reaction
+		add_radicals = {
+			value = very_large_radicals
+			interest_group = ig:ig_petty_bourgeoisie
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_diplomatic_incidents.option.2					# No
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = very_large_radicals
+			interest_group = ig:ig_trade_unions
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Fall of The Berlin Wall - EGR
+historical_diplomatic_incidents.12 = {
+    type = country_event
+
+    title = EGR_WGR_Berlin_Wall_Fall.t 							# Title of the event; ADD LOCALISATION
+    desc = EGR_WGR_Berlin_Wall_Fall.d 							# Description of the event; ADD LOCALISATION
+    #flavor = EGR_WGR_Berlin_Wall_Fall.f 						# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/europenorthamerica_political_extremism.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/military_drill.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:EGR ?= this											# Change TAG of the overlord ****
+		game_date >= 1989.11.9									# START DATE: Date colony became self governing ****
+		game_date < 1999.11.9									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_communist_government = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#Borders are closed
+		has_variable = Berlin_Wall_Constructed
+		has_law = law_type:law_closed_borders
+		has_state_in_state_region = STATE_BRANDENBURG
+		
+		#Cause of unrest
+		exists = c:WGR
+		c:WGR = {
+			is_a_democracy = yes								# Correct gov types
+			is_sufficiently_independent = yes					# is_vassal = no
+			is_at_war = no										# war = no
+			has_state_in_state_region = STATE_BRANDENBURG
+		}
+		NOT = { is_subject_of = c:WGR }
+		
+		#Soviet Thaw
+		exists = c:SOV
+		c:SOV = {
+			is_a_communist_government = yes
+			is_sufficiently_independent = yes
+			is_at_war = no
+			ruler ?= { NOT = { character_is_autocratic = yes } }
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = EGR_WGR_Berlin_Wall_Fall_hdi }	# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = EGR_WGR_Berlin_Wall_Fall_hdi				# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_diplomatic_incidents.option.1			# Yes
+        highlighted_option = yes
+		
+		#Close borders
+		activate_law = law_type:law_no_migration_controls
+		
+		#WGR to react
+		change_relations = { country = c:WGR value = 100 }
+		
+		#Domestic reaction
+		add_radicals = {
+			value = very_large_radicals
+			interest_group = ig:ig_trade_unions
+		}
+		
+		#International reaction
+		change_infamy = -10
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_diplomatic_incidents.option.2					# No
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = very_large_radicals
+			interest_group = ig:ig_petty_bourgeoisie
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Bay of Pigs Invasion - USA
+historical_diplomatic_incidents.13 = {
+    type = country_event
+	placement = c:CUB
+
+    title = USA_CUB_Overthrow.t 								# Title of the event; ADD LOCALISATION
+    desc = USA_CUB_Overthrow.d 									# Description of the event; ADD LOCALISATION
+    #flavor = USA_CUB_Overthrow.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/military_drill.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:USA ?= this											# Change TAG of the overlord ****
+		game_date >= 1961.4.17									# START DATE: Date colony became self governing ****
+		game_date < 1971.4.17									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		country_rank = rank_value:super_power
+		
+		NOT = { has_law = law_type:law_no_espionage }
+		
+		#Target
+		exists = c:CUB
+		c:CUB ?= {
+			is_a_communist_government = yes
+			is_sufficiently_independent = yes					# is_vassal = no		
+			is_at_war = no										# war = no
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = USA_CUB_Overthrow_hdi }			# CHANGE ****
+		
+		#Cause of unrest
+		cold_war_ongoing = yes
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = USA_CUB_Overthrow_hdi					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_diplomatic_incidents.option.1			# Yes
+        highlighted_option = yes
+		
+		#Infamy
+		create_incident = {
+			country = c:CUB
+			value = 5
+		} 
+		
+		#Mark Cuba for attack
+		c:CUB ?= {
+			trigger_event = { id = historical_diplomatic_incidents.14 }
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_diplomatic_incidents.option.2			# No
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = small_radicals
+			interest_group = ig:ig_industrialists
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Bay of Pigs Invasion - CUB
+historical_diplomatic_incidents.14 = {
+    type = country_event
+
+    title = USA_CUB_Overthrow.t 								# Title of the event; ADD LOCALISATION
+    desc = USA_CUB_Overthrow.d 									# Description of the event; ADD LOCALISATION
+    #flavor = USA_CUB_Overthrow.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/middleeast_battlefield_trenches.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/military_drill.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Triggered by event
+		
+    }
+	
+	immediate = {
+		
+	}
+    
+    option = {
+        name = historical_diplomatic_incidents.option.1			# Yes
+        highlighted_option = yes
+		
+		#Invasion is repelled
+		capital ?= {
+			state_region = {
+				add_devastation = 25
+			}
+		}
+		change_relations = { country = c:USA value = -200 }
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_diplomatic_incidents.option.2			# No
+		default_option = yes
+		
+		#Becomes independent
+		if = {
+			limit = { is_subject = yes }
+			make_independent = yes
+		}
+		
+		#Enact new regime
+		effect_starting_politics_presidential_republic = yes
+		effect_starting_politics_dictatorship = yes
+		effect_starting_politics_economic_policy_laissez_faire = yes
+		
+		#Become a US vassal
+		c:USA ?= {
+			create_diplomatic_pact = {
+				country = c:CUB
+				type = puppet
+			}
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Chagos Islands Deportation
+historical_diplomatic_incidents.15 = {
+    type = country_event
+	placement = scope:chagos_islands
+
+    title = GBR_Chagos_Island_deport.t 							# Title of the event; ADD LOCALISATION
+    desc = GBR_Chagos_Island_deport.d 							# Description of the event; ADD LOCALISATION
+    #flavor = GBR_Chagos_Island_deport.f 						# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/africa_soldiers_breaking_protest.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/military_drill.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:GBR ?= this											# Change TAG of the overlord ****
+		game_date >= 1973.4.27									# START DATE: Date colony became self governing ****
+		game_date < 1983.4.27									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#Owns Chagos Islands
+		p:x5B5C22 ?= {
+			owner = ROOT
+		}
+		
+		#Cause of dispute
+		exists = c:MRT
+		c:MRT = {
+			is_sufficiently_independent = yes					# is_vassal = no
+			is_at_war = no										# war = no
+			NOT = { is_subject_of = ROOT }
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = GBR_Chagos_Island_deport_hdi }	# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		#Mark states
+		capital ?= { save_scope_as = capital_scope }
+		random_scope_state = {
+			limit = { state_region = s:STATE_CEYLON }
+			save_scope_as = chagos_islands
+		}
+	
+		# Fire only once
+		set_variable = GBR_Chagos_Island_deport_hdi				# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_diplomatic_incidents.option.1			# Yes
+        highlighted_option = yes
+		
+		#Deport Chagos Islanders
+		random_scope_state = {
+			limit = { state_region = s:STATE_CEYLON }
+			every_scope_pop = {
+				limit = {
+					culture = cu:mauritian
+				}
+				move_pop = scope:capital_scope
+			}
+		}
+		
+		#MRT to react
+		random_country = {
+			limit = {
+				c:MRT ?= this
+			}
+			change_relations = { country = ROOT value = -100 }
+			save_scope_as = MRT_tag
+		}
+		
+		#USA to react
+		random_country = {
+			limit = {
+				c:USA ?= this
+				is_a_democracy = yes
+				is_sufficiently_independent = yes
+				is_at_war = no
+				country_rank = rank_value:super_power
+			}
+			change_relations = { country = ROOT value = 50 }
+		}
+		
+		#Add infamy
+		if = {
+			limit = { exists = scope:MRT_tag }
+			create_incident = {
+				country = scope:MRT_tag
+				value = 10
+			}
+		}
+		else = {
+			change_infamy = 5
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_diplomatic_incidents.option.2					# No
+		default_option = yes
+		
+		#USA to react
+		random_country = {
+			limit = {
+				c:USA ?= this
+				is_a_democracy = yes
+				is_sufficiently_independent = yes
+				is_at_war = no
+				country_rank = rank_value:super_power
+			}
+			change_relations = { country = ROOT value = -100 }
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Project Azorian - USA
+historical_diplomatic_incidents.16 = {
+    type = country_event
+	placement = c:SOV
+
+    title = USA_SOV_Azorian_Incident.t 							# Title of the event; ADD LOCALISATION
+    desc = USA_SOV_Azorian_Incident.d 							# Description of the event; ADD LOCALISATION
+    #flavor = USA_SOV_Azorian_Incident.f 						# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_steam_ship.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/military_drill.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:USA ?= this											# Change TAG of the overlord ****
+		game_date >= 1974.7.4									# START DATE: Date colony became self governing ****
+		game_date < 1984.7.4									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		country_rank = rank_value:super_power
+		
+		NOT = { has_law = law_type:law_no_espionage }
+		
+		has_technology_researched = tech_sea_infrastructure_4
+		
+		#Cause
+		exists = c:SOV
+		c:SOV = {
+			is_a_communist_government = yes						# Correct gov types
+			is_sufficiently_independent = yes					# is_vassal = no
+			is_at_war = no										# war = no
+			country_rank = rank_value:super_power
+			NOT = { is_subject_of = ROOT }
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = USA_SOV_Azorian_Incident_hdi }	# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = USA_SOV_Azorian_Incident_hdi				# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_diplomatic_incidents.option.1			# Yes
+        highlighted_option = yes
+		
+		#SOV to react
+		create_incident = {
+			country = c:SOV
+			value = 5
+		} 
+		c:SOV = { trigger_event = { id = historical_diplomatic_incidents.17 } }
+		
+		#Effect of intel
+		every_military_formation = { 
+			add_organization = 50
+		}
+		
+		#Gain Prestige
+		add_modifier = { 
+			name = small_national_pride_modifier
+			years = 5
+			is_decaying = yes 
+		}
+		
+		#Domestic Reaction
+		add_loyalists = {
+			value = large_radicals
+			interest_group = ig:ig_armed_forces
+		}
+		add_loyalists = {
+			value = large_radicals
+			interest_group = ig:ig_intelligentsia
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_diplomatic_incidents.option.2			# No
+		default_option = yes
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Project Azorian - SOV
+historical_diplomatic_incidents.17 = {
+    type = country_event
+	placement = c:USA
+
+    title = USA_SOV_Azorian_Incident_1.t 							# Title of the event; ADD LOCALISATION
+    desc = USA_SOV_Azorian_Incident.d 							# Description of the event; ADD LOCALISATION
+    #flavor = USA_SOV_Azorian_Incident.f 						# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_steam_ship.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/military_drill.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Triggered by event
+		
+    }
+	
+	immediate = {
+		
+		
+	}
+    
+    option = {
+        name = historical_diplomatic_incidents.option.1			# Yes
+        highlighted_option = yes
+		
+		#Reaction
+		change_relations = { country = c:USA value = -100 }
+		
+		#Lose Prestige
+		add_modifier = { 
+			name = small_national_humiliation
+			years = 5
+			is_decaying = yes 
+		}
+		
+		#Domestic Reaction
+		add_radicals = {
+			value = large_radicals
+			interest_group = ig:ig_armed_forces
+		}
+		add_radicals = {
+			value = large_radicals
+			interest_group = ig:ig_intelligentsia
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_diplomatic_incidents.option.2					# No
+		default_option = yes
+		
+		#Attack USA
+		create_diplomatic_play = {
+			name = USA_SOV_war
+			type = dp_make_dominion
+			target_country = c:USA
+			
+			add_war_goal = {
+				holder = ROOT
+				type = regime_change
+				target_country = c:USA
+			}
+			add_war_goal = {
+				holder = c:USA
+				type = make_tributary
+				target_country = ROOT
+			}
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# The Reagan Doctrine - USA
+historical_diplomatic_incidents.18 = {
+    type = country_event
+
+    title = USA_Reagan_Doctrine.t 								# Title of the event; ADD LOCALISATION
+    desc = USA_Reagan_Doctrine.d 								# Description of the event; ADD LOCALISATION
+    #flavor = USA_Reagan_Doctrine.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_military_parade.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/military_drill.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:USA ?= this											# Change TAG of the overlord ****
+		game_date >= 1985.2.6									# START DATE: Date colony became self governing ****
+		game_date < 1995.2.6									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		country_rank = rank_value:super_power
+		
+		NAND = {
+			has_law = law_type:law_offensive_war
+			has_law = law_type:law_globalist_fp
+			has_law = law_type:law_full_free_speech
+			has_law = law_type:law_offensive_espionage
+			has_law = law_type:law_wmd_allowed
+		}
+		
+		ruler ?= { 
+			OR = { 
+				has_variable = Ronald_Reagan
+				AND = { 
+					has_global_variable = historical_railroading_active
+					interest_group = { is_interest_group_type = ig_industrialists } 
+				}
+			}
+		}
+		
+		#Cause
+		exists = c:SOV
+		c:SOV = {
+			is_a_communist_government = yes						# Correct gov types
+			is_sufficiently_independent = yes					# is_vassal = no
+			is_at_war = no										# war = no
+			country_rank = rank_value:super_power
+			NOT = { is_subject_of = ROOT }
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = USA_Reagan_Doctrine_hdi }		# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = USA_Reagan_Doctrine_hdi					# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_diplomatic_incidents.option.1			# Yes
+        highlighted_option = yes
+		
+		#Enact new regime
+		activate_law = law_type:law_offensive_war
+		activate_law = law_type:law_globalist_fp
+		activate_law = law_type:law_full_free_speech
+		activate_law = law_type:law_offensive_espionage
+		activate_law = law_type:law_wmd_allowed
+		
+		#Reaction
+		change_relations = { country = c:SOV value = -100 }
+		
+		#Domestic Reaction
+		add_loyalists = {
+			value = large_radicals
+			interest_group = ig:ig_armed_forces
+		}
+		add_loyalists = {
+			value = large_radicals
+			interest_group = ig:ig_intelligentsia
+		}
+		
+		#Power Bloc
+		if = {
+			limit = { 
+				is_power_bloc_leader = yes 
+				power_bloc ?= { NOT = { has_principle = principle:principle_military_industry_3 } }
+			}
+			power_bloc ?= { 
+				add_principle = principle_military_industry_3
+			}
+		}
+		
+		#Infamy
+		change_infamy = 10
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_diplomatic_incidents.option.2			# No
+		default_option = yes
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# The Brezhnev Doctrine - SOV
+historical_diplomatic_incidents.19 = {
+    type = country_event
+
+    title = SOV_Brezhnev_Doctrine.t 							# Title of the event; ADD LOCALISATION
+    desc = SOV_Brezhnev_Doctrine.d 								# Description of the event; ADD LOCALISATION
+    #flavor = SOV_Brezhnev_Doctrine.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_military_parade.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/military_drill.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:SOV ?= this											# Change TAG of the overlord ****
+		game_date >= 1968.8.20									# START DATE: Date colony became self governing ****
+		game_date < 1978.8.20									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_communist_government = yes							# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		country_rank = rank_value:super_power
+		
+		NAND = {
+			has_law = law_type:law_offensive_war
+			has_law = law_type:law_globalist_fp
+			has_law = law_type:law_outlawed_dissent
+			has_law = law_type:law_offensive_espionage
+			has_law = law_type:law_wmd_allowed
+		}
+		
+		ruler ?= { 
+			OR = { 
+				has_variable = Leonid_Brezhnev
+				AND = { 
+					character_is_autocratic = yes
+					interest_group = { is_interest_group_type = ig_trade_unions } 
+				}
+			}
+		}
+		
+		#Cause
+		exists = c:USA
+		c:USA = {
+			is_a_democracy = yes								# Correct gov types
+			is_sufficiently_independent = yes					# is_vassal = no
+			is_at_war = no										# war = no
+			country_rank = rank_value:super_power
+			NOT = { is_subject_of = ROOT }
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = SOV_Brezhnev_Doctrine_hdi }		# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = SOV_Brezhnev_Doctrine_hdi				# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_diplomatic_incidents.option.1			# Yes
+        highlighted_option = yes
+		
+		#Enact new regime
+		activate_law = law_type:law_offensive_war
+		activate_law = law_type:law_globalist_fp
+		activate_law = law_type:law_outlawed_dissent
+		activate_law = law_type:law_offensive_espionage
+		activate_law = law_type:law_wmd_allowed
+		
+		#Reaction
+		change_relations = { country = c:USA value = -100 }
+		
+		#Domestic Reaction
+		add_loyalists = {
+			value = large_radicals
+			interest_group = ig:ig_armed_forces
+		}
+		add_loyalists = {
+			value = large_radicals
+			interest_group = ig:ig_intelligentsia
+		}
+		
+		#Power Bloc
+		if = {
+			limit = { 
+				is_power_bloc_leader = yes 
+				power_bloc ?= { NOT = { has_principle = principle:principle_police_coordination_3 } }
+			}
+			power_bloc ?= { 
+				add_principle = principle_police_coordination_3
+			}
+		}
+		
+		#Infamy
+		change_infamy = 10
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_diplomatic_incidents.option.2			# No
+		default_option = yes
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Atlanticism - GBR
+historical_diplomatic_incidents.20 = {
+    type = country_event
+	placement = c:USA
+
+    title = GBR_Atlanticism.t 									# Title of the event; ADD LOCALISATION
+    desc = GBR_Atlanticism.d 									# Description of the event; ADD LOCALISATION
+    #flavor = GBR_Atlanticism.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/europenorthamerica_capitalists_meeting.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/democracy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:GBR ?= this											# Change TAG of the overlord ****
+		game_date >= 1985.1.1									# START DATE: Date colony became self governing ****
+		game_date < 1995.1.1									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		NOT = { country_rank = rank_value:super_power }
+		is_subject = no
+		
+		ruler ?= { 
+			has_variable = Margaret_Thatcher
+		}
+		
+		#Cause
+		exists = c:USA
+		c:USA = {
+			is_a_democracy = yes								# Correct gov types
+			is_sufficiently_independent = yes					# is_vassal = no
+			is_at_war = no										# war = no
+			country_rank = rank_value:super_power
+			NOT = { is_subject_of = ROOT }
+			ruler ?= { 
+				has_variable = Ronald_Reagan
+			}
+		}
+		exists = c:SOV
+		c:SOV = {
+			is_a_communist_government = yes						# Correct gov types
+			is_sufficiently_independent = yes					# is_vassal = no
+			is_at_war = no										# war = no
+			country_rank = rank_value:super_power
+			NOT = { is_subject_of = ROOT }
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = GBR_Atlanticism_hdi }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = GBR_Atlanticism_hdi						# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_diplomatic_incidents.option.1			# Yes
+        highlighted_option = yes
+		
+		#Antagonise Russia
+		create_incident = {
+			country = c:SOV
+			value = 10
+		}
+		
+		#Become Client State of USA
+		set_relations = { country = c:USA value = 100 }
+		c:USA = { trigger_event = { id = historical_diplomatic_incidents.21 } }
+		
+		#Domestic Reaction
+		add_loyalists = {
+			value = large_radicals
+			interest_group = ig:ig_armed_forces
+		}
+		add_loyalists = {
+			value = large_radicals
+			interest_group = ig:ig_intelligentsia
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_diplomatic_incidents.option.2			# No
+		default_option = yes
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Atlanticism - USA
+historical_diplomatic_incidents.21 = {
+    type = country_event
+	placement = c:GBR
+
+    title = GBR_Atlanticism_1.t 									# Title of the event; ADD LOCALISATION
+    desc = GBR_Atlanticism.d 									# Description of the event; ADD LOCALISATION
+    #flavor = GBR_Atlanticism.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/europenorthamerica_capitalists_meeting.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/democracy.dds" 		# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Triggered by event
+		
+    }
+	
+	immediate = {
+		
+		
+	}
+    
+    option = {
+        name = historical_diplomatic_incidents.option.1			# Yes
+        highlighted_option = yes
+		
+		#UK becomes Client State of USA
+		create_diplomatic_pact = {
+			country = c:GBR
+			type = protectorate
+		}
+		
+		#Domestic Reaction
+		add_loyalists = {
+			value = large_radicals
+			interest_group = ig:ig_armed_forces
+		}
+		add_loyalists = {
+			value = large_radicals
+			interest_group = ig:ig_intelligentsia
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_diplomatic_incidents.option.2			# No
+		default_option = yes
+		
+		change_relations = { country = c:GBR value = -50 }
 		
 		ai_chance = { 
 			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 

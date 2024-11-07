@@ -1,0 +1,858 @@
+namespace = historical_natural_disasters
+
+#1995 Great Hanshin Earthquake
+historical_natural_disasters.1 = {
+    type = country_event
+	placement = scope:natural_disasters_state
+
+    title = 1995_JAP_earthquake.t 									# Title of the event; ADD LOCALISATION
+    desc = 1995_JAP_earthquake.d 									# Description of the event; ADD LOCALISATION
+    #flavor = 1995_JAP_earthquake.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_fire.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		game_date >= 1995.1.17										# START DATE: Date colony became self governing ****
+		game_date < 1996.1.17										# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = 1995_JAP_earthquake_hnd }			# CHANGE ****
+		
+		#Location of accident
+		has_state_in_state_region = STATE_KANSAI
+		
+    }
+    
+    immediate = {
+		
+		# Fire only once
+		set_variable = 1995_JAP_earthquake_hnd					# Change variable ****
+		
+		#Mark accident state
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_KANSAI
+			}
+			save_scope_as = natural_disasters_state
+		}
+		
+	}
+
+	option = {
+		name = historical_nuclear_accidents.option.1
+		
+		#Add disaster effects
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_KANSAI
+			}
+			state_region = { add_devastation = 25 }
+		}
+		
+	}
+
+}
+
+#2004 Indian Ocean Earthquake
+historical_natural_disasters.2 = {
+    type = country_event
+	placement = scope:natural_disasters_state
+
+    title = 2004_IDO_earthquake.t 									# Title of the event; ADD LOCALISATION
+    desc = 2004_IDO_earthquake.d 									# Description of the event; ADD LOCALISATION
+    #flavor = 2004_IDO_earthquake.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_fire.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		game_date >= 2004.12.26										# START DATE: Date colony became self governing ****
+		game_date < 2005.12.26										# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = 2004_IDO_earthquake_hnd }			# CHANGE ****
+		
+		#Location of accident
+		OR = { 
+			has_state_in_state_region = STATE_ACEH
+			has_state_in_state_region = STATE_NORTH_SUMATRA
+			has_state_in_state_region = STATE_PEGU
+			has_state_in_state_region = STATE_TENASSERIM
+			has_state_in_state_region = STATE_CIRCARS
+			has_state_in_state_region = STATE_MADRAS
+			has_state_in_state_region = STATE_CEYLON
+		}
+		
+    }
+    
+    immediate = {
+		
+		# Fire only once
+		set_variable = 2004_IDO_earthquake_hnd						# Change variable ****
+		
+		#Mark accident state
+		random_scope_state = {
+			limit = {
+				OR = { 
+					state_region = s:STATE_ACEH
+					state_region = s:STATE_NORTH_SUMATRA
+					state_region = s:STATE_PEGU
+					state_region = s:STATE_TENASSERIM
+					state_region = s:STATE_CIRCARS
+					state_region = s:STATE_MADRAS
+					state_region = s:STATE_CEYLON
+				}
+			}
+			save_scope_as = natural_disasters_state
+		}
+		
+	}
+
+	option = {
+		name = historical_nuclear_accidents.option.1
+		
+		#Add disaster effects
+		every_scope_state = {
+			limit = {
+				OR = { 
+					state_region = s:STATE_ACEH
+					state_region = s:STATE_NORTH_SUMATRA
+					state_region = s:STATE_PEGU
+					state_region = s:STATE_TENASSERIM
+					state_region = s:STATE_CIRCARS
+					state_region = s:STATE_MADRAS
+					state_region = s:STATE_CEYLON
+				}
+			}
+			state_region = { add_devastation = 50 }
+		}
+		
+	}
+
+}
+
+#2011 Great East Japan Earthquake
+historical_natural_disasters.3 = {
+    type = country_event
+	placement = scope:natural_disasters_state
+
+    title = 2011_JAP_earthquake.t 									# Title of the event; ADD LOCALISATION
+    desc = 2011_JAP_earthquake.d 									# Description of the event; ADD LOCALISATION
+    #flavor = 2011_JAP_earthquake.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_fire.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		game_date >= 2011.3.11										# START DATE: Date colony became self governing ****
+		game_date < 2012.3.11										# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = 2011_JAP_earthquake_hnd }			# CHANGE ****
+		
+		#Location of accident
+		has_state_in_state_region = STATE_TOHOKU
+		
+    }
+    
+    immediate = {
+		
+		# Fire only once
+		set_variable = 2011_JAP_earthquake_hnd					# Change variable ****
+		
+		#Mark accident state
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_TOHOKU
+			}
+			save_scope_as = natural_disasters_state
+		}
+		
+	}
+
+	option = {
+		name = historical_nuclear_accidents.option.1
+		
+		#Add disaster effects
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_TOHOKU
+			}
+			state_region = { add_devastation = 50 }
+		}
+		
+	}
+
+}
+
+#1975 Banqiao Dam Failure
+historical_natural_disasters.4 = {
+    type = country_event
+	placement = scope:natural_disasters_state
+
+    title = 1975_PRC_flood.t 										# Title of the event; ADD LOCALISATION
+    desc = 1975_PRC_flood.d 										# Description of the event; ADD LOCALISATION
+    #flavor = 1975_PRC_flood.f 										# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_fire.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		game_date >= 1975.8.8										# START DATE: Date colony became self governing ****
+		game_date < 1976.8.8										# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = 1975_PRC_flood_hnd }			# CHANGE ****
+		
+		#Location of accident
+		has_state_in_state_region = STATE_HENAN
+		
+		#Cause
+		is_a_communist_government = yes
+		is_a_socialist_economy = yes
+		
+    }
+    
+    immediate = {
+		
+		# Fire only once
+		set_variable = 1975_PRC_flood_hnd					# Change variable ****
+		
+		#Mark accident state
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_HENAN
+			}
+			save_scope_as = natural_disasters_state
+		}
+		
+	}
+
+	option = {
+		name = historical_nuclear_accidents.option.1
+		
+		#Add disaster effects
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_HENAN
+			}
+			state_region = { add_devastation = 75 }
+		}
+		
+	}
+
+}
+
+#1970 Bhola Cyclone
+historical_natural_disasters.5 = {
+    type = country_event
+	placement = scope:natural_disasters_state
+
+    title = 1970_BNG_cyclone.t 										# Title of the event; ADD LOCALISATION
+    desc = 1970_BNG_cyclone.d 										# Description of the event; ADD LOCALISATION
+    #flavor = 1970_BNG_cyclone.f 										# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_fire.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		game_date >= 1970.11.12										# START DATE: Date colony became self governing ****
+		game_date < 1971.11.12										# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = 1970_BNG_cyclone_hnd }				# CHANGE ****
+		
+		#Location of accident
+		has_state_in_state_region = STATE_SOUTH_BENGAL
+		
+    }
+    
+    immediate = {
+		
+		# Fire only once
+		set_variable = 1970_BNG_cyclone_hnd							# Change variable ****
+		
+		#Mark accident state
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_SOUTH_BENGAL
+			}
+			save_scope_as = natural_disasters_state
+		}
+		
+	}
+
+	option = {
+		name = historical_nuclear_accidents.option.1
+		
+		#Add disaster effects
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_SOUTH_BENGAL
+			}
+			state_region = { add_devastation = 75 }
+		}
+		
+	}
+
+}
+
+#1991 Bhola Cyclone
+historical_natural_disasters.6 = {
+    type = country_event
+	placement = scope:natural_disasters_state
+
+    title = 1991_BNG_cyclone.t 										# Title of the event; ADD LOCALISATION
+    desc = 1991_BNG_cyclone.d 										# Description of the event; ADD LOCALISATION
+    #flavor = 1991_BNG_cyclone.f 										# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_fire.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		game_date >= 1991.4.29										# START DATE: Date colony became self governing ****
+		game_date < 1992.4.29										# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = 1991_BNG_cyclone_hnd }				# CHANGE ****
+		
+		#Location of accident
+		has_state_in_state_region = STATE_SOUTH_BENGAL
+		
+    }
+    
+    immediate = {
+		
+		# Fire only once
+		set_variable = 1991_BNG_cyclone_hnd							# Change variable ****
+		
+		#Mark accident state
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_SOUTH_BENGAL
+			}
+			save_scope_as = natural_disasters_state
+		}
+		
+	}
+
+	option = {
+		name = historical_nuclear_accidents.option.1
+		
+		#Add disaster effects
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_SOUTH_BENGAL
+			}
+			state_region = { add_devastation = 50 }
+		}
+		
+	}
+
+}
+
+#2008 Cyclone Nargis
+historical_natural_disasters.7 = {
+    type = country_event
+	placement = scope:natural_disasters_state
+
+    title = 2008_BUR_cyclone.t 										# Title of the event; ADD LOCALISATION
+    desc = 2008_BUR_cyclone.d 										# Description of the event; ADD LOCALISATION
+    #flavor = 2008_BUR_cyclone.f 										# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_fire.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		game_date >= 2008.5.2										# START DATE: Date colony became self governing ****
+		game_date < 2009.5.2										# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = 2008_BUR_cyclone_hnd }				# CHANGE ****
+		
+		#Location of accident
+		has_state_in_state_region = STATE_SOUTH_BENGAL
+		
+    }
+    
+    immediate = {
+		
+		# Fire only once
+		set_variable = 2008_BUR_cyclone_hnd							# Change variable ****
+		
+		#Mark accident state
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_PEGU
+			}
+			save_scope_as = natural_disasters_state
+		}
+		
+	}
+
+	option = {
+		name = historical_nuclear_accidents.option.1
+		
+		#Add disaster effects
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_PEGU
+			}
+			state_region = { add_devastation = 75 }
+		}
+		
+	}
+
+}
+
+#2010 Haiti Earthquake
+historical_natural_disasters.8 = {
+    type = country_event
+	placement = scope:natural_disasters_state
+
+    title = 2010_HAI_earthquake.t 									# Title of the event; ADD LOCALISATION
+    desc = 2010_HAI_earthquake.d 									# Description of the event; ADD LOCALISATION
+    #flavor = 2010_HAI_earthquake.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_fire.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		game_date >= 2010.1.12										# START DATE: Date colony became self governing ****
+		game_date < 2011.1.12										# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = 2010_HAI_earthquake_hnd }			# CHANGE ****
+		
+		#Location of accident
+		has_state_in_state_region = STATE_HAITI
+		
+    }
+    
+    immediate = {
+		
+		# Fire only once
+		set_variable = 2010_HAI_earthquake_hnd					# Change variable ****
+		
+		#Mark accident state
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_HAITI
+			}
+			save_scope_as = natural_disasters_state
+		}
+		
+	}
+
+	option = {
+		name = historical_nuclear_accidents.option.1
+		
+		#Add disaster effects
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_HAITI
+			}
+			state_region = { add_devastation = 50 }
+		}
+		
+	}
+
+}
+
+#1992 Windsor Castle Fire
+historical_natural_disasters.9 = {
+    type = country_event
+	placement = scope:natural_disasters_state
+
+    title = 1992_GBR_monument_damaged.t 							# Title of the event; ADD LOCALISATION
+    desc = 1992_GBR_monument_damaged.d 								# Description of the event; ADD LOCALISATION
+    #flavor = 1992_GBR_monument_damaged.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_fire.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		game_date >= 1992.11.20										# START DATE: Date colony became self governing ****
+		game_date < 1993.11.20										# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = 1992_GBR_monument_damaged_hnd }		# CHANGE ****
+		
+		#Location of accident
+		has_state_in_state_region = STATE_HOME_COUNTIES
+		
+		#Cause
+		NOT = { has_law = law_type:law_pro_consumer_regulations }
+		
+    }
+    
+    immediate = {
+		
+		# Fire only once
+		set_variable = 1992_GBR_monument_damaged_hnd				# Change variable ****
+		
+		#Mark accident state
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_HOME_COUNTIES
+			}
+			save_scope_as = natural_disasters_state
+		}
+		
+	}
+
+	option = {
+		name = historical_nuclear_accidents.option.1
+		
+		#Add disaster effects
+		add_modifier = { 
+			name = national_landmark_damaged 
+			years = 5
+		}
+		
+	}
+
+}
+
+#2019 Notre-Dame Fire
+historical_natural_disasters.10 = {
+    type = country_event
+	placement = scope:natural_disasters_state
+
+    title = 2019_FRA_monument_damaged.t 							# Title of the event; ADD LOCALISATION
+    desc = 2019_FRA_monument_damaged.d 								# Description of the event; ADD LOCALISATION
+    #flavor = 2019_FRA_monument_damaged.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_fire.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		game_date >= 2019.4.15										# START DATE: Date colony became self governing ****
+		game_date < 2020.4.15										# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = 2019_FRA_monument_damaged_hnd }		# CHANGE ****
+		
+		#Location of accident
+		has_state_in_state_region = STATE_ILE_DE_FRANCE
+		
+		#Cause
+		NOT = { has_law = law_type:law_pro_consumer_regulations }
+		
+    }
+    
+    immediate = {
+		
+		# Fire only once
+		set_variable = 2019_FRA_monument_damaged_hnd				# Change variable ****
+		
+		#Mark accident state
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+			save_scope_as = natural_disasters_state
+		}
+		
+	}
+
+	option = {
+		name = historical_nuclear_accidents.option.1
+		
+		#Add disaster effects
+		add_modifier = { 
+			name = national_landmark_damaged 
+			years = 5 
+		}
+		
+	}
+
+}
+
+#1999 Vargas tragedy
+historical_natural_disasters.11 = {
+    type = country_event
+	placement = scope:natural_disasters_state
+
+    title = 1999_VNZ_mudslide.t 									# Title of the event; ADD LOCALISATION
+    desc = 1999_VNZ_mudslide.d 										# Description of the event; ADD LOCALISATION
+    #flavor = 1999_VNZ_mudslide.f 									# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_fire.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		game_date >= 1999.12.15										# START DATE: Date colony became self governing ****
+		game_date < 2000.12.15										# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = 1999_VNZ_mudslide_hnd }				# CHANGE ****
+		
+		#Location of accident
+		has_state_in_state_region = STATE_MIRANDA
+		
+    }
+    
+    immediate = {
+		
+		# Fire only once
+		set_variable = 1999_VNZ_mudslide_hnd						# Change variable ****
+		
+		#Mark accident state
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_MIRANDA
+			}
+			save_scope_as = natural_disasters_state
+		}
+		
+	}
+
+	option = {
+		name = historical_nuclear_accidents.option.1
+		
+		#Add disaster effects
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_MIRANDA
+			}
+			state_region = { add_devastation = 25 }
+		}
+		
+	}
+
+}
+
+#2019 Shuri Castle Fire
+historical_natural_disasters.12 = {
+    type = country_event
+	placement = scope:natural_disasters_state
+
+    title = 2019_JAP_monument_damaged.t 							# Title of the event; ADD LOCALISATION
+    desc = 2019_JAP_monument_damaged.d 								# Description of the event; ADD LOCALISATION
+    #flavor = 2019_JAP_monument_damaged.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_fire.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		game_date >= 2019.10.31										# START DATE: Date colony became self governing ****
+		game_date < 2020.10.31										# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = 2019_JAP_monument_damaged_hnd }		# CHANGE ****
+		
+		#Location of accident
+		has_state_in_state_region = STATE_RYUKYU_ISLANDS
+		
+		#Cause
+		NOT = { has_law = law_type:law_pro_consumer_regulations }
+		
+    }
+    
+    immediate = {
+		
+		# Fire only once
+		set_variable = 2019_JAP_monument_damaged_hnd				# Change variable ****
+		
+		#Mark accident state
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_RYUKYU_ISLANDS
+			}
+			save_scope_as = natural_disasters_state
+		}
+		
+	}
+
+	option = {
+		name = historical_nuclear_accidents.option.1
+		
+		#Add disaster effects
+		add_modifier = { 
+			name = national_landmark_damaged 
+			years = 5 
+		}
+		
+	}
+
+}
+
+#1991 Mount Pinatubo Eruption
+historical_natural_disasters.13 = {
+    type = country_event
+	placement = scope:natural_disasters_state
+
+    title = 1991_PHI_eruption.t 									# Title of the event; ADD LOCALISATION
+    desc = 1991_PHI_eruption.d 										# Description of the event; ADD LOCALISATION
+    #flavor = 1991_PHI_eruption.f 									# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_fire.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		game_date >= 1991.6.12										# START DATE: Date colony became self governing ****
+		game_date < 1992.6.12										# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = 1991_PHI_eruption_hnd }				# CHANGE ****
+		
+		#Location of accident
+		has_state_in_state_region = STATE_LUZON
+		
+    }
+    
+    immediate = {
+		
+		# Fire only once
+		set_variable = 1991_PHI_eruption_hnd						# Change variable ****
+		
+		#Mark accident state
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_LUZON
+			}
+			save_scope_as = natural_disasters_state
+		}
+		
+	}
+
+	option = {
+		name = historical_nuclear_accidents.option.1
+		
+		#Add disaster effects
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_LUZON
+			}
+			state_region = { add_devastation = 50 }
+		}
+		
+	}
+
+}
+
+#2022 Hunga Tonga–Hunga Haʻapai Eruption
+historical_natural_disasters.14 = {
+    type = country_event
+	placement = scope:natural_disasters_state
+
+    title = 2022_TON_eruption.t 									# Title of the event; ADD LOCALISATION
+    desc = 2022_TON_eruption.d 										# Description of the event; ADD LOCALISATION
+    #flavor = 2022_TON_eruption.f 									# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_fire.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		game_date >= 2022.1.15										# START DATE: Date colony became self governing ****
+		game_date < 2023.1.15										# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = 2022_TON_eruption }					# CHANGE ****
+		
+		#Location of accident
+		has_state_in_state_region = STATE_TONGA
+		
+    }
+    
+    immediate = {
+		
+		# Fire only once
+		set_variable = 2022_TON_eruption							# Change variable ****
+		
+		#Mark accident state
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_TONGA
+			}
+			save_scope_as = natural_disasters_state
+		}
+		
+	}
+
+	option = {
+		name = historical_nuclear_accidents.option.1
+		
+		#Add disaster effects
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_TONGA
+			}
+			state_region = { add_devastation = 25 }
+		}
+		
+	}
+
+}

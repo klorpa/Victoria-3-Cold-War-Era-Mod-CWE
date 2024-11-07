@@ -184,13 +184,13 @@ is_a_dictatorship = {
 
 is_a_presidential_regime = {
 
-	custom_tooltip = {
-		text = is_a_presidential_regime.tt
+	#custom_tooltip = {
+	#	text = is_a_presidential_regime.tt
 		OR = {
 			has_government_type = gov_presidential_dictatorship
 			has_government_type = gov_presidential_regime
 		}
-	}
+	#}
 	
 }
 
@@ -679,6 +679,7 @@ is_a_command_economy = {
 	OR = { 
 		has_law = law_type:law_command_economy
 		has_law = law_type:law_semi_command_economy
+		has_law = law_type:law_cooperative_ownership
 	}
 }
 
@@ -758,22 +759,28 @@ has_upper_house_support_simple_majority = {
 
 	trigger_if = {
 		limit = { NOT = { has_variable = upper_house_filibuster_rule } }
-		custom_tooltip = {
-			text = has_upper_house_support_50.tt
-			NAND = {
-				has_journal_entry = je_upper_house
-				NOT = { has_variable = upper_house_has_simple_majority }
+		trigger_if = {
+			limit = { has_journal_entry = je_upper_house }
+			custom_tooltip = {
+				text = has_upper_house_support_50.tt
+				NAND = {
+					has_journal_entry = je_upper_house
+					NOT = { has_variable = upper_house_has_simple_majority }
+				}
 			}
 		}
 	}
 	
 	trigger_if = {
 		limit = { has_variable = upper_house_filibuster_rule }
-		custom_tooltip = {
-			text = has_upper_house_support_60.tt
-			NAND = {
-				has_journal_entry = je_upper_house
-				NOT = { has_variable = upper_house_has_filibuster_majority }
+		trigger_if = {
+			limit = { has_journal_entry = je_upper_house }
+			custom_tooltip = {
+				text = has_upper_house_support_60.tt
+				NAND = {
+					has_journal_entry = je_upper_house
+					NOT = { has_variable = upper_house_has_filibuster_majority }
+				}
 			}
 		}
 	}
@@ -782,11 +789,14 @@ has_upper_house_support_simple_majority = {
 
 has_upper_house_support_667 = {
 	
-	custom_tooltip = {
-		text = has_upper_house_support_667.tt
-		NAND = {
-			has_journal_entry = je_upper_house
-			NOT = { has_variable = upper_house_has_super_majority }
+	trigger_if = {
+		limit = { has_journal_entry = je_upper_house }
+		custom_tooltip = {
+			text = has_upper_house_support_667.tt
+			NAND = {
+				has_journal_entry = je_upper_house
+				NOT = { has_variable = upper_house_has_super_majority }
+			}
 		}
 	}
 	
@@ -1158,6 +1168,12 @@ is_a_country_with_elections = {
 	NOT = {
 		has_law = law_type:law_appointed_legislature
 	}
+
+}
+
+ruler_is_term_limited = {
+
+	has_law = law_type:law_yes_term_limit
 
 }
 
@@ -1650,5 +1666,11 @@ issued_letters_of_marque = {
 			has_journal_entry = je_piracy_system
 		}
 	}
+
+}
+
+IG_not_excluded_from_party_membership = {
+
+	NOT = { has_variable = IG_party_banned }
 
 }

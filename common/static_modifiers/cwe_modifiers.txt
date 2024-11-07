@@ -57,7 +57,7 @@ un_potential_mandate_timer = {
 imf_loan_debtor = {
 	icon = gfx/interface/icons/diplo_icons/imf_loan_debtor.dds
 	country_loan_interest_rate_mult = -0.5
-	
+	country_prestige_mult = -0.05
 }
 
 imf_loan_creditor = {
@@ -124,6 +124,13 @@ high_imf_interest_rate = {
 very_high_imf_interest_rate = {
 	icon = gfx/interface/icons/diplo_icons/imf_interest_rate.dds
 	country_loan_interest_rate_add = 0.20
+}
+
+imf_development_assistance = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	country_minting_mult = 0.25
+	country_loan_interest_rate_add = -0.25
+	country_prestige_mult = -0.05
 }
 
 ### Currency System ###
@@ -279,6 +286,11 @@ national_pride_modifier = {
 	country_prestige_mult = 0.25
 }
 
+small_national_pride_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_mult = 0.05
+}
+
 united_in_fear = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
 	political_movement_radicalism_add = -100
@@ -349,6 +361,12 @@ revolution_crushed_recently = {
 	country_revolution_progress_mult = -0.50
 	political_movement_radicalism_mult = -0.50
 	country_legitimacy_ideological_incoherence_mult = -0.50
+}
+
+self_coup_recently = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	interest_group_in_opposition_approval_add = -20
+	political_movement_radicalism_add = 200
 }
 
 ### Generic Diplomatic Events ###
@@ -608,28 +626,28 @@ OPEC_leader = {
 }
 
 very_low_OPEC_oil_quota = {
-	icon = gfx/interface/icons/diplo_icons/OPEC_member.dds
+	icon = gfx/interface/icons/invention_icons/pumpjacks.dds
 	building_group_bg_oil_extraction_throughput_add = -0.5
 }
 
 low_OPEC_oil_quota = {
-	icon = gfx/interface/icons/diplo_icons/OPEC_member.dds
-	building_group_bg_oil_extraction_throughput_add = -0.4
+	icon = gfx/interface/icons/invention_icons/pumpjacks.dds
+	building_group_bg_oil_extraction_throughput_add = -0.25
 }
 
 medium_OPEC_oil_quota = {
-	icon = gfx/interface/icons/diplo_icons/OPEC_member.dds
-	building_group_bg_oil_extraction_throughput_add = -0.3
+	icon = gfx/interface/icons/invention_icons/pumpjacks.dds
+	
 }
 
 high_OPEC_oil_quota = {
-	icon = gfx/interface/icons/diplo_icons/OPEC_member.dds
-	building_group_bg_oil_extraction_throughput_add = -0.2
+	icon = gfx/interface/icons/invention_icons/pumpjacks.dds
+	building_group_bg_oil_extraction_throughput_add = 0.25
 }
 
 very_high_OPEC_oil_quota = {
-	icon = gfx/interface/icons/diplo_icons/OPEC_member.dds
-	building_group_bg_oil_extraction_throughput_add = -0.1
+	icon = gfx/interface/icons/invention_icons/pumpjacks.dds
+	building_group_bg_oil_extraction_throughput_add = 0.5
 }
 
 ### OECD ###
@@ -956,7 +974,17 @@ wartime_measures_total_war = {
 	interest_group_in_opposition_approval_add = -5
 	political_movement_radicalism_mult = 0.25
 	country_military_goods_cost_mult = 0.25
+	state_conscription_rate_mult = 0.25
 	state_building_conscription_center_max_level_add = 100
+}
+
+wartime_measures_resource_requisition = {
+	icon = gfx/interface/icons/invention_icons/bessemer_process.dds
+	interest_group_in_opposition_approval_add = -5
+	political_movement_radicalism_mult = 0.25
+	country_military_goods_cost_mult = -0.25
+	state_tax_collection_mult = 0.25
+	state_standard_of_living_add = -5
 }
 
 ### Anti War ###
@@ -1547,6 +1575,11 @@ renovate_capital_dev_cost = {
 	country_expenses_add = 10000
 }
 
+national_landmark_damaged = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	country_prestige_mult = -0.01
+}
+
 ### Construction Projects ###
 
 seikan_tunnel = {
@@ -1656,6 +1689,90 @@ letters_of_marque = {
 	country_expenses_add = 75000
 }
 
+### State Media System ###
+
+positive_news_story = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	character_popularity_add = 50
+}
+
+smear_story = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	character_popularity_add = -50
+}
+
+distracting_story = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_radicals_from_discrimination_mult = -0.25
+	state_radicals_from_sol_change_mult = -0.25
+	state_tax_waste_add = 0.05
+}
+
+stirring_nationalism = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	state_assimilation_mult = 0.25
+	state_radicals_from_discrimination_mult = 0.50
+	country_loyalists_from_legitimacy_mult = 0.25
+}
+
+depressing_story = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
+	state_radicals_from_discrimination_mult = 0.25
+	state_radicals_from_sol_change_mult = 0.25
+}
+
+subsidising_private_media = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	state_tax_waste_add = 0.05
+}
+
+### Party System ###
+
+party_outcast = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	character_popularity_add = -50
+}
+
+divided_party = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	country_legitimacy_base_add = -5
+	country_legitimacy_ideological_incoherence_mult = 0.10
+}
+
+### Oil Cartels ###
+
+very_low_oil_quota = {
+	icon = gfx/interface/icons/invention_icons/pumpjacks.dds
+	building_group_bg_oil_extraction_throughput_add = -0.50
+}
+
+low_oil_quota = {
+	icon = gfx/interface/icons/invention_icons/pumpjacks.dds
+	building_group_bg_oil_extraction_throughput_add = -0.25
+}
+
+medium_oil_quota = {
+	icon = gfx/interface/icons/invention_icons/pumpjacks.dds
+	
+}
+
+large_oil_quota = {
+	icon = gfx/interface/icons/invention_icons/pumpjacks.dds
+	building_group_bg_oil_extraction_throughput_add = 0.25
+}
+
+very_large_oil_quota = {
+	icon = gfx/interface/icons/invention_icons/pumpjacks.dds
+	building_group_bg_oil_extraction_throughput_add = 0.50
+}
+
+oil_industry_concessions = {
+	icon = gfx/interface/icons/invention_icons/pumpjacks.dds
+	building_group_bg_oil_extraction_tax_mult = -0.50
+	building_group_bg_oil_extraction_throughput_add = 0.50
+	building_group_bg_oil_extraction_employee_mult = -0.50
+}
+
 ### Vanilla modifiers ###
 
 downplaying_fascism = {
@@ -1666,4 +1783,10 @@ downplaying_fascism = {
 vaccine_expenses = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
 	country_expenses_add = 20000
+}
+
+lavish_coronation_ceremony_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_mult = 0.20
+	country_expenses_add = 50000
 }

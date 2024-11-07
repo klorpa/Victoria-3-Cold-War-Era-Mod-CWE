@@ -142,6 +142,7 @@ TGZ = { #Tangier International Zone
 	tier = principality
 	
 	cultures = { moroccan }
+	religion = catholic
 	capital = STATE_FEZ
 }
 
@@ -554,7 +555,7 @@ SML = {
 	
 	tier = principality
 	
-	cultures = { somalilander somali }
+	cultures = { somalilander }
 	capital = STATE_SOMALILAND
 }
 
@@ -608,7 +609,7 @@ ERI = {
 	
 	tier = kingdom
 	
-	cultures = { eritrean djibouti }
+	cultures = { eritrean }
 	
 	capital = STATE_ERITREA
 }
@@ -974,5 +975,17 @@ COM = {
 	tier = principality
 	
 	cultures = { comorian }
+	capital = STATE_INDIAN_OCEAN_TERRITORY
+}
+
+# Reunion
+RUN = {
+	color = { 86 244 66 }
+	
+	country_type = recognized
+	
+	tier = principality
+	
+	cultures = { reunionese }
 	capital = STATE_INDIAN_OCEAN_TERRITORY
 }

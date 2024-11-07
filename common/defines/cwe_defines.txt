@@ -8,8 +8,8 @@ NPolitics = {
 	MIN_RADICALISM_FOR_REVOLUTION_PROGRESSION = 150	# A political movement must have this much radicalism for a revolution to start organizing
 	MIN_RADICALISM_FOR_REVOLUTION_START = 200		# Allow a revolution to start at this amount of radicalism or more
 	STATE_BUREAUCRACY_POP_MULTIPLE = 500000
-	MARGINAL_IG_THRESHOLD = 0.01		# Interest Groups with Clout above this value are considered relevant while those below are marginal (if not also In Government)
-	MARGINAL_IG_CUTOFF = 0.005			# Interest Groups who are already relevant will only become marginal again if they drop below this value.
+	MARGINAL_IG_THRESHOLD = 0.02		# Interest Groups with Clout above this value are considered relevant while those below are marginal (if not also In Government)
+	MARGINAL_IG_CUTOFF = 0.01			# Interest Groups who are already relevant will only become marginal again if they drop below this value.
 }
 
 NEconomy = {
@@ -20,6 +20,9 @@ NEconomy = {
 	DEFAULT_MAX_HIRING_RATE = 0.5 				# Default weekly max hiring limit applied in a building per profession as a ratio of full employment
 	HIRING_RANGE_WEEKLY_CHANGE = 0.25 			# Weekly hiring range of a building is decreased or increased by this based on whether it is failing to hire at its current rate or not
 	EMPLOYMENT_PROPORTIONALITY_LIMIT = 0.75		# A building cannot have a difference of ratio of full employment between any two professions greater than this limit
+	
+	GOLD_RESERVE_LIMIT_FACTOR = 0.25			# The base factor of annual GDP that should be provided as a Gold Reserve
+	COUNTRY_MIN_CREDIT_SCALED = 0.25 			# Added to the total Building Cash Reserves to determine credit limit (multiplied by GDP)
 }
 
 NDiplomacy = {
@@ -83,7 +86,7 @@ NPops = {
 	POP_MERGE_MAX_TARGET_POPS = 100000
 	
 	LOW_POP_THRESHOLD = 5000					# If a state has less than this amount of pops per arable land, apply the low pop modifier
-	HIGH_POP_THRESHOLD = 100000					# If a state has more than this amount of pops per arable land, apply the high pop modifier
+	HIGH_POP_THRESHOLD = 1000000				# If a state has more than this amount of pops per arable land, apply the high pop modifier
 }
 
 NCharacters = {

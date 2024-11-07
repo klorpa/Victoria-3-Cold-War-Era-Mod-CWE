@@ -669,8 +669,8 @@ historical_interstate_wars.7 = {
 		#Overlord conditions
 		exists = c:NVM
 		this = c:NVM											# Change TAG of the overlord ****
-		game_date >= 1965.3.8									# START DATE: Date colony became self governing ****
-		game_date < 1975.3.8									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		game_date >= 1968.1.30									# START DATE: Date colony became self governing ****
+		game_date < 1978.1.30									# END DATE: All historical events must not fire 10 years after the START DATE ****
 		
 		is_a_communist_government = yes							# Correct gov types
 		is_sufficiently_independent = yes						# is_vassal = no		
@@ -707,7 +707,7 @@ historical_interstate_wars.7 = {
 			type = dp_annex_war_historical
 			target_country = c:SVM
 			
-			#war = yes
+			war = yes
 			
 			add_war_goal = {
 				holder = c:SVM
@@ -2333,13 +2333,13 @@ historical_interstate_wars.23 = {
 		
 		#Recipent conditions
 		exists = c:AFG
-		c:AFG = { 												# Change TAG of the transferee ****
+		c:AFG = {
+			NOT = { is_subject_of = ROOT }
 			OR = { 
-				NOT = { is_subject_of = ROOT }
 				NOT = { is_a_communist_government = yes }
+				has_variable = SOV_AFG_Overthrow
 			}
 			is_sufficiently_independent = yes
-			is_at_war = no
 		}
 		
 		# Event has not been fired before
@@ -2579,7 +2579,7 @@ historical_interstate_wars.25 = {
 			#Russia's Goals
 			add_war_goal = {
 				holder = c:RUS
-				type = conquer_state
+				type = return_state
 				target_state = s:STATE_LUHANSK.region_state:UKR
 			}
 			add_war_goal = {
@@ -3924,7 +3924,6 @@ historical_interstate_wars.35 = {
 		#Recipent conditions
 		exists = c:TAN
 		c:TAN = { 												# Change TAG of the transferee ****
-			is_a_democracy = yes
 			is_sufficiently_independent = yes
 			is_at_war = no
 			
@@ -3964,7 +3963,7 @@ historical_interstate_wars.35 = {
 
 			add_war_goal = {
 				holder = c:TAN
-				type = regime_change
+				type = make_tributary
 				target_country = c:UGA
 			}
 		}

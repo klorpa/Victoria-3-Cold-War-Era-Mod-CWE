@@ -1,5 +1,11 @@
 ﻿l_english:
 
+    animist:0 "Folk Religion"
+
+    TRIGGER_COUNTRY_TURMOIL:0 "Country Turmoil is $COMPARATOR$ #variable $NUM|%$#!"
+    TRIGGER_COUNTRY_TURMOIL_NOT:1 "Country Turmoil is #bold not #!$COMPARATOR$ #variable $NUM|%$#!"
+    TRIGGER_COUNTRY_TURMOIL_THIRD:1 "Country Turmoil in [Country.GetName] is $COMPARATOR$ #variable $NUM|%$#! (currently: $CURRENT_VALUE|%v$)"
+
     enslave_angry_pops_tt:0 "Convert [concept_radical] Pops into [GetPopType('slaves').GetName]"
     enslave_discriminated_pops_tt:0 "Convert [Concept('concept_discrimination','$concept_discriminated$')] Pops into [GetPopType('slaves').GetName]"
 
@@ -120,6 +126,9 @@
     has_highest_prestige.tt:0 "Has the highest [concept_prestige]"
     has_highest_army_size.tt:0 "Has the strongest [concept_army]"
 
+    decree_road_maintenance:0 "Infrastructure Maintenance"
+    decree_road_maintenance_desc:0 "Expand and maintain infrastructure networks"
+
     decree_subsidised_housing:0 "Subsidise Housing"
     decree_subsidised_housing_desc:0 "The Government will provide cheaper housing to the public"
     
@@ -128,6 +137,9 @@
     
     modifier_building_group_bg_urban_center_throughput_add:0 "$bg_urban_center$ [concept_throughput]"
     modifier_building_group_bg_urban_center_throughput_add_desc:0 "A bonus or penalty to both input and output of $bg_urban_center$"
+    
+    building_group_bg_urban_center_throughput_add:0 "$bg_urban_center$ [concept_throughput]"
+    building_group_bg_urban_center_throughput_add_desc:0 "A bonus or penalty to both input and output of $bg_urban_center$"
     
     decree_encourage_services_industry:0 "Encourage Services Industry"
     decree_encourage_services_industry_desc:0 "Increase Services sector throughput"
@@ -676,9 +688,9 @@
     
     conduct_hostile_espionage_8:0 "Manipulating Politics"
     conduct_hostile_espionage_8_pact_desc:0 "Spies from [SCOPE.GetRootScope.GetDiplomaticPact.GetFirstCountry.GetName] are manipulating the domestic politics of [SCOPE.GetRootScope.GetDiplomaticPact.GetSecondCountry.GetName] to promote the enactment of certain [Concept('concept_law', '$concept_laws$')]."
-    conduct_hostile_espionage_8_action_name:0 "Manipulate [TARGET_COUNTRY.GetAdjective] Politics"
+    conduct_hostile_espionage_8_action_name:0 "Manipulate Politics"
     conduct_hostile_espionage_8_action_break_name:0 "Stop manipulating [TARGET_COUNTRY.GetAdjective] Politics"
-    conduct_hostile_espionage_8_action_propose_name:0 "Manipulate [TARGET_COUNTRY.GetAdjective] Politics"
+    conduct_hostile_espionage_8_action_propose_name:0 "Manipulate Politics"
     conduct_hostile_espionage_8_desc:3 "We can use our spies in the target country's legislature to encourage the enactment of [Concept('concept_law', '$concept_laws$')] that we want in the target."
     conduct_hostile_espionage_8_action_notification_name:0 "[INITIATOR_COUNTRY.GetAdjective] Meddling in [TARGET_COUNTRY.GetAdjective] Politics"
     conduct_hostile_espionage_8_action_notification_break_name:0 "[INITIATOR_COUNTRY.GetAdjective] Meddling in [TARGET_COUNTRY.GetAdjective] Politics Stopped"
@@ -689,6 +701,18 @@
     conduct_hostile_espionage_8_proposal_notification_effects_desc:0 "[INITIATOR_COUNTRY.GetName] will be able to encourage the enactment of certain [Concept('concept_law', '$concept_laws$')] in [TARGET_COUNTRY.GetName]."
     
     manipulating_government.tt:0 "@warning! 50% yearly chance of [SCOPE.sCountry('manipulated_country').GetName] receiving an event to start enacting a [concept_law] that the [SCOPE.sCountry('manipulator_country').GetAdjective] [concept_government] approves of."
+    
+    conduct_hostile_espionage_9:0 "Spread Propaganda"
+    conduct_hostile_espionage_9_action_name:0 "Spread Propaganda"
+    conduct_hostile_espionage_9_desc:3 "Our spies will distribute propaganda espousing the greatness of our country to the citizens of the target country."
+    conduct_hostile_espionage_9_action_notification_name:0 "Hostile Espionage in [TARGET_COUNTRY.GetName]"
+    conduct_hostile_espionage_9_action_notification_desc:2 "Foreign Spies have spread Pro-[INITIATOR_COUNTRY.GetAdjective] propaganda to the people of [TARGET_COUNTRY.GetName]. This has increase the public pressure on [concept_government] to appease [INITIATOR_COUNTRY.GetName]."
+    
+    conduct_hostile_espionage_10:0 "Increase Regional Tensions"
+    conduct_hostile_espionage_10_action_name:0 "Increase Regional Tensions"
+    conduct_hostile_espionage_10_desc:3 "Our spies will stir up diplomatic tensions between the target country and their neighbours and rivals."
+    conduct_hostile_espionage_10_action_notification_name:0 "Hostile Espionage in [TARGET_COUNTRY.GetName]"
+    conduct_hostile_espionage_10_action_notification_desc:2 "Foreign Spies have instigated a [concept_diplomatic_incident] between [TARGET_COUNTRY.GetName] and its neigbouring countries and rivals."
     
     instigate_domestic_unrest_tt:0 "0.5%/per month chance of Instigating Domestic Unrest"
     instigate_domestic_unrest_2_tt:0 "1%/per month chance of Instigating Domestic Unrest"
@@ -845,6 +869,9 @@
     nuclear_de_escalation_treaty_proposal_declined_name:0 "Nuclear De-escalation Treaty Rejected"
     nuclear_de_escalation_treaty_proposal_declined_desc:0 "[TARGET_COUNTRY.GetName] has rejected [INITIATOR_COUNTRY.GetName]'s proposal for to de-escalate their nuclear weapons posture by agreeing to not station any nuclear weapons in countries bordering each other, reduce their nuclear strike capability by 50% and not deploy any Anti-Ballistic Missile systems."
     
+    nuclear_de_escalation_treaty_trigger_desc_third:0 "[COUNTRY.GetName] and [TARGET_COUNTRY.GetName] shall both reduce their nuclear capabilities"
+    nuclear_de_escalation_treaty_effect_desc_global:0 "Sign $nuclear_de_escalation_treaty$"
+    
     demand_nuclear_weapons_removal:0 "Demand Nuclear Disarmament"
     demand_nuclear_weapons_removal_action_name:0 "Demand Nuclear Disarmament"
     demand_nuclear_weapons_removal_action_propose_name:0 "Demand Nuclear Disarmament"
@@ -953,6 +980,13 @@
     destroy_monuments_action_notification_desc:0 "The [INITIATOR_COUNTRY.GetAdjective] military has destroyed a [concept_monument] belonging to [TARGET_COUNTRY.GetName] and looted its treasures."
     destroy_monuments_action_notification_third_party_name:0 "[TARGET_COUNTRY.GetAdjective] [concept_monument] Destroyed!"
     destroy_monuments_action_notification_third_party_desc:0 "The [INITIATOR_COUNTRY.GetAdjective] military has destroyed a [concept_monument] belonging to [TARGET_COUNTRY.GetName] and looted its treasures."
+    
+    strike_infrastructure:0 "Strike Infrastructure"
+    strike_infrastructure_action_name:0 "Strike [TARGET_COUNTRY.GetAdjective] Infrastructure"
+    strike_infrastructure_action_propose_name:0 "Strike [TARGET_COUNTRY.GetAdjective] Infrastructure"
+    strike_infrastructure_desc:0 "This [concept_diplomatic_action] allows the initiator to destroy infrastructure buildings in a random [concept_state_region] of the target country."
+    strike_infrastructure_action_notification_name:0 "[TARGET_COUNTRY.GetAdjective] Infrastructure Targeted"
+    strike_infrastructure_action_notification_desc:0 "The [INITIATOR_COUNTRY.GetAdjective] Air Force has attacked and destroyed infrastructure buildings in a random [concept_state_region] in [INITIATOR_COUNTRY.GetName] causing much [concept_devastation] to the people living there."
     
     demand_capitulation_1.tt:0 "[SCOPE.sCountry('target_country_scope').GetName] will capitulate in any [concept_war] where it is either the [concept_initiator] or [concept_target]."
     demand_capitulation_2.tt:0 "[SCOPE.sCountry('actor_country_scope').GetName] joins on the opposing side of any [concept_war] involving [SCOPE.sCountry('target_country_scope').GetName]"
@@ -1172,6 +1206,7 @@
     mandate_proposal_third_party_break_declined_desc:0 "[TARGET_COUNTRY.GetName] refused to end their [concept_mandate] status with [INITIATOR_COUNTRY.GetName]."
     
     mandate_effect_desc_global:0 "Becomes a [concept_mandate]"
+    mandate_effect_desc_third:0 "[AddTextIf(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self),TARGET_COUNTRY.GetNameNoFlag)][AddTextIf(Not(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self)),TARGET_COUNTRY.GetName)] becomes a [concept_mandate] of [COUNTRY.GetName]"
     
     concept_special_administrative_region:0 "Special Administrative Region"
     concept_special_administrative_regions:0 "Special Administrative Regions"
@@ -1199,6 +1234,7 @@
     special_administrative_region_proposal_third_party_break_declined_desc:0 "[TARGET_COUNTRY.GetName] refused to end their [concept_special_administrative_region] status with [INITIATOR_COUNTRY.GetName]."
     
     special_administrative_region_effect_desc_global:0 "Becomes a [concept_special_administrative_region]"
+    special_administrative_region_effect_desc_third:0 "[AddTextIf(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self),TARGET_COUNTRY.GetNameNoFlag)][AddTextIf(Not(ObjectsEqual(GetMetaPlayer.GetPlayedOrObservedCountry.Self, TARGET_COUNTRY.Self)),TARGET_COUNTRY.GetName)] becomes a [concept_special_administrative_region] of [COUNTRY.GetName]"
     
     concept_special_relationship:0 "Special Relationship"
     concept_special_relationship_desc:2 "A $special_relationship$ is an autonomous [concept_subject] type able to start their own [Concept('concept_diplomatic_play','$concept_diplomatic_plays$')]. A [concept_country] may ask, or be asked, to become a $special_relationship$ under an [concept_overlord] without risk of [concept_war] if the offer is declined."
@@ -1424,6 +1460,7 @@
     azawagh:0 "Azawagh"
     ruanda:0 "Hutu"
     rundi:0 "Tutsi"
+    reunionese:0 "Réunionese"
     
     cuban:0 "Cuban"
     haitian:0 "Haitian"

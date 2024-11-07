@@ -924,7 +924,7 @@ nigerien = {
 
 congolese = {
 	color= hsv{ 0.28 0.29 0.60 }
-	religion = animist
+	religion = catholic
 	traits = { central_african_culture_group bantu african_heritage }
 	male_common_first_names={
 		Garcia
@@ -970,7 +970,7 @@ congolese = {
 
 kongolese = {
 	color= hsv{ 0.28 0.29 0.60 }
-	religion = animist
+	religion = catholic
 	traits = { central_african_culture_group bantu african_heritage }
 	male_common_first_names={
 		Garcia
@@ -1016,7 +1016,7 @@ kongolese = {
 
 gabonese = {
 	color= hsv{ 0.81 0.40 0.70 }
-	religion = animist
+	religion = catholic
 	traits = { central_african_culture_group bantu african_heritage }
 	male_common_first_names={
 		Amadi
@@ -1088,7 +1088,7 @@ gabonese = {
 
 namibian = {
 	color= hsv{ 0.16 0.37 0.84 }
-	religion = animist
+	religion = protestant
 	traits = { southern_african_culture_group african_heritage }
 	male_common_first_names={
 		Aruseb
@@ -1139,7 +1139,7 @@ namibian = {
 
 angolan = {
 	color= hsv{ 0.69 0.42 0.90 }
-	religion = animist
+	religion = catholic
 	traits = { southern_african_culture_group lusophone african_heritage bantu }
 	male_common_first_names={
 		Ciasungu
@@ -1334,7 +1334,7 @@ nigerian = {
 
 biafran = {
 	color= hsv{ 0.54 0.52 0.53 }
-	religion = sunni
+	religion = protestant
 	traits = { west_african_culture_group african_heritage }
 	male_common_first_names={
 		Abdullahi
@@ -1438,7 +1438,7 @@ biafran = {
 
 beninese = {
 	color= hsv{ 0.63 0.32 0.6 }
-	religion = animist
+	religion = catholic
 	traits = { west_african_culture_group african_heritage }
 	male_common_first_names={
 		Adolo
@@ -1484,7 +1484,7 @@ beninese = {
 
 togolese = {
 	color= hsv{ 0.70 0.43 0.47}
-	religion = animist
+	religion = catholic
 	traits = { west_african_culture_group african_heritage }
 	male_common_first_names={
 		Agyeman
@@ -1592,7 +1592,7 @@ burkinese = {
 
 bissau_guinean = {
 	color= hsv{ 0.70 0.43 0.47}
-	religion = animist
+	religion = sunni
 	traits = { west_african_culture_group african_heritage }
 	male_common_first_names={
 		Agyeman
@@ -1640,7 +1640,7 @@ bissau_guinean = {
 
 gambian = {
 	color= hsv{ 0.70 0.43 0.47}
-	religion = animist
+	religion = sunni
 	traits = { west_african_culture_group african_heritage }
 	male_common_first_names={
 		Agyeman
@@ -1688,7 +1688,7 @@ gambian = {
 
 cameroonian = {
 	color= hsv{ 0.81 0.40 0.70 }
-	religion = animist
+	religion = catholic
 	traits = { central_african_culture_group bantu african_heritage }
 	male_common_first_names={
 		Amadi
@@ -1760,7 +1760,7 @@ cameroonian = {
 
 ambazonian = {
 	color= hsv{ 0.81 0.40 0.70 }
-	religion = animist
+	religion = protestant
 	traits = { central_african_culture_group bantu african_heritage }
 	male_common_first_names={
 		Amadi
@@ -1889,7 +1889,7 @@ somalilander = {
 
 ghanaian = {
 	color= hsv{ 0.70 0.43 0.47}
-	religion = animist
+	religion = protestant
 	traits = { west_african_culture_group african_heritage }
 	male_common_first_names={
 		Agyeman
@@ -1937,7 +1937,7 @@ ghanaian = {
 
 ivorian = {
 	color= hsv{ 0.70 0.43 0.47 }
-	religion = animist
+	religion = catholic
 	traits = { west_african_culture_group african_heritage }
 	male_common_first_names={
 		Agyeman
@@ -1985,7 +1985,7 @@ ivorian = {
 
 central_african = {
 	color= hsv{ 0.87 0.25 0.56 }
-	religion = animist
+	religion = catholic
 	traits = { central_african_culture_group african_heritage }
 	male_common_first_names={
 		Ikpiro
@@ -2017,7 +2017,7 @@ central_african = {
 
 santomean = {
 	color= hsv{ 0.28 0.29 0.60 }
-	religion = animist
+	religion = catholic
 	traits = { central_african_culture_group bantu african_heritage }
 	male_common_first_names={
 		Garcia
@@ -2100,7 +2100,7 @@ eritrean = {
 
 south_sudanese = {
 	color= hsv{ 0.63 0.46 0.96 }
-	religion = animist
+	religion = protestant
 	traits = { east_african_culture_group african_heritage }
 	male_common_first_names={
 		Abel
@@ -2197,7 +2197,7 @@ darfuri = {
 
 kenyan = {
 	color= hsv{ 0.28 0.24 0.34 }
-	religion = animist
+	religion = protestant
 	traits = { east_african_culture_group bantu african_heritage }
 	male_common_first_names={
 		Gacoki
@@ -2276,7 +2276,7 @@ kenyan = {
 
 ugandan = {
 	color= hsv{ 0.55 0.17 0.73 }
-	religion = animist
+	religion = protestant
 	traits = { east_african_culture_group bantu african_heritage }
 	male_common_first_names={
 		Jjunju
@@ -2335,7 +2335,7 @@ ugandan = {
 
 tanzanian = {
 	color= hsv{ 0.97 0.37 0.52 }
-	religion = animist
+	religion = protestant
 	traits = { east_african_culture_group african_heritage }
 	male_common_first_names={
 		Kakenya
@@ -2373,7 +2373,7 @@ tanzanian = {
 
 tanganyikan = {
 	color= hsv{ 0.97 0.37 0.52 }
-	religion = animist
+	religion = protestant
 	traits = { east_african_culture_group african_heritage }
 	male_common_first_names={
 		Kakenya
@@ -2513,7 +2513,7 @@ zanzibari = {
 
 zambian = {
 	color= hsv{ 0.77 0.35 0.73 }
-	religion = animist
+	religion = protestant
 	traits = { central_african_culture_group bantu african_heritage }
 	male_common_first_names={
 		Cakasekene
@@ -2563,7 +2563,7 @@ zambian = {
 
 malawian = {
 	color= hsv{ 0.45 0.6 0.34 }
-	religion = animist
+	religion = protestant
 	traits = { southern_african_culture_group african_heritage bantu }
 	male_common_first_names={
 		Amadi
@@ -2635,7 +2635,7 @@ malawian = {
 
 mozambican = {
 	color= hsv{ 0.21 0.56 0.36 }
-	religion = animist
+	religion = protestant
 	traits = { southern_african_culture_group lusophone african_heritage bantu }
 	male_common_first_names={
 		Banga
@@ -2687,7 +2687,7 @@ mozambican = {
 
 liswati = {
 	color= hsv{ 0.56 0.46 0.69 }
-	religion = animist
+	religion = protestant
 	traits = { southern_african_culture_group african_heritage bantu }
 	male_common_first_names={
 		Amadi
@@ -2761,7 +2761,7 @@ liswati = {
 
 equatoguinean = {
 	color= hsv{ 0.81 0.40 0.70 }
-	religion = animist
+	religion = catholic
 	traits = { central_african_culture_group bantu african_heritage }
 	male_common_first_names={
 		Amadi
@@ -2833,7 +2833,7 @@ equatoguinean = {
 
 cabo_verdean = {
 	color= hsv{ 0.81 0.40 0.70 }
-	religion = animist
+	religion = catholic
 	traits = { central_african_culture_group lusophone african_heritage bantu }
 	male_common_first_names={
 		Abel
@@ -3170,7 +3170,7 @@ malian = {
 
 zimbabwean = {
 	color= hsv{ 0.21 0.56 0.36 }
-	religion = animist
+	religion = protestant
 	traits = { southern_african_culture_group african_heritage bantu }
 	male_common_first_names={
 		Banga
@@ -3364,7 +3364,7 @@ rhodesian = {
 
 sierra_leonean = {
 	color= hsv{ 0.70 0.43 0.47 }
-	religion = animist
+	religion = sunni
 	traits = { west_african_culture_group african_heritage }
 	male_common_first_names={
 		Agyeman
@@ -9290,7 +9290,7 @@ panamanian = {
 
 guyanese = {
 	color= hsv{ 0.38 0.58 0.59 }
-	religion = animist
+	religion = protestant
 	traits = { indigenous_american_heritage south_american_group }
 	male_common_first_names={
 		Anibal
@@ -9383,7 +9383,7 @@ guyanese = {
 
 surinamese = {
 	color= hsv{ 0.38 0.58 0.59 }
-	religion = animist
+	religion = catholic
 	traits = { indigenous_american_heritage south_american_group }
 	male_common_first_names={
 		Anibal
@@ -10044,7 +10044,7 @@ west_papuan = {
 
 east_papuan = {
 	color= hsv{ 0.85 0.47 0.73 }
-	religion = animist
+	religion = protestant
 	traits = { indigenous_oceanic_heritage polynesian_group }
 	male_common_first_names={
 		Epenisa
@@ -10097,7 +10097,7 @@ east_papuan = {
 
 solomon_islander = {
 	color= hsv{ 0.85 0.47 0.73 }
-	religion = animist
+	religion = protestant
 	traits = { indigenous_oceanic_heritage polynesian_group }
 	male_common_first_names={
 		Epenisa
@@ -10150,7 +10150,7 @@ solomon_islander = {
 
 vanuatuan = {
 	color= hsv{ 0.85 0.47 0.73 }
-	religion = animist
+	religion = protestant
 	traits = { indigenous_oceanic_heritage polynesian_group }
 	male_common_first_names={
 		Epenisa
@@ -10203,7 +10203,7 @@ vanuatuan = {
 
 nauruan = {
 	color= hsv{ 0.85 0.47 0.73 }
-	religion = animist
+	religion = protestant
 	traits = { indigenous_oceanic_heritage polynesian_group }
 	male_common_first_names={
 		Epenisa
@@ -10256,7 +10256,7 @@ nauruan = {
 
 palauan = {
 	color= hsv{ 0.85 0.47 0.73 }
-	religion = animist
+	religion = protestant
 	traits = { indigenous_oceanic_heritage polynesian_group }
 	male_common_first_names={
 		Epenisa
@@ -10309,7 +10309,7 @@ palauan = {
 
 marshallese = {
 	color= hsv{ 0.35 0.38 0.83 }
-	religion = animist
+	religion = protestant
 	traits = { indigenous_oceanic_heritage polynesian_group }
 	male_common_first_names={
 		Aghurubw
@@ -10363,7 +10363,7 @@ marshallese = {
 
 tuvaluan = {
 	color= hsv{ 0.35 0.38 0.83 }
-	religion = animist
+	religion = protestant
 	traits = { indigenous_oceanic_heritage polynesian_group }
 	male_common_first_names={
 		Aghurubw
@@ -10417,7 +10417,7 @@ tuvaluan = {
 
 new_caledonian = {
 	color= hsv{ 0.73 0.49 0.65 }
-	religion = animist
+	religion = catholic
 	traits = { polynesian_group indigenous_oceanic_heritage }
 	male_common_first_names={
 		Finau
@@ -10471,7 +10471,7 @@ new_caledonian = {
 
 fijian = {
 	color= hsv{ 0.85 0.47 0.73 }
-	religion = animist
+	religion = protestant
 	traits = { indigenous_oceanic_heritage polynesian_group }
 	male_common_first_names={
 		Epenisa
@@ -10524,7 +10524,7 @@ fijian = {
 
 wallisian_futunan = {
 	color= hsv{ 0.73 0.49 0.65 }
-	religion = animist
+	religion = catholic
 	traits = { polynesian_group indigenous_oceanic_heritage }
 	male_common_first_names={
 		Finau
@@ -10578,7 +10578,7 @@ wallisian_futunan = {
 
 kiribati = {
 	color= hsv{ 0.35 0.38 0.83 }
-	religion = animist
+	religion = protestant
 	traits = { indigenous_oceanic_heritage polynesian_group }
 	male_common_first_names={
 		Aghurubw
@@ -10632,7 +10632,7 @@ kiribati = {
 
 samoan = {
 	color= hsv{ 0.73 0.49 0.65 }
-	religion = animist
+	religion = protestant
 	traits = { polynesian_group indigenous_oceanic_heritage }
 	male_common_first_names={
 		Finau
@@ -10686,7 +10686,7 @@ samoan = {
 
 tongan = {
 	color= hsv{ 0.73 0.49 0.65 }
-	religion = animist
+	religion = protestant
 	traits = { polynesian_group indigenous_oceanic_heritage }
 	male_common_first_names={
 		Finau
@@ -10740,7 +10740,7 @@ tongan = {
 
 niue = {
 	color= hsv{ 0.73 0.49 0.65 }
-	religion = animist
+	religion = protestant
 	traits = { polynesian_group indigenous_oceanic_heritage }
 	male_common_first_names={
 		Finau
@@ -10794,7 +10794,7 @@ niue = {
 
 bougainvillean = {
 	color= hsv{ 0.85 0.47 0.73 }
-	religion = animist
+	religion = protestant
 	traits = { indigenous_oceanic_heritage polynesian_group }
 	male_common_first_names={
 		Epenisa
@@ -11118,7 +11118,7 @@ belgian = {
 
 seychellois = {
 	color= hsv{ 0.65 0.28 0.80 }
-	religion = sunni
+	religion = catholic
 	traits = { east_african_culture_group bantu african_heritage }
 	male_common_first_names={
 		Ahmed
@@ -11322,7 +11322,7 @@ comorian = {
 
 mauritian = {
 	color= hsv{ 0.65 0.28 0.80 }
-	religion = sunni
+	religion = hindu
 	traits = { east_african_culture_group bantu african_heritage }
 	male_common_first_names={
 		Ahmed
@@ -11979,6 +11979,118 @@ azawagh={
 		ag_Muhammad
 		ag_Sidi
 		al-Hajj
+	}
+	ethnicities = {
+		1 = african
+	}
+	graphics = african
+}
+
+reunionese = {
+	color= hsv{ 0.65 0.35 0.70 }
+	religion = catholic
+	traits = { east_african_culture_group bantu african_heritage }
+	male_common_first_names={
+		Achille Adolphe Adrien Aimable Alphonse Amedee Antoine Armand Auguste Augustin Alcide Andre Alexandre Athanase Abel Ambroise Aristide AlbE_ric Archambaud Alexis
+		Bertrand Bernardin Bernard Barthelemy
+		Charles Constant Camille Claude CE_lestin Christophe Cyprien
+		Daniel Denis Donat Dominique
+		Elie Eugene Edouard E_tienne Emile Emmanuel E_vrard ElzE_ar
+		Fernand Francois Frederic Felicien Felix Firmin Ferdinand
+		Georges Guillaume Gustave Gaston Guy Germain
+		Henri Hippolyte Hubert Hugo Hercule Hugues Hyacinthe
+		Jacques Jean Joseph Jules Julien Jeremie JE_rO_me Just
+		Lazare Louis Lucien Leopold_2 Leon Laurent Lazare LE_onide LE_once
+		Matthieu Michel Marcel Maximilien Maxime Maurice MoI_se
+		Napoleon Nicolas
+		Olivier Oscar Octave Odilon
+		Patrice Paul Philippe Pierre Prosper Pascal
+		Quentin
+		Robert Roland Rodolphe Raymond RenE_ RE_my
+		Sebastien Simon
+		Thibaut Thierry Thomas Theophile Theodore ThE_obald
+		Ulysse
+		Vincent Victor
+		Xavier
+		Yves
+	}
+	female_common_first_names = {
+		Adelaide_2 Adele_2 Alexandrine Amelie_2 Angelique Anne Antoinette Athenais Augustine
+		Beatrice Blanche
+		Camille Caroline Catherine Charlotte Claire Clemence Clotilde
+		Delphine Diane DesirE_e
+		Eleonore_2 Ernestine Eugenie Eulalie
+		Francoise
+		Gabrielle
+		Henriette Hortense
+		Jeanne Julie Juliette Justine
+		LE_ontine Leopoldine Louise Louise-Victorine
+		Marcelle Marguerite Marie Marie-Anne Marie-Felix Marthe Mathilde Melanie
+		Pauline Paule
+		SE_raphine Sibylle Sophie Stephanie Suzanne
+		Therese_2
+		Victoire Victorine Virginie
+	}	
+	noble_last_names = {
+		d_Aumont
+		Baraguey_d_Hilliers Bergeret de_Beauharnais de_Bussiere de_Broglie de_Boisdeffre
+		de_Chastellux de_Chodron_de_Courcel de_CambacE_rE_s de_Croy de_Castelnau de_Cools
+		Decazes de_Durfort
+		d_Essling
+		Fesch
+		Gros de_Gramont de_Guerin de_Gueydon de_Goyon
+		Kellermann
+		Lagrange de_Lamartine de_La_Luzerne de_Leuchtenberg de_Langle_de_Cary
+		Marbot de_MacMahon de_Montmorency-Laval Maret de_Morny MassE_na
+		de_Noailles Ney_d_Elchingen
+		Oudinot
+		Pasquier de_Pourtales de_Polignac de_Persigny PalE_ologue
+		de_La_Rochefoucauld de_Rochebouet de_Rohan-Chabot
+		Suchet de_Sabran de_Saulx de_SE_rent
+		de_Talleyrand-PE_rigord
+	}
+	common_last_names={
+		Anthoine Archinard Augereau Aucouturier Alavoine Achard Astouin Astaix Avond
+		Baraguey Bazaine Billot Bosquet Boulanger Bourbaki Boue_de_Lapeyrere Bouet-Willaumez Bugeaud Beaugendre Bronchard Baudet Bodinier Bouillet BiE_re Beslay Bac Bavoux Bezanson Bidard Bonnin Bougueret Boussingault Bouzique Buvignier
+		Caillard Canrobert Courbet Cousin-Mountauban de_Castellane Combes ClouE_ Cornet Colas Chauvet Carrere Chartier Combelles Chaude Colin Cruchon Cauvry ChaudE_ Collet Cottrel Charron Caudrelier Courcelles Cibiel Coquerel Coutenceau
+		Davout Depre Dubail Dubois Duchene Dupetit-Thouars Desbordes DelcassE_ Dortignacq Dargassies Desgrange Daumain Decaup Dozol Duboc Darche Deloffre Dutiron Denizot Dufour Devilly Dhers Dartigue Degy Delpech Daime Delaire DE_gousE_e Daix Delespaul Debrotonne Demortreux Denissel Desaincthorent Ducluzeau Dudouyt
+		Exelmans Emmery Esquirou
+		Foch Forey Franchet_d_Esperey Freycinet Faidherbe Fily Fleury Forestier Figuet Farconnet Ferrouillat Foucqueteau Favart Favand Freslon Fresneau
+		Gallieni Gouraud Guillaumat de_Gaulle Gain Georget Gabory Guillarme Garrigou Genin GE_raud Godivier Germain Gardent Goujon Gonnor Guyon 
+		Hamelin Harispe Hoche Humbert d_Hilliers Habierre Herbelin Harquet
+		Jamais Jaures Joffre JaurE_guiberry Jousselin
+		Lebouef Lyautey Leygoute Lignon Lallement Lacroix Lafourcade Le_Bars Lachaise Leman Lorillon Lecointe Langlade Leblanc Lagagner Leroy Lapize Lannelongue Lebon Lebelleguy Lubbert Luminais Luneau Lherbette Lortet
+		Marmontel Murat de_Montaignac Mazel Maitron ME_nager Meili Mathonat Marrast Madesclaire Malbois Mispoulet Milhoux Moutou
+		Niboyet Nivelle Nancy Neboux Nempon Nadaud Nourry Nachet Normant
+		Oudin Ory Osmont
+		Petain Pellissier Pothier Pasquier Pautrat Payan Passerieu Paulmier Ponson PiE_trois Pardon Paullian Perrenet Pigeon Pleignard Plocq
+		Quenon Quinet
+		Ringeval Roux Rabot Riviere Roche Riou Ricaux Roquebert Rottie Royannez Radoing Regembal Reibell Repellin Rouher Royol
+		Saget de_Saint_Arnaud SouliE_ Sobrier StE_venot Soubigou StoecklE_ Simiot Signard Saint-Beuve Saint-Romme
+		Trebutien Trousselier Tuvache Taschereau Tanchard Tassel Teulon Tixier Totain Trinchan
+		Vaillant Ventresque Villette Vivier Vaidis Vilette Voilquin Vilain Vignerte Vinoy Valladier Vavin Vendois Vergnes Vernhette Viox
+		Wattelier Winant Warnet Walferdin
+	}
+	male_regal_first_names={
+		Antoine
+		Charles
+		Ferdinand-Philippe Francois
+		Henri
+		Louis
+	}
+	female_regal_first_names={
+		Anne
+		ClE_mentine
+		Francoise
+		HE_lE_ne
+		Isabelle
+		Louise
+		Marie Marie_ThE_rE_se
+	}
+	regal_last_names={
+		d_Artois
+		Bonaparte de_Bourbon de_Bourbon-CondE_
+		d_Orleans
 	}
 	ethnicities = {
 		1 = african

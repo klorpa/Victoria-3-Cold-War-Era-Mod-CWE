@@ -70,7 +70,7 @@ british_decolonisation.1 = {
 	}
     
     option = {
-        name = british_decolonisation.option.1				# Grant them self-government
+        name = american_decolonisation.option.1				# Grant them self-government
         default_option = yes highlighted_option = yes
 		
 		#Release country
@@ -388,18 +388,20 @@ british_decolonisation.3 = {
 				effect_starting_politics_trade_policy_protectionism = yes
 				effect_starting_politics_anti_nuclear_policy = yes
 				
-				# CREATE leader for colony ****
+				#Create new leader
 				create_character = {
-					first_name = "guy_incognito_first_name"		# CHANGE
-					last_name = "guy_incognito_last_name"		# CHANGE
-					ruler = yes
-					#birth_date = 1910.1.1						# CHANGE
-					interest_group = ig_rural_folk					# CHANGE
-					ideology = ideology_democratic				# CHANGE
+					first_name = "Kwame_Nkrumah_first_name"
+					last_name = "Kwame_Nkrumah_last_name"
+					ruler = yes ig_leader = yes historical = yes
+					birth_date = 1909.9.21
+					interest_group = ig_rural_folk
+					ideology = ideology_autocratic
+					culture = cu:ghanaian
+					religion = rel:protestant
 					traits = {
-						charismatic								# CHANGE
-						persistent								# CHANGE
-						meticulous								# CHANGE
+						ambitious
+						charismatic
+						wrathful
 					}
 				}
 				
@@ -1135,17 +1137,20 @@ british_decolonisation.8 = {
 				
 				# CREATE leader for colony ****
 				create_character = {
-					first_name = "guy_incognito_first_name"		# CHANGE
-					last_name = "guy_incognito_last_name"		# CHANGE
-					ruler = yes
-					#birth_date = 1910.1.1						# CHANGE
-					interest_group = ig_rural_folk					# CHANGE
-					ideology = ideology_democratic				# CHANGE
+					first_name = "Julius_Nyerere_first_name"
+					last_name = "Julius_Nyerere_last_name"
+					ruler = yes ig_leader = yes historical = yes
+					birth_date = 1922.4.13
+					interest_group = ig_rural_folk
+					ideology = ideology_autocratic
+					culture = cu:tanganyikan
+					religion = rel:catholic
 					traits = {
-						charismatic								# CHANGE
-						persistent								# CHANGE
-						meticulous								# CHANGE
+						direct
+						charismatic
+						wrathful
 					}
+					on_created = { set_variable = Julius_Nyerere }
 				}
 				
 				# Set diplomatic recognition

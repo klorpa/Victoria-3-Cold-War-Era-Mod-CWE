@@ -2468,3 +2468,992 @@ historical_economy.28 = {
     }
 
 }
+
+# The European Welfare State
+historical_economy.29 = {
+    type = country_event
+
+    title = european_welfare_state.t 							# Title of the event; ADD LOCALISATION
+    desc = european_welfare_state.d 							# Description of the event; ADD LOCALISATION
+    #flavor = european_welfare_state.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/europenorthamerica_rich_and_poor.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		#Post WW2
+		game_date >= 1946.1.1
+		game_date < 1956.1.1
+		
+		# Event has not been fired before
+		NOT = { has_variable = european_welfare_state_hee }			# CHANGE ****
+		
+		#European countries only
+		country_is_in_europe = yes
+		
+		#No welfare state
+		NAND = { 
+			has_law = law_type:law_high_social_security
+			has_law = law_type:law_public_health_insurance
+			has_law = law_type:law_public_schools
+			has_law = law_type:law_compulsory_primary_school
+			has_law = law_type:law_taxation_5
+		}
+		
+		is_a_democracy = yes										# Correct gov types
+		is_sufficiently_independent = yes							# is_vassal = no
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = european_welfare_state_hee					# Change variable ****
+		
+	}
+	
+	option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Enact new regime
+		if = { 
+			limit = { 
+				NOT = { has_law = law_type:law_high_social_security }
+			}
+			activate_law = law_type:law_high_social_security
+		}
+		if = { 
+			limit = { 
+				NOT = { has_law = law_type:law_public_health_insurance }
+			}
+			activate_law = law_type:law_public_health_insurance
+		}
+		if = { 
+			limit = { 
+				NOT = { has_law = law_type:law_public_schools }
+			}
+			activate_law = law_type:law_public_schools
+		}
+		if = { 
+			limit = { 
+				NOT = { has_law = law_type:law_compulsory_primary_school }
+			}
+			activate_law = law_type:law_compulsory_primary_school
+		}
+		if = { 
+			limit = { 
+				NOT = { has_law = law_type:law_taxation_5 }
+			}
+			activate_law = law_type:law_taxation_5
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					has_law = law_type:law_command_economy
+					has_law = law_type:law_semi_command_economy
+					has_law = law_type:law_cooperative_ownership
+					has_law = law_type:law_state_capitalism
+					has_law = law_type:law_social_capitalism
+				}
+			}
+			activate_law = law_type:law_state_capitalism
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = large_radicals
+			strata = middle
+		}
+		add_radicals = {
+			value = very_large_radicals
+			strata = poor
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Iranian Economic Reforms
+historical_economy.30 = {
+    type = country_event
+
+    title = PER_ELR_Reforms.t 								# Title of the event; ADD LOCALISATION
+    desc = PER_ELR_Reforms.d 								# Description of the event; ADD LOCALISATION
+    #flavor = PER_ELR_Reforms.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:PER ?= this
+		game_date >= 1989.8.16									# START DATE: Date colony became self governing ****
+		game_date < 1999.8.16									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_theocratic_government = yes						# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		is_a_socialist_economy = yes
+		
+		# Event has not been fired before
+		NOT = { has_variable = PER_ELR_Reforms_hee }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = PER_ELR_Reforms_hee						# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Enact new regime
+		effect_starting_politics_economic_policy_interventionism = yes
+		
+		#Akbar Rafsanjani
+		create_character = {
+			first_name = "Akbar_Rafsanjani_first_name"
+			last_name = "Akbar_Rafsanjani_last_name"
+			ig_leader = yes historical = yes
+			birth_date = 1934.8.25
+			interest_group = ig_industrialists
+			ideology = ideology_power_hungry
+			traits = {
+				charismatic
+				innovative
+				persistent
+			}
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = very_large_radicals
+			strata = rich
+		}
+		add_radicals = {
+			value = large_radicals
+			strata = middle
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Israeli Economic Reforms
+historical_economy.31 = {
+    type = country_event
+
+    title = ISR_ELR_Reforms.t 								# Title of the event; ADD LOCALISATION
+    desc = ISR_ELR_Reforms.d 								# Description of the event; ADD LOCALISATION
+    #flavor = ISR_ELR_Reforms.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:ISR ?= this
+		game_date >= 1992.7.13									# START DATE: Date colony became self governing ****
+		game_date < 2002.7.13									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		is_a_socialist_economy = yes
+		
+		# Event has not been fired before
+		NOT = { has_variable = ISR_ELR_Reforms_hee }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = ISR_ELR_Reforms_hee						# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Enact new regime
+		effect_starting_politics_economic_policy_interventionism = yes
+		
+		#Yitzhak Rabin
+		create_character = {
+			first_name = "Yitzhak_Rabin_first_name"
+			last_name = "Yitzhak_Rabin_last_name"
+			ruler = yes ig_leader = yes historical = yes
+			birth_date = 1922.3.1
+			interest_group = ig_industrialists
+			ideology = ideology_democratic
+			culture = cu:israeli
+			religion = rel:jewish
+			traits = {
+				charismatic
+				innovative
+				persistent
+			}
+			on_created = { set_variable = Yitzhak_Rabin }
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = very_large_radicals
+			strata = rich
+		}
+		add_radicals = {
+			value = large_radicals
+			strata = middle
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Oil Crisis, 1973
+historical_economy.32 = {
+    type = country_event
+
+    title = oil_crisis_1973.t 										# Title of the event; ADD LOCALISATION
+    desc = oil_crisis_1973.d 										# Description of the event; ADD LOCALISATION
+    #flavor = oil_crisis_1973.f 										# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_factory_closed.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		#OPEC Leader
+		OR = { 
+			c:NEJ ?= this
+			has_modifier = OPEC_leader
+		}
+		game_date >= 1973.10.1
+		game_date < 1983.10.1
+		
+		is_a_regime_monarchy = yes									# Correct gov types
+		is_sufficiently_independent = yes							# is_vassal = no
+		
+		#Arab country
+		OR = { has_modifier = OPEC_member has_modifier = OPEC_leader }
+		any_primary_culture = { OR = { has_discrimination_trait = arab_speaking has_discrimination_trait = middle_eastern_heritage } }
+		
+		#Cause
+		exists = c:ISR
+		c:ISR ?= {
+			is_sufficiently_independent = yes
+			has_attitude = { who = c:EGY attitude = antagonistic }
+		}
+		exists = c:EGY
+		c:EGY ?= {
+			is_sufficiently_independent = yes
+			OR = { 
+				has_variable = yom_kippur_war_hiw
+				has_attitude = { who = c:ISR attitude = antagonistic }
+			}
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = oil_crisis_1973_hee }				# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = oil_crisis_1973_hee							# Change variable ****
+		
+	}
+	
+	option = {
+        name = historical_gov_changes.option.1						# Accept
+        highlighted_option = yes
+		
+		#Prestige
+		add_modifier = {
+			name = national_pride_modifier
+			years = 5
+			is_decaying = yes
+		}
+		
+		#Always clear everything first
+		every_country = {
+			limit = { 
+				OR = { 
+					has_modifier = OPEC_member 
+					has_modifier = OPEC_leader 
+				} 
+				any_primary_culture = { OR = { has_discrimination_trait = arab_speaking has_discrimination_trait = middle_eastern_heritage } }
+			}
+		
+			hidden_effect = {
+				every_scope_state = {
+					remove_modifier = very_low_OPEC_oil_quota
+					remove_modifier = low_OPEC_oil_quota
+					remove_modifier = medium_OPEC_oil_quota
+					remove_modifier = high_OPEC_oil_quota
+					remove_modifier = very_high_OPEC_oil_quota
+				}
+			}
+			
+			#Add quota to all oil producing states
+			every_scope_state = {
+				limit = { has_building = building_oil_rig }
+				add_modifier = { name = very_low_OPEC_oil_quota }
+			}
+			
+			#Inform country of change
+			trigger_event = { id = OPEC_system.8 }
+		}
+		
+		#Diplomatic effect
+		every_country = {
+			limit = { 
+				country_rank >= rank_value:great_power
+				is_a_democracy = yes 
+			}
+			change_relations = { who = ROOT value = -50 }
+		}
+		hidden_effect = {
+			every_country = {
+				limit = { 
+					country_rank < rank_value:great_power
+					is_a_democracy = yes 
+				}
+				change_relations = { who = ROOT value = -25 }
+			}
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2						# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = very_large_radicals
+			interest_group = ig:ig_devout
+		}
+		add_radicals = {
+			value = very_large_radicals
+			interest_group = ig:ig_landowners
+		}
+		add_modifier = { 
+			name = stirrings_of_revolution
+			months = 60 
+			is_decaying = yes 
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Oil Crisis, 1979
+historical_economy.33 = {
+    type = country_event
+
+    title = oil_crisis_1979.t 										# Title of the event; ADD LOCALISATION
+    desc = oil_crisis_1979.d 										# Description of the event; ADD LOCALISATION
+    #flavor = oil_crisis_1979.f 									# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_factory_closed.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+	
+		c:PER ?= this
+		game_date >= 1979.1.1
+		game_date < 1989.1.1
+		
+		is_a_theocratic_government = yes							# Correct gov types
+		is_sufficiently_independent = yes							# is_vassal = no
+		
+		#THIS produces Oil
+		has_building = building_oil_rig
+		
+		# Event has not been fired before
+		NOT = { has_variable = oil_crisis_1979_hee }				# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = oil_crisis_1979_hee							# Change variable ****
+		
+	}
+	
+	option = {
+        name = historical_gov_changes.option.1						# Accept
+        highlighted_option = yes
+		
+		#Disruption to oil production
+		every_scope_state = { 
+			if = { 
+				limit = { 
+					any_scope_building = { 
+						is_building_type = building_oil_rig 
+					} 
+				} 
+				remove_building = building_oil_rig 
+			} 
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2						# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = very_large_radicals
+			interest_group = ig:ig_trade_unions
+		}
+		add_radicals = {
+			value = very_large_radicals
+			interest_group = ig:ig_rural_folk
+		}
+		add_modifier = { 
+			name = stirrings_of_revolution
+			months = 60 
+			is_decaying = yes 
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Guatemala Decree 900
+historical_economy.34 = {
+    type = country_event
+
+    title = GUA_Land_Reforms.t 								# Title of the event; ADD LOCALISATION
+    desc = GUA_Land_Reforms.d 								# Description of the event; ADD LOCALISATION
+    #flavor = GUA_Land_Reforms.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:GUA ?= this
+		game_date >= 1952.6.17									# START DATE: Date colony became self governing ****
+		game_date < 1962.6.17									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes									# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		has_law = law_type:law_full_private_land_ownership
+		
+		# Event has not been fired before
+		NOT = { has_variable = GUA_Land_Reforms_hee }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = GUA_Land_Reforms_hee						# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Enact new regime
+		activate_law = law_type:law_limited_private_land_ownership
+		
+		set_variable = GUA_decree_600
+		
+		#Major discontent
+		add_radicals = {
+			value = very_large_radicals
+			interest_group = ig:ig_landowners
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = very_large_radicals
+			strata = poor
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Historical Oil Production
+historical_economy.35 = {
+    type = country_event
+
+    title = historical_oil_production.t 						# Title of the event; ADD LOCALISATION
+    desc = historical_oil_production.d 							# Description of the event; ADD LOCALISATION
+    #flavor = historical_oil_production.f 						# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		game_date >= 1950.1.1									# START DATE: Date colony became self governing ****
+		game_date < 1980.1.1									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		# Event has not been fired before
+		NOT = { has_variable = historical_oil_production_hee }	# CHANGE ****
+		
+		#Has oil production buildings
+		NOT = { has_building = building_oil_rig }
+		
+		#Has oil tech
+		has_technology_researched = tech_mining_2
+		
+		#Has oil
+		any_scope_state = {
+			has_potential_resource = bg_oil_extraction
+		}
+		
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		in_default = no
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = historical_oil_production_hee			# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Create oil industry
+		every_scope_state = {
+			limit = { has_potential_resource = bg_oil_extraction }
+			create_building = {
+				building = building_oil_rig
+				level = 1
+				reserves = 1
+				subsidized = yes
+			}
+			owner = { add_treasury = -10000 }
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Brexit
+historical_economy.36 = {
+    type = country_event
+
+    title = GBR_brexit.t 										# Title of the event; ADD LOCALISATION
+    desc = GBR_brexit.d 										# Description of the event; ADD LOCALISATION
+    #flavor = GBR_brexit.f 										# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_signed_contract.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:GBR ?= this
+		game_date >= 2016.6.23									# START DATE: Date colony became self governing ****
+		game_date < 2026.6.23									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_democracy = yes
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		#In EU
+		has_journal_entry = je_superstate_system
+		OR = { 
+			has_variable = superstate_free_trade_zone
+			has_variable = superstate_customs_union
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = GBR_brexit_hee }					# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = GBR_brexit_hee							# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Leave Superstate
+		activate_law = law_type:law_nationalist_fp
+		set_variable = brexit_done
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = medium_radicals
+			strata = poor
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Abenomics
+historical_economy.37 = {
+    type = country_event
+
+    title = JAP_ELR_Reforms.t 								# Title of the event; ADD LOCALISATION
+    desc = JAP_ELR_Reforms.d 								# Description of the event; ADD LOCALISATION
+    #flavor = JAP_ELR_Reforms.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:JAP ?= this
+		game_date >= 2012.12.26									# START DATE: Date colony became self governing ****
+		game_date < 2020.9.16									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_parliamentary_democracy = yes						# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		NAND = {
+			has_law = law_type:law_free_trade
+			has_law = law_type:law_interventionism
+			has_law = law_type:law_very_expansionary_monetary_policy
+			has_law = law_type:law_pro_industry_regulations
+			has_law = law_type:law_globalist_fp
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = JAP_ELR_Reforms_hee }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = JAP_ELR_Reforms_hee						# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Enact new regime
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_very_expansionary_monetary_policy
+		remove_variable = independent_central_bank
+		set_variable = { name = central_bank_timer years = 1 }
+		activate_law = law_type:law_pro_industry_regulations
+		activate_law = law_type:law_globalist_fp
+		
+		#Shinzo Abe
+		create_character = {
+			first_name = "Shinzo_Abe_first_name"
+			last_name = "Shinzo_Abe_last_name"
+			ruler = yes ig_leader = yes historical = yes
+			birth_date = 1954.9.21
+			interest_group = ig_industrialists
+			ideology = ideology_elitist
+			culture = cu:japanese
+			religion = rel:shinto
+			traits = {
+				charismatic
+				ambitious
+				innovative
+			}
+			on_created = { set_variable = Shinzo_Abe }
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = very_large_radicals
+			strata = rich
+		}
+		add_radicals = {
+			value = large_radicals
+			strata = middle
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
+
+# Philippines Economic Liberalisation
+historical_economy.38 = {
+    type = country_event
+
+    title = PHI_ELR_Reforms.t 								# Title of the event; ADD LOCALISATION
+    desc = PHI_ELR_Reforms.d 								# Description of the event; ADD LOCALISATION
+    #flavor = PHI_ELR_Reforms.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/southamerica_factory_opening.bk2" }
+
+    icon = "gfx/interface/icons/invention_icons/macroeconomics.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 		# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {													# What triggers the event, if using other events or journal entries leave empty
+		
+		#Overlord conditions
+		c:PHI ?= this
+		game_date >= 1992.6.30									# START DATE: Date colony became self governing ****
+		game_date < 2002.6.30									# END DATE: All historical events must not fire 10 years after the START DATE ****
+		
+		is_a_presidential_democracy = yes						# Correct gov types
+		is_sufficiently_independent = yes						# is_vassal = no		
+		is_at_war = no											# war = no
+		
+		NAND = {
+			has_law = law_type:law_free_trade
+			has_law = law_type:law_interventionism
+			has_law = law_type:law_pro_industry_regulations
+			has_law = law_type:law_globalist_fp
+		}
+		
+		# Event has not been fired before
+		NOT = { has_variable = PHI_ELR_Reforms_hee }			# CHANGE ****
+		
+    }
+	
+	immediate = {
+	
+		# Fire only once
+		set_variable = PHI_ELR_Reforms_hee						# Change variable ****
+		
+	}
+    
+    option = {
+        name = historical_gov_changes.option.1					# Accept
+        highlighted_option = yes
+		
+		#Enact new regime
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_pro_industry_regulations
+		activate_law = law_type:law_globalist_fp
+		
+		#Fidel V. Ramos
+		create_character = {
+			first_name = "Fidel_Ramos_first_name"
+			last_name = "Fidel_Ramos_last_name"
+			ruler = yes ig_leader = yes historical = yes
+			birth_date = 1928.3.18
+			interest_group = ig_industrialists
+			ideology = ideology_democratic
+			culture = cu:filipino
+			religion = rel:catholic
+			traits = {
+				innovative
+				charismatic
+				ambitious
+			}
+		}
+		
+		ai_chance = { 
+			base = 90 
+		}
+		
+    }
+	
+	option = {
+        name = historical_gov_changes.option.2					# Reject
+		default_option = yes
+		
+		#Major discontent
+		add_radicals = {
+			value = very_large_radicals
+			strata = rich
+		}
+		add_radicals = {
+			value = large_radicals
+			strata = middle
+		}
+		
+		ai_chance = { 
+			base = 10 modifier = { trigger = { has_global_variable = historical_railroading_active } add = -100 } 
+		}
+		
+    }
+
+}
