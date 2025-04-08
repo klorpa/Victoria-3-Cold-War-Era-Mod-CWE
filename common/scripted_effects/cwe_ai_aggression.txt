@@ -31,14 +31,20 @@ cwe_ai_aggression_factors = {
 	if = {
 		limit = { 
 			NOT = { has_modifier = nuclear_capability }
-			scope:target_country = { has_modifier = nuclear_capability } 
+			OR = { 
+				scope:target_country = { has_modifier = nuclear_capability }
+				scope:target_country.overlord ?= { has_modifier = nuclear_capability } 
+			}
 		}
 		add = -100			
 	}
 	if = {
 		limit = { 
 			has_modifier = nuclear_capability
-			scope:target_country = { has_modifier = nuclear_capability } 
+			OR = { 
+				scope:target_country = { has_modifier = nuclear_capability }
+				scope:target_country.overlord ?= { has_modifier = nuclear_capability } 
+			}
 		}
 		multiply = 0.1
 	}
@@ -163,6 +169,10 @@ cwe_ai_aggression_factors = {
 					}
 					has_diplomatic_pact = {
 						who = scope:target_country
+						type = guarantee_independence
+					}	
+					has_diplomatic_pact = {
+						who = scope:target_country
 						type = satellite
 					}
 					has_diplomatic_pact = {
@@ -170,7 +180,11 @@ cwe_ai_aggression_factors = {
 						type = dominion
 					}
 				}
-				army_size >= root.army_size
+				OR = { 
+					army_size >= root.army_size
+					has_modifier = nato_leader
+					has_modifier = warsaw_pact_leader
+				}
 			}
 		}
 		multiply = 0.1

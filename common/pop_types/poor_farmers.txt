@@ -1,7 +1,7 @@
 ﻿farmers = {
 	texture = "gfx/interface/icons/pops_icons/farmers.dds"
 	color = hsv{ 0.54 0.58 0.82 }
-	strata = poor
+	#strata = lower
 	start_quality_of_life = 10
 	paid_private_wage = yes wage_weight = 2
 	dependent_wage = 0.5	# per year
@@ -18,11 +18,17 @@
 			desc = "POP_STARVATION"	
 			
 			if = {
-				limit = { 
-					standard_of_living < 5
+				limit = {
+					is_in_mild_starvation = yes
 				}
-				value = 1
-			}		
+				value = 0.5
+			}
+			else_if = {
+				limit = {
+					is_in_severe_starvation = yes
+				}
+				value = 1.5
+			}
 		}
 		
 	}
@@ -44,19 +50,19 @@
 				}
 			}
 			multiply = {
-				value = 2
+				value = 100
 				desc = "QUALIFICATIONS_FAVORED_TYPE"
 			}
 		}
-		if = {
-			limit = {
-				is_peasant_under_serfdom = yes
-			}
-			multiply = {
-				value = 0.2
-				desc = "QUALIFICATIONS_PEASANTS_UNDER_SERFDOM"
-			}
-		}
+		#if = {
+		#	limit = {
+		#		is_peasant_under_serfdom = yes
+		#	}
+		#	multiply = {
+		#		value = 0.2
+		#		desc = "QUALIFICATIONS_PEASANTS_UNDER_SERFDOM"
+		#	}
+		#}
 	}
 	
 	portrait_age = {

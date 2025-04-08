@@ -112,6 +112,7 @@
     UN_secretary_general_notification_option:0 "Congratulations to [SCOPE.sCountry('unsg_country').GetName]!"
     
     unsg_country:0 "UN Secretary-General's Home Country"
+    unsg_character:0 "UN Secretary-General"
     
     un_sanctions_1:0 "UN Diplomatic Sanctions"
     un_sanctions_2:0 "UN Political Sanctions"
@@ -178,7 +179,7 @@
     un_mandate_creation.tt:0 "A UN $mandate$ is created over [SCOPE.sState('state_to_release').GetName]"
     UN_peacekeeping_resolution_mandate.t:0 "UN Dismantlement of [ROOT.GetCountry.GetName]"
     UN_peacekeeping_resolution_mandate.d:0 "As part of the UN Peacekeeping Mission, [ROOT.GetCountry.GetName] will be dismantled. This means that all [ROOT.GetCountry.GetAdjective] territories which it does not have a [concept_homeland] in will be granted self-rule through a United Nations Trust Territory arrangement."
-    UN_peacekeeping_resolution_mandate.f:0 "This event will fire until all [concept_homeland] states are released."
+    UN_peacekeeping_resolution_mandate.f:0 "This event will release a dynamic country tag in a [concept_state] which is not a [concept_homeland] of the [concept_primary_cultures] of [ROOT.GetCountry.GetName]."
     UN_peacekeeping_resolution_mandate.option:0 "We have no choice but to accept this."
     
     UN_peacekeeping_resolution_mandate_notice.t:0 "UN Trusteeship over [SCOPE.sCountry('UNT_mandate_country').GetName]?"
@@ -211,6 +212,7 @@
     IMF_loan_request.f:0 "Opting to provide a loan to [SCOPE.sCountry('imf_loan_debtor').GetName] will cause [ROOT.GetCountry.GetName] to either take on 5% of [SCOPE.sCountry('imf_loan_debtor').GetName]'s [Concept('concept_credit','$concept_credit_debt$')] in exchange for an [concept_obligation] or to start [Concept('concept_bankroll','$concept_bankrolling$')] [SCOPE.sCountry('imf_loan_debtor').GetName]."
     imf_loan_option.1:0 "We shall give them a loan."
     imf_loan_option.2:0 "We are financially challenged ourselves..."
+    imf_loan_option.3:0 "Don't bug me with this event anymore!"
     
     IMF_loan_terms.t:0 "IMF Economic Reforms"
     IMF_loan_terms.d:0 "A term of the loan agreement between the IMF and [SCOPE.sCountry('imf_loan_debtor').GetName] is that the debtor shall undertake a wholesale reform of its economic system to promote free markets and restrained government spending. The Government of [SCOPE.sCountry('imf_loan_debtor').GetName] is thus obligated to pass laws to open up its markets to the world, privatise its state run companies and rein in money printing."
@@ -230,7 +232,10 @@
     
     je_imf_system:0 "The International Monetary Fund"
     je_imf_system_reason:0 "The IMF was established in 1944 in the aftermath of the Great Depression of the 1930s with the purpose of building a framework for international economic cooperation. The IMF provides loans—including emergency loans—to member countries experiencing actual or potential balance of payments problems. The aim is to help them rebuild their international reserves, stabilise their currencies, continue paying for imports, and restore conditions for strong economic growth, while correcting underlying problems. \n\n#white Currency Strength:#! [SCOPE.GetRootScope.GetCountry.GetCustom('currency_strength_custom_loc')]"
-    je_imf_system_status:0 "Unclaimed Global [concept_sdr]:@money! [GetGlobalVariable('SDR_global_marketplace_amount_display').GetValue]M \nNational [concept_sdr]: @money![GetPlayer.MakeScope.Var('SDR_local_amount_display').GetValue]M \nGlobal [concept_sdr]: @money![GetPlayer.MakeScope.Var('SDR_global_amount_display').GetValue]M"
+    je_imf_system_status:0 "Unclaimed Global [concept_sdr]: @money![GetGlobalVariable('SDR_global_marketplace_amount_display').GetValue]M \nNational [concept_sdr]: @money![GetPlayer.MakeScope.Var('SDR_local_actual_amount_display').GetValue]M \nGlobal [concept_sdr]: @money![GetPlayer.MakeScope.Var('SDR_global_amount_display').GetValue]M"
+    
+    notification_imf_grateful_country_notification_name:0 "Gained [concept_relations] with [SCOPE.sCountry('grateful_imf_country').GetName]"
+    notification_imf_grateful_country_notification_desc:0 "[SCOPE.sCountry('grateful_imf_country').GetName] is grateful for [SCOPE.sCountry('this_imf_country').GetName]'s contribution to the global unclaimed [concept_sdr] pool. This has increased [SCOPE.sCountry('grateful_imf_country').GetAdjective] [concept_relations] with [SCOPE.sCountry('this_imf_country').GetName] by #Green 10#!"
     
     #[GetGlobalVariable('SDR_global_amount').GetValue]
     
@@ -243,6 +248,10 @@
     je_imf_system_request_loan_button:0 "Request IMF Bailout"
     je_imf_system_request_loan_button_desc:0 "[ROOT.GetCountry.GetName] will make a request to all IMF Creditors to either take on #white 5%#! of [ROOT.GetCountry.GetName]'s [Concept('concept_credit','$concept_credit_debt$')] in exchange for an [concept_obligation] or to start [Concept('concept_bankroll','$concept_bankrolling$')] [ROOT.GetCountry.GetName] in exchange for making structural reforms to its economy."
     
+    je_imf_system_request_loan_resume_button:0 "Resume IMF Lending"
+    je_imf_system_request_loan_resume_button_desc:0 "[ROOT.GetCountry.GetName] will inform the IMF that it is willing to give IMF loans to fellow IMF members from now on."
+    
+    
     je_imf_system_request_development_assistance_button:0 "Request Development Assistance"
     je_imf_system_request_development_assistance_button_desc:0 "[ROOT.GetCountry.GetName] will make a request to the IMF to provide it with long term interest free credit to fund development projects in the country."
     
@@ -251,20 +260,25 @@
     concept_sdr:0 "SDR"
     concept_sdr_desc:0 "The Special Drawing Rights (SDR) are international reserve assets created by the IMF to supplement the official reserves of its member countries.  The SDR is not a currency. It is a potential claim on the freely usable currencies of IMF members. As such, SDRs can provide a country with liquidity."
     
-    je_imf_system_buy_sdr_button:0 "Request [concept_sdr]"
-    je_imf_system_buy_sdr_button_desc:0 "[ROOT.GetCountry.GetName] will receive #green 1,000,000#! of [concept_sdr] contributed from other IMF members to increase its financial liquidity. \n\n@warning! The amount of [concept_gold_reserves] that [ROOT.GetCountry.GetName] will gain from receiving [concept_sdr] will depend on the strength of the [ROOT.GetCountry.GetAdjective] Currency and the strength of the [ROOT.GetCountry.GetAdjective] Currency is determined by the $lawgroup_monetary_policy$ [concept_law]."
+    je_imf_system_buy_sdr_button:0 "Convert [concept_sdr]"
+    je_imf_system_buy_sdr_button_desc:0 "[ROOT.GetCountry.GetName] will receive a [ROOT.GetCountry.GetAdjectiveNoFlag] Currency equivalent of #green 1,000,000#! of [concept_sdr] contributed from other IMF members to increase its financial liquidity. \n\n@warning! The amount of [concept_gold_reserves] that [ROOT.GetCountry.GetName] will gain from receiving [concept_sdr] will depend on the strength of the [ROOT.GetCountry.GetAdjective] Currency and the strength of the [ROOT.GetCountry.GetAdjective] Currency is determined by the $lawgroup_monetary_policy$ [concept_law]."
     
     je_imf_system_sell_sdr_button:0 "Contribute [concept_sdr]"
-    je_imf_system_sell_sdr_button_desc:0 "[ROOT.GetCountry.GetName] will allow #red 1,000,000#! of its [concept_sdr] to be used by other IMF members for their financial liquidity. \n\n@warning! The amount of [concept_gold_reserves] that [ROOT.GetCountry.GetName] will lose from contributing [concept_sdr] will depend on the strength of the [ROOT.GetCountry.GetAdjective] Currency and the strength of the [ROOT.GetCountry.GetAdjective] Currency is determined by the $lawgroup_monetary_policy$ [concept_law]."
+    je_imf_system_sell_sdr_button_desc:0 "[ROOT.GetCountry.GetName] will allow some of its [concept_gold_reserves] to be used by other IMF members as [concept_sdr]. \n\n@warning! The amount of [concept_gold_reserves] that [ROOT.GetCountry.GetName] will lose from contributing to the Global Unclaimed [concept_sdr] pool will depend on the strength of the [ROOT.GetCountry.GetAdjective] Currency and the strength of the [ROOT.GetCountry.GetAdjective] Currency is determined by the $lawgroup_monetary_policy$ [concept_law]."
     
     has_sufficient_SDR_in_marketplace.tt:0 "There is at least #yellow 1,000,000#! of unclaimed [concept_sdr]"
     THIS_has_sufficient_SDR.tt:0 "[ROOT.GetCountry.GetName] owns at least #yellow 1,000,000#! [concept_sdr]"
     
+    contribute_SDR.tt:0 "Contribute #green 1,000,000#! [concept_sdr] to Global Unclaimed [concept_sdr]"
+    
     spend_SDR.tt:0 "Lose #red 1,000,000#! [concept_sdr]"
     gain_SDR.tt:0 "Gain #green 1,000,000#! [concept_sdr]"
     
+    imf_obligation_random_imf_country.tt:0 "Gain an [concept_obligation] from a random IMF member state"
+    imf_relations_random_imf_country.tt:0 "Gain #green #BOLD 10#!#! [concept_relations] with a random IMF member state"
+    
     imf_sell_sdr_timer.tt:0 "Did not contribute [concept_sdr] in the last 1 month"
-    imf_buy_sdr_timer.tt:0 "Did not request [concept_sdr] in the last 1 month"
+    imf_buy_sdr_timer.tt:0 "Did not convert [concept_sdr] in the last 1 month"
     
     UN_imf_interest_rate.t:0 "Change in IMF Interest Rates"
     UN_imf_interest_rate.1.d:0 "The Chairman of the International Monetary Fund has announced a change to the interest rate on its loans to debtor countries. From now on, the interest rate will be VERY LOW."
@@ -626,6 +640,15 @@
     wto_expulsion.d:0 "The Membership of [ROOT.GetCountry.GetCountry] in the World Trade Organisation has been terminated."
     wto_expulsion.f:0 "This event fired because [ROOT.GetCountry.GetCountry] is either no longer sufficiently independent, non-isolationist or has high infamy."
     
+    je_wto_system: "The World Trade Organisation"
+    je_wto_system_reason: "The World Trade Organisation (WTO) is an intergovernmental organisation that regulates and facilitates international trade. The WTO facilitates trade in goods, services and intellectual property among participating countries by providing a framework for negotiating trade agreements, which usually aim to reduce or eliminate tariffs, quotas, and other restrictions. \n\nAs the WTO constantly updates its trade frameworks, the [concept_tariffs] reduction from the WTO varies every year. \n\nNote: The amount of [concept_tariffs] reduced depends on the global economic outlook."
+    
+    very_low_tariffs_wto_loc: "Very Low WTO Tariff Reduction"
+    low_tariffs_wto_loc: "Low WTO Tariff Reduction"
+    medium_tariffs_wto_loc: "Medium WTO Tariff Reduction"
+    high_tariffs_wto_loc: "Medium WTO Tariff Reduction"
+    very_high_tariffs_wto_loc: "Medium WTO Tariff Reduction"
+    
     ww2_victor:0 "Victor of World War 2"
     ww2_victor_desc:0 "This country was a major participant of World War 2 who won the war."
     longing_for_peace:0 "Longing for Peace"
@@ -947,6 +970,8 @@
     
     american_micronesia.sgc.t:0 "Self Rule in Micronesia?"
     american_micronesia.sgc.d:0 "$generic_self_rule_decolonisation_loc_desc$"
+    american_puerto_rico.sgc.t:0 "The Commonwealth of Puerto Rico?"
+    american_puerto_rico.sgc.d:0 "The United States government authorised Puerto Rico to draft its own constitution with the Puerto Rico Federal Relations Act of 1950. The Constitutional Assembly met for a period of several months between 1951 and 1952 in which the document was written. The law required the framers to follow only two basic requirements: a republican form of government and inclusion of a Bill of Rights."
     
     american_decolonisation.option.1:0 "Let the colony be self-governing"
     american_decolonisation.option.2:0 "They do not deserve any autonomy"
@@ -1065,8 +1090,10 @@
     IRQ_SYR_union.d:0 "In March 1972, Ba'athist Iraq proposed to Egypt and Syria a re-establishment of the United Arab Republic, which failed in 1963. The Iraqi proposal was an immediate reaction to Jordan's proposal for a United Arab Kingdom but collided with the already established Federation of Arab Republics and failed because of Iraqi–Syrian differences."
     UAR_NYE_union.t:0 "The United Arab States?"
     UAR_NYE_union.d:0 "The United Arab Republic was a sovereign state formed by the union of Egypt and Syria in 1958. The same year, the Kingdom of Yemen (North Yemen), which had already signed a defense pact with Egypt, joined with the new state on March 8, 1958, in a loose confederation called the United Arab States. One reason for this decision was that, for a long time, Yemen had felt threatened by its considerably larger and more powerful northern neighbour, Saudi Arabia, and thus saw the confederation as a source of security. However, unlike the member countries of the United Arab Republic, North Yemen remained an independent sovereign state."
-    GHA_GUI_union.t:0 "The Union of African States"
+    GHA_GUI_union.t:0 "The Union of African States?"
     GHA_GUI_union.d:0 "The Union of African States, sometimes called the Ghana–Guinea–Mali Union, was a short-lived and loose regional organization formed in 1958 linking the West African nations of Ghana and Guinea as the Union of Independent African States. Mali joined in 1961. It disbanded in 1963."
+    HZB_RSK_BOS_union.t:0 "The Dayton Agreement?"
+    HZB_RSK_BOS_union.d:0 "The Dayton Agreement is the peace agreement reached at Wright-Patterson Air Force Base near Dayton, Ohio, United States, finalised on 21 November 1995, and formally signed in Paris, on 14 December 1995. These accords put an end to the three-and-a-half-year-long Bosnian War, which was part of the much larger Yugoslav Wars.The warring parties agreed to peace and to a single sovereign state known as Bosnia and Herzegovina composed of two parts, the largely Serb-populated Republika Srpska and mainly Croat-Bosniak-populated Federation of Bosnia and Herzegovina. "
     
     historical_union_formation.option.1:0 "Yes"
     historical_union_formation.option.2:0 "No, we shall remain independent!"
@@ -1304,6 +1331,12 @@
     ISR_LEB_war.d:0 "On 11 March 1978, eleven PLO militants made a beach landing 30 km. south of Haifa, Israel, where they seized a bus, full of people, killing those on board in what is known as the Coastal Road massacre. In response, on 14 March 1978, Israel launched Operation Litani occupying southern Lebanon, except for the city of Tyre, with 25,000 troops."
     SYR_LEB_war.t:0 "The Syrian Invasion of Lebanon?"
     SYR_LEB_war.d:0 "On May 31, 1976, the Syrian Army invaded Lebanon with 2,000 troops and 60 tanks in a three-pronged offensive. The first column marched south across Shuf towards Sidon, where it was halted by PLO forces. The second column moved west along the Beirut–Damascus axis, before being stopped at Beirut. Another column moved north through the Bekaa valley, before then going west towards Tripoli, where it was stopped by Christian forces. The offensive had been halted by 10 June."
+    vietnam_war_1975.t:0 "The Spring Offensive?"
+    vietnam_war_1975.d:0 "US troops had mostly withdrawn from Vietnam by 1972, and the 1973 Paris Peace Accords saw the rest leave. The accords were broken almost immediately and fighting continued until the 1975 spring offensive and fall of Saigon to the PAVN, marking the war's end. North and South Vietnam were reunified in 1976."
+    ETH_SOM_border_war.t:0 "The Ethiopian–Somali Border War?"
+    ETH_SOM_border_war.d:0 "The Ethiopian–Somali Border War took place from June 1982 to August 1983, when Ethiopia launched a large-scale invasion of central Somalia. Backed by warplanes and armored units, Ethiopia deployed a 10,000-man force alongside thousands of Somali Salvation Democratic Front (SSDF) rebels. The operation initially aimed to advance all the way to the Somali coastline and ultimately overthrow the Barre regime. Despite their efforts, Ethiopian troops and SSDF guerrillas failed to capture the key cities of Galkayo and Beledweyne, as the Somali army successfully repelled the main assault. However, the conflict soon devolved into a military stalemate around the border towns of Galdogob and Balanbale."
+    USA_SOM_1993_war.t:0 "Operation Gothic Serpent?"
+    USA_SOM_1993_war.d:0 "Operation Gothic Serpent was a military operation conducted in Mogadishu, Somalia, by an American force code-named Task Force Ranger during the Somali Civil War in 1993. The primary objective of the operation was to capture Mohamed Farrah Aidid, leader of the Somali National Alliance who was wanted by the UNOSOM II in response to his attacks against United Nations troops. The operation took place from August to October 1993 and was led by US Joint Special Operations Command (JSOC). On 3 October 1993, the task force executed a mission to capture two of Aidid's lieutenants. The mission ultimately culminated in what became known as the Battle of Mogadishu. The battle was extremely bloody and the task force inflicted significant casualties on Somali militia forces, while suffering heavy losses themselves."
     
     korean_war:0 "The Korean War"
     portugal_india_war:0 "Annexation of Goa"
@@ -1348,6 +1381,8 @@
     
     HUN_1956_revolution.t:0 "The Hungarian Revolution?"
     HUN_1956_revolution.d:0 "The Hungarian Revolution of 1956 was an attempted countrywide revolution against the government of the Hungarian People's Republic (1949–1989) and the policies caused by the government's subordination to the Soviet Union (USSR). The uprising lasted 12 days before being crushed by Soviet tanks and troops on 4 November 1956."
+    HUN_2010_revolution.t:0 "The Rise of Viktor Orbán?"
+    HUN_2010_revolution.d:0 "Viktor Mihály Orbán is a Hungarian lawyer and politician who has been Prime Minister of Hungary since 2010. Since 2010, Orbán has undermined democracy, weakened judicial independence, and curtailed press freedom in Hungary. During Orbán's second premiership, several controversial constitutional and legislative reforms were made, including the 2013 amendments to the Constitution of Hungary."
     
     CZH_1968_revolution.t:0 "The Prague Spring?"
     CZH_1968_revolution.d:0 "The Prague Spring was a period of political liberalization and mass protest in the Czechoslovak Socialist Republic. It began on 5 January 1968, when reformist Alexander Dubček was elected First Secretary of the Communist Party of Czechoslovakia (KSČ), and continued until 21 August 1968, when the Soviet Union and most Warsaw Pact members invaded the country to suppress the reforms."
@@ -1370,6 +1405,8 @@
     NEJ_1964_revolution.d:0 "Under Saud's reign, Saudi Arabia joined the Non-Aligned Movement in 1961. However, Saud's inability to counter the Saudi national debt brought him into a power struggle with his half-brother and crown prince, Faisal, culminating in the forced abdication of Saud and the proclamation of Faisal as king. Saud went into exile and made an unsuccessful attempt, supported by some of his sons, to take back the throne."
     NEJ_1975_revolution.t:0 "The Assassination of King Faisal?"
     NEJ_1975_revolution.d:0 "On 25 March 1975, the King was shot point-blank and killed by Faisal bin Musaid, son of his half-brother Musaid bin Abdulaziz. He had just come back from the United States. The murder occurred at a majlis (literally 'a place for sitting'), an event where the king or leader opens up his residence to the citizens to enter and petition him."
+    NEJ_2005_revolution.t:0 "The Death of King Fahd"
+    NEJ_2005_revolution.d:0 "King Fahd was admitted to the King Faisal Specialist Hospital in Riyadh on 27 May 2005 in "stable but serious condition" for unspecified medical tests. An official (who insisted on anonymity) told the Associated Press unofficially that the king had died at 07:30 on 1 August 2005 at age 84. Official statement was announced on state television at 10:00 by Information Minister Iyad Madani."
     
     ALG_1965_revolution.t:0 "The Algerian coup d'état?"
     ALG_1965_revolution.d:0 "The 1965 Algerian coup d'état brought Colonel Houari Boumédiène to power as Chairman of the Revolutionary Council in Algeria. The bloodless coup d'état saw Algeria's first President, Ahmed Ben Bella, arrested and his closest supporters imprisoned by Boumédiène and his allies, principally in the Algerian Land Forces."
@@ -1385,8 +1422,27 @@
     EGY_2013_revolution.t:0 "Egyptian coup d'état?"
     EGY_2013_revolution.d:0 "The 2013 Egyptian coup d'etat took place on 3 July 2013. Egyptian army chief General Abdel Fattah al-Sisi led a coalition to remove the democratically elected President of Egypt Mohamed Morsi from power and suspended the Egyptian constitution of 2012. The move came after the military's ultimatum for the government to 'resolve its differences' with protesters during widespread national protests."
     
+    SYR_1949_revolution.t:0 "The Syrian coup d'état?"
+    SYR_1949_revolution.d:0 "The March 1949 Syrian coup d'état was a bloodless coup d'état that took place on 30 March. It was the first military coup in modern Syrian history and overthrew the country's democratically-elected government. It was led by the Syrian Army chief of staff, Husni al-Za'im, who became president of Syria on 11 April 1949. Among the officers who assisted al-Za'im's takeover were Sami al-Hinnawi and Adib al-Shishakli, both of whom in sequence would later also become military leaders of the country."
+    SYR_1954_revolution.t:0 "The Syrian coup d'état?"
+    SYR_1954_revolution.d:0 "Colonel Adib Shishakli came to power by a coup in December 1949, forming a military autocracy. As the leader of Syria, Adib Shishakli recognized the desires of Syria's Arab majority, and accordingly adopted a policy of pan-Arabism. The 1954 Syrian coup d'état took place in February of that year to overthrow the government of Adib Shishakli. Leading the anti-Shishakli movement were former President Atassi and the veteran Druze leader Sultan al-Atrash."
+    SYR_1955_revolution.t:0 "The Rise of Shukri al-Quwatli?"
+    SYR_1955_revolution.d:0 "Quwatli returned to Syria in 1955, following the ouster of President Adib al-Shishakli and during the presidency of Hashim al-Atassi. Quwatli entered his candidacy in the August 1955 presidential elections, at the age of 63. Required to secure a two-thirds majority in the 142-member Syrian Parliament in order to win, Quwatli defeated his main opponent Khalid al-Azm 89 to 42 in the first round. This prompted a second round of voting, in which Quwatli won the presidency with 91 votes against Azm's 41."
     SYR_1963_revolution.t:0 "The Syrian coup d'état?"
     SYR_1963_revolution.d:0 "The 1963 Syrian coup d'état was the seizure of power in Syria by the military committee of the Syrian Regional Branch of the Arab Socialist Ba'ath Party. The planning and the unfolding conspiracy of the Syrian Ba'athist operatives were prompted by the Ba'ath party's seizure of power in Iraq in February 1963."
+    SYR_1966_revolution.t:0 "The Syrian coup d'état?"
+    SYR_1966_revolution.d:0 "On 23 February 1966, al-Hafiz was overthrown by a radical Ba'athist faction headed by Chief of Staff Salah Jadid. A late warning telegram of the coup d'état was sent from Egyptian President Gamal Abdel Nasser to Nasim al-Safarjalani (The General Secretary of Presidential Council), on the early morning of the coup d'état. The coup sprung out of factional rivalry between Jadid's "regionalist" (qutri) camp of the Ba'ath Party, which promoted ambitions for a Greater Syria, and the more traditionally pan-Arab al-Hafiz faction, called the "nationalist" (qawmi) faction."
+    SYR_1970_revolution.t:0 "The Corrective Revolution?"
+    SYR_1970_revolution.d:0 "The Corrective Revolution was a bloodless coup d'état led by General Hafez al-Assad on 13 November 1970 in Syria. Assad proclaimed to sustain and improve the "nationalist socialist line" of the state and the Ba'ath party. Ba'ath party adopted an ideological revision, absolving itself of Salah Jadid's doctrine of exporting revolutions. The new doctrine placed emphasis on defeating Israel, by developing the Syrian military with the support of the Soviet Union."
+    SYR_2000_revolution.t:0 "The Death of Hafez al-Assad?"
+    SYR_2000_revolution.d:0 "On 10 June 2000, at the age of 69, Hafez al-Assad died of a heart attack while on the telephone with Lebanese prime minister al-Huss. After Hafez al-Assad's death, power was transferred to his son Bashar with the support of Ba'ath loyalists, making Syria the first Arab republic to establish a dynastic system."
+    SYR_2024_revolution.t:0 "Fall of the Ba'athist regime?"
+    SYR_2024_revolution.d:0 "On 8 December 2024, Ba'athist Syria, led by President Bashar al-Assad, collapsed during a major offensive by opposition forces. The offensive was spearheaded by Tahrir al-Sham and supported mainly by the Turkish-backed Syrian National Army as part of the ongoing Syrian civil war that began in 2011. The capture of Damascus marked the end of the Assad family's rule, which had governed Syria as a hereditary totalitarian regime since Hafez al-Assad assumed power in 1971 following the Corrective Revolution."
+    
+    LEB_1952_revolution.t:0 "The Rise of Camille Chamoun?"
+    LEB_1952_revolution.d:0 "When President Bechara El Khoury was forced to resign because of corruption allegations in 1952, Chamoun was elected to replace him. During Chamoun's presidency, Lebanon experienced an economic boom, in particular in the construction, banking and tourism sectors. He implemented a 1954 law on the creation of joint-stock companies and a 1956 law on banking secrecy."
+    LEB_1989_revolution.t:0 "The Taif Agreement?"
+    LEB_1989_revolution.d:0 "The Taif Agreement restructured the National Pact political system in Lebanon by transferring some of the power away from the Maronite Christian community, which had been given a privileged status in Lebanon under the period of French rule. After the Taif agreement the Prime Minister was responsible to the legislature, as in a traditional parliamentary system. Therefore, the agreement changed the power-sharing formula that had favoured the Christians to a 50:50 ratio and enhanced the powers of the Sunni Prime Minister over those of the Christian president."
     
     SUD_1969_revolution.t:0 "The Sudanese coup d'état?"
     SUD_1969_revolution.d:0 "The 1969 Sudanese coup d'état was a successful coup, led by Colonel Gaafar Nimeiry, against the government of President Ismail al-Azhari. The coup signaled the end of Sudan's second democratic era, and saw the beginning of Nimeiry's 16 year rule. Nimeiry's government would pursue a radical Arab nationalist and leftist program, bringing in a socialist program for social and economic development, including widespread nationalisation of private property."
@@ -1441,6 +1497,21 @@
     CUB_1959_revolution.t:0 "The Cuban Revolution?"
     CUB_1959_revolution.d:0 "The Cuban Revolution was an armed uprising led by Fidel Castro that eventually toppled the brutal dictatorship of Fulgencio Batista. The revolution began with a failed assault on Cuban military barracks on July 26, 1953, but by the end of 1958, the guerrilla revolutionaries in Castro’s 26th of July Movement had gained the upper hand in Cuba, forcing Batista to flee the island on January 1, 1959."
     
+    HAI_1946_revolution.t:0 "The Coup d'état?"
+    HAI_1946_revolution.t:0 "With his government near bankruptcy and struggling with a flagging economy, Lescot pleaded unsuccessfully with the United States for an extension on debt repayments. Relations between Lescot and Trujillo in the Dominican Republic broke down. By 1946, his attempts to muzzle the opposition press sparked fierce student demonstrations; a revolt broke out in Port-au-Prince. Lescot tried to order the Military Guard to break up the demonstrations, but was rebuffed. Convinced their lives were in danger, Lescot and his cabinet fled into exile. Dumarsais Estimé eventually succeeded Lescot as head of the republic, becoming Haiti's first black president since the US occupation."
+    HAI_1950_revolution.t:0 "The Coup d'état?"
+    HAI_1950_revolution.d:0 "In August 1946, Dumarsais Estimé was elected President of Haiti against Dantès Louis Bellegarde. Magloire then found himself in the opposition and created MOP (Mouvement Ouvrier Paysan). In May 1950, a coup d’état organized by a military junta overthrew the government of Estimé and placed its leader, Paul Magloire, as head of the country, where he would be elected to the presidency in October 1950. Estimé was shortly deposed and exiled by the Haitian army led by Franck Lavaud."
+    HAI_1957_revolution.t:0 "The Rise of François Duvalier?"
+    HAI_1957_revolution.d:0 "François Duvalier was a Haitian politician and voodooist who served as the president of Haiti from 1957 until his death in 1971. After thwarting a military coup d'état in 1958, his regime rapidly became more autocratic and despotic. An undercover government death squad, the Tonton Macoute, indiscriminately tortured or killed Duvalier's opponents. Duvalier further sought to solidify his rule by incorporating elements of Haitian mythology into a personality cult."
+    HAI_1971_revolution.t:0 "The Death of François Duvalier"
+    HAI_1971_revolution.d:0 "In April 1971, Jean-Claude Duvalier assumed the presidency of Haiti at the age of 19 upon the death of his father, François Duvalier, becoming the world's youngest president, as well as the only non-royal state leader under the age of 20."
+    HAI_1986_revolution.t:0 "The Fall of Jean-Claude Duvalier"
+    HAI_1986_revolution.d:0 "A revolt began in the provinces in 1985. The city of Gonaïves was the first to have street demonstrations and raids on food-distribution warehouses. From October 1985 to January 1986, the protests spread to six other cities, including Cap-Haïtien. Duvalier fled the country on 7 February 1986."
+    HAI_1994_revolution.t:0 "The Return of Democracy"
+    HAI_1994_revolution.d:0 "In September 1994, the United States negotiated the departure of Haiti's military leaders and the peaceful entry of 20,000 US troops under Operation Uphold Democracy. This enabled the restoration of the democratically elected Jean-Bertrand Aristide as president, who returned to Haiti in October to complete his term. As part of the deal Aristide had to implement free market reforms in an attempt to improve the Haitian economy, with mixed results."
+    HAI_2004_revolution.t:0 "The Coup d'état?"
+    HAI_2004_revolution.d:0 "A coup d'état in Haiti on 29 February 2004, following several weeks of conflict, resulted in the removal of President Jean-Bertrand Aristide from office. On 5 February, a rebel group, called the National Revolutionary Front for the Liberation and Reconstruction of Haiti, took control of Haiti's fourth-largest city, Gonaïves. By 22 February, the rebels had captured Haiti's second-largest city, Cap-Haïtien and were besieging the capital, Port-au-Prince by the end of February. On the morning of 29 February, Aristide resigned under controversial circumstances and was flown from Haiti by U.S. military and security personnel."
+    
     DOM_1961_revolution.t:0 "The Assassination of Rafael Trujillo?"
     DOM_1961_revolution.d:0 "On 30 May 1961, Rafael Trujillo was assassinated by a group of conspirators led by general Antonio Imbert Barrera. In the immediate aftermath, Trujillo's son Ramfis took temporary control of the country, executing most of the conspirators. By November 1961, the Trujillo family was pressured into exile by the titular president Joaquín Balaguer, who introduced reforms to open up the regime. The murder ushered in civil strife which concluded with the Dominican Civil War and a US-OAS intervention, eventually stabilised under a multi-party system in 1966."
     DOM_1963_revolution.t:0 "The Election of Juan Bosch?"
@@ -1473,10 +1544,22 @@
     ARAB_2011_revolution.t:0 "The Arab Spring?"
     ARAB_2011_revolution.d:0 "The Arab Spring was a series of anti-government protests, uprisings and armed rebellions that spread across much of the Arab world in the early 2010s. It began in Tunisia in response to corruption and economic stagnation. From Tunisia, the protests then spread to five other countries: Libya, Egypt, Yemen, Syria and Bahrain. The wave of initial revolutions and protests faded by mid-2012, as many Arab Spring demonstrations were met with violent responses from authorities, pro-government militias, counterdemonstrators, and militaries."
     
+    TUR_1950_revolution.t:0 "The Election of Celâl Bayar?"
+    TUR_1950_revolution.d:0 "In the first free elections in Turkish history, the Democrats won the 1950 general election with a 53% popular mandate. Though Bayar didn't aspire to become president, parliament elected him as president of Turkey on 22 May 1950. During Bayar's presidency relations with the Western bloc improved and after the Turkish Straits Crisis, Turkey joined the Korean War in 1951[19] and then NATO in February 1952. During ten-years of Democrat rule, Turkish society went through deep transformations. An inflationary economic policy encouraging private enterprise was followed, though the role of the state was not reduced. Political participation increased, leading to a large cadre of Anatolians entering politics and business. Although secularism was not abandoned, the explicitly secularist policy of the one-party regime was abandoned."
     TUR_1960_revolution.t:0 "The Turkish coup d'état?"
     TUR_1960_revolution.d:0 "The 1960 Turkish coup d'état was the first coup d'état in the Republic of Turkey. It took place on May 27, 1960. The coup was staged by a group of 38 young Turkish military officers, acting outside the military chain of command. A month after the execution of Menderes and other members of the Turkish government, general elections were held on 15 October 1961. The administrative authority was returned to civilians, but the military continued to dominate the political scene until October 1965."
+    TUR_1966_revolution.t:0 "The Rise of Cevdet Sunay?"
+    TUR_1966_revolution.d:0 "When Gürsel's presidency was terminated due to ill health in accordance with the constitution, Cevdet Sunay was elected 5th president by the Grand National Assembly of Turkey on 28 March 1966. He maintained his office despite increasing terrorist activity, student riots, and threatened coups. He served the constitutional term of seven years until 28 March 1973 and became then a permanent senator."
+    TUR_1971_revolution.t:0 "The Turkish Military Memorandum?"
+    TUR_1971_revolution.d:0 "The 1971 Turkish military memorandum, issued on 12 March that year, was the second military intervention to take place in the Republic of Turkey, coming 11 years after its 1960 predecessor. It is known as the "coup by memorandum", which the military delivered in lieu of sending out tanks, as it had done previously. The event came amid worsening domestic strife, but ultimately did little to halt this phenomenon."
+    TUR_1980_revolution.t:0 "The Turkish Coup d'état?"
+    TUR_1980_revolution.d:0 "The 1980 Turkish coup d'état, headed by Chief of the General Staff General Kenan Evren, was the third coup d'état in the history of the Republic of Turkey, the previous having been the 1960 coup and the 1971 coup by memorandum. For the next three years the Turkish Armed Forces ruled the country through the National Security Council, before democracy was restored with the 1983 Turkish general election. This period saw an intensification of the Turkish nationalism of the state, including banning the Kurdish language. Turkey partially returned to democracy in 1983 and fully in 1989."
     TUR_1983_revolution.t:0 "Return to Democracy?"
     TUR_1983_revolution.d:0 "General elections were held in Turkey on 6 November 1983, the first since 1977 after democratic rights were abandoned after the military coup of 1980. The National Security Council banned the previous political parties from participating, leading to the establishment of new parties. Turgut Özal's Motherland Party (ANAP) won a significant victory in this elections by gaining 45.14% of the votes."
+    TUR_2014_revolution.t:0 "The Rise of Recep Tayyip Erdoğan?"
+    TUR_2014_revolution.d:0 "In 2014, Erdoğan became the country's first directly elected president. Erdoğan's presidency has been marked by democratic backsliding and a shift towards a more authoritarian style of government. His economic policies have led to high inflation rates and the depreciation of the value of the Turkish lira. He has intervened in the ongoing conflicts in Syria and Libya, launched operations against the Islamic State, Syrian Democratic Forces and Assad's forces, and has made threats against Greece."
+    TUR_2017_revolution.t:0 "The Turkish Constitutional Referendum?"
+    TUR_2017_revolution.d:0 "A constitutional referendum was held in Turkey on 16 April 2017 on whether to approve 18 proposed amendments to the Turkish constitution that were brought forward by the governing Justice and Development Party (AKP) and the Nationalist Movement Party (MHP). As a result of its approval, the office of Prime Minister was abolished and the existing parliamentary system of government was replaced with an executive presidency and a presidential system. The number of seats in Parliament was raised from 550 to 600, while, among a series of other proposals, the president was given more control over appointments to the Supreme Board of Judges and Prosecutors (HSYK)."
     
     PER_1949_revolution.t:0 "The Constituent Assembly Election?"
     PER_1949_revolution.d:0 "The Shah had been considering changes to the Constitution as part of his various plans to increase the power of the monarchy. The Shah called for a constituent assembly to make amendments to the Constitution, to give him more power. He selected the constituent assembly members from his supporters. He also increased his pressure for the formation of the Senate of Iran, an upper house of parliament that had been written into the constitution in 1906 but never formed. The Senate was expected to favor the Shah. The Constituent Assembly met for three weeks beginning 21 April 1949. On 8 May 1949, they signed the major change to the Constitution."
@@ -1550,6 +1633,15 @@
     GUA_1986_revolution.t:0 "The Return of Democracy?"
     GUA_1986_revolution.d:0 "In the first round of the 1985 presidential elections on 3 November, Cerezo came first with 38.6% of the popular vote. In the second round on 8 December, he defeated Jorge Carpio with 68.4% of the vote. The DCG gained 51 of the 100 seats in Congress and a majority in many municipalities nationwide. He was the first democratically elected president and civilian to take office since 1966."
     
+    HON_1957_revolution.t:0 "The Election of Ramón Villeda Morales?"
+    HON_1957_revolution.d:0 "Ramón Villeda Morales was a liberal who supported the democratization of Honduras after a long period of military rule. He was the Liberal Party candidate in the 1954 presidential election, the first free election for over two decades, winning a plurality over a divided National Party but falling short of a majority."
+    HON_1963_revolution.t:0 "The Coup of Oswaldo López?"
+    HON_1963_revolution.d:0 "The 1963 Honduran coup d'état was a military takeover of the Honduran government on 3 October 1963, ten days before a scheduled election. Oswaldo López Arellano replaced Ramón Villeda Morales as president and initiated two decades of military rule."
+    HON_1975_revolution.t:0 "The Overthrow of Oswaldo López?"
+    HON_1975_revolution.d:0 "The 1975 Honduran coup d'état took place on 22 April 1975, with Oswaldo López Arellano being ousted in a military coup led by his fellow General Juan Alberto Melgar Castro. The coup was prompted in part by the "Bananagate" scandal, exposed by the U.S. Securities and Exchange Commission in 1975, in which the United Brands Company agreed to bribe President López with US$1.25 million, and the promise of another $1.25 million upon the reduction of certain banana export taxes."
+    HON_1982_revolution.t:0 "The Return of Democracy?"
+    HON_1982_revolution.d:0 "In 1979, the country returned to civilian rule. A constituent assembly was popularly elected in April 1980 to write a new constitution, and general elections were held in November 1981. The constitution was approved in 1982 and the PLH government of Roberto Suazo won the election with a promise to carry out an ambitious program of economic and social development to tackle the recession in which Honduras found itself."
+    
     PNM_1968_revolution.t:0 "The Coup of Omar Torrijos?"
     PNM_1968_revolution.d:0 "Omar Efraín Torrijos Herrera was a Panamanian dictator, as well as the Commander of the Panamanian National Guard and military leader of Panama from 1968 to his death in 1981. Torrijos was never officially the president of Panama, but instead held titles including 'Maximum Leader of the Panamanian Revolution'. Torrijos took power in a coup d'état and instituted a number of social reforms."
     
@@ -1579,6 +1671,8 @@
     SPA_1976_revolution.t:0 "Spanish Transition to Democracy?"
     SPA_1976_revolution.d:0 "The Spanish transition to democracy is a period of modern Spanish history encompassing the regime change that moved from the Francoist dictatorship to the consolidation of a parliamentary system, in the form of constitutional monarchy under Juan Carlos I."
     
+    POR_1968_revolution.t:0 "The Rise of Marcelo Caetano?"
+    POR_1968_revolution.d:0 "In August 1968, Salazar suffered a stroke after a fall in his home and went into a coma. After 36 years in office, the 79-year-old was dismissed by President Américo Tomás. Tomás appointed Caetano to replace Salazar on 27 September 1968. Caetano moved to foster economic growth and some social improvements, such as the awarding of a monthly pension to rural workers who had never had the chance to pay social security."
     POR_1974_revolution.t:0 "The Carnation Revolution?"
     POR_1974_revolution.d:0 "The Carnation Revolution was a military coup by left-leaning military officers that overthrew the authoritarian Estado Novo government on 25 April 1974 in Lisbon, producing major social, economic, territorial, demographic, and political changes in Portugal and its overseas colonies through the Processo Revolucionário Em Curso. It resulted in the Portuguese transition to democracy and the end of the Portuguese Colonial War."
     
@@ -1643,10 +1737,18 @@
     POL_1981_revolution.t:0 "The Martial Law?"
     POL_1981_revolution.d:0 "On 11 February 1981, Jaruzelski was named Chairman of the Council of Ministers (Prime Minister). On 18 October, Stanisław Kania was ousted as First Secretary of the Central Committee of the Polish United Workers' Party after a listening device recorded him criticising the Soviet leadership. Jaruzelski was elected his successor. On 13 December 1981, Jaruzelski announced the introduction of martial law in a televised speech, following the vote of the Council of State the previous day which formally authorised its introduction."
     
-    IRQ_1958_revolution.t:0 "The July Revolution?"
+    IRQ_1958_revolution.t:0 "The 14 July Revolution?"
     IRQ_1958_revolution.d:0 "The 14 July Revolution, also known as the 1958 Iraqi military coup, was a coup d'état that took place on 14 July 1958 in Iraq which resulted in the toppling of King Faisal II and the overthrow of the Hashemite-led Kingdom of Iraq. The Iraqi Republic established in its wake ended the Hashemite Arab Federation between Iraq and Jordan that had been established just six months earlier."
+    IRQ_1963_revolution.t:0 "The Ramadan Revolution?"
+    IRQ_1963_revolution.d:0 "The Ramadan Revolution was a military coup by the Iraqi branch of the Ba'ath Party which overthrew the Prime Minister of Iraq, Abdul-Karim Qasim in 1963. It took place between 8 and 10 February 1963. Qasim's former deputy, Abdul Salam Arif, who was not a Ba'athist, was given the largely ceremonial title of President, while prominent Ba'athist general Ahmed Hassan al-Bakr was named Prime Minister. The government lasted approximately nine months, until Arif disarmed the National Guard in the November 1963 Iraqi coup d'état, which was followed by a purge of Ba'ath Party members."
+    IRQ_1966_revolution.t:0 "The Death of Abdul Salam Arif?"
+    IRQ_1966_revolution.d:0 "On 13 April 1966, Arif was killed in the crash of Iraqi Air Force de Havilland DH.104 Dove 1, RF392, in southern Iraq about 10 kilometres from Basra Airport, and was replaced as president by his brother Abdul Rahman. Abd al-Rahman al-Bazzaz became acting president for three days, and a power struggle for the presidency occurred. In the first meeting of the Defense Council and cabinet to elect a president, Al-Bazzaz needed a two-thirds majority to win the presidency. Al-Bazzaz was unsuccessful, and Abdul Rahman Arif was elected president."
+    IRQ_1968_revolution.t:0 "The 17 July Revolution?"
+    IRQ_1968_revolution.d:0 "The 17 July Revolution was a bloodless coup in Iraq in 1968 led by Ahmed Hassan al-Bakr, Abd ar-Razzaq an-Naif, and Abd ar-Rahman al-Dawud that ousted President Abdul Rahman Arif and Prime Minister Tahir Yahya and brought the Iraqi Regional Branch of the Arab Socialist Ba'ath Party to power. Ba'athists involved in the coup as well as the subsequent purge of the moderate faction led by Naif included Hardan al-Tikriti, Salih Mahdi Ammash, and Saddam Hussein, the future President of Iraq."
     IRQ_1979_revolution.t:0 "Ba'athist Iraq?"
     IRQ_1979_revolution.d:0 "By the mid-1970s, Saddam Hussein, through his post as chief of the party's intelligence services, became the country's de facto leader, despite al-Bakr's de jure presidency. Under Saddam's new policies, both the Iraqi economy and citizens' standard of living grew, and Iraq's standing within the Arab world increased significantly."
+    IRQ_2003_revolution.t:0 "Trial of Saddam Hussein?"
+    IRQ_2003_revolution.d:0 "In 2003, a US-led coalition invaded Iraq, falsely accusing Saddam of developing weapons of mass destruction and of having ties with al-Qaeda. After the quick coalition victory in the war, the Ba'ath Party was banned and Saddam went into hiding. After his capture on 13 December 2003, his trial took place under the Iraqi Interim Government. On 5 November 2006, Saddam was convicted by the Iraqi High Tribunal of crimes against humanity related to the 1982 Dujail massacre of over 140 Shia Muslims and sentenced to death by hanging. He was executed on 30 December 2006."
     
     LBY_1969_revolution.t:0 "The al-Fateh Revolution?"
     LBY_1969_revolution.d:0 "The 1969 Libyan revolution, also known as the al-Fateh Revolution or 1 September Revolution, was a coup d'état and revolution carried out by the Free Officers Movement, led by Colonel Muammar Gaddafi, which overthrew the Senussi monarchy of King Idris I and resulted in the formation of the Libyan Arab Republic."
@@ -1668,6 +1770,10 @@
     SOM_1969_revolution.d:0 "The Somali Democratic Republic was the name that the socialist military government gave to Somalia under President Major General Mohamed Siad Barre, after seizing power in a coup d'état on 21 October 1969. The coup came a few days after a bodyguard assassinated Abdirashid Shermarke, the nation's second President. Barre's administration ruled Somalia for the next 21 years until Somalia collapsed into civil war in 1991."
     SOM_1991_revolution.t:0 "Collapse of the Somali Democratic Republic?"
     SOM_1991_revolution.d:0 "The Somali Rebellion was the beginning of the civil war in Somalia that occurred in the 1980s and early 1990s. The rebellion started in 1978 when President Siad Barre began using his special forces to attack clan-based dissident groups opposed to his regime. The dissidents had been becoming more powerful for nearly a decade following his abrupt switch of allegiance from the Soviet Union to the United States and the disastrous 1977-78 Ogaden War. When Barre was injured in an automobile accident on May 23, 1986, rivals within his own government and from opposition groups became bolder and entered into open conflict. Siad Barre's flight from the capital, on January 26, 1991, marked a distinct shift in the conflict."
+    SOM_1993_revolution.t:0 "The Somali Civil War?"
+    SOM_1993_revolution.d:0 "In 1990–92, customary law temporarily collapsed, and factional fighting proliferated. In the absence of a central government, Somalia became a "failed state". This precipitated the arrival of UNOSOM I UN military observers in July 1992, followed by the larger UNITAF and UNOSOM II missions. Following an armed conflict between Somali insurgents and UNOSOM II troops during 1993, the UN withdrew from Somalia in 1995."
+    SOM_1995_revolution.t:0 "The Fall of Mohamed Farrah Aidid?"
+    SOM_1995_revolution.d:0 "Along with other armed opposition groups in early 1991, Mohamed Farrah Aidid succeeded in toppling President Barre's 22 year old regime, leading to the full outbreak of the civil war. Aidid possessed aspirations for presidency of the new Somali government, and sought alliances and unions with other politico-military organisations in order to form a national government. Following the 5 June 1993 clash that resulted in the death of dozens of UNOSOM II troops, the SNA—and by extension, Aidid—were blamed, causing him to become one of the first wanted men of the United Nations. After the US-led 12 July 1993 Bloody Monday raid, which resulted in the death of many eminent members of his Habr Gidr clan, Aidid began deliberately targeting American troops for the first time. President Bill Clinton responded by implementing Operation Gothic Serpent, and deploying Delta Force and Task Force Ranger to capture him. During a battle in Mogadishu between his militia and the forces of his former ally Osman Ali Atto, Aidid was fatally wounded by a sniper and later died on 2 August 1996."
     
     CAR_1965_revolution.t:0 "Saint-Sylvestre coup d'état?"
     CAR_1965_revolution.d:0 "The Saint-Sylvestre coup d'état was a coup d'état staged by Jean-Bédel Bokassa, commander-in-chief of the Central African Republic (CAR) army, and his officers against the government of President David Dacko on 31 December 1965 and 1 January 1966."
@@ -1717,8 +1823,28 @@
     ETH_1991_revolution.t:0 "Fall of the Derg?"
     ETH_1991_revolution.d:0 "The fall of the Derg was a military campaign that resulted in the defeat of the ruling military junta, called the Derg by the rebel coalition Ethiopian People's Revolutionary Democratic Front (EPRDF) on 28 May 1991 in Addis Ababa, ending the Ethiopian Civil War."
     
-    ANG_1991_revolution.t:0 "Transition to Democracy?"
+    ANG_1975_revolution.t:0 "The People's Republic of Angola?"
+    ANG_1975_revolution.d:0 "The People's Republic of Angola was the self-declared socialist state which governed Angola from its independence in 1975 until 25 August 1992, during the Angolan Civil War. It was led by the People's Movement for the Liberation of Angola, which won the civil war and has since governed the country as a social democratic republic."
+    ANG_1979_revolution.t:0 "Presidency of José Eduardo dos Santos?"
+    ANG_1979_revolution.d:0 "José Eduardo Van-Dúnem dos Santos was an Angolan politician and military officer who served as the second president of Angola from 1979 to 2017. As president, dos Santos was also the commander-in-chief of the Angolan Armed Forces (FAA) and president of the People's Movement for the Liberation of Angola (MPLA), the party that has ruled Angola since it won independence in 1975. By the time he stepped down in 2017, he was the second-longest-serving president in Africa, surpassed only by Teodoro Obiang Nguema Mbasogo of Equatorial Guinea."
+    ANG_1991_revolution.t:0 "The Bicesse Accords?"
     ANG_1991_revolution.d:0 "The Bicesse Accords, also known as the Estoril Accords, laid out a transition to multi-party democracy in Angola under the supervision of the United Nations' UNAVEM II mission. President José Eduardo dos Santos of the MPLA and Jonas Savimbi of UNITA signed the accord in Lisbon, Portugal on May 31, 1991."
+    ANG_2017_revolution.t:0 "Presidency of João Lourenço?"
+    ANG_2017_revolution.d:0 "João Manuel Gonçalves Lourenço is an Angolan politician who is currently serving as the third president of Angola since 26 September 2017.[4] Previously, he was the minister of defence from 2014 to 2017. In September 2018, he became the chairman of the People's Movement for the Liberation of Angola (MPLA), the ruling party. He was the party's secretary-general from 1998 to 2003."
+    
+    MOZ_1975_revolution.t:0 "The People's Republic of Mozambique?"
+    MOZ_1975_revolution.d:0 "The People's Republic of Mozambique was a socialist state that existed in present-day Mozambique from 1975 to 1990. It was established when the country gained independence from Portugal in June 1975 and the Mozambican Liberation Front ("FRELIMO") established a one-party socialist state led by Samora Machel."
+    MOZ_1986_revolution.t:0 "Presidency of Joaquim Alberto Chissano?"
+    MOZ_1986_revolution.d:0 "Chissano succeeded to the presidency and became FRELIMO party leader in 1986 when Samora Machel's presidential aircraft crashed in mountainous terrain in South Africa. Chissano ended the Mozambican Civil War in 1992 by negotiating a peace treaty with the rebel forces that "promised no prosecutions or punishments" and gave them 50% of the positions in the Mozambican army."
+    MOZ_1990_revolution.t:0 "The New Constitution?"
+    MOZ_1990_revolution.d:0 "Machel's successor Joaquim Chissano implemented sweeping changes in the country, starting reforms such as changing from Marxism to capitalism and began peace talks with RENAMO. The new constitution enacted in 1990 provided for a multi-party political system, a market-based economy, and free elections. That same year, Mozambique abolished the people's republic as the country's official name."
+    MOZ_1994_revolution.t:0 "The Transition to Democracy?"
+    MOZ_1994_revolution.d:0 "General elections were held in Mozambique between 27 and 29 October 1994 to elect a president and the Assembly of the Republic. It was the first time the country had had multi-party elections, as previously FRELIMO had been the sole legal party. Nevertheless, FRELIMO maintained control of the country's political system, winning both elections."
+    
+    GNB_1973_revolution.t:0 "The People's Republic of Guinea-Bissau?"
+    GNB_1973_revolution.d:0 "The African Party for the Independence of Guinea and Cape Verde turned to armed conflict in the 1960s and was one of the belligerents in the Guinea-Bissau War of Independence. Towards the end of the war, the party established a socialist one-party state, which remained intact until multi-party democracy was introduced in the early 1990s."
+    GNB_1994_revolution.t:0 "The Transition to Democracy?"
+    GNB_1994_revolution.d:0 "General elections were held in Guinea-Bissau on 3 July 1994, with a second round for the presidential election on 7 August. They were the first multi-party elections since independence, and also the first time the president had been directly elected, as previously the post had been elected by the National People's Assembly. In the presidential election, the result was a victory for incumbent João Bernardo Vieira of the African Party for the Independence of Guinea and Cape Verde (PAIGC), who defeated Kumba Ialá of Social Renewal Party in the second round."
     
     LIB_1971_revolution.t:0 "Liberalisation of Liberia?"
     LIB_1971_revolution.d:0 "William Tolbert was elected president after the death of William Tubman. Tolbert's early presidency saw liberal reforms and the adoption of a Non-Alignment stance, but growing economic troubles and tensions between Americo-Liberians and indigenous Liberians led to instability. In 1973, the country returned to a two-party system when the Progressive Alliance of Liberia, headed by Gabriel Baccus Matthews, became recognised as a legitimate opposition party."
@@ -1773,6 +1899,15 @@
     HND_1991_revolution.t:0 "The Assassination of Rajiv Gandhi?"
     HND_1991_revolution.d:0 "The assassination of Rajiv Gandhi, former Prime Minister of India, occurred as a result of a suicide bombing in Sriperumbudur in Tamil Nadu, India on 21 May 1991. At least 14 others, in addition to Rajiv Gandhi, were killed. It was carried out by 22-year-old Kalaivani Rajaratnam (popularly known by her assumed names Thenmozhi Rajaratnam and Dhanu), a member of the Sri Lankan Tamil banned separatist rebel organisation Liberation Tigers of Tamil Eelam (LTTE)."
     
+    BHU_1952_revolution.t:0 "The Ascension of Jigme Dorji Wangchuck?"
+    BHU_1952_revolution.d:0 "Jigme Wangchuck was succeeded by his son, Jigme Dorji Wangchuck. During his 20-year reign that ended in July 1972, the fundamental reorientation of Bhutanese society began. Wangchuck not only achieved the reorganisation of society and government, but also consolidated Bhutan's sovereignty and security."
+    BHU_1972_revolution.t:0 "The Ascension of Jigme Singye Wangchuck?"
+    BHU_1972_revolution.d:0 "On July 21, 1972, the Third King of Bhutan passed away, and at the age of 16, Crown Prince Jigme Singye Wangchuck, ascended the throne, becoming the world's youngest monarch at the time. During his reign, Bhutan transitioned from an Absolute Monarchy to Democratic Constitutional Monarchy."
+    BHU_2006_revolution.t:0 "The Ascension of Jigme Khesar Namgyel Wangchuck?"
+    BHU_2006_revolution.d:0 "Jigme Khesar Namgyel Wangchuck's reign began in 2006 after his father Jigme Singye Wangchuck abdicated the throne. The young king began his reign overseeing the democratisation of Bhutan by presiding over the last sessions of the parliament where electoral laws, land reform and other important issues were debated."
+    BHU_2008_revolution.t:0 "The Bhutanese Parliamentary Democracy?"
+    BHU_2008_revolution.d:0 "The first general elections for the National Assembly were held on 24 March 2008. The chief contestants were the Bhutan Peace and Prosperity Party (DPT) led by Jigme Thinley and the People's Democratic Party (PDP) led by Sangay Ngedup. The DPT won the elections, taking 45 out of 47 seats. On 9 April 2008, Jigme Thinley became the first elected prime minister; he took office following the country's first democratic election."
+    
     BUR_1962_revolution.t:0 "Burmese coup d'état?"
     BUR_1962_revolution.d:0 "The 1962 Burmese coup d'état marked the beginning of one-party rule in Burma and the political dominance of the military in Burmese politics. In the 2 March 1962 coup, the military replaced the civilian AFPFL-government headed by Prime Minister U Nu, along with the Union Revolutionary Council Chaired by General Ne Win."
     BUR_1974_revolution.t:0 "Burmese Way to Socialism?"
@@ -1792,8 +1927,14 @@
     CAM_1970_revolution.d:0 "The Khmer Republic was a Cambodian state under the United States-backed military dictatorship of Marshal Lon Nol from 1970 to 1975. Its establishment was formally declared on 9 October 1970, following the 18 March 1970 coup d'état which saw the overthrow of Norodom Sihanouk's government and the abolishment of the Cambodian monarchy."
     CAM_1975_revolution.t:0 "The Rise of the Khmer Rouge?"
     CAM_1975_revolution.d:0 "Kampuchea was the Cambodian state from 1975 to 1979, under the totalitarian dictatorship of Pol Pot and the Communist Party of Kampuchea (CPK), commonly known as the Khmer Rouge (KR). It was established following the Khmer Rouge's capture of the capital Phnom Penh, effectively ending the United States-backed Khmer Republic of Lon Nol."
-    CAM_1993_revolution.t:0 "The Restoration of Democracy?"
+    CAM_1979_revolution.t:0 "The Fall of Pol Pot?"
+    CAM_1979_revolution.d:0 "After several years of violent incursions by the Khmer Rouge on Vietnamese territory resulting in massacres, Vietnam invaded Cambodia in December 1978. By January 1979, Pot and the Khmer Rouge had been toppled. The surviving Khmer Rouge members retreated to the scattered jungles near the Thai border, from where they continued to fight and raid. Severely weakened, they were hunted down by Vietnamese soldiers until their withdrawal in 1989."
+    CAM_1989_revolution.t:0 "The Paris Peace Agreements?"
+    CAM_1989_revolution.d:0 "In November 1978, Vietnamese troops invaded Cambodia in response to border raids by the Khmer Rouge and conquered it. The People's Republic of Kampuchea (PRK) was established as a pro-Soviet state led by the Kampuchean People's Revolutionary Party. In opposition to the newly created state, a government-in-exile referred to as the Coalition Government of Democratic Kampuchea (CGDK) was formed in 1981 from three factions. Peace efforts began in Paris in 1989 under the State of Cambodia, culminating two years later in October 1991 in a Paris Comprehensive Peace Settlement."
+    CAM_1993_revolution.t:0 "The Restoration of the Monarchy?"
     CAM_1993_revolution.d:0 "In November 1978, Vietnamese troops invaded Cambodia in response to border raids by the Khmer Rouge and conquered it. Peace efforts began in Paris in 1989 under the State of Cambodia, culminating 2 years later in October 1991 in a Paris Comprehensive Peace Settlement. UN was given a mandate to enforce a ceasefire and deal with refugees and disarmament known as the United Nations Transitional Authority in Cambodia (UNTAC). In 1993, the monarchy was restored with Norodom Sihanouk reinstated as King, and the first post-war election was coordinated by UNTAC."
+    CAM_1997_revolution.t:0 "The Cambodian coup d'état?"
+    CAM_1997_revolution.d:0 "The 1997 Cambodian coup d'état took place in Cambodia from July to September 1997. As a result, co-premier Hun Sen ousted the other co-premier Norodom Ranariddh. At least 32 people were killed during the coup."
     
     IDO_1959_revolution.t:0 "The Guided Democracy?"
     IDO_1959_revolution.d:0 "Guided Democracy was the political system in place in Indonesia from 1959 until the New Order began in 1966. It was the brainchild of President Sukarno, and was an attempt to bring about political stability. Sukarno believed that the parliamentarian system implemented during the liberal democracy period in Indonesia was ineffective due to its divisive political situation at that time. Instead, he sought a system based on the traditional village system of discussion and consensus, which occurred under the guidance of village elders. With the declaration of martial law and the introduction of this system, Indonesia returned to the presidential system and Sukarno became the head of government again."
@@ -1816,6 +1957,9 @@
     MSY_2020_revolution.d:0 "The 2020–2022 Malaysian political crisis was triggered after several Members of Parliament (MPs) of the 14th Malaysian Parliament changed party support, leading to the loss of a parliamentary majority, the collapse of two successive coalition governments, and the resignation of two Prime Ministers. The political crisis culminated in a 2022 snap general election and eventual formation of a coalition government."
     MSY_2022_revolution.t:0 "The Rise of Pakatan Harapan?"
     MSY_2022_revolution.d:0 "After the 2022 general election that resulted in a hung parliament, the Alliance of Hope returned to power with a two-thirds majority, led by Prime Minister and PH Chairman Anwar Ibrahim, by forming a coalition government with National Front (BN), Sarawak Parties' Alliance (GPS), Sabah People's Alliance (GRS), Heritage Party (WARISAN), Malaysian People's Party (PBM), Social Democratic Harmony Party (KDM), and independents. Meanwhile Muhyiddin Yassin's Perikatan Nasional declined to join the coalition, and took the role of the opposition, with 74 seats."
+    
+    BRU_1967_revolution.t:0 "The Abdication of Omar Ali Saifuddien III?"
+    BRU_1967_revolution.d:0 "On 4 October 1967, after 17 years of reign and a protracted illness, Omar Ali Saifuddien declared his voluntary abdication in favour of his 21-year-old oldest son, Crown Prince Hassanal Bolkiah, when his son reached teenage years and had gained some understanding of the affairs of the country's administration."
     
     THI_1957_revolution.t:0 "The Coup of Sarit Thanarat?"
     THI_1957_revolution.d:0 "On 13 September 1957, Sarit handed Phibun the army's ultimatum. The ultimatum, signed by 58 army officers, called for the resignation of the government. The following morning, Sarit and his army staged a coup d'etat. In less than an hour, the army successfully captured strategic points with no resistance."
@@ -1845,6 +1989,10 @@
     SKO_1987_revolution.d:0 "The June Democratic Struggle was a nationwide pro-democracy movement in South Korea that generated mass protests from June 10 to 29, 1987. The demonstrations forced the ruling government to hold direct presidential elections and institute other democratic reforms, which led to the establishment of the Sixth Republic, the present-day government of South Korea."
     SKO_2016_revolution.t:0 "The Impeachment of Park Geun-hye?"
     SKO_2016_revolution.d:0 "The impeachment of Park Geun-hye, President of South Korea, was the culmination of a political scandal involving interventions to the presidency from her aide, Choi Soon-sil. Revelations emerged in late October 2016, that President Park Geun-hye's aide, Choi Soon-sil, who did not have an official position in the government, had used her position to seek donations of money from several business conglomerates (known as chaebol), including Samsung, Hyundai, SK Group and Lotte, to two foundations she controlled. The impeachment vote took place on 9 December 2016, with 234 members of the 300-member National Assembly voting in favour of the impeachment and temporary suspension of Park Geun-hye's presidential powers and duties."
+    SKO_2024_revolution.t:0 "The Martial Law?"
+    SKO_2024_revolution.d:0 "On 3 December 2024, at 22:27 Korea Standard Time (KST), Yoon Suk Yeol, the president of South Korea, declared martial law during a televised address. In his declaration, he accused the Democratic Party (DPK), which has a majority in the National Assembly, of conducting "anti-state activities" and collaborating with "North Korean communists" to destroy the country, thereby creating a "legislative dictatorship". This event was widely characterised by Korean politicians and news organisations both international and domestic as an attempted coup d'état."
+    SKO_2024_1_revolution.t:0 "The Impeachment of Yoon Suk Yeol?"
+    SKO_2024_1_revolution.d:0 "On 14 December 2024, Yoon Suk Yeol, the president of South Korea, was impeached by the National Assembly. This action came in response to Yoon's declaration of martial law on 3 December 2024, which was overturned by the National Assembly and officially withdrawn six hours later on 4 December 2024."
     
     ROC_1975_revolution.t:0 "Death of Chiang Kai Shek?"
     ROC_1975_revolution.d:0 "In 1975, 26 years after Chiang had come to Taiwan, he died in Taipei at the age of 87. He had suffered a heart attack and pneumonia in the foregoing months, and died from kidney failure aggravated by advanced heart failure on 5 April. Chiang's funeral was held on 16 April. Yen Chia-kan became the second President following the death of Chiang Kai-shek."
@@ -1919,6 +2067,33 @@
     PHI_1965_revolution.d:0 "Ferdinand Marcos was inaugurated to his first term as the 10th president of the Philippines on December 30, 1965. His inauguration marked the beginning of his two-decade long stay in power, even though the 1935 Philippine Constitution had set a limit of only two four-year terms of office. Marcos had won the Philippine presidential election of 1965 against the incumbent president, Diosdado Macapagal."
     PHI_1986_revolution.t:0 "The People Power Revolution?"
     PHI_1986_revolution.d:0 "The People Power Revolution was a series of popular demonstrations in the Philippines, mostly in Metro Manila, from February 22 to 25, 1986. There was a sustained campaign of civil resistance against regime violence and electoral fraud. The nonviolent revolution led to the departure of Ferdinand Marcos, the end of his 20-year dictatorship and the restoration of democracy in the Philippines."
+    
+    KAZ_1991_revolution.t:0 "The Rise of Nursultan Nazarbayev?"
+    KAZ_1991_revolution.d:0 "Nazarbayev’s political career began in the Soviet era, where he joined the Communist Party of the Soviet Union in 1962 while working as a steel factory worker. Rising through the party ranks, he became Prime Minister of the Kazakh SSR in 1984 and First Secretary of the Communist Party of Kazakhstan in 1989. In 1990, the Supreme Soviet elected him as the president of Kazakhstan. Nazarbayev played a key role in navigating Kazakhstan through the dissolution of the Soviet Union, leading to the country's independence in 1991. In the country’s first direct 1991 presidential election, Nazarbayev appeared on the ballot without opposition and secured an overwhelming victory."
+    KAZ_2019_revolution.t:0 "The Rise of Kassym-Jomart Tokayev?"
+    KAZ_2019_revolution.d:0 "In 2019, Tokayev assumed office as the acting president after Nursultan Nazarbayev's resignation. Being a member of the ruling Amanat party, he won a snap election in June of that year with the support of Nazarbayev as the nominee for the party. During his presidency, he has enacted several reforms including increasing workers' salaries, reducing corruption, abolishing capital punishment, and decentralising the local government. While managing to maintain the country's stability, ensuring political transition, and enacting new reforms, Tokayev's governance has remained authoritarian with human rights abuses."
+    
+    UZB_1991_revolution.t:0 "The Rise of Islam Karimov?"
+    UZB_1991_revolution.d:0 "Islam Abduganiyevich Karimov was an Uzbek politician who served as the first president of Uzbekistan, from the country's independence in 1991 until his death in 2016. He ruled a repressive authoritarian regime in Uzbekistan where political opponents were assassinated, human rights were repressed, and dissent was prohibited; however, capital punishment was repealed in 1998."
+    UZB_2016_revolution.t:0 "The Rise of Shavkat Mirziyoyev?"
+    UZB_2016_revolution.d:0 "Shavkat Miromonovich Mirziyoyev is an Uzbek politician who has served as President of Uzbekistan and Supreme Commander-in-Chief of the Armed Forces of Uzbekistan since 14 December 2016. Previously, Mirziyoyev led the government as a Prime Minister of Uzbekistan from 2003 to 2016. Under his presidency, Mirziyoyev implemented a range of liberal reforms in Uzbekistan’s political and economic system by attracting foreign investment, improving relations with neighboring Central Asian countries, as well as release of political prisoners that was notably accompanied by closure of the infamous Jaslyk Prison in 2019."
+    
+    TKM_1991_revolution.t:0 "The Rise of Saparmurat Niyazov?"
+    TKM_1991_revolution.d:0 "Saparmurat Atayevich Niyazov was a Turkmen politician who led Turkmenistan from 1985 until his death in 2006. He was the first secretary of the Communist Party of Turkmenistan from 1985 until 1991 and supported the 1991 Soviet coup attempt. He continued to rule Turkmenistan as the first president for 15 years after independence from the Soviet Union in 1991."
+    TKM_2006_revolution.t:0 "The Rise of Gurbanguly Berdimuhamedow?"
+    TKM_2006_revolution.d:0 "Gurbanguly Mälikgulyýewiç Berdimuhamedow is a Turkmen politician and former dentist who was the chairman of the People's Council of Turkmenistan. He previously served as the second president of Turkmenistan from 2006 to 2022, when he entered into a power-sharing arrangement with his son, Serdar."
+    TKM_2022_revolution.t:0 "The Rise of Serdar Berdimuhamedow?"
+    TKM_2022_revolution.d:0 "Serdar Gurbangulyýewiç Berdimuhamedow is a Turkmen politician who served as the third and fourth president of Turkmenistan since 2022. Berdimuhamedow had previously served in several other positions within the government of his father, Gurbanguly, the long-standing authoritarian ruler of Turkmenistan. The father and son entered into a power-sharing arrangement in 2022, through which they jointly rule a totalitarian dictatorship in Turkmenistan."
+    
+    TAJ_1991_revolution.t:0 "The Rise of Rahmon Nabiyev?"
+    TAJ_1991_revolution.d:0 "Rahmon Nabiyevich Nabiyev was a Tajik politician who served as the First Secretary of the Communist Party of Tajikistan from 1982 to 1985 and twice as the 2nd President of Tajikistan from 23 September 1991 to 6 October 1991 and from 2 December 1991 to 7 September 1992."
+    TAJ_1992_revolution.t:0 "The Rise of Emomali Rahmon?"
+    TAJ_1992_revolution.d:0 "Emomali Rahmon is a Tajik politician who has served as the President of Tajikistan since 1994. Rahmon heads an authoritarian regime in Tajikistan with elements of a cult of personality. Political opponents are repressed, violations of human rights and freedoms are severe, elections are not free and fair, and corruption and nepotism are rampant."
+    
+    KYR_1990_revolution.t:0 "The Rise of Askar Akayev?"
+    KYR_1990_revolution.d:0 "Askar Akayevich Akayev is a Kyrgyz former politician who served as President of Kyrgyzstan from 1990 until being overthrown in the March 2005 Tulip Revolution."
+    KYR_2005_revolution.t:0 "The Tulip Revolution?"
+    KYR_2005_revolution.d:0 "The Tulip Revolution, also known as the First Kyrgyz Revolution, led to Kyrgyzstan's then-President Askar Akayev's fall from power. The revolution began after parliamentary elections on 27 February and 13 March 2005. The revolutionaries alleged corruption and authoritarianism by Akayev, his family and supporters. Akayev fled to Kazakhstan and then to Russia."
     
     SOV_stalin_succession.t:0 "Stalin's Successor?"
     SOV_stalin_succession.d:0 "On March 1, 1953 Iosif Stalin, the 73 year-old leader of the Soviet Union, suffered a cerebral haemorrhage from which he died four days later. Stalin’s lying-in-state in the Kremlin was the occasion for tens of thousands of grief-stricken Soviet citizens to crowd into the center of Moscow. Even as Stalin lay dying, the party’s Presidium, an enlarged body that had replaced the Politbiuro at the Nineteenth Congress in October 1952, met to decide who would exercise ultimate authority."
@@ -2112,6 +2287,14 @@
     balochistan_war.PAK.d:0 "The Fourth Balochistan Conflict was a four-year military conflict in Balochistan, the largest province of Pakistan, between the Pakistan Army and Baloch separatists and tribesmen that lasted from 1973 to 1977. The conflict began in 1973 shortly after then-Pakistani President Zulfikar Ali Bhutto dismissed the elected provincial government of Balochistan on the pretext that arms had been discovered in the Iraqi Embassy, ostensibly for Baloch rebels. The ensuing protest against the dismissal of the duly elected government also led to calls for Balochistan's secession, met by Bhutto's ordering the Pakistan Army into the province."
     chechen_war_2.RUS.t:0 "The Second Chechen War"
     chechen_war_2.RUS.d:0 "The Second Chechen War took place in Chechnya and the border regions of the North Caucasus between the Russian Federation and the breakaway Chechen Republic of Ichkeria, from August 1999 to April 2009. In August 1999, rogue Islamists from Chechnya infiltrated Dagestan in Russia. Later in September apartment bombings occurred in Russian cities, killing over 300 people. Russian authorities were quick to blame Chechens for the bombings, although no Chechen, field commander or otherwise, took responsibility for the attacks. During the initial campaign, Russian military and pro-Russian Chechen paramilitary forces faced Chechen separatists in open combat and seized the Chechen capital Grozny after a winter siege that lasted from December 1999 until February 2000."
+    bosnian_war.BOS.t:0 "The Bosnian War"
+    bosnian_war.BOS.d:0 "The Bosnian War was an international armed conflict that took place in Bosnia and Herzegovina between 1992 and 1995. The war is commonly seen as having started on 6 April 1992, following several earlier violent incidents. It ended on 14 December 1995 when the Dayton Accords were signed. The main belligerents were the forces of the Republic of Bosnia and Herzegovina, the Republic of Herzeg-Bosnia, and the Republika Srpska, the latter two entities being proto-states led and supplied by Croatia and Serbia, respectively."
+    tajikistani_war.TAJ.t:0 "The Tajikistani Civil War"
+    tajikistani_war.TAJ.d:0 "The Tajikistani Civil War began in May 1992 and ended in June 1997. Regional groups from the Garm and Gorno-Badakhshan regions of Tajikistan rose up against the newly formed government of President Rahmon Nabiyev, which was dominated by people from the Khujand and Kulob regions. The rebel groups were led by a combination of liberal democratic reformers and Islamists, who would later organise under the banner of the United Tajik Opposition."
+    angolan_war.ANG.t:0 "The Angolan Civil War"
+    angolan_war.ANG.d:0 "The Angolan Civil War was a civil war in Angola, beginning in 1975 and continuing, with interludes, until 2002. The war began immediately after Angola became independent from Portugal in November 1975. It was a power struggle between two former anti-colonial guerrilla movements, the communist People's Movement for the Liberation of Angola (MPLA) and the anti-communist National Union for the Total Independence of Angola (UNITA)."
+    mozambican_war.MOZ.t:0 "The Mozambican Civil War"
+    mozambican_war.MOZ.d:0 "The Mozambican Civil War was a civil war fought in Mozambique from 1977 to 1992 due to a combination of local strife and the polarizing effects of Cold War politics. The fighting was between Mozambique's ruling Marxist Mozambique Liberation Front (FRELIMO), the anti-communist insurgent forces of the Mozambican National Resistance (RENAMO), and a number of smaller factions such as the PRM, UNAMO, COREMO, UNIPOMO, and FUMO."
     
     historical_civil_wars.option.1:0 "Start the war!"
     historical_civil_wars.option.2:0 "Take the peaceful option."
@@ -2489,7 +2672,7 @@
     
     first_past_the_post_upper_house:0 "\n\n- Gain #BOLD [GetPlayer.MakeScope.Var('upper_house_increment_FTP_upper_var').GetValue]%#! more [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] for every [concept_incorporated_state] where a [concept_government] [concept_interest_group] has [GetPlayer.MakeScope.Var('upper_house_upper_limit_var_display').GetValue]% or more [concept_clout].\n\n- Gain #BOLD [GetPlayer.MakeScope.Var('upper_house_increment_FTP_lower_var').GetValue]%#! more [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] for every [concept_incorporated_state] where a [concept_government] [concept_interest_group] has more than [GetPlayer.MakeScope.Var('upper_house_lower_limit_var_display').GetValue]% but less than [GetPlayer.MakeScope.Var('upper_house_upper_limit_var_display').GetValue]% [concept_clout]."
     jefferson_system_upper_house:0 "\n\n- Gain #BOLD [GetPlayer.MakeScope.Var('upper_house_increment_FTP_upper_var').GetValue]%#! more [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] for every [concept_incorporated_state] where a [concept_government] [concept_interest_group] has [GetPlayer.MakeScope.Var('upper_house_upper_limit_var_display').GetValue]% or more [concept_clout].\n\n- Gain #BOLD [GetPlayer.MakeScope.Var('upper_house_increment_FTP_lower_var').GetValue]%#! more [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] for every [concept_incorporated_state] where a [concept_government] [concept_interest_group] has more than [GetPlayer.MakeScope.Var('upper_house_lower_limit_var_display').GetValue]% but less than [GetPlayer.MakeScope.Var('upper_house_upper_limit_var_display').GetValue]% [concept_clout]. \n\n- Gain #BOLD [GetPlayer.MakeScope.Var('upper_house_increment_PR_var').GetValue]%#! more [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] for every [GetPlayer.MakeScope.Var('upper_house_005_var').GetValue]% [concept_clout] that a [concept_government] [concept_interest_group] has in every [concept_state]."
-    propotional_representation_upper_house:0 "\n\n- Gain #BOLD [GetPlayer.MakeScope.Var('upper_house_increment_PR_var').GetValue]%#! more [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] for every [GetPlayer.MakeScope.Var('upper_house_005_var').GetValue]% [concept_clout] that a [concept_government] [concept_interest_group] has in every [concept_state]."
+    propotional_representation_upper_house:0 "\n\n- Gain #BOLD 10%#! [concept_government] control in the [SCOPE.GetRootScope.GetCountry.GetCustom('upper_house_name')] for every [GetPlayer.MakeScope.Var('lower_house_010_var').GetValue]% [concept_clout] that a [concept_government] [concept_interest_group] has."
     
     house_of_councillors_upper_house:0 "House of Councillors"
     house_of_lords_upper_house:0 "House of Lords"
@@ -2786,7 +2969,7 @@
     generic_decolonisation_indy.4.option.1:0 "We shall forge a nation for all peoples!"
     generic_decolonisation_indy.4.option.2:0 "Long live the [SCOPE.sCulture('preferred_culture').GetName] cause!"
     
-    special_administrative_region.tt:0 "Create a $special_administrative_region$ in [SCOPE.sCulture('culture_to_release').GetName]"
+    special_administrative_region.tt:0 "Create a [concept_special_administrative_region] in [SCOPE.sState('state_to_release').GetName]"
     devolution_system_1a.t:0 "[SCOPE.sCulture('culture_to_release').GetName] $special_administrative_region$?"
     devolution_system_1b.t:0 "Devolution in [SCOPE.sState('state_to_release').GetName]?"
     devolution_system_1.d:0 "The [SCOPE.sCulture('culture_to_release').GetName] people in [SCOPE.sState('state_to_release').GetName] have called on [ROOT.GetCountry.GetName] to grant their [concept_homeland] greater autonomy over their internal affairs."
@@ -3381,7 +3564,7 @@
     economic_strength_wars:0 "\n\nPolitical Instability: [GetPlayer.MakeScope.Var('economic_strength_wars_display_var').GetValue]"
     
     je_nuclear_weapons_info_panel:0 "Nuclear Arms Race"
-    je_nuclear_weapons_info_panel_reason:0 "[ROOT.GetCountry.GetName] is currently in a Nuclear Arms Race with a rival country. We must therefore strive to ensure that [ROOT.GetCountry.GetName] has more nuclear strike power than all nuclear-armed countries which have Poor or lower relations with this country. \n\nGross Nuclear Strike Power: [GetPlayer.MakeScope.Var('nuclear_strike_power_display').GetValue] \n\nNuclear Strike Defence: [GetPlayer.MakeScope.Var('nuclear_strike_defence_display').GetValue] \n\nEnemy Gross Nuclear Strike Power: [GetPlayer.MakeScope.Var('nuclear_strike_power_enemy_display').GetValue] \n\nEnemy Nuclear Strike Defence: [GetPlayer.MakeScope.Var('nuclear_strike_defence_enemy_display').GetValue] \n\nEstimated Net Nuclear Strike Strength: [GetPlayer.MakeScope.Var('nuclear_strike_power_THIS_enemy_ratio').GetValue] \n\nEstimated Net Enemy Nuclear Strike Strength: [GetPlayer.MakeScope.Var('nuclear_strike_power_enemy_THIS_ratio').GetValue] \n\nNumber of Enemies: [GetPlayer.MakeScope.Var('nuclear_enemy_counter_display').GetValue] \n\nNuclear Weapons Superiority Score: [GetPlayer.MakeScope.Var('nuclear_strike_power_ratio').GetValue]"
+    je_nuclear_weapons_info_panel_reason:0 "[ROOT.GetCountry.GetName] is currently in a Nuclear Arms Race with a rival country. \n\nWe must therefore strive to ensure that [ROOT.GetCountry.GetName] has more nuclear strike power than all nuclear-armed countries which have Poor or lower relations with this country. \n\nGross Nuclear Strike Power: [GetPlayer.MakeScope.Var('nuclear_strike_power_display').GetValue] \n\nNuclear Strike Defence: [GetPlayer.MakeScope.Var('nuclear_strike_defence_display').GetValue] \n\nEnemy Gross Nuclear Strike Power: [GetPlayer.MakeScope.Var('nuclear_strike_power_enemy_display').GetValue] \n\nEnemy Nuclear Strike Defence: [GetPlayer.MakeScope.Var('nuclear_strike_defence_enemy_display').GetValue] \n\nEstimated Net Nuclear Strike Strength: [GetPlayer.MakeScope.Var('nuclear_strike_power_THIS_enemy_ratio').GetValue] \n\nEstimated Net Enemy Nuclear Strike Strength: [GetPlayer.MakeScope.Var('nuclear_strike_power_enemy_THIS_ratio').GetValue] \n\nNumber of Enemies: [GetPlayer.MakeScope.Var('nuclear_enemy_counter_display').GetValue] \n\nNuclear Weapons Superiority Score: [GetPlayer.MakeScope.Var('nuclear_strike_power_ratio').GetValue]"
     je_nuclear_weapons_info_panel_status:0 "Nuclear Superiority Score: [GetPlayer.MakeScope.Var('nuclear_strike_power_ratio').GetValue]"
     
     ig_angry_with_weak_nuclear_weapons:0 "Losing Nuclear Arms Race"
@@ -3460,8 +3643,8 @@
     je_space_race_fake_mars_mission_button_desc:0 "We will pay our best movie studios to produce a realistic looking film of a [ROOT.GetCountry.GetAdjectiveNoFlag] landing on Mars in the hopes of fooling the world that [ROOT.GetCountry.GetNameNoFlag] did actually land on Mars."
     mars_mission_faked.t:0 "Fake Mars Landing Exposed"
     mars_mission_faked.d:0 "The [ROOT.GetCountry.GetNameNoFlag]'s attempt to fool the world with a crudely produce video of a [ROOT.GetCountry.GetAdjectiveNoFlag] person landing on Mars has convinced no one and has instead attracted widespread ridicule of the country."
-    moon_mission_faked_success.t:0 "Fake Mars Landing Successful"
-    moon_mission_faked_success.d:0 "A fabricated video of a [ROOT.GetCountry.GetAdjectiveNoFlag] astronaut landing on Mars has successfully fooled the world into thinking that [ROOT.GetCountry.GetNameNoFlag] did actually land on Mars."
+    mars_mission_faked_success.t:0 "Fake Mars Landing Successful"
+    mars_mission_faked_success.d:0 "A fabricated video of a [ROOT.GetCountry.GetAdjectiveNoFlag] astronaut landing on Mars has successfully fooled the world into thinking that [ROOT.GetCountry.GetNameNoFlag] did actually land on Mars."
     
     completed_space_race_je.tt:0 "This country has completed all possible Space Programs"
     
@@ -3594,6 +3777,8 @@
     USA_SOV_INF.d:0 "The Intermediate-Range Nuclear Forces Treaty (INF Treaty) was an arms control treaty between the United States and the Soviet Union (and its successor state, the Russian Federation). US President Ronald Reagan and Soviet General Secretary Mikhail Gorbachev signed the treaty on 8 December 1987. The US Senate approved the treaty on 27 May 1988, and Reagan and Gorbachev ratified it on 1 June 1988. The INF Treaty banned all of the two nations' nuclear and conventional ground-launched ballistic missiles, cruise missiles, and missile launchers with ranges of 500–1,000 kilometers (310–620 mi) (short medium-range) and 1,000–5,500 km (620–3,420 mi) (intermediate-range). The treaty did not apply to air- or sea-launched missiles."
     USA_SOV_START.t:0 "The Strategic Arms Reduction Treaty?"
     USA_SOV_START.d:0 "START I (Strategic Arms Reduction Treaty) was a bilateral treaty between the United States and the Soviet Union on the reduction and the limitation of strategic offensive arms. The treaty was signed on 31 July 1991 and entered into force on 5 December 1994. The treaty barred its signatories from deploying more than 6,000 nuclear warheads and a total of 1,600 intercontinental ballistic missiles (ICBMs) and bombers. START negotiated the largest and most complex arms control treaty in history, and its final implementation in late 2001 resulted in the removal of about 80% of all strategic nuclear weapons then in existence."
+    USA_CNG_form.t:0 "UN Intervention in the Congo Crisis?"
+    USA_CNG_form.d:0 "The United Nations Operation in the Congo was a United Nations peacekeeping force which was deployed in the Republic of the Congo in 1960 in response to the Congo Crisis. The ONUC was the UN's first peacekeeping mission with significant military capability, and remains one of the largest UN operations in size and scope."
     
     historical_alliances_system.option.1:0 "Yes"
     historical_alliances_system.option.2:0 "No"
@@ -3834,12 +4019,13 @@
     five_year_plan_system.2:0 "Prioritise natural resource extraction!"
     five_year_plan_system.3:0 "Prioritise the services sector!"
     
-    unsg_country_label.tt:0 "UN Secretary-General: [SCOPE.sCountry('unsg_country_scope_label').GetName]"
+    unsg_character_label.tt:0 "UN Secretary-General: [SCOPE.sCharacter('unsg_character_scope_label').GetFullName] ([SCOPE.sCountry('unsg_country_scope_label').GetName])"
+    unsg_country_label.tt:0 "UN Secretary-General: #yellow Acting UNSG#! ([SCOPE.sCountry('unsg_country_scope_label').GetName])"
     unsc_permanent_member_label.tt:0 "$unsc_permanent_member$: [SCOPE.sCountry('unsc_permanent_member_label').GetName]"
     unsc_non_permanent_member_label.tt:0 "$unsc_non_permanent_member$: [SCOPE.sCountry('unsc_non_permanent_member_label').GetName]"
     un_observer_member_label.tt:0 "UN Observer State: [SCOPE.sCountry('un_observer_member_label').GetName]"
     superstate_member_label.tt:0 "Member: [SCOPE.sCountry('superstate_member_label').GetName]"
-    un_headquarters_country_label.tt:0 "UN Headquarters: [SCOPE.sState('un_headquarters_country_label').GetCityHubName] ([SCOPE.sState('un_headquarters_country_label').GetCountry.GetName])"
+    un_headquarters_country_label.tt:0 "UN Headquarters: #yellow [SCOPE.sState('un_headquarters_country_label').GetCityHubName]#! ([SCOPE.sState('un_headquarters_country_label').GetCountry.GetName])"
     
     un_headquarters:0 "United Nations Headquarters"
     
@@ -4097,6 +4283,8 @@
     je_assassinate_ruler_button:0 "Assassinate [concept_ruler]"
     je_assassinate_ruler_button_desc:0 "Radical elements in the [SCOPE.GetRootScope.GetCountry.GetCustom('secret_police_custom_title')] will assassinate the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]."
     
+    sabotage_interest_group:0 "Sabotage Interest Group"
+    
     ig_leader_assassinated:0 "Interest Group Leader Assassinated"
     ig_leader_clout_sabotaged:0 "Politically Sabotaged"
     ig_clout_sabotaged:0 "Interest Group Sabotaged"
@@ -4252,6 +4440,44 @@
     PHI_drug_war_2016.d:0 "The War on Drugs is the intensified anti-drug campaign that began during the administration of President Rodrigo Duterte, who served office from June 30, 2016, to June 30, 2022. The campaign reduced drug proliferation in the country, but has been marred by extrajudicial killings allegedly perpetrated by the police and unknown assailants. By 2022, the number of drug suspects killed since 2016 was officially tallied by the government as 6,252 however, estimate that 12,000 to 30,000 civilians have been killed in "anti-drug operations" carried out by the Philippine National Police and vigilantes."
     MEX_drug_war_2006.t:0 "Operation Michoacán?"
     MEX_drug_war_2006.d:0 "Operation Michoacán is a joint operation by Federal Police and the Mexican military to eliminate drug plantations and to combat drug trafficking. Initiated on December 11, 2006, the operation was supervised by The Secretary of Public Safety, Attorney General of Mexico, Secretary of the Interior, Mexican Navy and Mexican Army. On some occasions, state and municipal police have participated despite not being part of it. The joint operation has distinguished itself as one of the operations against organized crime, drug trafficking in this case, which has employed the largest number of military and police elements, as well as most state forces."
+    USA_great_wall_2017.t:0 "The Trump Wall?"
+    USA_great_wall_2017.d:0 "The Trump wall is an expansion of the Mexico–United States barrier that started during the U.S. first presidency of Donald Trump and was a critical part of Trump's 2016 presidential campaign platform leading up to the year's election. Throughout his campaign, Trump called for the construction of a border wall to combat illegal immigration."
+    LEB_civil_war_1975.t:0 "The Lebanese Civil War?"
+    LEB_civil_war_1975.d:0 "The Lebanese Civil War was a civil conflict resulting from tensions among Lebanon’s Christian and Muslim populations. The conflict was exacerbated by socioeconomic disparities and the presence in Lebanon in the 1970s of fighters from the Palestine Liberation Organisation (PLO). In 1975 Lebanon’s Muslims and leftists supported the PLO and sought more political power; its Christians, seeking to maintain their political dominance, opposed the PLO. The factions fought fiercely through early 1976, and Lebanon became effectively partitioned, with the Christians in power in the north and the Muslims in the south."
+    SYR_civil_war_2011.t:0 "The Syrian Civil War?"
+    SYR_civil_war_2011.d:0 "The Syrian civil war was a multi-sided conflict in Syria involving various state-sponsored and non-state actors. In March 2011, popular discontent with the rule of Bashar al-Assad triggered large-scale protests and pro-democracy rallies across Syria, as part of the wider Arab Spring protests in the region. After months of crackdown by the government's security apparatus, various armed rebel groups such as the Free Syrian Army began forming across the country, marking the beginning of the Syrian insurgency. By mid-2012, the insurgency had escalated into a full-blown civil war."
+    LBY_civil_war_2014.t:0 "The Libyan Civil War?"
+    LBY_civil_war_2014.d:0 "The Libyan civil war (2014–2020), also known as the Second Libyan Civil War, was a multilateral civil war which was fought in Libya among a number of armed groups, but mainly the House of Representatives (HoR) and the Government of National Accord (GNA), for six years from 2014 to 2020."
+    TUR_pogrom_1955.t:0 "The Istanbul Pogrom?"
+    TUR_pogrom_1955.d:0 "The Istanbul pogrom were a series of state-sponsored anti-Greek mob attacks directed primarily at Istanbul's Greek minority on 6–7 September 1955. The pogrom was orchestrated by the governing Democrat Party in Turkey with the cooperation of various security organisations (Tactical Mobilisation Group, Counter-Guerrilla and National Security Service). The events were triggered by the bombing of the Turkish consulate in Thessaloniki, Macedonia, Greece, – the house where Mustafa Kemal Atatürk was born in 1881. The bomb was actually planted by a Turkish usher at the consulate, who was later arrested and confessed."
+    BUR_genocide_2016.t:0 "The Rohingya Genocide?"
+    BUR_genocide_2016.d:0 "The Rohingya genocide was a series of ongoing persecutions and killings of the Muslim Rohingya people by the military of Myanmar. The genocide consisted of two phases to date: the first was a military crackdown that occurred from October 2016 to January 2017, and the second has been occurring since August 2017. The crisis forced over a million Rohingya to flee to other countries. Most fled to Bangladesh, resulting in the creation of the world's largest refugee camp, while others escaped to India, Thailand, Malaysia, and other parts of South and Southeast Asia, where they continue to face persecution."
+    NGE_pogrom_1966.t:0 "The Anti-Igbo Pogrom?"
+    NGE_pogrom_1966.d:0 "A series of massacres were committed against Igbo people and other people of southern Nigerian origin living in northern Nigeria starting in May 1966 and reaching a peak after 29 September 1966. Between 8,000 and 30,000 Igbos and easterners have been estimated to have been killed. A further 1 million Igbos fled the Northern Region into the East. In response to the killings some northerners were massacred in Port Harcourt and other eastern cities."
+    SER_genocide_1995.t:0 "The Srebrenica Massacre?"
+    SER_genocide_1995.d:0 "The Srebrenica massacre was the July 1995 genocidal killing of more than 8,000 Bosniak Muslim men and boys in and around the town of Srebrenica during the Bosnian War. It was mainly perpetrated by units of the Bosnian Serb Army of Republika Srpska under Ratko Mladić, though the Serb paramilitary unit Scorpions also participated. The massacre was the first legally recognised genocide in Europe since the end of World War II."
+    POR_academic_crisis_1962.t:0 "The Academic Crisis?"
+    POR_academic_crisis_1962.d:0 "The Academic Crisis is the name given to a Portuguese governmental policy instigated in 1962 by the Estado Novo entailing the boycott and closure of several student associations and organisations, including the National Secretariat of Portuguese Students. Most members of this organisation were opposition militants, among them many communists. The students responded with demonstrations that culminated on March 24 with a huge student demonstration in Lisbon that was vigorously suppressed by the riot police, which led to hundreds of student injuries. Immediately thereafter, the students began a strike. These events were what became known as the Academic Crisis of 1962."
+    POR_coup_1975.t:0 "The Communist Coup Attempt?"
+    POR_coup_1975.d:0 "Portugal experienced a turbulent period, known as the Processo Revolucionário Em Curso (Ongoing Revolutionary Process). This stage of the PREC lasted until the coup of 25 November 1975, led by a group of far-left officers, specifically Otelo Saraiva de Carvalho. It was said to be a Communist plot to seize power, in order to discredit the powerful Communist Party. It was followed by a successful counter-coup by more centrist officers, and was marked by constant friction between liberal-democratic forces and leftist-communist political parties."
+    SPA_coup_1981.t:0 "The Spanish Coup Attempt?"
+    SPA_coup_1981.d:0 "A coup d'état was attempted in Spain in February 1981 by elements of the Civil Guard and the Spanish military. The failure of the coup marked the last serious attempt to revert Spain to a Francoist government and served to consolidate Spain's democratisation process. King Juan Carlos I played a major role in foiling the coup, and the monarchy emerged with renewed legitimacy as a result."
+    SPA_BSQ_devolution.t:0 "The Statute of Gernika?"
+    SPA_BSQ_devolution.d:0 "The Statute of Autonomy of the Basque Country of 1979, widely known as the Statute of Gernika, is the legal document organising the political system of the Autonomous Community of the Basque Country which includes the historical territories of Alava, Biscay and Gipuzkoa. It forms the region into one of the autonomous communities envisioned in the Spanish Constitution of 1978. It established a system of parliamentary government, in which the president (chief of government) or lehendakari is elected by the Basque Autonomous Parliament among its members. Election of the Parliament is by universal suffrage and parliament consists of 75 deputies, 25 from each of the three Historic Territories of the community."
+    TUR_coup_2016.t:0 "The Turkish Coup Attempt?"
+    TUR_coup_2016.d:0 "In the evening of 15 July 2016, a faction within the Turkish Armed Forces, organised as the Peace at Home Council, attempted a coup d'état against state institutions, including the government and president Recep Tayyip Erdoğan. They attempted to seize control of several places in Ankara, Istanbul, Marmaris and elsewhere, such as the Asian side entrance of the Bosphorus Bridge, but failed to do so after forces and civilians loyal to the state defeated them. The government said it had evidence the coup leaders were linked to the Gülen movement, which is designated as a terrorist organisation by the Republic of Turkey and led by Fethullah Gülen, a Turkish businessman and a well-known Islamic scholar who lived in exile in Pennsylvania."
+    BOL_coup_1966.t:0 "The Bolivian Insurgency?"
+    BOL_coup_1966.d:0 "The Ñancahuazú Guerrilla or Ejército de Liberación Nacional de Bolivia (National Liberation Army of Bolivia; ELN) was a group of mainly Bolivian and Cuban guerrillas led by the guerrilla leader Che Guevara which was active in the Cordillera Province of Bolivia from 1966 to 1967. The group established its base camp on a farm across the Ñancahuazú River, a seasonal tributary of the Rio Grande, 250 kilometers southwest of the city of Santa Cruz de la Sierra. The guerrillas intended to work as a foco, a point of armed resistance to be used as a first step to overthrow the Bolivian government and create a socialist state. The guerrillas defeated several Bolivian patrols before they were beaten and Guevara was captured and executed."
+    BOL_assassinate_CG.t:0 "The Execution of Che Guevara?"
+    BOL_assassinate_CG.d:0 "Ernesto "Che" Guevara was an Argentine Marxist revolutionary, physician, author, guerrilla leader, diplomat, and military theorist. Guevara left Cuba in 1965 to foment continental revolutions across both Africa and South America, first unsuccessfully in Congo-Kinshasa and later in Bolivia, where he was captured by CIA-assisted Bolivian forces and summarily executed."
+    USA_1992_LA_riots.t:0 "The Los Angeles Riots?"
+    USA_1992_LA_riots.d:0 "The 1992 Los Angeles riots were a series of riots and civil disturbances that occurred in Los Angeles County, California, United States, during April and May 1992. Unrest began in South Central Los Angeles on April 29, after a jury acquitted four officers of the Los Angeles Police Department (LAPD) charged with using excessive force in the arrest and beating of Rodney King. The incident had been videotaped by George Holliday, who was a bystander to the incident, and was heavily broadcast in various news and media outlets."
+    IDO_1998_riots.t:0 "The Peristiwa?"
+    IDO_1998_riots.d:0 "The May 1998 Indonesia riots, or simply the 98 event (Peristiwa 98), were incidents of mass violence and civil unrest in Indonesia, many of which targeted the country's ethnic Chinese population. The events were mainly in the cities of Medan, Jakarta, and Surakarta, with smaller incidents in other parts of Indonesia. Under the Western-backed Suharto, there had been widespread and systematic discrimination against ethnic Chinese in Indonesia. The riots were triggered by corruption, economic problems, including food shortages and mass unemployment."
+    PAP_assassinate_PJP_1981.t:0 "The First Attempted Assassination of Pope John Paul II?"
+    PAP_assassinate_PJP_1981.d:0 "On 13 May 1981, in St. Peter's Square in Vatican City, Pope John Paul II was shot and wounded by Mehmet Ali Ağca while he was entering the square. The Pope was struck twice and suffered severe blood loss. Ağca was apprehended immediately and later sentenced to life in prison by an Italian court. The Pope forgave Ağca for the assassination attempt. He was pardoned by Italian president Carlo Azeglio Ciampi at the Pope's request and was deported to Turkey in June 2000."
+    PAP_assassinate_PJP_1982.t:0 "The Second Attempted Assassination of Pope John Paul II?"
+    PAP_assassinate_PJP_1982.d:0 "A second assassination attempt was made on 12 May 1982, just a day before the anniversary of the first attempt on his life, in Fátima, Portugal, when a man tried to stab John Paul II with a bayonet. He was stopped by security guards. Stanisław Dziwisz later said that John Paul II had been injured during the attempt but managed to hide a non-life-threatening wound."
     
     in_a_defensive_war.tt:0 "This country is in a defensive [concept_war] with an independent country."
     alliance_leader_label.tt:0 "Leader: [SCOPE.sCountry('alliance_leader_scope_label').GetName]"
@@ -4317,7 +4543,7 @@
     je_buy_vaccine_button_desc:0 "[ROOT.GetCountry.GetName] will buy a vaccine from a country which has already developed one to make our population immune to the pandemic virus."
     
     je_post_colonial_org_system:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('je_post_colonial_org_name_custom_title')]"
-    je_post_colonial_org_system_reason:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('je_post_colonial_org_name_custom_desc')]"
+    je_post_colonial_org_system_reason:0 "[SCOPE.GetRootScope.GetCountry.GetCustom('je_post_colonial_org_desc_custom_title')]"
     je_post_colonial_org_system_status:0 "Total Members: [GetPlayer.MakeScope.Var('post_colonial_org_member_count').GetValue]"
     
     Commonwealth_of_Nations_custom_title:0 "The Commonwealth of Nations"
@@ -4540,6 +4766,8 @@
     1991_PHI_eruption.d:0 "The 1991 eruption of Mount Pinatubo in the Philippines' Luzon Volcanic Arc was the second-largest volcanic eruption of the 20th century, behind only the 1912 eruption of Novarupta in Alaska.  Nearly every bridge within 30 km (19 mi) of Mount Pinatubo was destroyed. Several lowland towns were flooded or partially buried in mud. More than 840 people were killed from the collapse of roofs under wet heavy ash and several more were injured."
     2022_TON_eruption.t:0 "The Hunga Tonga–Hunga Haʻapai Eruption"
     2022_TON_eruption.d:0 "In December 2021, an eruption began on Hunga Tonga–Hunga Haʻapai, a submarine volcano in the Tongan archipelago in the southern Pacific Ocean. The eruption reached a very large and powerful climax nearly four weeks later, on 15 January 2022. Hunga Tonga–Hunga Haʻapai is 65 kilometres (40 mi) north of Tongatapu, the country's main island, and is part of the highly active Tonga–Kermadec Islands volcanic arc, a subduction zone extending from New Zealand to Fiji."
+    2025_BUR_earthquake.t:0 "The Mandalay Earthquake"
+    2025_BUR_earthquake.d:0 "On 28 March 2025 at 12:50:54 MMT a Mw 7.7 earthquake struck the Sagaing Region of Myanmar, with an epicenter close to Mandalay, the country's second-largest city. The strike-slip faulting shock achieved a maximum Modified Mercalli intensity of IX (Violent). It was the most powerful earthquake to strike Myanmar since 1912, and the second deadliest in Myanmar's modern history, surpassed only by upper estimates of the 1930 Bago earthquake. The earthquake caused extensive damage in Myanmar and significant damage in neighboring Thailand. Hundreds of homes were also damaged in Yunnan, China."
     
     national_landmark_damaged:0 "National Landmark Damaged"
     
@@ -4675,8 +4903,12 @@
     SOV_Brezhnev_Doctrine.t:0 "The Brezhnev Doctrine?"
     SOV_Brezhnev_Doctrine.d:0 "The Brezhnev Doctrine was a Soviet foreign policy that proclaimed that any threat to "socialist rule" in any state of the Soviet Bloc in Central and Eastern Europe was a threat to all of them, and therefore, it justified the intervention of fellow socialist states. It was proclaimed in order to justify the Soviet-led occupation of Czechoslovakia earlier in 1968, with the overthrow of the reformist government there. The references to "socialism" meant control by the communist parties which were loyal to the Kremlin."
     GBR_Atlanticism.t:0 "Thatcherite Atlanticism?"
-    GBR_Atlanticism_1.t:0 "The British [concept_protectorate]?"
+    GBR_Atlanticism_1.t:0 "The Special Relationship?"
     GBR_Atlanticism.d:0 "Whilst Thatcher was prime minister, she greatly embraced transatlantic relations with US president Ronald Reagan. She often publicly supported Reagan's policies even when other Western allies were not as vocal. For example, she granted permission for American planes to use British bases for raids, such as the 1986 United States bombing of Libyan Arab Jamahiriya, and allowed American cruise missiles and Pershing missiles to be housed on British soil in response to Soviet deployment of SS-20 nuclear missiles targeting Britain and other Western European nations."
+    NOR_Dag_Hammarskjold_death.t:0 "Death of Dag Hammarskjöld?"
+    NOR_Dag_Hammarskjold_death.d:0 "On 18 September 1961, Hammarskjöld was en route to negotiate a cease-fire between United Nations Operation in the Congo forces and Katangese troops under Moise Tshombe. His Douglas DC-6 airliner SE-BDY crashed near Ndola, Northern Rhodesia (now Zambia). Hammarskjöld perished as a result of the crash, as did all of the 15 other passengers. Hammarskjöld's death set off a succession crisis at the United Nations, because there was no line of succession and as a result, the Security Council had to vote on a successor. The circumstances of the crash are still unclear. A 1962 Rhodesian inquiry concluded that pilot error was to blame, while a later UN investigation could not determine the cause of the crash."
+    LEB_Crisis_1958.t:0 "The Lebanon Crisis"
+    LEB_Crisis_1958.d:0 "The 1958 Lebanon crisis was a political crisis in Lebanon caused by political and religious tensions in the country that included an American military intervention, which lasted for around three months until President Camille Chamoun, who had requested the assistance, completed his term as president of Lebanon. American and Lebanese government forces occupied the Port of Beirut and Beirut International Airport. With the crisis over, the United States withdrew."
     
     historical_diplomatic_incidents.option.1:0 "Take the historical option!"
     historical_diplomatic_incidents.option.2:0 "We will do something different..."
@@ -4690,6 +4922,7 @@
     one_belt_one_road:0 "Belt & Road Initiative"
     workingmens_association:0 "Worker's Association"
     workingmens_international:0 "Worker's International"
+    pact_of_pearl_harbor: "Pact of Pearl Harbour"
     
     North_American_Union:0 "$XNA$"
     Central_American_Union:0 "$XCA$"
@@ -4819,8 +5052,11 @@
     
     invite_to_superstate_union.tt: "Invite all eligible countries to join the Superstate"
     
+    je_one_party_system: "The [ROOT.GetCountry.GetAdjectiveNoFlag] Central Committee"
+    je_one_party_system_reason: "There is only one legal [concept_party] in [ROOT.GetCountry.GetName], the Ruling Party. Notwithstanding this, there are multiple factions within the Central Committee of the Ruling Party, which exert influence over ideological direction of the Ruling Party. This is by way of determining who would be the next party leader, and thus the [concept_ruler] of the country. \n\nThe Central Committee comprises of 3 factions: the Radicals, the Moderates, and the Reformists. These factions all vie for the leadership of the party and the country. \n\nWhich faction is dominant depends on the $Party_Radicalism$ of the Central Committee. If $Party_Radicalism$ is above 60% the radicals are in charge, if $Party_Radicalism$ is between 40% to 60% the moderates are in charge, and if $Party_Radicalism$ is lower than 40% the reformists are in charge. The faction that is dominant will have a much higher chance of deciding the next [concept_ruler]'s [concept_ideology]. \n\nParty Chairperson: [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [GetPlayer.GetRuler.GetFullName] \n\nNote: $Party_Radicalism$ increases when the [concept_government] has high [concept_legitimacy] and decreases when [ROOT.GetCountry.GetName] has high [concept_turmoil]. \n\nNote: $Party_Radicalism$ increases the chance of a more #red autocratic#! [concept_ruler] being selected."
+    
     je_party_system: "The [SCOPE.sParty('ruling_party_scope').GetName]"
-    je_party_system_reason: "The [SCOPE.sParty('ruling_party_scope').GetName] is the ruling [concept_party] of [ROOT.GetCountry.GetName]. As part of the party system, the party chooses the its leader, and by extension, the [concept_ruler] of the country. \n\nThe [SCOPE.sParty('ruling_party_scope').GetName] comprises of 3 factions: the Radicals, the Moderates, and the Reformists. These factions all vie for the leadership of the party and the country. Which faction is dominant depends on the $Party_Radicalism$ of the [SCOPE.sParty('ruling_party_scope').GetName]. If $Party_Radicalism$ is above 60% the radicals are in charge, if $Party_Radicalism$ is between 40% to 60% the moderates are in charge, and if $Party_Radicalism$ is lower than 40% the reformists are in charge. The faction that is dominant will have a much higher chance of deciding the next [concept_ruler]'s [concept_ideology]. \n\nParty Chairperson: [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [GetPlayer.GetRuler.GetFullName] \n\nNote: $Party_Radicalism$ increases when the dominant [concept_government] [concept_interest_group] has low [concept_approval] or the [concept_government] has low [concept_legitimacy]. $Party_Radicalism$ decreases if the dominant [concept_government] [concept_interest_group] has high [concept_approval] and the [concept_government] has high [concept_legitimacy]."
+    je_party_system_reason: "The [SCOPE.sParty('ruling_party_scope').GetName] is the ruling [concept_party] of [ROOT.GetCountry.GetName]. As part of the party system, the party chooses the its leader, and by extension, the [concept_ruler] of the country. \n\nThe [SCOPE.sParty('ruling_party_scope').GetName] comprises of 3 factions: the Radicals, the Moderates, and the Reformists. These factions all vie for the leadership of the party and the country. \n\nWhich faction is dominant depends on the $Party_Radicalism$ of the [SCOPE.sParty('ruling_party_scope').GetName]. If $Party_Radicalism$ is above 60% the radicals are in charge, if $Party_Radicalism$ is between 40% to 60% the moderates are in charge, and if $Party_Radicalism$ is lower than 40% the reformists are in charge. The faction that is dominant will have a much higher chance of deciding the next [concept_ruler]'s [concept_ideology]. \n\nParty Chairperson: [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [GetPlayer.GetRuler.GetFullName] \n\nNote: $Party_Radicalism$ increases when the dominant [concept_government] [concept_interest_group] has low [concept_approval] or the [concept_government] has low [concept_legitimacy]. $Party_Radicalism$ decreases if the dominant [concept_government] [concept_interest_group] has high [concept_approval] and the [concept_government] has high [concept_legitimacy]. \n\nNote: $Party_Radicalism$ increases the chance of a more #red autocratic#! [concept_ruler] being selected."
     
     very_reformist_party: "Party Leaning: Very Reformist \nParty Radicalism: [GetPlayer.MakeScope.Var('party_radicalism').GetValue]%"
     reformist_party: "Party Leaning: Reformist \nParty Radicalism: [GetPlayer.MakeScope.Var('party_radicalism').GetValue]%"
@@ -4887,6 +5123,20 @@
     notification_change_oil_quota_notification_name:0 "#o [SCOPE.GetRootScope.GetCountry.GetCustom('oil_quota_custom_title')]#!"
     notification_change_oil_quota_notification_desc:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('oil_cartel_name_custom_title')] has agreed to set [SCOPE.GetRootScope.GetCountry.GetCustom('oil_quota_custom_title')] for this year in view of the current price of [GetGoods('oil').GetName]."
     
+    expel_character_political_party: "Expel from Party"
+    
+    party_expelled.tt: "[SCOPE.gsInterestGroup('IG_expelled_from_party').GetName] is banned from joining the [SCOPE.sParty('party_affected_by_expulsion_IG').GetName] for #y 10 years#!"
+    
+    IG_expelled_centrist_party: "Expelled from $centrist_party$"
+    IG_expelled_communist_party: "Expelled from $communist_party$"
+    IG_expelled_conservative_party: "Expelled from $conservative_party$"
+    IG_expelled_fascist_party: "Expelled from $fascist_party$"
+    IG_expelled_liberal_party: "Expelled from $liberal_party$"
+    IG_expelled_libertarian_party: "Expelled from $libertarian_party$"
+    IG_expelled_progressive_party: "Expelled from $progressive_party$"
+    IG_expelled_socialist_party: "Expelled from $socialist_party$"
+    IG_expelled_traditionalist_party: "Expelled from $traditionalist_party$"
+    
     ban_character_political_party: "Ban Party Membership"
     
     party_banned.tt: "[SCOPE.gsInterestGroup('IG_banned_from_parties').GetName] is banned from joining [Concept('concept_party', '$concept_parties$')]"
@@ -4899,8 +5149,113 @@
     
     party_unbanned.tt: "[SCOPE.gsInterestGroup('IG_banned_from_parties').GetName] will be allowed to join [Concept('concept_party', '$concept_parties$')]"
     
+    can_ban_parties.tt: "@information! [concept_opposition] [Concept('concept_interest_group', '$concept_interest_groups$')] may be banned from joining [Concept('concept_party', '$concept_parties$')]"
+    cannot_ban_parties.tt: "@information! [concept_opposition] [Concept('concept_interest_group', '$concept_interest_groups$')] cannot be banned from joining [Concept('concept_party', '$concept_parties$')]"
+    
     notification_IG_party_unban_notification_name:0 "[SCOPE.gsInterestGroup('IG_banned_from_parties').GetName]'s [concept_party] Ban Lifted"
     notification_IG_party_unban_notification_desc:0 "The [concept_government] has lifted the ban on the [SCOPE.gsInterestGroup('IG_banned_from_parties').GetName] joining [Concept('concept_party', '$concept_parties$')]. As a result, the [SCOPE.gsInterestGroup('IG_banned_from_parties').GetName] is now free to join any [concept_party] it wishes."
     
     notification_IG_party_unban_all_notification_name:0 "[SCOPE.gsInterestGroup('IG_banned_from_parties').GetName]'s [concept_party] Ban Lifted"
     notification_IG_party_unban_all_notification_desc:0 "To give effect to the democratic [Concept('concept_law','$concept_laws$')] of this country, the [concept_government] has lifted the ban on the [SCOPE.gsInterestGroup('IG_banned_from_parties').GetName] joining [Concept('concept_party', '$concept_parties$')]. As a result, the [SCOPE.gsInterestGroup('IG_banned_from_parties').GetName] is now free to join any [concept_party] it wishes."
+    
+    population_boom: "Population Boom"
+    
+    historical.option.1: "Yes"
+    historical.option.2: "No"
+    
+    international_organisation_application_cooldown.tt: "Have not applied to join this organisation in the last 10 years"
+    
+    GATT_member: "GATT Signatory"
+    
+    je_gatt_system: "The General Agreement on Tariffs and Trade"
+    je_gatt_system_reason: "The General Agreement on Tariffs and Trade (GATT) is a legal agreement between many countries, whose overall purpose was to promote international trade by reducing or eliminating trade barriers such as tariffs or quotas. It has been updated in a series of global trade negotiations consisting of nine rounds between 1947 and 1995. Its role in international trade was largely succeeded in 1995 by the World Trade Organisation. \n\nAs the GATT is a constantly updating agreement, the [concept_tariffs] reduction from the GATT varies every year. \n\nNote: The amount of [concept_tariffs] reduced depends on the global economic outlook."
+    
+    very_low_tariffs_gatt_loc: "Very Low GATT Tariff Reduction"
+    low_tariffs_gatt_loc: "Low GATT Tariff Reduction"
+    medium_tariffs_gatt_loc: "Medium GATT Tariff Reduction"
+    high_tariffs_gatt_loc: "Medium GATT Tariff Reduction"
+    very_high_tariffs_gatt_loc: "Medium GATT Tariff Reduction"
+    
+    join_GATT_decision: "Sign the General Agreement on Tariffs and Trade"
+    join_GATT_decision_desc: "The General Agreement on Tariffs and Trade (GATT) is a legal agreement between many countries, whose overall purpose was to promote international trade by reducing or eliminating trade barriers such as tariffs or quotas. It has been updated in a series of global trade negotiations consisting of nine rounds between 1947 and 1995. Its role in international trade was largely succeeded in 1995 by the World Trade Organisation."
+    leave_GATT_decision: "Leave the General Agreement on Tariffs and Trade"
+    leave_GATT_decision_desc: "The General Agreement on Tariffs and Trade (GATT) is a legal agreement between many countries, whose overall purpose was to promote international trade by reducing or eliminating trade barriers such as tariffs or quotas. It has been updated in a series of global trade negotiations consisting of nine rounds between 1947 and 1995. Its role in international trade was largely succeeded in 1995 by the World Trade Organisation."
+    
+    ww2_war_reparations: "WW2 War Reparations (Recipient)"
+    
+    decree_create_sez: "Create Special Economic Zone"
+    decree_create_sez_desc: "Create a [concept_special_administrative_region] in this [concept_state] that has pro-business [Concept('concept_law','$concept_laws$')]. The [concept_special_administrative_region] will be created after around 1 month of this [concept_decree] being active in this [concept_state]."
+    
+    special_economic_zone_system_1.t: "The [SCOPE.sState('state_to_release').GetName] Special Economic Zone"
+    special_economic_zone_system_1.d: "The [ROOT.GetCountry.GetAdjective] [concept_government] has established a [concept_special_administrative_region] in [SCOPE.sState('state_to_release').GetName] to promote [concept_foreign_investment] and economic growth in [ROOT.GetCountry.GetName]. This new semi-autonomous region has been dubbed the [SCOPE.sState('state_to_release').GetName] Special Economic Zone."
+    special_economic_zone_system_1.f: "This event fired because there is at lease one [concept_state] in [ROOT.GetCountry.GetName] which has the $decree_create_sez$ [concept_decree]."
+    special_economic_zone_system_1.option: "May our economy boom!"
+    
+    LIBERTY_DESIRE_WEEKLY_CHANGE_SPECIAL_ECONOMIC_ZONE: "Special Economic Zone"
+    SPECIAL_ECONOMIC_ZONE_STATUS: "Special Economic Zone"
+    
+    appoint_prime_minister.t: "The New [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]"
+    appoint_prime_minister.d: "With the formation of a new [concept_government], the time has come for [ROOT.GetCountry.GetName] to get a new [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]. [SCOPE.sCharacter('most_powerful_gov_ig_leader').GetFullName] ([SCOPE.sCharacter('most_powerful_gov_ig_leader').GetInterestGroup.GetName]), being the leader of the strongest [concept_interest_group] in the [concept_government], is expected to become the next [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]. The ruling coalition can however select a different person to be the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]."
+    appoint_prime_minister.f: "This event fired because the [concept_ruler]'s [concept_interest_group] is not in the [concept_government]. Selecing a politician from an [concept_interest_group] which is not the strongest [concept_interest_group] in the [concept_government] will anger [SCOPE.gsInterestGroup('most_powerful_gov_ig').GetName]."
+    appoint_prime_minister.option.1: "Appoint [SCOPE.gsInterestGroup('ig_industrialists_scope_ig').GetLeader.GetFullName]"
+    appoint_prime_minister.option.2: "Appoint [SCOPE.gsInterestGroup('ig_petty_bourgeoisie_scope_ig').GetLeader.GetFullName]"
+    appoint_prime_minister.option.3: "Appoint [SCOPE.gsInterestGroup('ig_trade_unions_scope_ig').GetLeader.GetFullName]"
+    appoint_prime_minister.option.4: "Appoint [SCOPE.gsInterestGroup('ig_landowners_scope_ig').GetLeader.GetFullName]"
+    appoint_prime_minister.option.5: "Appoint [SCOPE.gsInterestGroup('ig_devout_scope_ig').GetLeader.GetFullName]"
+    appoint_prime_minister.option.6: "Appoint [SCOPE.gsInterestGroup('ig_rural_folk_scope_ig').GetLeader.GetFullName]"
+    appoint_prime_minister.option.7: "Appoint [SCOPE.gsInterestGroup('ig_intelligentsia_scope_ig').GetLeader.GetFullName]"
+    appoint_prime_minister.option.8: "Appoint [SCOPE.gsInterestGroup('ig_armed_forces_scope_ig').GetLeader.GetFullName]"
+    
+    KMT_CHI_Unification.t: "The Unification of China"
+    KMT_CHI_Unification.d: "With the fall of the communist regime in [SCOPE.sState('capital_scope').GetCityHubName], the [ROOT.GetCountry.GetName] has regained full control over China."
+    KMT_CHI_Unification.f: "This event fired because both governments in China have a similar [concept_government_type]."
+    CCP_CHI_Unification.t: "The Unification of China"
+    CCP_CHI_Unification.d: "With the fall of the nationalist regime in [SCOPE.sState('capital_scope').GetCityHubName], the [ROOT.GetCountry.GetName] has regained full control over China."
+    CCP_CHI_Unification.f: "This event fired because both governments in China have a similar [concept_government_type]."
+    
+    single_party_state_de_facto.t: "The Single Party State"
+    single_party_state_de_facto.d: "With the banning of all [concept_opposition] [Concept('concept_interest_group', '$concept_interest_groups$')] from joining a [concept_party], the [concept_government] has effectively created a Single Party State in [ROOT.GetCountry.GetName]."
+    single_party_state_de_facto.f: "This event fired because all [concept_opposition] [Concept('concept_interest_group', '$concept_interest_groups$')] have been banned from from joining a [concept_party]."
+    single_party_state_de_facto.option: "Cool!"
+    
+    regime_change_failsafe.t: "The New Regime in [ROOT.GetCountry.GetNameNoFormatting]"
+    regime_change_failsafe.d: "With the defeat of [ROOT.GetCountry.GetName] in a recent [concept_war] wherein the [concept_regime_change] [concept_war_goal] was enforced, the victorious foreign power, [SCOPE.sCountry('foreign_power_regime_change').GetName], has installed a new regime in [ROOT.GetCountry.GetName]. This new regime has the same [concept_government_type] and [Concept('concept_law', '$concept_laws$')] as the [SCOPE.sCountry('foreign_power_regime_change').GetName]. Further, a [concept_politician] with the same [concept_interest_group] as [SCOPE.sCountry('foreign_power_regime_change').GetName]'s [concept_ruler] will be installed as the new [concept_ruler] of [ROOT.GetCountry.GetName]."
+    regime_change_failsafe.f: "This event fired because [ROOT.GetCountry.GetName] conceded a [concept_regime_change] [concept_war_goal]."
+    regime_change_failsafe.option: "A dark day for our country."
+    
+    pope_character: "Pope"
+    
+    PAP_1958_revolution.t: "Papacy of Pope John XXIII?"
+    PAP_1958_revolution.d: "Pope John XXIII was head of the Catholic Church and sovereign of the Vatican City State from 28 October 1958 until his death in June 1963. His overall goal was to modernize the Church by emphasising its pastoral role, and its necessary involvement with affairs of state."
+    PAP_1963_revolution.t: "Papacy of Pope Paul VI?"
+    PAP_1963_revolution.d: "Pope Paul VI was head of the Catholic Church and sovereign of the Vatican City State from 21 June 1963 to his death on 6 August 1978. Succeeding John XXIII, he continued the Second Vatican Council, which he closed in 1965, implementing its numerous reforms. He fostered improved ecumenical relations with Eastern Orthodox and Protestant churches, which resulted in many historic meetings and agreements."
+    PAP_1978_revolution.t: "Papacy of Pope John Paul II?"
+    PAP_1978_revolution.d: "Pope John Paul II was head of the Catholic Church and sovereign of the Vatican City State from 1978 until his death in 2005. He has been credited with fighting against dictatorships for democracy and with helping to end communist rule in his native Poland and the rest of Europe.[14] Under John Paul II, the Catholic Church greatly expanded its influence in Africa and Latin America and retained its influence in Europe and the rest of the world."
+    PAP_2005_revolution.t: "Papacy of Pope Benedict XVI?"
+    PAP_2005_revolution.d: "Pope Benedict XVI was head of the Catholic Church and sovereign of the Vatican City State from 19 April 2005 until his resignation on 28 February 2013. Benedict's election as pope occurred in the 2005 papal conclave that followed the death of Pope John Paul II. Upon his resignation, Benedict chose to be known as "Pope emeritus", and he retained this title until his death in 2022."
+    PAP_2013_revolution.t: "Papacy of Pope Francis?"
+    PAP_2013_revolution.d: "Pope Francis was the head of the Catholic Church and sovereign of the Vatican City State. He is the first pope from the Society of Jesus (the Jesuit Order), the first from the Americas and the Southern Hemisphere, and the first born or raised outside Europe since the 8th-century Syrian pope Gregory III."
+    PAP_GENERIC_revolution.t: "The New Pope"
+    PAP_GENERIC_revolution.d: "The Catholic Church in Rome has elected a new Pope as the previous Pope passed away. The new Pope was elected by the College of Cardinals through a process called a conclave, where cardinals under 80 years old vote by secret ballot until a candidate receives a two-thirds majority."
+    PAP_GENERIC_revolution.f: "This event fired because there is no [concept_character] in the world which is a Pope."
+    
+    controlled_election.t: "The [ROOT.GetCountry.GetAdjectiveNoFormatting] Legislative Election"
+    controlled_election.d: "An election for the #o [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')]#! was held today. Candidates had to be nominated by the Ruling Party of [ROOT.GetCountry.GetName] or by a public organisation controlled by the Ruling Party. Voters could vote against the Ruling Party candidate, but could only do so by using polling booths, whereas votes for the party could be cast simply by submitting a blank ballot."
+    controlled_election.f: "As elections in [ROOT.GetCountry.GetName] are not competitive, they function as an approval poll of the [concept_government]. As such, the effect of such elections is only to reduce the [concept_legitimacy] of the [concept_government], if the number of [Concept('concept_radical', '$concept_radicals$')] is higher than the number of [Concept('concept_loyalist', '$concept_loyalists$')]. \n\nNote: [concept_legitimacy] is reduced by the output value of the following formula: \n\nTotal [Concept('concept_radical', '$concept_radicals$')] / Total [Concept('concept_loyalist', '$concept_loyalists$')] + [Concept('concept_radical', '$concept_radicals$')] x 100"
+    controlled_elections_system_option.1: "Respect the vote."
+    controlled_elections_system_option.2: "Manipulate the results!"
+    
+    controlled_election_results: "Effects of Recent Controlled Election"
+    
+    controlled_election_results_positive: "$controlled_election_results$"
+    controlled_election_results_negative: "$controlled_election_results$"
+    
+    controlled_election_disabled: "No Elections Permitted"
+    
+    je_controlled_elections_disabled_button: "Suspend Elections"
+    je_controlled_elections_disabled_button_desc: "The [concept_government] will not hold any elections for the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] until further notice. \n\nNote: This will disable elections for the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')], which are normally held every 5 years."
+    je_controlled_elections_enabled_button: "Resume Elections"
+    je_controlled_elections_enabled_button_desc: "The [concept_government] will resume holding elections for the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] until further notice. \n\nNote: Elections for the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] will be held every 5 years."
+    
+    has_controlled_elections.tt:0 "$law_no_voting_additional_effects$"
+    controlled_elections_toggle_timer.tt:0 "Did not suspend or resume elections in the last 6 months"

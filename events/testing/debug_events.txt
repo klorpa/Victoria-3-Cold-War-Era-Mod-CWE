@@ -12,7 +12,18 @@ debug.1 = {
 		#calculate_upper_house_composition = yes
 		#calculate_lower_house_composition = yes
 		
-		start_enactment = law_type:law_HOS_nationalist_leader
+		#start_enactment = law_type:law_HOS_nationalist_leader
+		
+		every_country = { remove_variable = un_peacekeeping_VETO_var }
+		
+		set_global_variable = { 
+			name = unsc_peackeeping_vote_count_var
+			value = 10
+		}
+		set_global_variable = { 
+			name = unga_peackeeping_vote_count_var
+			value = 10
+		}
 		
 	}
 }
@@ -120,8 +131,26 @@ debug.7 = {
 	type = country_event
 	hidden = yes
 	immediate = {
-		#c:LBY = { add_liberty_desire = -100 }
-		effect_starting_politics_democratic = yes
+	
+		#Add wargoal
+		random_diplomatic_play = {
+			limit = {
+				OR = {
+					initiator_is = c:USA
+					target_is = c:USA
+				}
+				is_war = yes
+				is_diplomatic_play_participant = c:NKO
+				is_diplomatic_play_participant = c:USA
+			}
+			add_war_goal = {
+				holder = c:USA
+				target_country = c:NKO
+				type = annex_country
+				#primary_demand = yes
+			}
+		}
+	
 	}
 }
 
@@ -130,11 +159,34 @@ debug.8 = {
 	hidden = yes
 	immediate = {
 	
-		#activate_law = law_type:law_censorship
-		#activate_law = law_type:law_single_party_state
-		activate_law = law_type:law_parties_allowed
+		#effect_starting_politics_presidential_republic = yes
+		#effect_starting_politics_democratic = yes
+		
+		#set_bosnian_borders = yes
 		
 		#post_notification = private_media_boost_leader_notification
+		
+		c:ITA = {
+			create_character = {
+				first_name = "Pius_XII_first_name"
+				last_name = "Pius_XII_last_name"
+				is_agitator = yes historical = yes
+				birth_date = 1876.3.2
+				interest_group = ig_devout
+				ideology = ideology_agitator_pro_human_rights
+				culture = cu:italian
+				religion = rel:catholic
+				traits = {
+					direct
+					brave
+					pious
+				}
+				on_created = { 
+					set_variable = Pius_XII 
+					set_character_as_pope = yes
+				}
+			}
+		}
 		
 	}
 }
@@ -144,18 +196,39 @@ debug.9 = {
 	hidden = yes
 	immediate = {
 		
-		#Recalculate
-		remove_global_variable = imf_SDR_caculated_timer
-		calculate_SDR_values_full = yes
-	
-		set_variable = {
-			name = SDR_marketplace_transfer
-			value = 1000000
-		}
+		#add_journal_entry = { type = je_one_party_system }
+		
+		#every_country = {
+		#	activate_law = law_type:law_no_pop_growth_policy
+		#}
 	
 		#every_country = {
 		#	change_infamy = -1000
 		#}
+		
+		#c:SOV = {
+		#
+		#	#War
+		#	create_diplomatic_play = {
+		#		name = test_war
+		#		type = dp_regime_change
+		#		target_country = ROOT
+		#	
+		#		war = yes
+		#		
+		#	}
+		#	
+		#}
+		
+		if = {
+				limit = { p:xC02050.state.owner = { THIS = ROOT } }
+				s:STATE_NORTH_ANGOLA = {
+					set_owner_of_provinces = {
+						country = c:POR
+						provinces = { xC02050 }
+					}
+				}
+			}
 		
 	}
 }

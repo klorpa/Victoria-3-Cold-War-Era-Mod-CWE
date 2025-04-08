@@ -1,5 +1,4 @@
 ﻿########## DEFAULT ##########
-
 gui_skin_base = {
 	category = ui_skin_theme
 
@@ -22,10 +21,10 @@ papermap_base = {
 	}
 }
 
-papermap_eoh_smooth_regular = {
+papermap_cwe_grid = {
 	category = papermap_theme
 
-	papermap_textures_file = "gfx/map/textures/maptextures_eoh_smooth_regular.settings"
+	papermap_textures_file = "gfx/map/textures/maptextures_cwe_grid.settings"
 
 	map_object = {
 		pdxmesh = "papermap_extension_top_mesh"
@@ -37,6 +36,22 @@ papermap_eoh_smooth_regular = {
 		locator = "papermap_extension_bottom_locator"
 	}
 }
+
+#papermap_eoh_smooth_regular = {
+#	category = papermap_theme
+#
+#	papermap_textures_file = "gfx/map/textures/maptextures_eoh_smooth_regular.settings"
+#
+#	map_object = {
+#		pdxmesh = "papermap_extension_top_mesh"
+#		locator = "papermap_extension_top_locator"
+#	}
+#
+#	map_object = {
+#		pdxmesh = "papermap_extension_bottom_mesh"
+#		locator = "papermap_extension_bottom_locator"
+#	}
+#}
 
 table_base = {
 	category = table_top_theme
@@ -85,6 +100,15 @@ papermap_letter = {
 	map_object = {
 		pdxmesh = papermap_letter_mesh
 		locator = papermap_object_4_locator
+	}
+}
+
+papermap_cloth_default = {
+	category = table_asset_cloth_theme
+
+	map_object = {
+		pdxmesh = papermap_cloth_01_mesh
+		locator = papermap_cloth_locator
 	}
 }
 
@@ -169,8 +193,8 @@ papermap_hongshanstatue = {
 	dlc = "dlc007"
 
 	map_object = {
-		pdxmesh = papermap_hongshanstatue_mesh
-		locator = papermap_object_1_locator
+		pdxmesh = "papermap_hongshanstatue_mesh"
+		locator = "papermap_object_1_locator"
 	}
 }
 
@@ -189,8 +213,8 @@ papermap_pocketwatch = {
 	dlc = "dlc007"
 
 	map_object = {
-		pdxmesh = papermap_walthamwatch_mesh
-		locator = papermap_object_3_locator
+		pdxmesh = "papermap_walthamwatch_mesh"
+		locator = "papermap_object_3_locator"
 	}
 }
 
@@ -199,7 +223,78 @@ papermap_tainostatue = {
 	dlc = "dlc007"
 
 	map_object = {
-		entity = papermap_tainostatue_entity
-		locator = papermap_object_4_locator
+		entity = "papermap_tainostatue_entity"
+		locator = "papermap_object_4_locator"
+	}
+}
+
+########### ep1 ###########
+
+
+
+########### ip2 ###########
+
+table_ip2 = {
+	category = table_top_theme
+	dlc = "dlc011"
+
+	map_object = {
+		pdxmesh = "papermap_table_top_ip2_mesh"
+		locator = "papermap_table_top_ip2_locator"
+	}
+
+	map_object = {
+		pdxmesh = "papermap_table_bottom_ip2_mesh"
+		locator = "papermap_table_bottom_ip2_locator"
+	}
+}
+
+papermap_yali = {
+	category = table_asset_1_theme
+	dlc = "dlc011"
+
+	map_object = {
+		pdxmesh = "papermap_yali_01_mesh"
+		locator = "papermap_object_1_locator"
+	}
+}
+
+papermap_netturpetti = {
+	category = table_asset_2_theme
+	dlc = "dlc011"
+
+	map_object = {
+		pdxmesh = "papermap_netturpetti_mesh"
+		locator = "papermap_object_2_locator"
+	}
+}
+
+papermap_indianknife = {
+	category = table_asset_3_theme
+	dlc = "dlc011"
+
+	map_object = {
+		pdxmesh = "papermap_indian_knife_mesh"
+		locator = "papermap_object_indian_knife_locator"
+	}
+}
+
+papermap_hairbrooch = {
+	category = table_asset_4_theme
+	dlc = "dlc011"
+
+	map_object = {
+		pdxmesh = "papermap_indian_hairbrooch_mesh"
+		locator = "papermap_object_indian_hairbrooch_locator"
+	}
+}
+
+papermap_cloth_indian = {
+	category = table_asset_cloth_theme
+	dlc = "dlc011"
+
+	map_object = {
+		pdxmesh = papermap_cloth_ip2_mesh
+		locator = papermap_cloth_locator
 	}
 }

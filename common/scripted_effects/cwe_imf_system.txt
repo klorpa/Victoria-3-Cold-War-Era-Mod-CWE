@@ -158,6 +158,14 @@ calculate_exchange_rate_adjusted_SDR_local_amount = {
 			name = SDR_local_actual_amount
 			multiply = root.var:SDR_exchange_rate
 		}
+		set_variable = {
+			name = SDR_local_actual_amount_display
+			value = root.var:SDR_local_actual_amount
+		}
+		change_variable = {
+			name = SDR_local_actual_amount_display
+			divide = 1000000
+		}
 	}
 
 }

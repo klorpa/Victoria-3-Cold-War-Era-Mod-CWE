@@ -3,25 +3,51 @@
 pmg_grain_agriculture = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
+		pm_grain_goods_agriculture_0
 		pm_grain_goods_agriculture_1
 		pm_grain_goods_agriculture_2
 		pm_grain_goods_agriculture_3
+		pm_grain_goods_agriculture_4
+		pm_grain_goods_agriculture_5
+		pm_grain_goods_agriculture_6
+		pm_grain_goods_agriculture_7
+		pm_grain_goods_agriculture_8
+		pm_grain_goods_agriculture_9
+		pm_grain_goods_agriculture_10
 	}
 }
 
 pmg_fish_agriculture = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
+		pm_fish_goods_agriculture_0
 		pm_fish_goods_agriculture_1
 		pm_fish_goods_agriculture_2
 		pm_fish_goods_agriculture_3
+		pm_fish_goods_agriculture_4
+		pm_fish_goods_agriculture_5
+		pm_fish_goods_agriculture_6
+		pm_fish_goods_agriculture_7
+		pm_fish_goods_agriculture_8
+		pm_fish_goods_agriculture_9
+		pm_fish_goods_agriculture_10
 	}
 }
 
 pmg_fabric_agriculture = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
-		pm_fabric_goods_agriculture
+		pm_fabric_goods_agriculture_0
+		pm_fabric_goods_agriculture_1
+		pm_fabric_goods_agriculture_2
+		pm_fabric_goods_agriculture_3
+		pm_fabric_goods_agriculture_4
+		pm_fabric_goods_agriculture_5
+		pm_fabric_goods_agriculture_6
+		pm_fabric_goods_agriculture_7
+		pm_fabric_goods_agriculture_8
+		pm_fabric_goods_agriculture_9
+		pm_fabric_goods_agriculture_10
 	}
 }
 
@@ -42,45 +68,102 @@ pmg_dye_agriculture = {
 pmg_fruit_agriculture = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
-		pm_fruit_goods_agriculture
+		pm_fruit_goods_agriculture_0
+		pm_fruit_goods_agriculture_1
+		pm_fruit_goods_agriculture_2
+		pm_fruit_goods_agriculture_3
+		pm_fruit_goods_agriculture_4
+		pm_fruit_goods_agriculture_5
+		pm_fruit_goods_agriculture_6
+		pm_fruit_goods_agriculture_7
+		pm_fruit_goods_agriculture_8
+		pm_fruit_goods_agriculture_9
+		pm_fruit_goods_agriculture_10
 	}
 }
 
 pmg_rubber_agriculture = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
-		pm_rubber_goods_agriculture
+		pm_rubber_goods_agriculture_0
+		pm_rubber_goods_agriculture_1
+		pm_rubber_goods_agriculture_2
+		pm_rubber_goods_agriculture_3
+		pm_rubber_goods_agriculture_4
+		pm_rubber_goods_agriculture_5
+		pm_rubber_goods_agriculture_6
+		pm_rubber_goods_agriculture_7
+		pm_rubber_goods_agriculture_8
+		pm_rubber_goods_agriculture_9
+		pm_rubber_goods_agriculture_10
 	}
 }
 
 pmg_meat_agriculture = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
+		pm_meat_goods_agriculture_0
 		pm_meat_goods_agriculture_1
 		pm_meat_goods_agriculture_2
 		pm_meat_goods_agriculture_3
+		pm_meat_goods_agriculture_4
+		pm_meat_goods_agriculture_5
+		pm_meat_goods_agriculture_6
+		pm_meat_goods_agriculture_7
+		pm_meat_goods_agriculture_8
+		pm_meat_goods_agriculture_9
+		pm_meat_goods_agriculture_10
 	}
 }
 
 pmg_wine_agriculture = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
+		pm_wine_goods_agriculture_0
 		pm_wine_goods_agriculture_1
 		pm_wine_goods_agriculture_2
+		pm_wine_goods_agriculture_3
+		pm_wine_goods_agriculture_4
+		pm_wine_goods_agriculture_5
+		pm_wine_goods_agriculture_6
+		pm_wine_goods_agriculture_7
+		pm_wine_goods_agriculture_8
+		pm_wine_goods_agriculture_9
+		pm_wine_goods_agriculture_10
 	}
 }
 
 pmg_tea_agriculture = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
-		pm_tea_goods_agriculture
+		pm_tea_goods_agriculture_0
+		pm_tea_goods_agriculture_1
+		pm_tea_goods_agriculture_2
+		pm_tea_goods_agriculture_3
+		pm_tea_goods_agriculture_4
+		pm_tea_goods_agriculture_5
+		pm_tea_goods_agriculture_6
+		pm_tea_goods_agriculture_7
+		pm_tea_goods_agriculture_8
+		pm_tea_goods_agriculture_9
+		pm_tea_goods_agriculture_10
 	}
 }
 
 pmg_coffee_agriculture = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
-		pm_coffee_goods_agriculture
+		pm_coffee_goods_agriculture_0
+		pm_coffee_goods_agriculture_1
+		pm_coffee_goods_agriculture_2
+		pm_coffee_goods_agriculture_3
+		pm_coffee_goods_agriculture_4
+		pm_coffee_goods_agriculture_5
+		pm_coffee_goods_agriculture_6
+		pm_coffee_goods_agriculture_7
+		pm_coffee_goods_agriculture_8
+		pm_coffee_goods_agriculture_9
+		pm_coffee_goods_agriculture_10
 	}
 }
 
@@ -94,9 +177,17 @@ pmg_sugar_agriculture = {
 pmg_tobacco_agriculture = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
+		pm_tobacco_goods_agriculture_0
 		pm_tobacco_goods_agriculture_1
 		pm_tobacco_goods_agriculture_2
 		pm_tobacco_goods_agriculture_3
+		pm_tobacco_goods_agriculture_4
+		pm_tobacco_goods_agriculture_5
+		pm_tobacco_goods_agriculture_6
+		pm_tobacco_goods_agriculture_7
+		pm_tobacco_goods_agriculture_8
+		pm_tobacco_goods_agriculture_9
+		pm_tobacco_goods_agriculture_10
 	}
 }
 

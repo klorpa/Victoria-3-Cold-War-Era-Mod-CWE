@@ -65,7 +65,7 @@ united_nations.2 = {
 
 	trigger = {
 		NOT = { has_modifier = unga_member }
-		is_country_type = recognized
+		NOT = { is_country_type = unrecognized }
 	}
 
 	immediate = {
@@ -277,6 +277,9 @@ united_nations.6 = {
 		
 		set_variable = un_peacekeeping_voted_for_war
 		
+		#Failsafe marker for no Veto
+		remove_variable = un_peacekeeping_VETO_var
+		
 		#FROM is happy with THIS
 		change_relations = {
 			country = scope:un_peacekeeping_applicant
@@ -366,6 +369,9 @@ united_nations.6 = {
 	option = {
 		name = un_peacekeeping_vote.option.3 			#Abstain from voting
 		default_option = yes
+		
+		#Failsafe marker for no Veto
+		remove_variable = un_peacekeeping_VETO_var
 		
 		#FROM is angry with THIS
 		change_relations = {
@@ -585,9 +591,12 @@ united_nations.8 = {
 			modifier = {
 				trigger = {
 					OR = { 
-						has_attitude = {
-							who = scope:un_peacekeeping_applicant_var
-							attitude <= wary
+						trigger_if = {
+							limit = { exists = scope:un_peacekeeping_applicant_var }
+							has_attitude = {
+								who = scope:un_peacekeeping_applicant_var
+								attitude <= wary
+							}
 						}
 						any_country = {
 							scope:un_peacekeeping_aggressor ?= this
@@ -680,12 +689,11 @@ united_nations.9 = {
 		save_scope_as = un_peacekeeping_applicant
 		
 		#UN sends out ultimatum to aggressors to end diplo play or face a containment war
-		random_country = {
+		every_country = {
 			limit = {
-				#exists = yes
 				is_diplomatic_play_enemy_of = ROOT
 				is_diplomatic_play_initiator = yes
-				is_at_war = yes
+				has_war_with = ROOT
 				any_scope_war = { is_warleader = root }
 			}
 			trigger_event = { id = united_nations.10 }
@@ -725,6 +733,10 @@ united_nations.10 = {
 
 	duration = 1
 
+	cancellation_trigger = {
+		is_at_war = no
+	}
+
 	immediate = {
 	
 		random_country = {
@@ -746,8 +758,9 @@ united_nations.10 = {
 		#End diplomatic play
 		every_diplomatic_play = {
 			limit = {
+				is_war = yes
 				initiator_is = scope:un_peacekeeping_aggressor
-				target_is = scope:un_peacekeeping_applicant
+				is_diplomatic_play_participant = scope:un_peacekeeping_applicant
 			}
 			end_play = yes
 		}
@@ -757,25 +770,21 @@ united_nations.10 = {
 		}
 		
 		#Create UN Mandates
-		trigger_event = { id = united_nations.13 }
-		
-		#International community is very happy
-		change_infamy = -50
-		
-		#Domestic reaction
-		add_radicals = {
-			value = large_radicals
+		if = {
+			limit = { 
+				any_scope_state = {
+					is_split_state = no
+					NOT = { is_homeland_of_country_cultures = ROOT }
+				}
+			}
+			trigger_event = { id = united_nations.13 }
 		}
 		
-		#National humiliation
-		add_modifier = { 
-			name = national_humiliation 
-			months = 60 
-			is_decaying = yes 
-		} 
+		#International community is very unhappy
+		change_infamy = -50 
 		
 		#Clean up
-		trigger_event = { id = united_nations.12 }
+		hidden_effect = { trigger_event = { id = united_nations.12 } }
 		
 		ai_chance = { 
 			base = 0
@@ -811,8 +820,21 @@ united_nations.10 = {
 					}
 					NOT = { is_in_war_together = scope:un_peacekeeping_aggressor }
 					NOT = { has_war_with = ROOT }
-					has_variable = un_peacekeeping_unsc_supporter_var
+					#has_variable = un_peacekeeping_unsc_supporter_var
 					is_not_neutral = yes
+					
+					is_subject = no
+					
+					NOR = { 
+						is_subject_of = ROOT
+						has_diplomatic_pact = { who = ROOT type = alliance }
+						has_diplomatic_pact = { who = ROOT type = defensive_pact }
+						has_diplomatic_pact = { who = ROOT type = guarantee_independence }
+						has_diplomatic_pact = { who = ROOT type = non_aggression_pact }
+						has_diplomatic_pact = { who = ROOT type = support_independence }
+						has_diplomatic_pact = { who = ROOT type = special_relationship }
+					}
+					
 				}
 				trigger_event = { id = united_nations.101 }
 			}
@@ -839,6 +861,7 @@ united_nations.10 = {
 #UN Peacekeeping ultimatum - Option to join war
 united_nations.101 = {
 	type = country_event
+	placement = scope:un_peacekeeping_aggressor
 
 	title = UN_peacekeeping_join_war.t
 	desc = UN_peacekeeping_join_war.d
@@ -854,6 +877,13 @@ united_nations.101 = {
 	on_opened_soundeffect = "event:/SFX/Events/unspecific/leader_speaking_to_a_group_of_people"
 
 	duration = 1
+
+	cancellation_trigger = {
+		OR = { 
+			NOT = { exists = scope:un_peacekeeping_aggressor }
+			NOT = { exists = scope:un_peacekeeping_applicant }
+		}
+	}
 
 	immediate = {
 	
@@ -882,10 +912,20 @@ united_nations.101 = {
 		highlighted_option = yes
 		
 		#THIS joins the TARGET's war
-		every_scope_war = {
-			join_war = {
-				target = scope:un_peacekeeping_aggressor
-				side = scope:un_peacekeeping_applicant
+		every_diplomatic_play = {
+			limit = {
+				is_war = yes
+				is_diplomatic_play_participant = scope:un_peacekeeping_aggressor
+				is_diplomatic_play_participant = scope:un_peacekeeping_applicant
+				NOT = { is_diplomatic_play_participant = ROOT }
+			}
+			if = {
+				limit = {
+					initiator_is = scope:un_peacekeeping_aggressor
+				}
+				add_target_backers = {
+					ROOT
+				}
 			}
 		}
 		
@@ -1103,6 +1143,14 @@ united_nations.13 = {
 
 	immediate = {
 		
+		#Always set state religion and primary culture as overlord first
+		random_primary_culture = { 
+			limit = { 
+				is_primary_culture_of = ROOT
+			}
+			save_scope_as = overlords_culture
+		}
+		
 		#Dismantle THIS
 		every_scope_state = {
 			limit = {
@@ -1122,6 +1170,7 @@ united_nations.13 = {
 				country_type = unrecognized
 				tier = city_state
 				cede_state_trigger = {
+					is_split_state = no
 					has_variable = state_to_cede
 				}
 				on_created = { 
@@ -1140,34 +1189,6 @@ united_nations.13 = {
 					
 				}
 			}
-			#Find some country to give UNT to, if any
-			if = {
-				limit = { 
-					exists = scope:UNT_country
-					scope:UNT_country ?= {
-						is_subject = no
-					}
-				}
-				random_country = { 
-					limit = { 
-						OR = { 
-							has_modifier = unsc_permanent_member 
-							has_modifier = unsc_non_permanent_member 
-						} 
-						is_sufficiently_independent = yes
-						is_at_war = no
-						infamy < infamy_threshold:pariah
-					}
-					create_diplomatic_pact = {
-						country = scope:UNT_country
-						type = mandate
-					}
-					trigger_event = { id = united_nations.14 }
-				}
-				scope:UNT_country ?= {
-					set_variable = { name = newly_created_UNT years = 10 }
-				}
-			}
 		}
 		
 	}
@@ -1175,6 +1196,119 @@ united_nations.13 = {
 	option = {
 		name = UN_peacekeeping_resolution_mandate.option
 		default_option = yes
+		
+		#Domestic reaction
+		add_radicals = {
+			value = large_radicals
+		}
+		
+		#National humiliation
+		add_modifier = { 
+			name = national_humiliation 
+			months = 60 
+			is_decaying = yes 
+		}
+		
+		#Set mandate's primary culture
+		hidden_effect = {
+			random_country = {
+				limit = { has_variable = UNT_country }
+				
+				#Forcefully remove all overlord primary cultures from the primary culture of THIS (up to 500)
+				remove_primary_culture = scope:overlords_culture
+				clear_all_overlord_primary_cultures = yes
+				if = { limit = { any_primary_culture = { is_primary_culture_of = ROOT } } clear_all_overlord_primary_cultures = yes }
+				if = { limit = { any_primary_culture = { is_primary_culture_of = ROOT } } clear_all_overlord_primary_cultures = yes }
+				if = { limit = { any_primary_culture = { is_primary_culture_of = ROOT } } clear_all_overlord_primary_cultures = yes }
+				if = { limit = { any_primary_culture = { is_primary_culture_of = ROOT } } clear_all_overlord_primary_cultures = yes }
+				if = { limit = { any_primary_culture = { is_primary_culture_of = ROOT } } clear_all_overlord_primary_cultures = yes }
+				if = { limit = { any_primary_culture = { is_primary_culture_of = ROOT } } clear_all_overlord_primary_cultures = yes }
+				if = { limit = { any_primary_culture = { is_primary_culture_of = ROOT } } clear_all_overlord_primary_cultures = yes }
+				if = { limit = { any_primary_culture = { is_primary_culture_of = ROOT } } clear_all_overlord_primary_cultures = yes }
+				if = { limit = { any_primary_culture = { is_primary_culture_of = ROOT } } clear_all_overlord_primary_cultures = yes }
+				
+				#Set primary culture of colony
+				capital ?= { save_scope_as = capital_scope }
+				scope:capital_scope ?= {
+					random_scope_culture = {
+						limit = { 
+							has_homeland = scope:capital_scope
+							NOT = { is_primary_culture_of = ROOT }
+						}
+						save_scope_as = culture_to_release
+					}
+				}
+				if = {
+					limit = { exists = scope:culture_to_release }
+					add_primary_culture = scope:culture_to_release
+				}
+				
+				#Set state religion of colony
+				capital_scope ?= {
+					random_scope_pop = {
+						limit = { 
+							NOT = { is_primary_culture_of = ROOT } 
+						}
+						religion = { save_scope_as = religion_to_release }
+					}
+				}
+				if = {
+					limit = { exists = scope:religion_to_release }
+					set_state_religion = scope:religion_to_release
+				}
+				
+				#Generate Ruler
+				every_scope_character = { kill_character = yes }
+				
+			}
+		}
+		
+		#Set borders
+		hidden_effect = {
+			random_country = {
+				limit = { has_variable = UNT_country }
+				save_scope_as = UNT_state_transfer_target
+			}
+			every_scope_state = {
+				limit = { 
+					has_variable = state_to_cede 
+					is_split_state = yes
+				}
+				set_state_owner = scope:UNT_state_transfer_target
+			}
+		}
+		
+		#Find some country to give UNT to, if any
+		hidden_effect = {
+			random_country = {
+				limit = { 
+					has_variable = UNT_country
+					is_subject = no
+				}
+				save_scope_as = UNT_country_subject
+				set_variable = { name = newly_created_UNT years = 10 }
+				set_variable = { name = newly_created_UNT_marker months = 1 }
+			}
+			random_country = {
+				limit = { 
+					exists = scope:UNT_country_subject
+					OR = { 
+						has_modifier = unsc_permanent_member 
+						has_modifier = unsc_non_permanent_member 
+					} 
+					country_rank >= rank_value:major_power
+					is_sufficiently_independent = yes
+					is_at_war = no
+					infamy < infamy_threshold:pariah
+				}
+				create_diplomatic_pact = {
+					country = scope:UNT_country_subject
+					type = mandate
+				}
+				trigger_event = { id = united_nations.14 }
+			}
+		}
+		
 	}
 	
 }
@@ -1209,9 +1343,11 @@ united_nations.14 = {
 		
 		random_country = { 
 			limit = { 
-				has_variable = newly_created_UNT
+				has_variable = newly_created_UNT_marker
 				is_subject_of = ROOT
+				is_subject_type = subject_type_mandate
 			}
+			remove_variable = newly_created_UNT_marker
 			save_scope_as = UNT_mandate_country
 		}
 		
@@ -1227,6 +1363,7 @@ united_nations.14 = {
 			
 			#5 year timer to independence
 			scope:UNT_mandate_country ?= {
+				copy_laws = ROOT
 				add_modifier = { name = un_potential_mandate_timer months = 60 }
 			}
 			
@@ -1254,7 +1391,6 @@ united_nations.14 = {
 		if = {
 			limit = { exists = scope:UNT_mandate_country }
 			scope:UNT_mandate_country ?= {
-				copy_laws = ROOT
 				make_independent = yes
 				change_relations = {
 					country = ROOT
@@ -1425,19 +1561,7 @@ united_nations.17 = {
 	immediate = {
 		
 		#Select a random country to have the UNSG
-		random_country = {
-			limit = { 
-				has_modifier = unga_member
-				NOT = { has_modifier = unsg_country }
-				infamy = infamy_threshold:reputable
-				country_rank < rank_value:great_power
-			}
-			add_modifier = { 
-				name = unsg_country
-				months = 60 
-			}
-			trigger_event = { id = united_nations.18 }
-		}
+		effect_select_UNSG_country = yes
 		
 	}
 	
@@ -1466,7 +1590,9 @@ united_nations.18 = {
 	}
 
 	immediate = {
+	
 		save_scope_as = unsg_country
+		
 	}
 
 	option = {
@@ -1476,38 +1602,44 @@ united_nations.18 = {
 		remove_global_variable = passive_unsg
 		remove_global_variable = balanced_unsg
 		remove_global_variable = proactive_unsg
-		random_list = {
-			1 = {	
-				set_global_variable = passive_unsg
-			
-				#Neutral countries are more likely to produce a passive UNSG
-				modifier = {
-					if = {
-						limit = {
-							has_law = law_type:law_no_war
-						}
-					}
-					add = 1
-				}
-			}
-			1 = {	
-				set_global_variable = balanced_unsg
-			
-				#Neutral countries are more likely to produce a passive UNSG
-				modifier = {
-					if = {
-						limit = {
-							has_law = law_type:law_defensive_war
-						}
-					}
-					add = 1
-				}
-			}
-			1 = {	
-				set_global_variable = proactive_unsg
+		
+		hidden_effect = {
+			random_list = {
+				1 = {	
+					set_global_variable = passive_unsg
 				
+					#Neutral countries are more likely to produce a passive UNSG
+					modifier = {
+						if = {
+							limit = {
+								has_law = law_type:law_no_war
+							}
+						}
+						add = 1
+					}
+				}
+				1 = {	
+					set_global_variable = balanced_unsg
+				
+					#Neutral countries are more likely to produce a passive UNSG
+					modifier = {
+						if = {
+							limit = {
+								has_law = law_type:law_defensive_war
+							}
+						}
+						add = 1
+					}
+				}
+				1 = {	
+					set_global_variable = proactive_unsg
+					
+				}
 			}
 		}
+		
+		#Create UNSG character
+		effect_create_UNSG = yes
 		
 		#Notify other players of UNSG's appointment
 		every_country = {
@@ -1656,6 +1788,11 @@ united_nations.19 = {
 			}
 		}
 		else = {
+			hidden_effect = { remove_modifier = imf_loan_creditor }
+			add_modifier = {
+				name = imf_loan_creditor
+				years = 5
+			}
 			create_diplomatic_pact = {
 				country = scope:imf_loan_debtor
 				type = bankroll
@@ -1721,6 +1858,22 @@ united_nations.19 = {
 				}
 				add = 100
 			}
+		}
+		
+	}
+	
+	option = {
+		name = imf_loan_option.3			#Don't bug me anymore
+		trigger = { 
+			NOT = { has_variable = opted_out_of_imf_loan_creditor }
+		}
+		
+		set_variable = opted_out_of_imf_loan_creditor
+		
+		change_relations = { country = scope:imf_loan_debtor value = -5 }
+		
+		ai_chance = { 
+			base = 0
 		}
 		
 	}

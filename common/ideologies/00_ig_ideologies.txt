@@ -461,8 +461,42 @@ ideology_pro_environment = {
 }
 
 #Foreign Economic Policy
-ideology_nationalist = {
+ideology_isolationist = {
 	icon = "gfx/interface/icons/ideology_icons/isolationist.dds"
+	
+	lawgroup_foreign_policy = {
+		law_nationalist_fp = strongly_approve
+		law_regionalist_fp = strongly_disapprove
+		law_globalist_fp = strongly_disapprove
+	}
+	
+	lawgroup_trade_policy = {
+		law_isolationism = strongly_approve
+		law_protectionism = disapprove
+		law_free_trade = strongly_disapprove
+	}
+	
+	lawgroup_colonization = {
+		law_no_colonial_affairs = strongly_approve
+		law_colonial_resettlement = disapprove
+		law_colonial_exploitation = strongly_disapprove
+	}
+	
+	lawgroup_migration = {
+		law_no_migration_controls = strongly_disapprove
+		law_migration_controls = disapprove
+		law_closed_borders = strongly_approve
+	}
+	
+	lawgroup_foreign_investment_policy = {
+		law_no_foreign_investment_policy = strongly_approve
+		law_nationalist_foreign_investment_policy = approve
+		law_full_foreign_investment_policy = disapprove
+	}
+	
+}
+ideology_nationalist = {
+	icon = "gfx/interface/icons/ideology_icons/colonialist.dds"
 	
 	lawgroup_foreign_policy = {
 		law_nationalist_fp = strongly_approve
@@ -486,6 +520,12 @@ ideology_nationalist = {
 		law_no_migration_controls = disapprove
 		law_migration_controls = approve
 		law_closed_borders = strongly_approve
+	}
+	
+	lawgroup_foreign_investment_policy = {
+		law_no_foreign_investment_policy = approve
+		law_nationalist_foreign_investment_policy = strongly_approve
+		law_full_foreign_investment_policy = strongly_disapprove
 	}
 	
 }
@@ -516,6 +556,12 @@ ideology_regionalist = {
 		law_closed_borders = disapprove
 	}
 	
+	lawgroup_foreign_investment_policy = {
+		law_no_foreign_investment_policy = disapprove
+		law_nationalist_foreign_investment_policy = strongly_approve
+		law_full_foreign_investment_policy = approve
+	}
+	
 }
 ideology_globalist = {
 	icon = "gfx/interface/icons/ideology_icons/jingoist.dds"
@@ -542,6 +588,12 @@ ideology_globalist = {
 		law_no_migration_controls = strongly_approve
 		law_migration_controls = approve
 		law_closed_borders = disapprove
+	}
+	
+	lawgroup_foreign_investment_policy = {
+		law_no_foreign_investment_policy = strongly_disapprove
+		law_nationalist_foreign_investment_policy = disapprove
+		law_full_foreign_investment_policy = strongly_approve
 	}
 	
 }
@@ -693,9 +745,23 @@ ideology_traditionalist = {
 	}
 	
 	lawgroup_pop_growth_policy = {
-		law_pro_pop_growth_policy = strongly_approve
-		law_no_pop_growth_policy = approve
-		law_anti_pop_growth_policy = disapprove
+		law_pro_pop_growth_policy = approve
+		law_no_pop_growth_policy = disapprove
+		law_anti_pop_growth_policy = strongly_disapprove
+	}
+	
+	lawgroup_social_mobility_0 = {
+		law_social_hierarchy_0_enforced = strongly_approve
+		law_social_hierarchy_0_codified = approve
+		law_social_hierarchy_0_not_enforced = disapprove
+		law_social_hierarchy_0_affirmative_action = strongly_disapprove
+	}
+	
+	lawgroup_caste_hegemony = {
+		law_hindu_caste_enforced = strongly_approve
+		law_hindu_caste_codified = approve
+		law_hindu_caste_not_enforced = disapprove
+		law_affirmative_action = strongly_disapprove
 	}
 	
 }
@@ -717,9 +783,23 @@ ideology_conservative = {
 	}
 	
 	lawgroup_pop_growth_policy = {
-		law_pro_pop_growth_policy = neutral
-		law_no_pop_growth_policy = approve
-		law_anti_pop_growth_policy = neutral
+		law_pro_pop_growth_policy = approve
+		law_no_pop_growth_policy = strongly_approve
+		law_anti_pop_growth_policy = disapprove
+	}
+	
+	lawgroup_social_mobility_0 = {
+		law_social_hierarchy_0_enforced = approve
+		law_social_hierarchy_0_codified = strongly_approve
+		law_social_hierarchy_0_not_enforced = disapprove
+		law_social_hierarchy_0_affirmative_action = strongly_disapprove
+	}
+	
+	lawgroup_caste_hegemony = {
+		law_hindu_caste_enforced = disapprove
+		law_hindu_caste_codified = strongly_approve
+		law_hindu_caste_not_enforced = approve
+		law_affirmative_action = strongly_disapprove
 	}
 	
 }
@@ -742,8 +822,22 @@ ideology_progressive = {
 	
 	lawgroup_pop_growth_policy = {
 		law_pro_pop_growth_policy = disapprove
-		law_no_pop_growth_policy = neutral
+		law_no_pop_growth_policy = strongly_approve
 		law_anti_pop_growth_policy = approve
+	}
+	
+	lawgroup_social_mobility_0 = {
+		law_social_hierarchy_0_enforced = strongly_disapprove
+		law_social_hierarchy_0_codified = disapprove
+		law_social_hierarchy_0_not_enforced = approve
+		law_social_hierarchy_0_affirmative_action = strongly_approve
+	}
+	
+	lawgroup_caste_hegemony = {
+		law_hindu_caste_enforced = strongly_disapprove
+		law_hindu_caste_codified = strongly_disapprove
+		law_hindu_caste_not_enforced = disapprove
+		law_affirmative_action = approve
 	}
 	
 }

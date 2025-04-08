@@ -289,6 +289,8 @@ effect_starting_politics_very_democratic = {
 	
 	activate_law = law_type:law_no_colonial_affairs
 	
+	activate_law = law_type:law_full_secession_rights
+	
 	activate_law = law_type:law_full_trade_unions
 	
 	activate_law = law_type:law_freedom_of_conscience
@@ -327,6 +329,8 @@ effect_starting_politics_democratic = {
 	
 	activate_law = law_type:law_no_colonial_affairs
 	
+	activate_law = law_type:law_full_secession_rights
+	
 	activate_law = law_type:law_restricted_trade_unions
 	
 	activate_law = law_type:law_freedom_of_conscience
@@ -342,7 +346,7 @@ effect_starting_politics_democratic = {
 
 effect_starting_politics_regime = {
 	activate_law = law_type:law_gerrymandered_voting
-	activate_law = law_type:law_parties_allowed
+	activate_law = law_type:law_dominant_party_state
 	activate_law = law_type:law_technocratic_legislature
 	activate_law = law_type:law_civil_law
 	activate_law = law_type:law_partially_politicised_judiciary
@@ -365,6 +369,8 @@ effect_starting_politics_regime = {
 	
 	activate_law = law_type:law_no_colonial_affairs
 	
+	activate_law = law_type:law_limited_secession_rights
+	
 	activate_law = law_type:law_state_trade_unions
 	
 	activate_law = law_type:law_no_term_limit
@@ -372,7 +378,15 @@ effect_starting_politics_regime = {
 
 effect_starting_politics_dictatorship = {
 	activate_law = law_type:law_no_voting
-	activate_law = law_type:law_single_party_state
+	if = { 
+		limit = {
+			has_law = law_type:law_HOS_monarch
+		}
+		activate_law = law_type:law_parties_not_allowed
+	}
+	else = {
+		activate_law = law_type:law_single_party_state
+	}
 	activate_law = law_type:law_appointed_legislature
 	activate_law = law_type:law_kangaroo_law
 	activate_law = law_type:law_politicised_judiciary
@@ -401,6 +415,8 @@ effect_starting_politics_dictatorship = {
 	effect_increase_corruption = yes
 	
 	activate_law = law_type:law_no_colonial_affairs
+	
+	activate_law = law_type:law_no_secession_rights
 	
 	activate_law = law_type:law_state_trade_unions
 	
@@ -712,18 +728,21 @@ effect_starting_politics_trade_policy_free_trade = {
 	activate_law = law_type:law_no_migration_controls
 	activate_law = law_type:law_free_trade
 	activate_law = law_type:law_globalist_fp
+	activate_law = law_type:law_full_foreign_investment_policy
 }
 
 effect_starting_politics_trade_policy_protectionism = {
 	activate_law = law_type:law_migration_controls
 	activate_law = law_type:law_protectionism
 	activate_law = law_type:law_regionalist_fp
+	activate_law = law_type:law_nationalist_foreign_investment_policy
 }
 
 effect_starting_politics_trade_policy_autarky = {
 	activate_law = law_type:law_closed_borders
 	activate_law = law_type:law_isolationism
 	activate_law = law_type:law_nationalist_fp
+	activate_law = law_type:law_no_foreign_investment_policy
 }
 
 ### Nuclear Policy ###
@@ -1176,6 +1195,48 @@ effect_reduce_multiculturalism = {
 			has_law = law_type:law_national_supremacy
 		}
 		activate_law = law_type:law_ethnostate
+	}
+
+}
+
+effect_increase_multiculturalism = {
+	
+	if = {
+		limit = { 
+			has_law = law_type:law_cultural_exclusion
+		}
+		activate_law = law_type:law_multicultural
+	}
+	else_if = {
+		limit = { 
+			has_law = law_type:law_racial_segregation
+		}
+		activate_law = law_type:law_cultural_exclusion
+	}
+	else_if = {
+		limit = { 
+			has_law = law_type:law_national_supremacy
+		}
+		activate_law = law_type:law_racial_segregation
+	}
+	else_if = {
+		limit = { 
+			has_law = law_type:law_ethnostate
+		}
+		activate_law = law_type:law_national_supremacy
+	}
+
+}
+
+effect_increase_foreign_investment_law = {
+	
+	if = {
+		limit = { has_law = law_type:law_no_foreign_investment_policy }
+		activate_law = law_type:law_nationalist_foreign_investment_policy
+	}
+	if = {
+		limit = { has_law = law_type:law_nationalist_foreign_investment_policy }
+		activate_law = law_type:law_full_foreign_investment_policy
 	}
 
 }

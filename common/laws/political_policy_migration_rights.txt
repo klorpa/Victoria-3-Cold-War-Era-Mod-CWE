@@ -22,6 +22,16 @@
 		#No restriction by legal union
 		THIS_is_not_restricted_by_confederal_law = yes
 		
+		#Ruler must support this
+		ruler ?= { 
+			interest_group = {
+				law_stance = {
+					law = law_type:law_no_migration_controls
+					value >= approve
+				}
+			}
+		}
+		
 	}
 	
 	ai_enact_weight_modifier = { #Petitions
@@ -51,10 +61,20 @@ law_migration_controls = {
 		#No restriction by legal union
 		THIS_is_not_restricted_by_confederal_law = yes
 		
+		#Ruler must support this
+		ruler ?= { 
+			interest_group = {
+				law_stance = {
+					law = law_type:law_migration_controls
+					value >= approve
+				}
+			}
+		}
+		
 	}
 	
 	modifier = {
-		country_disallow_discriminated_migration_bool = yes
+		country_migration_restrictiveness_add = 60
 		
 		country_tech_spread_mult = -0.05
 	}
@@ -94,10 +114,20 @@ law_closed_borders = {
 		#No restriction by legal union
 		THIS_is_not_restricted_by_confederal_law = yes
 		
+		#Ruler must support this
+		ruler ?= { 
+			interest_group = {
+				law_stance = {
+					law = law_type:law_closed_borders
+					value >= approve
+				}
+			}
+		}
+		
 	}
 
 	modifier = {
-		country_disallow_migration_bool = yes
+		country_migration_restrictiveness_add = 101
 		country_disallow_agitator_invites_bool = yes
 		country_leverage_resistance_mult = 0.25
 		

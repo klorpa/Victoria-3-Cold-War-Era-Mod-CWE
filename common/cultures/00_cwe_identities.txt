@@ -11119,7 +11119,7 @@ belgian = {
 seychellois = {
 	color= hsv{ 0.65 0.28 0.80 }
 	religion = catholic
-	traits = { east_african_culture_group bantu african_heritage }
+	traits = { east_african_culture_group bantu african_heritage anglophone }
 	male_common_first_names={
 		Ahmed
 		Amiri
@@ -11221,7 +11221,7 @@ seychellois = {
 comorian = {
 	color= hsv{ 0.65 0.28 0.80 }
 	religion = sunni
-	traits = { east_african_culture_group bantu african_heritage }
+	traits = { east_african_culture_group bantu african_heritage francophone }
 	male_common_first_names={
 		Ahmed
 		Amiri
@@ -11323,7 +11323,7 @@ comorian = {
 mauritian = {
 	color= hsv{ 0.65 0.28 0.80 }
 	religion = hindu
-	traits = { east_african_culture_group bantu african_heritage }
+	traits = { east_african_culture_group bantu african_heritage anglophone }
 	male_common_first_names={
 		Ahmed
 		Amiri
@@ -11989,7 +11989,7 @@ azawagh={
 reunionese = {
 	color= hsv{ 0.65 0.35 0.70 }
 	religion = catholic
-	traits = { east_african_culture_group bantu african_heritage }
+	traits = { east_african_culture_group bantu african_heritage francophone }
 	male_common_first_names={
 		Achille Adolphe Adrien Aimable Alphonse Amedee Antoine Armand Auguste Augustin Alcide Andre Alexandre Athanase Abel Ambroise Aristide AlbE_ric Archambaud Alexis
 		Bertrand Bernardin Bernard Barthelemy
@@ -12096,4 +12096,812 @@ reunionese = {
 		1 = african
 	}
 	graphics = african
+}
+
+afro_dutch={
+	color= hsv{ 0.53 0.21 0.50 }
+	religion = protestant
+	traits = { african_heritage beneluxian_culture_group }
+	male_common_first_names={
+		Abraham
+		Adolf
+		Adriaan
+		Alexander
+		Andreas
+		Andries
+		Antonius
+		Antoon
+		Barthout
+		Casimir
+		Christiaan
+		Christoffel
+		Constantijn
+		Cornelis
+		Daniel
+		Daniel_2
+		David
+		Dirk
+		Dominicus
+		Drikus
+		Eduardus
+		Eise
+		Elias
+		Ernst
+		Erwin
+		Frans
+		Frederik
+		Gabriel
+		Gaspar
+		Gerard
+		Gerben
+		Gijsbert
+		Godfried
+		Gustaaf
+		Hans
+		Hendrik
+		Hugo
+		Isaac
+		Jacob
+		Jan
+		Jeroen
+		Johan
+		Joost
+		Jurgen_2
+		Karel
+		Kasper
+		Laurens
+		Lodewijk
+		Luuk
+		Marius
+		Matthijs
+		Maurits
+		Maximiliaan
+		Merkus
+		Moritz
+		Nikolaas
+		Paul
+		Pauwel
+		Pieter
+		Quinten
+		Rafael
+		Richardus
+		Roeland
+		Rogier
+		Ruben
+		Rudolf
+		Rutger
+		Simon
+		Stefan
+		Thomas
+		Victor
+		Vincent
+		Willem
+		Zacharias
+	}
+	female_common_first_names = {
+		Aletta Annewies Anna Anna_Louisa
+		Beatrix
+		Cornelie Christina Catharina Constantia
+		Diderika
+		Emma Eufemia
+		Felicia
+		Goverdine
+		Henrieette
+		Ida
+		Juliana Johanna Jacoba
+		Louise Lessina
+		Maria Martha Margaretha
+		Pauline Petronella
+		Roosje 
+		Suzanna Sjoukje Sara
+		Wilhelmina
+	}	
+	noble_last_names = {
+		van_Boetzelaer
+		van_Coeverden
+		van_Doorn
+		De_Geer
+		Lampsins van_Lynden van_Lyere
+		van_den_Velden de_Vos_van_Steenwijk
+		van_Egmont
+		van_Saksen-Weimar
+		van_Oranje-Nassau
+		Schimmelpenninck_van_der_Oye
+		Melvill_van_Carnbee
+		van_Wassenaer
+	}
+	common_last_names={
+		Batenburg
+		Bentinck
+		Boetge
+		Boreel
+		Boumeester
+		Brandt
+		Brouwer
+		Buyskes
+		Broekhof
+		Uiterwijk
+		Chasse
+		Cleerens
+		Cochius
+		Coehoorn
+		Coen
+		Coops
+		Cort-Heyligers
+		Crijnssen
+		Daendels
+		Deijkerhoff
+		Duycker
+		Ellis
+		Engels
+		Engelvaart
+		Evertzen
+		Fabius
+		Gregory
+		Janssens
+		Kater
+		Kool
+		Kortenaer
+		Kruys
+		Kohler
+		Kuiper
+		List
+		Lucas
+		Martena
+		Michiels
+		Nachtegaal
+		Nahuys
+		Nepveu
+		Ongerboer
+		Reijersen
+		Rijk
+		Roell
+		Sabron
+		Schenk
+		Schouten
+		Spiegel
+		Staal
+		Steltman
+		Stokhuyzen
+		Stuyvesant
+		Tasman
+		Trip
+		Van_Utenhove
+		Verspijck
+		Vetter
+		Weitzel
+		Wolterbeek
+		de_Casembroot
+		de_Constant_Rebecque
+		de_Eerens
+		de_Grouwe
+		de_Houtman
+		de_Kock
+		de_Moor
+		de_Rijk
+		de_Winter
+		den_Beer_Poortugael
+		van_Assendelft
+		van_Braam_Houckgeest
+		van_Brederode
+		van_Bronkhorst
+		van_Culemborg
+		van_Dambenoy
+		van_Diemen
+		van_Duivenvoorde
+		van_Galen
+		van_Geen
+		van_Ham
+		van_Haren
+		van_Heemskerck
+		van_Heutsz
+		van_Hoensbroeck
+		van_Huchtenbroek
+		van_Ilpendam
+		van_Keppel
+		van_Marnix
+		van_Nieuwenaar
+		van_Noort
+		van_Pallandt
+		van_Raephorst
+		van_Rechteren
+		van_Renesse
+		van_Riebeeck
+		van_Rossum
+		van_Spilbergen
+		van_Swieten
+		van_Troyen
+		van_Vredenburch
+		van_Walbeeck
+		van_Wesembeke
+		van_Wijngaarden
+		van_Wingle
+		van_den_Bosch
+		van_der_Aa
+		van_der_Capellen
+		van_der_Does
+		van_der_Heijden
+		van_der_Werff
+		van_der_Wijck
+	}
+	ethnicities = {
+		1 = african
+	}
+	graphics = african
+}
+
+bahamian={
+	color= hsv{ 0.32 0.27 0.90 }
+	religion = protestant
+	traits = { african_heritage anglophone }
+	male_common_first_names={
+		Anderson
+		Anselm
+		Arthur
+		Ben
+		Colville
+		Cuffee
+		Cyril
+		Earl
+		Edwin
+		Ellis
+		Eric
+		Geoffrey
+		George
+		Graham
+		Henry
+		Herbert
+		Hubert
+		Jeffrey
+		John
+		Josiah
+		Lennox
+		Lloyd
+		Malcolm
+		Mervyn
+		Nicholas
+		Rainford
+		Reginald
+		Robert
+		Stokely
+		William
+		Winston
+	}
+	female_common_first_names = {
+		Amy
+		Barbara
+		Carolyn
+		Christine
+		Cubah
+		Delores
+		Erna
+		Fanny
+		Hazel
+		Joanna
+		Louisa
+		Mary
+		Obeah
+		Sylvia
+		Vanessa
+		Vera
+		Violet
+	}	
+	noble_last_names = {
+		Cotton
+		Duperly
+		Eyre
+		Gordon
+		Hill
+		Jordon
+		Osborn
+		Sharpe
+	}
+	common_last_names={
+		Abbott
+		Best
+		Blaize
+		Brathwaite
+		Carmichael
+		Chambers
+		Clark
+		Douglas
+		Dymally
+		Findley
+		Goddard
+		Hall
+		Henson
+		Holder
+		James
+		Jones
+		Julian
+		Kilgour
+		Lassalle
+		Lovelace
+		McIntosh
+		Nurse
+		Perry
+		Roberts
+		Robinson
+		Shadd
+		Stollmeyer
+		Sylvester
+		Williams
+		Young
+	}
+	ethnicities = {
+		1 = african
+	}
+	graphics = african
+}
+
+jamaican={
+	color= hsv{ 0.32 0.90 0.32 }
+	religion = protestant
+	traits = { african_heritage anglophone }
+	male_common_first_names={
+		Anderson
+		Anselm
+		Arthur
+		Ben
+		Colville
+		Cuffee
+		Cyril
+		Earl
+		Edwin
+		Ellis
+		Eric
+		Geoffrey
+		George
+		Graham
+		Henry
+		Herbert
+		Hubert
+		Jeffrey
+		John
+		Josiah
+		Lennox
+		Lloyd
+		Malcolm
+		Mervyn
+		Nicholas
+		Rainford
+		Reginald
+		Robert
+		Stokely
+		William
+		Winston
+	}
+	female_common_first_names = {
+		Amy
+		Barbara
+		Carolyn
+		Christine
+		Cubah
+		Delores
+		Erna
+		Fanny
+		Hazel
+		Joanna
+		Louisa
+		Mary
+		Obeah
+		Sylvia
+		Vanessa
+		Vera
+		Violet
+	}	
+	noble_last_names = {
+		Cotton
+		Duperly
+		Eyre
+		Gordon
+		Hill
+		Jordon
+		Osborn
+		Sharpe
+	}
+	common_last_names={
+		Abbott
+		Best
+		Blaize
+		Brathwaite
+		Carmichael
+		Chambers
+		Clark
+		Douglas
+		Dymally
+		Findley
+		Goddard
+		Hall
+		Henson
+		Holder
+		James
+		Jones
+		Julian
+		Kilgour
+		Lassalle
+		Lovelace
+		McIntosh
+		Nurse
+		Perry
+		Roberts
+		Robinson
+		Shadd
+		Stollmeyer
+		Sylvester
+		Williams
+		Young
+	}
+	ethnicities = {
+		1 = african
+	}
+	graphics = african
+}
+
+bermudian={
+	color= hsv{ 0.90 0.32 0.32 }
+	religion = protestant
+	traits = { african_heritage anglophone }
+	male_common_first_names={
+		Anderson
+		Anselm
+		Arthur
+		Ben
+		Colville
+		Cuffee
+		Cyril
+		Earl
+		Edwin
+		Ellis
+		Eric
+		Geoffrey
+		George
+		Graham
+		Henry
+		Herbert
+		Hubert
+		Jeffrey
+		John
+		Josiah
+		Lennox
+		Lloyd
+		Malcolm
+		Mervyn
+		Nicholas
+		Rainford
+		Reginald
+		Robert
+		Stokely
+		William
+		Winston
+	}
+	female_common_first_names = {
+		Amy
+		Barbara
+		Carolyn
+		Christine
+		Cubah
+		Delores
+		Erna
+		Fanny
+		Hazel
+		Joanna
+		Louisa
+		Mary
+		Obeah
+		Sylvia
+		Vanessa
+		Vera
+		Violet
+	}	
+	noble_last_names = {
+		Cotton
+		Duperly
+		Eyre
+		Gordon
+		Hill
+		Jordon
+		Osborn
+		Sharpe
+	}
+	common_last_names={
+		Abbott
+		Best
+		Blaize
+		Brathwaite
+		Carmichael
+		Chambers
+		Clark
+		Douglas
+		Dymally
+		Findley
+		Goddard
+		Hall
+		Henson
+		Holder
+		James
+		Jones
+		Julian
+		Kilgour
+		Lassalle
+		Lovelace
+		McIntosh
+		Nurse
+		Perry
+		Roberts
+		Robinson
+		Shadd
+		Stollmeyer
+		Sylvester
+		Williams
+		Young
+	}
+	ethnicities = {
+		1 = african
+	}
+	graphics = african
+}
+
+botswanan= {
+	color= rgb{ 192 123 31 }
+	religion = protestant
+	traits = { southern_african_culture_group african_heritage bantu }
+	male_common_first_names = {
+		Baruti
+		Bathoen
+		Boipelu
+		Gaone
+		Kabelo
+		Kedikilwe
+		Kefentse
+		Khama
+		Moetapele
+		Molefi
+		Morwe
+		Mosegi
+		Mothudi
+		Mowen
+		Sebele
+		Tale
+		Thabo
+		Turnelo
+	}
+	female_common_first_names = {
+		Thandi
+		Tshepo
+	}	
+	noble_last_names = {
+		Kgosiemang
+		Mogale
+	}
+	common_last_names = {
+		Bakalaka
+		Bakgalakgadi
+		Bakgatla
+		Bakwna
+		Balete
+		Bamangwato
+		Bangwaketse
+		Barolong
+		Batawana
+		Batlokwa
+		Batsapong
+	}
+	ethnicities = {
+		1 = african
+	}
+	graphics = african
+}
+
+macanese= {
+	color= rgb{ 107 142 35 }
+	religion = catholic
+	traits = { han_chinese lusophone east_asian_heritage }
+	male_common_first_names = {
+		Abel
+		Adriano
+		Afonso
+		Alberto
+		Alexandre
+		Alfredo
+		Andre
+		Antonio_2
+		Aquilino
+		Artur
+		Augusto
+		Bartolomeu
+		Bernardo
+		Bruno
+		Caetano
+		Carlos
+		Christovao
+		Claudio_2
+		Candido
+		Damiao
+		Daniel
+		David
+		Dinis
+		Diogo
+		Duarte
+		Ernesto
+		Estevao
+		Eugenio
+		Fernando
+		Filipe
+		Francisco
+		Francisco_Xavier
+		Gastao
+		Hermenegildo
+		Ignacio_2
+		Jeronimo
+		Joaquim
+		Jorge
+		JosE_
+		JoA_o
+		Julio_2
+		Leopoldo
+		Luis_2
+		Manuel
+		Miguel
+		Mario_2
+		Nicolau
+		Nuno
+		Orlando
+		Pascoal
+		Paulo
+		Pedro
+		Rafael_2
+		Raul
+		Roberto
+		Rodrigo
+		Rui
+		Santiago
+		Sebastiao
+		Teodoro
+		Teofilo
+		Tiago
+		Tome
+		Urbano
+		Vasco
+		Vicente
+		Vitorino
+		Vitorio
+		Alvaro
+		Oscar_2
+	}
+	female_common_first_names = {
+		Adelgundes
+		Ana
+		Antonia_2
+		Avelina
+		Benedita
+		Bernardina
+		Carlota
+		Eulalia_2
+		Francisca
+		Gabriela
+		Isabel
+		Joana
+		Joaquina
+		Josefa
+		Leopoldina
+		Lourcenca
+		Maria
+		Micaela
+		Rafaela
+		Rita
+		Rosa
+		Sofia
+		Teresa
+	}	
+	noble_last_names = {
+		Cui
+		Li
+		Nie
+		Zhang
+	}
+	common_last_names = {
+		Dong
+		Fang
+		Hu
+		Jiang
+		Jin
+		Lu
+		Ma
+		Peng
+		Qiu
+		Shen
+		Sun
+		Tian
+		Ting
+		Wei
+		Wu
+		Ye
+		Zhao
+	}
+	ethnicities = {
+		1 = asian
+	}
+	graphics = east_asian
+}
+
+hongkonger= {
+	color= rgb{ 255 182 193 }
+	religion = protestant
+	traits = { han_chinese anglophone east_asian_heritage }
+	male_common_first_names = {
+		Algernon Alexander Adam Andrew Albert Alphonse Arthur Augustus Anthony Archibald Adolphus Abel Alfred Acton Aylmer Ambrose Austen Adrian Alan Arnold Auberon Allen
+		Bruce Benedict Beauchamp Benjamin Byron Bartholomew Barnaby Basil Bertram Bertrand
+		Charles Christopher Cecil Chichester Collingwood Cornelius Caleb Clarence Claude
+		David Daniel Donald Dudley
+		Ebenezer Edward Edmund Edgar Evelyn Egerton Edwin Eustace Eric
+		Francis Frederick Frederic Fairfax
+		George Gregory Garnet Guildford Gathorne Gerard Gipps Granville Geoffrey Gonville Godfrey
+		Harold Henry Hugh Horatio Hedworth Humphrey Harold Harcourt Hedley Herbert
+		Isambard Isaac
+		John James Jacob Jeremy Joseph Julian Josslyn Joshua
+		Kenelm
+		Laurence Leonard_2 Lyon Lionel Lewis
+		Mark Michael Matthew Massey Montague Myles Murrough Maurice Martin Maxwell
+		Nigel Nicholas Nathaniel Neville
+		Oliver Octavius Oscar Oswald
+		Peter Paul Patrick Poulett Philip Percy
+		Richard Robert Roger Rudyard Redvers Rowland Reginald Roundell Rupert Rufus Ross
+		Stephen Simon Spencer Stanley Samuel Stafford Sewallis Sackville Sutherland
+		Theodore_2 Tristan Theobald Thomas Terence Teignmouth Timothy
+		Victor Valentine_2
+		Winston Walter William Wilfred Watkin Wellwood Weston Wentworth Wilbraham Wyndham Weetman
+		Zachary
+	}
+	female_common_first_names = {
+		Alice Anne Ada Arabella Amelia Adelaide Agnes Alethea Augusta Adela Annot Amabel
+		Barbarina Bertha Beatrice Barbara
+		Catherine Charlotte Constance Clara Caroline Clementina Cecilia Christabel Camilla Christina
+		Dorothea Diana
+		Edith Emma Elizabeth Eleanor Eliza Emmeline Esther Euphemia Ella
+		Frances Flora Florence Favell Felicia
+		Georgia Gertrude Georgiana Geraldine Grace Grisell
+		Hannah Harriette Harriet Henrietta
+		Isabella Ivy
+		Jane Josephine Joanna Julia Jeanette Janet
+		Lucy Lydia Louisa Laura Laetitia Lillian
+		Mary Marianne Mathilde Margaret May Marian Madeleine Menella Mariana
+		Nona Nora
+		Olivia
+		Phoebe Pauline
+		Rachel Rhoda Rosina Rosaline Regina Ruth 
+		Sarah Sophia Selina Sibella Susan
+		Theodora
+		Victoria Violet Virginia
+		Wilhelmine
+	}	
+	noble_last_names = {
+		Cui
+		Li
+		Nie
+		Zhang
+	}
+	common_last_names = {
+		Dong
+		Fang
+		Hu
+		Jiang
+		Jin
+		Lu
+		Ma
+		Peng
+		Qiu
+		Shen
+		Sun
+		Tian
+		Ting
+		Wei
+		Wu
+		Ye
+		Zhao
+	}
+	ethnicities = {
+		1 = asian
+	}
+	graphics = east_asian
 }

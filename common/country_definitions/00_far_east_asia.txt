@@ -74,7 +74,7 @@ HKG = { # Hong Kong
 	
 	valid_as_home_country_for_separatists = { always = no }
 	
-	cultures = { yue }
+	cultures = { hongkonger }
 	
 	capital = STATE_GUANGDONG #TODO
 }
@@ -88,7 +88,7 @@ MCA = { # Macau
 	
 	valid_as_home_country_for_separatists = { always = no }
 	
-	cultures = { yue }
+	cultures = { macanese }
 	
 	capital = STATE_GUANGDONG #TODO
 }
@@ -169,7 +169,7 @@ ETS = { # East Turkestan
 
 	tier = principality
 	
-	cultures = { uighur uzbek kirgiz kazak turkmen tajik }
+	cultures = { uighur }
 	capital = STATE_UZBEKIA
 }
 
@@ -216,6 +216,15 @@ YUE = { # Yue
 	cultures = { yue }
 	
 	capital = STATE_GUANGDONG
+	
+	#valid_as_home_country_for_separatists = { 
+	#	NAND = { 
+	#		p:xB031E0.state.owner = {
+	#			THIS = ROOT
+	#		}
+	#		p:xB031E0.state = { is_treaty_port = yes }
+	#	}
+	#}
 }
 
 HNA = { #Hunan	

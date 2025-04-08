@@ -4,7 +4,7 @@
 
 building_wheat_farm = {
 	building_group = bg_wheat_farms
-	texture = "gfx/interface/icons/building_icons/wheat_farm.dds"
+	icon = "gfx/interface/icons/building_icons/wheat_farm.dds"
 
 	city_type = farm
 	levels_per_mesh = 5
@@ -15,9 +15,9 @@ building_wheat_farm = {
 
 	production_method_groups = {
 		pmg_grain_agriculture 				#Goods
-		pmg_automation_agriculture 			#Automation
+		#pmg_automation_agriculture 			#Automation
 		#pmg_technique_agriculture			#Technique
-		#pmg_organisation_agriculture		#Organisation
+		pmg_organisation_agriculture		#Organisation
 		pmg_corruption_private				#Corruption
 		#pmg_ownership_agriculture			#Ownership
 	}
@@ -32,7 +32,7 @@ building_wheat_farm = {
 
 building_rice_farm = {
 	building_group = bg_rice_farms
-	texture = "gfx/interface/icons/building_icons/rice_farm.dds"
+	icon = "gfx/interface/icons/building_icons/rice_farm.dds"
 
 	city_type = farm
 	levels_per_mesh = 5
@@ -43,9 +43,9 @@ building_rice_farm = {
 
 	production_method_groups = {
 		pmg_grain_agriculture 				#Goods
-		pmg_automation_agriculture 			#Automation
+		#pmg_automation_agriculture 			#Automation
 		#pmg_technique_agriculture			#Technique
-		#pmg_organisation_agriculture		#Organisation
+		pmg_organisation_agriculture		#Organisation
 		pmg_corruption_private				#Corruption
 		#pmg_ownership_agriculture			#Ownership
 	}
@@ -60,7 +60,7 @@ building_rice_farm = {
 
 building_rye_farm = {
 	building_group = bg_rye_farms
-	texture = "gfx/interface/icons/building_icons/rye_farm.dds"
+	icon = "gfx/interface/icons/building_icons/rye_farm.dds"
 
 	city_type = farm
 	levels_per_mesh = 5
@@ -71,9 +71,9 @@ building_rye_farm = {
 
 	production_method_groups = {
 		pmg_grain_agriculture 				#Goods
-		pmg_automation_agriculture 			#Automation
+		#pmg_automation_agriculture 			#Automation
 		#pmg_technique_agriculture			#Technique
-		#pmg_organisation_agriculture		#Organisation
+		pmg_organisation_agriculture		#Organisation
 		pmg_corruption_private				#Corruption
 		#pmg_ownership_agriculture			#Ownership
 	}
@@ -89,7 +89,7 @@ building_rye_farm = {
 building_maize_farm = {
 	building_group = bg_maize_farms
 	
-	texture = "gfx/interface/icons/building_icons/maize_farm.dds"
+	icon = "gfx/interface/icons/building_icons/maize_farm.dds"
 
 	city_type = farm
 	levels_per_mesh = 5
@@ -100,9 +100,9 @@ building_maize_farm = {
 	
 	production_method_groups = {
 		pmg_grain_agriculture 				#Goods
-		pmg_automation_agriculture 			#Automation
+		#pmg_automation_agriculture 			#Automation
 		#pmg_technique_agriculture			#Technique
-		#pmg_organisation_agriculture		#Organisation
+		pmg_organisation_agriculture		#Organisation
 		pmg_corruption_private				#Corruption
 		#pmg_ownership_agriculture			#Ownership
 	}
@@ -117,7 +117,7 @@ building_maize_farm = {
 
 building_millet_farm = {
 	building_group = bg_millet_farms
-	texture = "gfx/interface/icons/building_icons/millet_farm.dds"
+	icon = "gfx/interface/icons/building_icons/millet_farm.dds"
 
 	city_type = farm
 	levels_per_mesh = 5
@@ -128,9 +128,9 @@ building_millet_farm = {
 
 	production_method_groups = {
 		pmg_grain_agriculture 				#Goods
-		pmg_automation_agriculture 			#Automation
+		#pmg_automation_agriculture 			#Automation
 		#pmg_technique_agriculture			#Technique
-		#pmg_organisation_agriculture		#Organisation
+		pmg_organisation_agriculture		#Organisation
 		pmg_corruption_private				#Corruption
 		#pmg_ownership_agriculture			#Ownership
 	}
@@ -143,26 +143,53 @@ building_millet_farm = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
 
-### Meats ###
+building_cotton_plantation = {
+	building_group = bg_cotton_plantations
+	icon = "gfx/interface/icons/building_icons/cotton_plantation.dds"
 
-building_fishing_wharf = {
-	building_group = bg_fishing
-	texture = "gfx/interface/icons/building_icons/fishing_wharf.dds"
-	
-	city_type = port
+	city_type = farm
+	levels_per_mesh = 5
+
+	unlocking_technologies = {
+		
+	}
 
 	production_method_groups = {
-		pmg_fish_agriculture 				#Goods
-		pmg_automation_agriculture 			#Automation
+		pmg_fabric_agriculture 				#Goods
+		#pmg_automation_agriculture 		#Automation
 		#pmg_technique_agriculture			#Technique
-		#pmg_organisation_agriculture		#Organisation
+		pmg_organisation_agriculture		#Organisation
 		pmg_corruption_private				#Corruption
 		#pmg_ownership_agriculture			#Ownership
 	}
 	
 	required_construction = construction_cost_low
 	
-	possible = {
+	ownership_type = self
+	
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
+}
+
+### Meats ###
+
+building_fishing_wharf = {
+	building_group = bg_fishing
+	icon = "gfx/interface/icons/building_icons/fishing_wharf.dds"
+	
+	city_type = port
+
+	production_method_groups = {
+		pmg_fish_agriculture 				#Goods
+		#pmg_automation_agriculture 			#Automation
+		#pmg_technique_agriculture			#Technique
+		pmg_organisation_agriculture		#Organisation
+		pmg_corruption_private				#Corruption
+		#pmg_ownership_agriculture			#Ownership
+	}
+	
+	required_construction = construction_cost_low
+	
+	potential = {
 		is_sea_adjacent = yes
 	}
 	ownership_type = self
@@ -172,7 +199,7 @@ building_fishing_wharf = {
 
 building_livestock_ranch = {
 	building_group = bg_livestock_ranches
-	texture = "gfx/interface/icons/building_icons/cattle_ranch.dds"
+	icon = "gfx/interface/icons/building_icons/cattle_ranch.dds"
 	
 	city_type = farm
 	levels_per_mesh = 5
@@ -183,9 +210,9 @@ building_livestock_ranch = {
 
 	production_method_groups = {
 		pmg_meat_agriculture 				#Goods
-		pmg_automation_agriculture 			#Automation
+		#pmg_automation_agriculture 			#Automation
 		#pmg_technique_agriculture			#Technique
-		#pmg_organisation_agriculture		#Organisation
+		pmg_organisation_agriculture		#Organisation
 		pmg_corruption_private				#Corruption
 		#pmg_ownership_agriculture			#Ownership
 	}
@@ -198,20 +225,96 @@ building_livestock_ranch = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
 }
 
+building_banana_plantation = {
+	building_group = bg_banana_plantations
+	icon = "gfx/interface/icons/building_icons/banana_plantation.dds"
+	required_construction = construction_cost_low
+
+	unlocking_technologies = {
+		
+	}
+
+	city_type = farm
+	levels_per_mesh = 5
+	
+	production_method_groups = {
+		pmg_fruit_agriculture 				#Goods
+		#pmg_automation_agriculture 			#Automation
+		#pmg_technique_agriculture			#Technique
+		pmg_organisation_agriculture		#Organisation
+		pmg_corruption_private				#Corruption
+		#pmg_ownership_agriculture			#Ownership
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
+}
+
 ### Intoxicants ###
+
+building_coffee_plantation = {
+	building_group = bg_coffee_plantations
+	icon = "gfx/interface/icons/building_icons/coffee_plantation.dds"
+	required_construction = construction_cost_low
+
+	unlocking_technologies = {
+		
+	}
+
+	city_type = farm
+	levels_per_mesh = 5
+	
+	production_method_groups = {
+		pmg_coffee_agriculture 				#Goods
+		#pmg_automation_agriculture 			#Automation
+		#pmg_technique_agriculture			#Technique
+		pmg_organisation_agriculture		#Organisation
+		pmg_corruption_private				#Corruption
+		#pmg_ownership_agriculture			#Ownership
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
+}
+
+building_tea_plantation = {
+	building_group = bg_tea_plantations
+	icon = "gfx/interface/icons/building_icons/tea_plantation.dds"
+	required_construction = construction_cost_low
+
+	unlocking_technologies = {
+		
+	}
+
+	city_type = farm
+	levels_per_mesh = 5
+	
+	production_method_groups = {
+		pmg_tea_agriculture 				#Goods
+		#pmg_automation_agriculture 			#Automation
+		#pmg_technique_agriculture			#Technique
+		pmg_organisation_agriculture		#Organisation
+		pmg_corruption_private				#Corruption
+		#pmg_ownership_agriculture			#Ownership
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
+	
+}
 
 building_tobacco_plantation = {
 	building_group = bg_tobacco_plantations
-	texture = "gfx/interface/icons/building_icons/tobacco_plantation.dds"
+	icon = "gfx/interface/icons/building_icons/tobacco_plantation.dds"
 
 	city_type = farm
 	levels_per_mesh = 5
 	
 	production_method_groups = {
 		pmg_tobacco_agriculture 			#Goods
-		pmg_automation_agriculture 			#Automation
+		#pmg_automation_agriculture 			#Automation
 		#pmg_technique_agriculture			#Technique
-		#pmg_organisation_agriculture		#Organisation
+		pmg_organisation_agriculture		#Organisation
 		pmg_corruption_private				#Corruption
 		#pmg_ownership_agriculture			#Ownership
 	}
@@ -232,16 +335,16 @@ building_tobacco_plantation = {
 
 building_vineyard_plantation = { #Wine Plantation
 	building_group = bg_vineyard_plantation
-	texture = "gfx/interface/icons/building_icons/vineyards.dds"
+	icon = "gfx/interface/icons/building_icons/vineyards.dds"
 	
 	city_type = farm
 	levels_per_mesh = 5
 
 	production_method_groups = {
 		pmg_wine_agriculture 				#Goods
-		pmg_automation_agriculture 			#Automation
+		#pmg_automation_agriculture 			#Automation
 		#pmg_technique_agriculture			#Technique
-		#pmg_organisation_agriculture		#Organisation
+		pmg_organisation_agriculture		#Organisation
 		pmg_corruption_private				#Corruption
 		#pmg_ownership_agriculture			#Ownership
 	}
@@ -258,4 +361,30 @@ building_vineyard_plantation = { #Wine Plantation
 	can_build_private = {
 		owner = { NOT = { is_banning_goods = g:wine } }
 	}
+}
+
+### Rubber ###
+
+building_rubber_plantation = {
+	building_group = bg_rubber
+	icon = "gfx/interface/icons/building_icons/rubber_lodge.dds"
+	required_construction = construction_cost_low
+	
+	terrain_manipulator = forestry
+
+	city_type = wood
+	levels_per_mesh = 5
+	
+	production_method_groups = {
+		pmg_rubber_agriculture 				#Goods
+		#pmg_automation_agriculture 			#Automation
+		#pmg_technique_agriculture			#Technique
+		pmg_organisation_agriculture		#Organisation
+		pmg_corruption_private				#Corruption
+		#pmg_ownership_agriculture			#Ownership
+	}
+	
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_plantations.dds"
 }

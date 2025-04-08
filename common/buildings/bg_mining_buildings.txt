@@ -1,6 +1,6 @@
 ﻿building_gold_mine = { #Precious Metals
 	building_group = bg_gold_mining
-	texture = "gfx/interface/icons/building_icons/gold_mine.dds"
+	icon = "gfx/interface/icons/building_icons/gold_mine.dds"
 	
 	city_type = mine
 	levels_per_mesh = 5
@@ -11,9 +11,10 @@
 
 	production_method_groups = {
 		pmg_gold_mining 				#Goods
-		pmg_automation_mining 			#Automation
+		pmg_forex_government			#Bretton Woods System
+		#pmg_automation_mining 			#Automation
 		#pmg_technique_mining			#Technique
-		#pmg_organisation_mining			#Organisation
+		pmg_organisation_mining			#Organisation
 		pmg_corruption_private			#Corruption
 		#pmg_ownership_mining			#Ownership
 	}
@@ -28,7 +29,7 @@
 
 building_gold_fields = {
 	building_group = bg_gold_fields
-	texture = "gfx/interface/icons/building_icons/gold_fields.dds"
+	icon = "gfx/interface/icons/building_icons/gold_fields.dds"
 	
 	city_type = mine
 	levels_per_mesh = 5
@@ -42,9 +43,10 @@ building_gold_fields = {
 
 	production_method_groups = {
 		pmg_gold_mining 				#Goods
-		pmg_automation_mining 			#Automation
+		pmg_forex_government			#Bretton Woods System
+		#pmg_automation_mining 			#Automation
 		#pmg_technique_mining			#Technique
-		#pmg_organisation_mining			#Organisation
+		pmg_organisation_mining			#Organisation
 		pmg_corruption_private			#Corruption
 		#pmg_ownership_mining			#Ownership
 	}
@@ -57,7 +59,7 @@ building_gold_fields = {
  
 building_iron_mine = { #Common Ores
 	building_group = bg_iron_mining
-	texture = "gfx/interface/icons/building_icons/iron_mine.dds"
+	icon = "gfx/interface/icons/building_icons/iron_mine.dds"
 	
 	city_type = mine
 	levels_per_mesh = 5
@@ -68,9 +70,9 @@ building_iron_mine = { #Common Ores
 
 	production_method_groups = {
 		pmg_iron_mining 				#Goods
-		pmg_automation_mining 			#Automation
+		#pmg_automation_mining 			#Automation
 		#pmg_technique_mining			#Technique
-		#pmg_organisation_mining			#Organisation
+		pmg_organisation_mining			#Organisation
 		pmg_corruption_private			#Corruption
 		#pmg_ownership_mining			#Ownership
 	}
@@ -85,7 +87,7 @@ building_iron_mine = { #Common Ores
 
 building_lead_mine = { #Rare Ores
 	building_group = bg_lead_mining
-	texture = "gfx/interface/icons/building_icons/lead_mine.dds"
+	icon = "gfx/interface/icons/building_icons/lead_mine.dds"
 	
 	city_type = mine
 	levels_per_mesh = 5
@@ -96,9 +98,38 @@ building_lead_mine = { #Rare Ores
 
 	production_method_groups = {
 		pmg_lead_mining 				#Goods
-		pmg_automation_mining 			#Automation
+		#pmg_automation_mining 			#Automation
 		#pmg_technique_mining			#Technique
-		#pmg_organisation_mining			#Organisation
+		pmg_organisation_mining			#Organisation
+		pmg_corruption_private			#Corruption
+		#pmg_ownership_mining			#Ownership
+	}
+	
+	required_construction = construction_cost_medium
+	
+	terrain_manipulator = mining
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_mining.dds"
+	
+}
+
+building_sulfur_mine = {  #Sulfur Ores
+	building_group = bg_sulfur_mining
+	icon = "gfx/interface/icons/building_icons/sulfur_mine.dds"
+	
+	city_type = mine
+	levels_per_mesh = 5
+	
+	unlocking_technologies = {
+		
+	}
+
+	production_method_groups = {
+		pmg_sulfur_mining 				#Goods
+		#pmg_automation_mining 			#Automation
+		#pmg_technique_mining			#Technique
+		pmg_organisation_mining			#Organisation
 		pmg_corruption_private			#Corruption
 		#pmg_ownership_mining			#Ownership
 	}
@@ -114,7 +145,7 @@ building_lead_mine = { #Rare Ores
 
 building_coal_mine = {
 	building_group = bg_coal_mining
-	texture = "gfx/interface/icons/building_icons/coal_mine.dds"
+	icon = "gfx/interface/icons/building_icons/coal_mine.dds"
 	
 	city_type = mine
 	levels_per_mesh = 5
@@ -125,9 +156,9 @@ building_coal_mine = {
 
 	production_method_groups = {
 		pmg_coal_mining 				#Goods
-		pmg_automation_mining 			#Automation
+		#pmg_automation_mining 			#Automation
 		#pmg_technique_mining			#Technique
-		#pmg_organisation_mining			#Organisation
+		pmg_organisation_mining			#Organisation
 		pmg_corruption_private			#Corruption
 		#pmg_ownership_mining			#Ownership
 	}
@@ -142,7 +173,7 @@ building_coal_mine = {
 
 building_oil_rig = {
 	building_group = bg_oil_extraction
-	texture = "gfx/interface/icons/building_icons/oil_rig.dds"
+	icon = "gfx/interface/icons/building_icons/oil_rig.dds"
 	
 	city_type = mine
 	levels_per_mesh = 5
@@ -153,9 +184,9 @@ building_oil_rig = {
 	
 	production_method_groups = {
 		pmg_oil_mining 					#Goods
-		pmg_automation_mining 			#Automation
+		#pmg_automation_mining 			#Automation
 		#pmg_technique_mining			#Technique
-		#pmg_organisation_mining			#Organisation
+		pmg_organisation_mining			#Organisation
 		pmg_corruption_private			#Corruption
 		#pmg_ownership_mining			#Ownership
 	}

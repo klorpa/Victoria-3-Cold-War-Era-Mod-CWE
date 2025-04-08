@@ -45,7 +45,32 @@ pmg_security_services_services = {
 pmg_recreational_services_services = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
-		pm_recreational_services_goods_services
+		pm_recreational_services_goods_services_0
+		pm_recreational_services_goods_services_1
+		pm_recreational_services_goods_services_2
+		pm_recreational_services_goods_services_3
+		pm_recreational_services_goods_services_4
+		pm_recreational_services_goods_services_5
+	}
+}
+
+pmg_recreational_services_tourism_services = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_recreational_services_goods_tourism_services_0
+		pm_recreational_services_goods_tourism_services_1
+		pm_recreational_services_goods_tourism_services_2
+		pm_recreational_services_goods_tourism_services_3
+		pm_recreational_services_goods_tourism_services_4
+		pm_recreational_services_goods_tourism_services_5
+	}
+}
+
+pmg_recreational_services_intoxicants = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_recreational_services_goods_intoxicants_0
+		pm_recreational_services_goods_intoxicants_1
 	}
 }
 
@@ -72,10 +97,15 @@ pmg_financial_services_services = {
 	}
 }
 
-pmg_internet_services_services = {
+pmg_software_services = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
-		pm_internet_services_goods_services
+		pm_software_goods_services_0
+		pm_software_goods_services_1
+		pm_software_goods_services_2
+		pm_software_goods_services_3
+		pm_software_goods_services_4
+		pm_software_goods_services_5
 	}
 }
 
@@ -118,6 +148,42 @@ pmg_automation_services = {
 		pm_automation_8_building_services
 		pm_automation_9_building_services
 		pm_automation_10_building_services
+	}
+}
+
+pmg_automation_professional_services = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	#ai_selection = most_profitable
+	production_methods = {
+		pm_professional_services_automation_0_building_services
+		pm_professional_services_automation_1_building_services
+		pm_professional_services_automation_2_building_services
+		pm_professional_services_automation_3_building_services
+		pm_professional_services_automation_4_building_services
+		pm_professional_services_automation_5_building_services
+		pm_professional_services_automation_6_building_services
+		pm_professional_services_automation_7_building_services
+		pm_professional_services_automation_8_building_services
+		pm_professional_services_automation_9_building_services
+		pm_professional_services_automation_10_building_services
+	}
+}
+
+pmg_automation_corporate_services = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	#ai_selection = most_profitable
+	production_methods = {
+		pm_corporate_services_automation_0_building_services
+		pm_corporate_services_automation_1_building_services
+		pm_corporate_services_automation_2_building_services
+		pm_corporate_services_automation_3_building_services
+		pm_corporate_services_automation_4_building_services
+		pm_corporate_services_automation_5_building_services
+		pm_corporate_services_automation_6_building_services
+		pm_corporate_services_automation_7_building_services
+		pm_corporate_services_automation_8_building_services
+		pm_corporate_services_automation_9_building_services
+		pm_corporate_services_automation_10_building_services
 	}
 }
 

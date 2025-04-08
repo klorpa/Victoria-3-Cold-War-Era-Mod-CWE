@@ -4,12 +4,12 @@ NGame = {
 }
 
 NPolitics = {
-	REVOLUTION_MAX_STATE_FRACTION = 0.25			# A revolution cannot be supported by more than this fraction of the states in the country
-	MIN_RADICALISM_FOR_REVOLUTION_PROGRESSION = 150	# A political movement must have this much radicalism for a revolution to start organizing
-	MIN_RADICALISM_FOR_REVOLUTION_START = 200		# Allow a revolution to start at this amount of radicalism or more
-	STATE_BUREAUCRACY_POP_MULTIPLE = 500000
+	STATE_BUREAUCRACY_POP_MULTIPLE = 225000
 	MARGINAL_IG_THRESHOLD = 0.02		# Interest Groups with Clout above this value are considered relevant while those below are marginal (if not also In Government)
 	MARGINAL_IG_CUTOFF = 0.01			# Interest Groups who are already relevant will only become marginal again if they drop below this value.
+	
+	DEFAULT_IDEOLOGY = "ideology_democratic" # Used as a fallback if an ideology cannot be selected for a character
+	
 }
 
 NEconomy = {
@@ -21,18 +21,25 @@ NEconomy = {
 	HIRING_RANGE_WEEKLY_CHANGE = 0.25 			# Weekly hiring range of a building is decreased or increased by this based on whether it is failing to hire at its current rate or not
 	EMPLOYMENT_PROPORTIONALITY_LIMIT = 0.75		# A building cannot have a difference of ratio of full employment between any two professions greater than this limit
 	
-	GOLD_RESERVE_LIMIT_FACTOR = 0.25			# The base factor of annual GDP that should be provided as a Gold Reserve
-	COUNTRY_MIN_CREDIT_SCALED = 0.25 			# Added to the total Building Cash Reserves to determine credit limit (multiplied by GDP)
+	GOLD_RESERVE_LIMIT_FACTOR = 0.50			# The base factor of annual GDP that should be provided as a Gold Reserve
+	COUNTRY_MIN_CREDIT_SCALED = 0.50 			# Added to the total Building Cash Reserves to determine credit limit (multiplied by GDP)
+	
+	NATIONALIZATION_PER_LEVEL_COST = 5000				# How much it costs to nationalize one level of a building per construction point
+	PRIVATIZATION_PER_LEVEL_COST = 2500					# How much it costs to privatize one level of a building per construction point
+	MIN_FAKE_CONSTRUCTION_COST = 1000					# Min construction cost for the matters of nationalization and privatization
+	
+	GOLD_RESERVE_RATIO_AT_START = 1
 }
 
 NDiplomacy = {
 	WAR_GOAL_MAKE_PROTECTORATE_SUBJECT_TYPE = "subject_type_puppet"
-	WAR_GOAL_MAKE_TRIBUTARY_SUBJECT_TYPE = "subject_type_dominion"
+	WAR_GOAL_MAKE_DOMINION_SUBJECT_TYPE = "subject_type_dominion"
+	WAR_GOAL_MAKE_TRIBUTARY_SUBJECT_TYPE = "subject_type_protectorate"
 	WAR_GOAL_REGIME_CHANGE_MIN_LAW_PROGRESSIVENESS_DIFFERENCE = 0 		# If the difference between the target wargoal holder's laws in a law group are not at least this, don't change it as part of regime change
-	PRESTIGE_FROM_COUNTRY_GDP_DIVISOR = 10000000
-	PRESTIGE_FROM_COUNTRY_GDP = 10 # Per PRESTIGE_FROM_COUNTRY_GDP_DIVISOR GDP
-	PRESTIGE_FROM_SUBJECT_GDP = 2.5 # Per PRESTIGE_FROM_COUNTRY_GDP_DIVISOR GDP in subjects
-	PRESTIGE_FROM_ARMY_POWER_PROJECTION = 0.02 # Per point of power projection from army combat power
+	PRESTIGE_FROM_COUNTRY_GDP_DIVISOR = 2000000
+	PRESTIGE_FROM_COUNTRY_GDP = 3 # Per PRESTIGE_FROM_COUNTRY_GDP_DIVISOR GDP
+	PRESTIGE_FROM_SUBJECT_GDP = 1.5 # Per PRESTIGE_FROM_COUNTRY_GDP_DIVISOR GDP in subjects
+	PRESTIGE_FROM_ARMY_POWER_PROJECTION = 0.04 # Per point of power projection from army combat power
 	PRESTIGE_FROM_NAVY_POWER_PROJECTION = 0.10 # Per point of power projection from navy combat power
 	PRESTIGE_FROM_SUBJECT_ARMY_POWER_PROJECTION = 0.02 # Per point of power projection from army combat power in subjects
 	PRESTIGE_FROM_SUBJECT_NAVY_POWER_PROJECTION = 0.10 # Per point of power projection from navy combat power in subjects
@@ -47,10 +54,17 @@ NDiplomacy = {
 	WAR_GOAL_INFAMY_POPULATION_SCALING_FACTOR = 100000 # The amount of population by which the factor below is multiplied
 }
 
+### Pop Growth Constants
+## Base Values per month
+@min_birthrate = 0.00055			# Minimum base birthrate per month (at POP_GROWTH_STABLE_SOL)
+@max_birthrate = 0.00450			# Maximum base birthrate per month (at SOL = 0)
+@min_mortality = 0.00045			# Minimum base mortality per month (at POP_GROWTH_STABLE_SOL)
+@max_mortality = 0.00600			# Maximum base mortality per month (at SOL = 0)
+
 ## SoL Thresholds
 @pop_growth_equilibrium_sol = 5		# Equilibrium is pops stop starving and where growth first becomes positive
-@pop_growth_transition_sol = 10     # Transition determines how long birthrate "lags" behind mortality before starting to drop. Setting to same as equilibrium leads to no "lag" (only matters for birthrate)
-@pop_growth_max_sol = 15			# Growth Max is where net growth generally is at it's highest (only matters for mortality)
+@pop_growth_transition_sol = 5     # Transition determines how long birthrate "lags" behind mortality before starting to drop. Setting to same as equilibrium leads to no "lag" (only matters for birthrate)
+@pop_growth_max_sol = 10			# Growth Max is where net growth generally is at it's highest (only matters for mortality)
 @pop_growth_stable_sol = 20			# Stable is where birthrate and mortality stop changing and hit their minimum values
 
 NPops = {
@@ -61,15 +75,9 @@ NPops = {
 	MIGRATION_PULL_REDUCTION_FROM_UNEMPLOYMENT_MAX = 100	# Migration pull reduction from unemployment cannot exceed this
 	MIGRATION_PULL_MULT_FROM_NO_DISCRIMINATION = 0.25		# Migration pull multiplier increased by this if pop is moving from discrimination to no discrimination (not applied to mass migration targets)
 	
-	MIGRATION_MAX_EMIGRATION_AS_POPULATION_FRACTION = 0.0001						# Max emigration per week is clamped to this fraction of a state's population
+	MIGRATION_MAX_PER_STATE_BASE = 100											# No more than this amount of people can move from or to a state in a single week (base)
 	
-	ASSIMILATION_RATE = 0.004					# Percentage of pops who will Assimilate into a different Culture each month, if eligible
-	ASSIMILATION_UNINCORPORATED_MULT = 0.1 		# ASSIMILATION_RATE is multiplied by this in unincorporated states
 	MIN_ASSIMILATION = 1000						# If there is any assmiliation at least this many people will assimilate
-	
-	CONVERSION_RATE = 0.004						# Percentage of pops who will Convert into a different Religion each month, if eligible
-	CONVERSION_UNINCORPORATED_MULT = 0.1 		# CONVERSION_RATE is multiplied by this in unincorporated states
-	MIN_CONVERSION = 1000							# If there is any conversion at least this many people will convert
 	
 	POP_MERGE_MAX_WORKFORCE_MINOR_CONSOLIDATION = 10000
 	POP_MERGE_MIN_NUM_POPS_SAME_PROFESSION_MINOR_CONSOLIDATION = 4
@@ -87,6 +95,8 @@ NPops = {
 	
 	LOW_POP_THRESHOLD = 5000					# If a state has less than this amount of pops per arable land, apply the low pop modifier
 	HIGH_POP_THRESHOLD = 1000000				# If a state has more than this amount of pops per arable land, apply the high pop modifier
+	
+	JOB_SATISFACTION_FROM_CAN_AFFORD_EXPENSES = 100		# Job satisfaction gained from being able to afford your bug package (and taxes)
 }
 
 NCharacters = {

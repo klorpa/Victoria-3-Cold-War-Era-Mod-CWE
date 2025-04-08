@@ -88,18 +88,19 @@ CHARACTERS = {
 	}
 	c:FRA = {
 		create_character = {
-			first_name = "vincent_auriol_first_name"
-			last_name = "vincent_auriol_last_name"
-			ruler = yes ig_leader = yes historical = yes
-			birth_date = 1884.8.27
-			interest_group = ig_trade_unions
-			ideology = ideology_democratic
+			first_name = "georges_bidault_first_name"
+			last_name = "georges_bidault_last_name"
+			birth_date = 1899.10.5
+			ig_leader = yes historical = yes
+			interest_group = ig_landowners
+			ideology = ideology_elitist
 			culture = cu:french
+			religion = rel:catholic
 			traits = {
+				persistent
 				bigoted
-				arrogant
+				innovative
 			}
-			dna = dna_vincent_jules_auriol
 		}
 	}
 	c:WGR = {
@@ -131,6 +132,21 @@ CHARACTERS = {
 				charismatic
 				persistent
 				meticulous
+			}
+		}
+	}
+	c:MLT = {
+		create_character = {
+			first_name = "Enrico_Mizzi_first_name"
+			last_name = "Enrico_Mizzi_last_name"
+			ruler = yes ig_leader = yes historical = yes
+			birth_date = 1885.9.20
+			interest_group = ig_rural_folk
+			ideology = ideology_democratic
+			traits = {
+				charismatic
+				persistent
+				brave
 			}
 		}
 	}
@@ -318,16 +334,18 @@ CHARACTERS = {
 	}
 	c:POR = {
 		create_character = {
-			first_name = "oscar_carmona_first_name"
-			last_name = "oscar_carmona_last_name"
+			first_name = "Antonio_de_Oliveira_Salazar_first_name"
+			last_name = "Antonio_de_Oliveira_Salazar_last_name"
 			ruler = yes ig_leader = yes historical = yes
-			birth_date = 1869.11.24
-			interest_group = ig_devout
+			birth_date = 1889.4.28
+			interest_group = ig_industrialists
 			ideology = ideology_autocratic
+			culture = cu:portuguese
+			religion = rel:catholic
 			traits = {
-				tactful
-				meticulous
-				wrathful
+				reserved
+				imperious
+				innovative
 			}
 		}
 	}
@@ -363,6 +381,7 @@ CHARACTERS = {
 				wrathful
 			}
 			dna = dna_joseph_stalin
+			on_created = { set_variable = joseph_stalin }
 		}
 	}
 	c:YUG = {
@@ -371,7 +390,7 @@ CHARACTERS = {
 			last_name = "Broz_Tito"
 			ruler = yes ig_leader = yes historical = yes
 			birth_date = 1892.5.7
-			interest_group = ig_trade_unions
+			interest_group = ig_rural_folk
 			ideology = ideology_power_hungry
 			culture = cu:yugoslavian
 			religion = rel:atheist
@@ -380,6 +399,7 @@ CHARACTERS = {
 				imperious
 				direct
 			}
+			on_created = { set_variable = josip_broz_tito }
 			dna = dna_josip_broz_tito
 		}
 	}
@@ -512,8 +532,10 @@ CHARACTERS = {
 				charismatic
 				demagogue
 				reckless
+				healthy_character
 			}
 			dna = dna_mao_zedong
+			on_created = { set_variable = mao_zedong }
 		}
 	}
 	c:NKO = {
@@ -548,6 +570,7 @@ CHARACTERS = {
 				reserved
 			}
 			dna = dna_ho_chin_minh
+			on_created = { set_variable = ho_chi_minh }
 		}
 	}
 	
@@ -565,6 +588,7 @@ CHARACTERS = {
 				brave
 				demagogue
 				persistent
+				healthy_character
 			}
 			on_created = { set_variable = chiang_kai_shek }
 		}
@@ -634,6 +658,8 @@ CHARACTERS = {
 				tactful
 				brave
 			}
+			dna = dna_jawaharlal_nehru
+			on_created = { set_variable = jawaharlal_nehru }
 		}
 	}
 	c:MLD = {
@@ -668,6 +694,7 @@ CHARACTERS = {
 				direct
 				brave
 			}
+			on_created = { set_variable = liaquat_ali_khan }
 		}
 	}
 	c:THI = {
@@ -894,11 +921,15 @@ CHARACTERS = {
 			birth_date = 1914.9.23
 			interest_group = ig_landowners
 			ideology = ideology_power_hungry
+			culture = cu:bruneian
+			religion = rel:sunni
 			traits = {
 				pious
 				innovative
 				romantic
+				sickly
 			}
+			on_created = { set_variable = Omar_Ali_Saifuddien_III }
 		}
 	}
 	c:NEP = {
@@ -929,6 +960,7 @@ CHARACTERS = {
 				romantic
 				reserved
 			}
+			on_created = { set_variable = Jigme_Wangchuck }
 		}
 	}
 	c:SIK = {
@@ -964,6 +996,7 @@ CHARACTERS = {
 				demagogue
 			}
 			dna = dna_reza_pahlavi
+			on_created = { set_variable = mohammad_reza_pahlavi }
 		}
 	}
 	c:IRQ = {
@@ -1081,16 +1114,23 @@ CHARACTERS = {
 	}
 	c:SYR = {
 		create_character = {
-			first_name = "Hashim_al_Atassi_first_name"
-			last_name = "Hashim_al_Atassi_last_name"
+			first_name = "Adib_Shishakli_first_name"
+			last_name = "Adib_Shishakli_last_name"
 			ruler = yes ig_leader = yes historical = yes
-			birth_date = 1875.1.11
-			interest_group = ig_landowners
-			ideology = ideology_elitist
+			is_general = yes
+			commander_rank = commander_rank_5
+			birth_date = 1909.1.1
+			interest_group = ig_rural_folk
+			ideology = ideology_autocratic
+			culture = cu:syrian
+			religion = rel:sunni
 			traits = {
-				reckless
-				brave
-				direct
+				charismatic
+				ambitious
+				wrathful
+			}
+			on_created = {
+				set_variable = Adib_Shishakli
 			}
 		}
 	}
@@ -1102,7 +1142,7 @@ CHARACTERS = {
 			birth_date = 1890.8.10
 			interest_group = ig_petty_bourgeoisie
 			ideology = ideology_elitist
-			culture = cu:mashriqi
+			culture = cu:lebanese
 			religion = rel:catholic
 			traits = {
 				tactful
@@ -1439,12 +1479,15 @@ CHARACTERS = {
 			ruler = yes ig_leader = yes historical = yes
 			birth_date = 1900.4.21
 			interest_group = ig_landowners
-			ideology = ideology_liberal
-			#culture = cu:haitian
+			ideology = ideology_elitist
+			culture = cu:haitian
+			religion = rel:catholic
 			traits = {
 				direct
 				inspirational_orator
+				innovative
 			}
+			on_created = { set_variable = dumarsais_estime }
 		}
 	}
 	

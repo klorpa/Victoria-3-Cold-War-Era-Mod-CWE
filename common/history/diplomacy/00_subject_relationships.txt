@@ -122,7 +122,7 @@
 	c:SOV = {
 		create_diplomatic_pact = {
 			country = c:PRC
-			type = satellite
+			type = protectorate
 		}		
 	}
 	c:SOV = {
@@ -359,6 +359,10 @@
 			country = c:SWI
 			type = protectorate
 		}	
+		create_diplomatic_pact = {
+			country = c:LUX
+			type = protectorate
+		}
 	}
 	c:FRA = {
 		create_diplomatic_pact = {
@@ -411,6 +415,11 @@
 		create_diplomatic_pact = {
 			country = c:IDO
 			type = confederal_state
+		}
+		#Benelux
+		create_diplomatic_pact = {
+			country = c:BEL
+			type = protectorate
 		}
 	}
 	

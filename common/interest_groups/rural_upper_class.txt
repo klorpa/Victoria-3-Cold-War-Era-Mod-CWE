@@ -23,6 +23,14 @@
 		
 	}
 	
+	character_ideologies = {
+		ideology_autocratic
+		ideology_power_hungry
+		ideology_elitist
+		ideology_democratic
+		ideology_liberal
+	}
+	
 	enable = {
 		always = yes
 	}
@@ -47,10 +55,14 @@
 	pop_potential = {
 	
 		#Only Accepted Pops can organise into IGs
-		#pop_is_discriminated = no
+		#pop_acceptance >= acceptance_status_3
 		
 		#Only Landowners
-		is_pop_type = aristocrats
+		OR = {
+			is_pop_type = aristocrats
+			is_pop_type = officers
+			is_pop_type = farmers
+		}
 		
 		#Private Sector Only
 		NOT = { pop_employment_building_group = bg_government }
@@ -58,24 +70,65 @@
 	}
 	
 	pop_weight = {
-		value = 1
-		
-		if = {
-			limit = { exists = scope:interest_group exists = leader }
-			multiply = {
-				desc = "LEADER_POPULARITY"
-				scope:interest_group = {
-					leader ?= {
-						value = popularity
-						multiply = 0.0025
-						add = 1
-						max = 1.25
-						min = 0.75
+		value = 0
+
+		add = {
+			desc = "POP_ARISTOCRATS"
+			if = {
+				limit = {
+					is_pop_type = aristocrats
+				}
+				value = 250
+			}
+		}
+
+		add = {
+			desc = "POP_OFFICERS"
+			if = {
+				limit = {
+					is_pop_type = officers
+				}
+				value = 25
+			}
+		}
+
+		add = {
+			desc = "POP_FARMERS"
+			if = {
+				limit = {
+					is_pop_type = farmers
+				}
+				value = 25
+				add = this.standard_of_living
+				
+				if = {
+					limit = { owner = { has_law = law_type:law_full_private_land_ownership } }
+					multiply = 1.25
+				}
+
+				if = {
+					limit = {
+						state = {
+							is_slave_state = yes
+						}
 					}
+					multiply = 4
 				}
 			}
 		}
-		
+
+		multiply = {
+			desc = "LEADER_POPULARITY"
+			scope:interest_group = {
+				leader ?= {
+					value = popularity
+					multiply = 0.0025
+					add = 1
+					max = 1.25
+					min = 0.75
+				}
+			}
+		}
 		if = {
 			limit = {
 				scope:interest_group = {
@@ -237,17 +290,8 @@
 	# The chance that a commander belonging to this IG takes over leadership when it changes
 	# scope:character is the most popular commander in the IG
 	commander_leader_chance = {
-		value = 0.5
-		if = {
-			limit = {
-				exists = scope:character
-			}
-			multiply = {
-				value = 1
-				add = scope:character.popularity
-				min = 0
-			}
-		}
+		value = 0.25
+		multiply = ig_commander_leader_chance_mult
 	}
 	
 }

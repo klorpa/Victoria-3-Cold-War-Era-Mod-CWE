@@ -4,18 +4,25 @@ je_imf_system_request_loan_button = {
 
 	visible = { 
 		
-		#THIS has not already taken out a loan
-		NOT = { has_modifier = imf_loan_debtor }
 		
-		#THIS has not recently called for a loan
-		NOT = { has_variable = imf_loan_timer }
-		
-		#UN can only take 1 request at a time
-		NOT = { any_country = { has_variable = imf_loan_applicant } }
 		
 	}
 
 	possible = {
+	
+		#Not has high infamy
+		infamy < infamy_threshold:infamous
+	
+		#THIS has not already taken out a loan
+		NOT = { has_modifier = imf_loan_debtor }
+		
+		#THIS has not recently called for a loan
+		hidden_trigger = { NOT = { has_variable = imf_loan_timer } }
+	
+		#UN can only take 1 request at a time
+		hidden_trigger = { 
+			NOT = { any_country = { has_variable = imf_loan_applicant } }
+		}
 	
 		#Is irretrievably insolvent OR is bordering on insolvency OR is a weak wartime economy
 		OR = { 
@@ -23,7 +30,7 @@ je_imf_system_request_loan_button = {
 			#is_player = yes
 		
 			AND = { 
-				scaled_debt > 0.75
+				scaled_debt > 0.50
 				has_healthy_economy = no
 			}
 			
@@ -87,19 +94,23 @@ je_imf_system_request_loan_button = {
 						value = 0.05
 					}
 					#country_rank > root.country_rank
+					NOT = { has_variable = opted_out_of_imf_loan_creditor }
 				}
 				trigger_event = { id = united_nations.19 }
 			}
 		}
 		
-		#THIS enacts free market laws
-		if = { 
-			limit = { NOT = { has_law = law_type:law_free_trade } }
-			activate_law = law_type:law_free_trade
-		}
+		#THIS enacts free market laws (only affects minor powers)
 		if = {
-			limit = { NOT = { has_law = law_type:law_laissez_faire } }
-			activate_law = law_type:law_laissez_faire
+			limit = { country_rank < rank_value:great_power }
+			if = { 
+				limit = { NOT = { has_law = law_type:law_free_trade } }
+				activate_law = law_type:law_free_trade
+			}
+			if = {
+				limit = { NOT = { has_law = law_type:law_laissez_faire } }
+				activate_law = law_type:law_laissez_faire
+			}
 		}
 	
 		#Timer
@@ -120,6 +131,34 @@ je_imf_system_request_loan_button = {
 			}
 			add = -100
 		}
+	}
+	
+}
+
+je_imf_system_request_loan_resume_button = {
+	name = "je_imf_system_request_loan_resume_button"
+	desc = "je_imf_system_request_loan_resume_button_desc"
+
+	visible = { 
+		
+		has_variable = opted_out_of_imf_loan_creditor
+		
+	}
+
+	possible = {
+		
+		always = yes
+		
+	}
+
+	effect = {
+		
+		remove_variable = opted_out_of_imf_loan_creditor
+		
+	}
+	
+	ai_chance = {
+		base = 100
 	}
 	
 }
@@ -190,7 +229,7 @@ je_imf_system_buy_sdr_button = {
 
 	possible = {
 		
-		scaled_debt > 0
+		#scaled_debt > 0
 		
 		trigger_if = { 
 			limit = { has_global_variable = SDR_global_marketplace_amount }
@@ -203,6 +242,14 @@ je_imf_system_buy_sdr_button = {
 			limit = { has_variable = SDR_buy_local_gold_reserve_minimum }
 			gold_reserves_limit >= root.var:SDR_buy_local_gold_reserve_minimum
 			gold_reserves < gold_reserves_limit
+		}
+		
+		trigger_if = { 
+			limit = { has_variable = SDR_local_actual_amount }
+			custom_tooltip = {
+				text = THIS_has_sufficient_SDR.tt
+				root.var:SDR_local_actual_amount >= 1000000
+			}
 		}
 		
 		custom_tooltip = {
@@ -232,26 +279,27 @@ je_imf_system_buy_sdr_button = {
 		}
 		if = {
 			limit = { has_variable = SDR_local_actual_amount }
-			#custom_tooltip = {
-			#	text = gain_SDR.tt
-				set_variable = {
+			custom_tooltip = {
+				text = spend_SDR.tt
+				change_variable = {
 					name = SDR_local_actual_amount
-					value = 1000000
+					add = -1000000
 				}
-			#}
-			calculate_buy_SDR = yes
-		}
-		if = {
-			limit = { 
-				has_global_variable = SDR_global_marketplace_amount 
-				global_var:SDR_global_marketplace_amount >= 1000000
+				set_variable = {
+					name = SDR_local_actual_amount_display
+					value = root.var:SDR_local_actual_amount
+				}
+				change_variable = {
+					name = SDR_local_actual_amount_display
+					divide = 1000000
+				}
 			}
-			set_global_variable = SDR_on_sale
+			calculate_buy_SDR = yes
 		}
 		
 		#Recalculate
-		remove_global_variable = imf_SDR_caculated_timer
-		calculate_SDR_values_full = yes
+		#remove_global_variable = imf_SDR_caculated_timer
+		#calculate_SDR_values_full = yes
 	
 		#Timer
 		set_variable = { name = imf_buy_sdr_timer months = 1 }
@@ -262,7 +310,7 @@ je_imf_system_buy_sdr_button = {
 		base = 0
 		modifier = {
 			trigger = {
-				has_healthy_economy = no
+				scaled_debt > 0.05
 				has_global_variable = SDR_global_marketplace_amount
 			}
 			add = 1
@@ -284,13 +332,6 @@ je_imf_system_sell_sdr_button = {
 
 	possible = {
 		
-		trigger_if = { 
-			limit = { has_variable = SDR_local_amount }
-			custom_tooltip = {
-				text = THIS_has_sufficient_SDR.tt
-				root.var:SDR_local_amount > 1000000
-			}
-		}
 		trigger_if = { 
 			limit = { has_variable = SDR_sell_local_gold_reserve_minimum }
 			gold_reserves > root.var:SDR_sell_local_gold_reserve_minimum
@@ -323,29 +364,54 @@ je_imf_system_sell_sdr_button = {
 		}
 		if = {
 			limit = { has_variable = SDR_local_actual_amount }
-			#custom_tooltip = {
-			#	text = spend_SDR.tt
-				set_variable = {
-					name = SDR_local_actual_amount
-					value = -1000000
-				}
-			#}
-			calculate_sell_SDR = yes
-		}
-		if = {
-			limit = { 
-				has_global_variable = SDR_global_marketplace_amount 
-				global_var:SDR_global_marketplace_amount < 1000000
+			custom_tooltip = {
+				text = contribute_SDR.tt
 			}
-			remove_global_variable = SDR_on_sale
+			calculate_sell_SDR = yes
 		}
 		
 		#Recalculate
-		remove_global_variable = imf_SDR_caculated_timer
-		calculate_SDR_values_full = yes
+		#remove_global_variable = imf_SDR_caculated_timer
+		#calculate_SDR_values_full = yes
 	
 		#Timer
 		set_variable = { name = imf_sell_sdr_timer months = 1 }
+		
+		#Give rewards for contributing to the IMF
+		random_list = {
+			1 = {
+				change_infamy = -5
+			}
+			#1 = {
+			#	custom_tooltip = {
+			#		text = imf_obligation_random_imf_country.tt
+			#		random_country = {
+			#			limit = {  
+			#				has_journal_entry = je_imf_system
+			#				NOT = { owes_obligation_to = root }
+			#			}
+			#			set_owes_obligation_to = { country = root setting = yes }
+			#		}
+			#	}
+			#}
+			1 = {
+				custom_tooltip = {
+					text = imf_relations_random_imf_country.tt
+					random_country = {
+						limit = {  
+							has_journal_entry = je_imf_system
+						}
+						change_relations = { country = root value = 10 }
+						save_scope_as = grateful_imf_country
+					}
+					save_scope_as = this_imf_country
+					post_notification = imf_grateful_country_notification
+				}
+			}
+			18 = {
+				
+			}
+		}
 		
 	}
 	
@@ -353,12 +419,13 @@ je_imf_system_sell_sdr_button = {
 		base = 0
 		modifier = {
 			trigger = {
-				has_global_variable = SDR_on_sale
 				OR = { 
 					has_law = law_type:law_regionalist_fp
 					has_law = law_type:law_globalist_fp
 				}
 				has_healthy_economy = yes
+				has_global_variable = SDR_global_marketplace_amount
+				global_var:SDR_global_marketplace_amount < 100000000
 			}
 			add = 1
 		}

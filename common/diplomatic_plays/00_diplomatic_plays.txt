@@ -12,6 +12,32 @@ dp_war_reparations = {
 	possible = {
 		always = no
 	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
 
 	ai_acceptance_max = 100
 
@@ -28,15 +54,48 @@ dp_regime_change = {
 	texture = "gfx/interface/icons/war_goals/regime_change.dds"
 
 	possible = {
+	
 		NOT = { is_country_type = decentralized }
-		aggressive_diplomatic_plays_permitted = yes
-		NOT = { is_subject_of = scope:target_country }	
 		scope:target_country = {
 			NOT = { is_country_type = decentralized }
-			NOT = { is_subject_of = root }
-		}	
+		}
+		
+		scope:target_country = { is_subject = no }
+		
+		aggressive_diplomatic_plays_permitted = yes
 
-		diplo_play_war_check_cwe = yes
+		diplo_play_additional_involvement_check_cwe_ideology_bypass = yes
+		
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe_ideology_bypass = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
+	on_demand_accepted = {
+		scope:target_country = { copy_laws = scope:initiator }
 	}
 
 	ai_acceptance_max = 100 on_weekly_pulse = {}
@@ -64,6 +123,32 @@ dp_ban_slavery = {
 		diplo_play_war_check_cwe = yes
 		
 	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
 
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 
@@ -87,6 +172,32 @@ dp_conquer_state = {
 		}	
 
 		diplo_play_war_check_cwe = yes
+		
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
 		
 	}
 	
@@ -123,6 +234,32 @@ dp_conquer_state_historical = {
 		
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -143,10 +280,35 @@ dp_return_state = {
 		NOT = { is_subject_of = scope:target_country }	
 		scope:target_country = {
 			NOT = { is_country_type = decentralized }
-			NOT = { is_subject_of = root }
 		}
 
 		diplo_play_war_check_cwe = yes
+		
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
 		
 	}
 	
@@ -182,6 +344,32 @@ dp_return_state_historical = {
 		
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -207,6 +395,32 @@ dp_liberate_subject = {
 		diplo_play_war_check_cwe = yes
 		
 	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
 
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 
@@ -227,6 +441,32 @@ dp_liberate_country = {
 		diplomatic_play_has_no_relations_blockers = yes
 		
 		diplo_play_war_check_cwe = yes
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
 	}
 
 	ai_acceptance_max = 100 on_weekly_pulse = {}
@@ -261,7 +501,7 @@ dp_independence = {
 		#Bad relations with TARGET
 		custom_tooltip = {
 			text = DIPLO_ACTION_RELATIONS_POOR_OR_LESS
-			scope:target_country.relations:root < relations_threshold:poor
+			scope:target_country.relations:root <= relations_threshold:poor
 		}
 		
 		#THIS has some army
@@ -299,6 +539,32 @@ dp_independence = {
 		government_has_legislative_simple_majority = yes
 		
 	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
 
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 
@@ -325,6 +591,32 @@ dp_take_treaty_port = {
 		diplo_play_war_check_cwe = yes
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -342,6 +634,32 @@ dp_leave_power_bloc = {
 	possible = {
 		NOT = { is_country_type = decentralized }
 		diplo_play_war_check_cwe = yes
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
 	}
 
 	ai_acceptance_max = 100
@@ -384,6 +702,32 @@ dp_increase_autonomy = {
 		
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -408,6 +752,32 @@ dp_reduce_autonomy = {
 		diplo_play_war_check_cwe = yes
 		
 	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
 
 	on_weekly_pulse = {}
 
@@ -418,9 +788,9 @@ dp_reduce_autonomy = {
 
 dp_make_dominion = {
 	
-	war_goal = make_tributary
+	war_goal = make_dominion
 	
-	texture = "gfx/interface/icons/war_goals/make_tributary.dds"
+	texture = "gfx/interface/icons/war_goals/make_dominion.dds"
 	
 	possible = {
 		aggressive_diplomatic_plays_permitted = yes	
@@ -429,6 +799,32 @@ dp_make_dominion = {
 		
 		#THIS has higher rank than TARGET
 		country_rank > scope:target_country.country_rank
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
 	}
 	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
@@ -485,6 +881,32 @@ dp_make_puppet = {
 		country_rank > scope:target_country.country_rank
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -512,6 +934,32 @@ dp_transfer_subject = {
 		
 		#THIS has higher rank than TARGET
 		country_rank > scope:target_country.country_rank
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
 	}
 	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
@@ -542,6 +990,32 @@ dp_annex_subject = {
 		
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {
@@ -551,7 +1025,7 @@ dp_annex_subject = {
 					is_direct_subject_of = scope:initiator
 					NOT = { this = scope:target_country }
 				}
-				add_liberty_desire = 25
+				add_liberty_desire = annex_subject_base_liberty_desire_change
 				add_modifier = {
 					name = modifier_has_annexed_another_subject
 					months = 60
@@ -589,10 +1063,10 @@ dp_revolution = {
 	}
 
 	additional_involvement_trigger = {
-		NOT = { is_country_type = decentralized }
-		aggressive_diplomatic_plays_permitted = yes
 		
 		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
 		OR = { 
 			has_interventionist_fp = yes
 			scope:target_country = { is_subject_of = ROOT }
@@ -607,7 +1081,6 @@ dp_revolution = {
 				}
 			}
 		}
-
 		scope:initiator = {
 			capital = {
 				region = {
@@ -615,11 +1088,11 @@ dp_revolution = {
 				}
 			}
 		}
-		
 		OR = {
 			has_interest_marker_in_region = scope:target_capital_region
 			has_interest_marker_in_region = scope:initiator_capital_region
 		}
+		
 	}
 	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
@@ -652,6 +1125,28 @@ dp_historical_revolution = {
 
 	additional_involvement_trigger = {
 		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
 	}
 	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
@@ -677,31 +1172,36 @@ dp_secession = {
 	}		
 	
 	possible = {
-		exists = scope:target_country
-		scope:target_country = {
-			is_secessionist = yes
-		}
+		scope:initiator = { is_secessionist = yes }
 	}
 
 	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
 		NOT = { is_country_type = decentralized }
 		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			has_interventionist_fp = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
 	
-		scope:target_country = {
+		#Has an interest in the area
+		scope:initiator = {
 			capital = {
 				region = {
-					save_temporary_scope_as = target_capital_region
+					save_temporary_scope_as = secession_capital_region
 				}
 			}
 		}
-		
 		OR = {
-			has_interest_marker_in_region = scope:target_capital_region
-			is_home_country_for = scope:target_country
+			has_interest_marker_in_region = scope:secession_capital_region
+			is_home_country_for = scope:initiator
 		}
+		
 	}
 	
-	ai_acceptance_max = 100 on_weekly_pulse = {}
+	on_weekly_pulse = {}
 
 	on_war_begins = {}
 
@@ -718,6 +1218,7 @@ dp_contain_threat = {
 	texture = "gfx/interface/icons/war_goals/contain_threat.dds"
 	
 	possible = {
+	
 		aggressive_diplomatic_plays_permitted = yes
 		
 		NOT = { is_country_type = decentralized }
@@ -756,9 +1257,42 @@ dp_contain_threat = {
 	}
 
 	additional_involvement_trigger = {
-		NOT = { is_country_type = decentralized }
-		country_rank >= rank_value:great_power
+	
 		aggressive_diplomatic_plays_permitted = yes
+		
+		NOT = { is_country_type = decentralized }
+		NOT = { is_subject_of = scope:target_country }
+		scope:target_country = {
+			NOT = { is_country_type = decentralized }
+			NOT = { is_subject_of = root }
+		}	
+		
+		#custom_tooltip = {
+		#	text = DIPLO_PLAY_GREAT_POWER_TRIGGER
+		#	country_rank >= rank_value:great_power
+		#}
+		
+		#THIS does not have good relations with TARGET
+		custom_tooltip = {
+			text = DIPLO_ACTION_RELATIONS_CORDIAL_OR_GREATER_NOT
+			scope:target_country.relations:root < relations_threshold:cordial
+		}
+		
+		#TARGET has high infamy
+		custom_tooltip = {
+			text = DIPLO_PLAY_OUTRAGED_TRIGGER
+			"scope:target_country.infamy" >= infamy_threshold:pariah
+		}
+		
+		#THIS does not have restricted war rights
+		NOT = { has_law = law_type:law_no_war }
+		
+		#THIS has some army
+		NOT = { has_law = law_type:law_peasant_levies }
+		
+		#No non-aggression_pact with TARGET
+		has_no_non_aggression_pact_with_target = yes
+		
 	}
 	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
@@ -809,6 +1343,32 @@ dp_join_power_bloc = {
 		}
 		diplo_play_war_check_cwe = yes
 	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
 
 	ai_acceptance_max = 100
 
@@ -829,6 +1389,32 @@ dp_force_nationalization = {
 		NOT = { is_country_type = decentralized }
 		aggressive_diplomatic_plays_permitted = yes
 		diplo_play_war_check_cwe = yes
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
 	}
 
 	selectable_in_lens = {
@@ -855,6 +1441,32 @@ dp_give_foreign_investment_rights = {
 		NOT = { is_country_type = decentralized }
 		aggressive_diplomatic_plays_permitted = yes
 		diplo_play_war_check_cwe = yes
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
 	}
 
 	selectable_in_lens = {
@@ -884,6 +1496,32 @@ dp_native_uprising = {
 	
 	possible = {
 		is_country_type = decentralized
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
 	}
 	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
@@ -932,7 +1570,7 @@ dp_annex_war = {
 		#Bad relations with TARGET
 		custom_tooltip = {
 			text = DIPLO_ACTION_RELATIONS_POOR_OR_LESS
-			scope:target_country.relations:root < relations_threshold:poor
+			scope:target_country.relations:root <= relations_threshold:poor
 		}
 		
 		#THIS does not have restricted war rights
@@ -961,6 +1599,32 @@ dp_annex_war = {
 		
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -981,6 +1645,32 @@ dp_annex_war_historical = {
 	
 	possible = {}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -997,6 +1687,32 @@ dp_humiliation = {
 		aggressive_diplomatic_plays_permitted = yes
 		
 		diplo_play_war_check_cwe = yes
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
 	}
 	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
@@ -1034,6 +1750,32 @@ dp_unify_germany = {
 		
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -1064,6 +1806,32 @@ dp_unify_italy = {
 		scope:target_country = { can_form_nation = ITA }
 		
 		diplo_play_war_check_cwe = yes
+		
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
 		
 	}
 	
@@ -1100,6 +1868,32 @@ dp_unify_scandinavia = {
 		
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -1130,6 +1924,32 @@ dp_unify_ARF = {
 		scope:target_country = { can_form_nation = ARF }
 		
 		diplo_play_war_check_cwe = yes
+		
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
 		
 	}
 	
@@ -1166,6 +1986,32 @@ dp_unify_UAR = {
 		
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -1199,6 +2045,32 @@ dp_unify_benelux = {
 		
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -1225,6 +2097,32 @@ dp_unify_ethiopia = {
 		scope:target_country = { can_form_nation = ETH }
 		
 		diplo_play_war_check_cwe = yes
+		
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
 		
 	}
 	
@@ -1261,6 +2159,32 @@ dp_unify_china = {
 		
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -1294,6 +2218,32 @@ dp_unify_korea = {
 		
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -1320,6 +2270,32 @@ dp_unify_india = {
 		scope:target_country = { can_form_nation = BHT }
 		
 		diplo_play_war_check_cwe = yes
+		
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
 		
 	}
 	
@@ -1352,6 +2328,32 @@ dp_unify_indonesia = {
 		
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -1372,6 +2374,32 @@ dp_leadership_germany = {
 	}	
 	
 	possible = {
+		
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
 		
 	}
 	
@@ -1398,6 +2426,32 @@ dp_leadership_italy = {
 		
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -1418,6 +2472,32 @@ dp_leadership_scandinavia = {
 	}	
 	
 	possible = {
+		
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
 		
 	}
 	
@@ -1444,6 +2524,32 @@ dp_leadership_ARF = {
 		
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -1467,6 +2573,32 @@ dp_leadership_UAR = {
 		
 	}
 	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
+		
+	}
+	
 	ai_acceptance_max = 100 on_weekly_pulse = {}
 	
 	on_war_begins = {}
@@ -1487,6 +2619,32 @@ dp_leadership_benelux = {
 	}	
 	
 	possible = {
+		
+	}
+	
+	additional_involvement_trigger = {
+		
+		#Potential participant is willing to get involved in other's affairs
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = { 
+			diplo_play_additional_involvement_check_cwe = yes
+			scope:target_country = { is_subject_of = ROOT }
+			scope:initiator = { is_subject_of = ROOT }
+		}
+	
+		#Has an interest in the area
+		scope:initiator = {
+			capital = {
+				region = {
+					save_temporary_scope_as = initiator_capital_region
+				}
+			}
+		}
+		OR = {
+			has_interest_marker_in_region = scope:initiator_capital_region
+			is_home_country_for = scope:initiator
+		}
 		
 	}
 	

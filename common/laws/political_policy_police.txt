@@ -10,6 +10,16 @@
 		#Constitutional Laws system (Requires simple majority to amend constitutional laws)
 		government_has_legislative_simple_majority = yes
 		
+		#Ruler must support this
+		ruler ?= { 
+			interest_group = {
+				law_stance = {
+					law = law_type:law_lenient_policing
+					value >= approve
+				}
+			}
+		}
+		
 	}
 	
 	modifier = {
@@ -18,9 +28,10 @@
 
 	institution = institution_police
 	institution_modifier = {
-		political_movement_radicalism_mult = -0.02
-		state_radicals_from_sol_change_mult = -0.02
-		state_radicals_from_discrimination_mult = -0.02
+		political_movement_radicalism_add = -0.02
+		state_radicalism_increases_violent_hostility_mult = -0.02
+		state_radicalism_increases_cultural_erasure_mult = -0.02
+		state_radicalism_increases_open_prejudice_mult = -0.02
 		interest_group_ig_armed_forces_pol_str_mult = 0.04
 	}
 	
@@ -58,6 +69,16 @@ law_balanced_policing = {
 		#Constitutional Laws system (Requires simple majority to amend constitutional laws)
 		government_has_legislative_simple_majority = yes
 		
+		#Ruler must support this
+		ruler ?= { 
+			interest_group = {
+				law_stance = {
+					law = law_type:law_balanced_policing
+					value >= approve
+				}
+			}
+		}
+		
 	}
 
 	modifier = {
@@ -66,9 +87,10 @@ law_balanced_policing = {
 
 	institution = institution_police
 	institution_modifier = {
-		political_movement_radicalism_mult = -0.04
-		state_radicals_from_sol_change_mult = -0.03
-		state_radicals_from_discrimination_mult = -0.03
+		political_movement_radicalism_add = -0.03
+		state_radicalism_increases_violent_hostility_mult = -0.03
+		state_radicalism_increases_cultural_erasure_mult = -0.03
+		state_radicalism_increases_open_prejudice_mult = -0.03
 		interest_group_ig_armed_forces_pol_str_mult = 0.06
 		#state_mortality_turmoil_mult = 0.001
 		
@@ -109,6 +131,16 @@ law_strict_policing = {
 		#Constitutional Laws system (Requires simple majority to amend constitutional laws)
 		government_has_legislative_simple_majority = yes
 		
+		#Ruler must support this
+		ruler ?= { 
+			interest_group = {
+				law_stance = {
+					law = law_type:law_strict_policing
+					value >= approve
+				}
+			}
+		}
+		
 	}
 
 	modifier = {
@@ -117,9 +149,10 @@ law_strict_policing = {
 
 	institution = institution_police
 	institution_modifier = {
-		political_movement_radicalism_mult = -0.06
-		state_radicals_from_sol_change_mult = -0.04
-		state_radicals_from_discrimination_mult = -0.04
+		political_movement_radicalism_add = -0.04
+		state_radicalism_increases_violent_hostility_mult = -0.04
+		state_radicalism_increases_cultural_erasure_mult = -0.04
+		state_radicalism_increases_open_prejudice_mult = -0.04
 		interest_group_ig_armed_forces_pol_str_mult = 0.08
 		#state_mortality_turmoil_mult = 0.002
 		
@@ -160,6 +193,16 @@ law_draconian_policing = {
 		#Constitutional Laws system (Requires simple majority to amend constitutional laws)
 		government_has_legislative_simple_majority = yes
 		
+		#Ruler must support this
+		ruler ?= { 
+			interest_group = {
+				law_stance = {
+					law = law_type:law_draconian_policing
+					value >= approve
+				}
+			}
+		}
+		
 	}
 
 	modifier = {
@@ -168,9 +211,10 @@ law_draconian_policing = {
 
 	institution = institution_police
 	institution_modifier = {
-		political_movement_radicalism_mult = -0.08
-		state_radicals_from_sol_change_mult = -0.05
-		state_radicals_from_discrimination_mult = -0.05
+		political_movement_radicalism_add = -0.05
+		state_radicalism_increases_violent_hostility_mult = -0.05
+		state_radicalism_increases_cultural_erasure_mult = -0.05
+		state_radicalism_increases_open_prejudice_mult = -0.05
 		interest_group_ig_armed_forces_pol_str_mult = 0.10
 		#state_mortality_turmoil_mult = 0.004
 		

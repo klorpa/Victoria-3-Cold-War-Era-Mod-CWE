@@ -23,6 +23,14 @@
 		
 	}
 	
+	character_ideologies = {
+		ideology_autocratic
+		ideology_power_hungry
+		ideology_elitist
+		ideology_democratic
+		ideology_liberal
+	}
+	
 	enable = {
 		always = yes
 	}
@@ -47,7 +55,7 @@
 	pop_potential = {
 	
 		#Only Accepted Pops can organise into IGs
-		#pop_is_discriminated = no
+		#pop_acceptance >= acceptance_status_3
 		
 		#Correct pop type
 		OR = { 
@@ -62,26 +70,65 @@
 			is_pop_type = academics
 		}
 		
+		NOT = { is_pop_type = capitalists }
+		
 		#Private Sector Only
 		NOT = { pop_employment_building_group = bg_government }
 		
 	}
 	
 	pop_weight = {
-		value = 1
-		
-		if = {
-			limit = { exists = scope:interest_group exists = leader }
-			multiply = {
-				desc = "LEADER_POPULARITY"
-				scope:interest_group = {
-					leader ?= {
-						value = popularity
-						multiply = 0.0025
-						add = 1
-						max = 1.25
-						min = 0.75
+		value = 0
+
+		add = {
+			desc = "URBAN_POP"
+			if = {
+				limit = {
+					NOR = {
+						pop_employment_building_group = bg_agriculture
+						pop_employment_building_group = bg_ranching
+						pop_employment_building_group = bg_plantations
 					}
+				}
+				value = 50
+				if = {
+					limit = {
+						strata = middle
+					}
+					divide = 2
+				}
+			}
+		}
+
+		add = {
+			desc = "POP_MACHINISTS"
+			if = {
+				limit = {
+					is_pop_type = machinists
+				}
+				value = 100
+			}
+		}
+
+		add = {
+			desc = "POP_LABORERS"
+			if = {
+				limit = {
+					is_pop_type = laborers
+				}
+				value = 50
+			}
+		}
+
+		multiply = {
+			desc = "LEADER_POPULARITY"
+			scope:interest_group = {
+				leader ?= {
+					value = popularity
+					multiply = 0.0025
+					add = 1
+					max = 1.25
+					min = 0.75
 				}
 			}
 		}
@@ -126,7 +173,6 @@
 				add = 1
 			}
 		}
-		
 	}
 	
 	monarch_weight = {
@@ -248,15 +294,6 @@
 	# scope:character is the most popular commander in the IG
 	commander_leader_chance = {
 		value = 0.25
-		if = {
-			limit = {
-				exists = scope:character
-			}
-			multiply = {
-				value = 1
-				add = scope:character.popularity
-				min = 0
-			}
-		}
+		multiply = ig_commander_leader_chance_mult
 	}
 }

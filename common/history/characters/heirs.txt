@@ -20,4 +20,64 @@ CHARACTERS = {
 		}
 	}
 	
+	c:BRU = {
+		create_character = {
+			first_name = "Hassanal_Bolkiah_first_name"
+			last_name = "Hassanal_Bolkiah_last_name"
+			heir = yes historical = yes
+			birth_date = 1946.7.15
+			interest_group = ig_landowners
+			ideology = ideology_autocratic
+			culture = cu:bruneian
+			religion = rel:sunni
+			traits = {
+				expensive_tastes
+				bigoted
+				innovative
+			}
+			on_created = {
+				set_variable = Hassanal_Bolkiah
+			}
+		}
+	}
+	
+	c:BHU = {
+		create_character = {
+			first_name = "Jigme_Dorji_Wangchuck_first_name"
+			last_name = "Jigme_Dorji_Wangchuck_last_name"
+			heir = yes historical = yes
+			birth_date = 1928.5.2
+			interest_group = ig_landowners
+			ideology = ideology_power_hungry
+			culture = cu:bhutanese
+			religion = rel:gelugpa
+			traits = {
+				innovative
+				tactful
+				pious
+			}
+			on_created = {
+				set_variable = Jigme_Dorji_Wangchuck
+			}
+		}
+	}
+	
+	c:MLD = {
+		create_character = {
+			first_name = "Muhammad_Fareed_Didi_first_name"
+			last_name = "Muhammad_Fareed_Didi_last_name"
+			heir = yes historical = yes
+			birth_date = 1901.1.11
+			interest_group = ig_landowners
+			ideology = ideology_autocratic
+			culture = cu:maldivian
+			religion = rel:sunni
+			traits = {
+				expensive_tastes
+				tactful
+				pious
+			}
+		}
+	}
+	
 }

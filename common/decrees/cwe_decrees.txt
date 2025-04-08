@@ -6,6 +6,11 @@ decree_subsidised_housing = {
 	modifier = {
 		building_group_bg_urban_center_throughput_add = 0.2
 	}
+	
+	country_trigger = {
+		NOT = { has_law = law_type:law_no_social_security }
+	}
+	
 	cost = 200
 
 	ai_weight = {
@@ -52,10 +57,11 @@ decree_encourage_services_industry = {
 	unlocking_technologies = {
 		tech_services_1
 	}	
-	valid = {
+	state_trigger = {
 		NOR = { 
 			has_decree = decree_encourage_agricultural_industry
 			has_decree = decree_encourage_resource_industry
+			has_decree = decree_encourage_manufacturing_industry
 		}
 	}	
 	modifier = {
@@ -107,11 +113,11 @@ decree_silence_media = {
 	unlocking_technologies = {
 		tech_politics_6
 	}	
-	valid = {
-		owner = { 
-			has_law = law_type:law_secret_police
-			NOT = { has_law = law_type:law_full_free_speech } 
-		}
+	country_trigger = {
+		has_law = law_type:law_secret_police
+		NOT = { has_law = law_type:law_full_free_speech } 
+	}
+	state_trigger = {
 		turmoil >= 0.25
 	}
 	modifier = {
@@ -147,6 +153,40 @@ decree_silence_media = {
 			multiply = 0.5
 		}
 		
+	}
+	
+}
+
+decree_create_sez = {
+	texture = "gfx/interface/icons/invention_icons/corporate_charters.dds"
+	unlocking_technologies = {
+		tech_economy_5
+	}	
+	country_trigger = {
+		OR = { 
+			has_law = law_type:law_no_foreign_investment_policy
+			has_law = law_type:law_command_economy
+			has_law = law_type:law_semi_command_economy
+			has_law = law_type:law_cooperative_ownership
+			has_law = law_type:law_state_capitalism
+		}
+	}
+	state_trigger = {
+		is_coastal = yes
+		OR = { 
+			is_treaty_port = yes
+			is_incorporated = yes
+		}
+		is_isolated_from_market = no
+		is_capital = no
+	}
+	modifier = {
+		state_tax_waste_add = 0.50
+	}
+	cost = 200
+	
+	ai_weight = {
+		value = 0
 	}
 	
 }

@@ -13,10 +13,10 @@ law_no_voting = {
 	
 	can_impose = { can_impose_law_default = yes } #progressiveness = -100
 	
-	disallowing_laws = {
-		law_technocratic_legislature
-		law_democratic_legislature
-	}
+	#disallowing_laws = {
+	#	law_technocratic_legislature
+	#	law_democratic_legislature
+	#}
 	
 	can_enact = {
 	
@@ -43,11 +43,11 @@ law_no_voting = {
 	}
 
 	modifier = {
-		country_legitimacy_govt_total_clout_add = 50
+		country_legitimacy_govt_total_clout_add = 100
 		
 		country_authority_add = 50
 		
-		political_movement_radicalism_mult = 0.40
+		political_movement_radicalism_mult = 0.20
 	}
 	
 	possible_political_movements = {
@@ -59,10 +59,22 @@ law_no_voting = {
 	}
 	
 	on_activate = {
+	
+		#No elections - as V3 requires parties for elections
+		if = {
+			limit = { NOR = { has_law = law_type:law_parties_not_allowed has_law = law_type:law_single_party_state } }
+			activate_law = law_type:law_single_party_state
+		}
 		if = {
 			limit = { NOT = { has_law = law_type:law_appointed_legislature } }
 			activate_law = law_type:law_appointed_legislature
 		}
+		
+		#Notice
+		#custom_tooltip = {
+		#	text = has_controlled_elections.tt
+		#}
+		
 	}
 	
 	ai_enact_weight_modifier = { #Petitions
@@ -86,9 +98,9 @@ law_rigged_voting = {
 	
 	can_impose = { can_impose_law_default = yes } #progressiveness = -50
 
-	disallowing_laws = {
-		law_appointed_legislature
-	}
+	#disallowing_laws = {
+	#	law_appointed_legislature
+	#}
 	
 	can_enact = {
 	
@@ -120,12 +132,12 @@ law_rigged_voting = {
 		country_voting_power_wealth_threshold_add = 15
 		country_voting_power_base_add = 1
 		
-		country_legitimacy_govt_total_votes_add = 20
-		country_legitimacy_govt_total_clout_add = 40
+		country_legitimacy_govt_total_votes_add = 40
+		country_legitimacy_govt_total_clout_add = 80
 		
 		#state_political_strength_from_wealth_mult = 0.40
 		
-		political_movement_radicalism_mult = 0.30
+		political_movement_radicalism_mult = 0.15
 		interest_group_in_opposition_approval_add = 1
 	}
 	
@@ -138,10 +150,17 @@ law_rigged_voting = {
 	}
 	
 	on_activate = {
+	
+		#Enable parties - as V3 elections require parties
 		if = {
 			limit = { has_law = law_type:law_appointed_legislature }
 			activate_law = law_type:law_technocratic_legislature
 		}
+		if = {
+			limit = { OR = { has_law = law_type:law_parties_not_allowed has_law = law_type:law_single_party_state } }
+			activate_law = law_type:law_dominant_party_state
+		}
+		
 	}
 	
 	ai_enact_weight_modifier = { #Petitions
@@ -165,9 +184,9 @@ law_gerrymandered_voting = {
 	
 	can_impose = { can_impose_law_default = yes } #progressiveness = 50
 
-	disallowing_laws = {
-		law_appointed_legislature
-	}
+	#disallowing_laws = {
+	#	law_appointed_legislature
+	#}
 
 	can_enact = {
 	
@@ -200,12 +219,12 @@ law_gerrymandered_voting = {
 		country_voting_power_wealth_threshold_add = 10
 		country_voting_power_base_add = 1
 		
-		country_legitimacy_govt_total_votes_add = 40
-		country_legitimacy_govt_total_clout_add = 30
+		country_legitimacy_govt_total_votes_add = 80
+		country_legitimacy_govt_total_clout_add = 60
 		
 		#state_political_strength_from_wealth_mult = 0.20
 		
-		political_movement_radicalism_mult = 0.20
+		political_movement_radicalism_mult = 0.10
 		interest_group_in_opposition_approval_add = 2
 	}
 	
@@ -218,10 +237,17 @@ law_gerrymandered_voting = {
 	}
 
 	on_activate = {
+	
+		#Enable parties - as V3 elections require parties
 		if = {
 			limit = { has_law = law_type:law_appointed_legislature }
 			activate_law = law_type:law_technocratic_legislature
 		}
+		if = {
+			limit = { OR = { has_law = law_type:law_parties_not_allowed has_law = law_type:law_single_party_state } }
+			activate_law = law_type:law_dominant_party_state
+		}
+		
 	}
 	
 	ai_enact_weight_modifier = { #Petitions
@@ -245,9 +271,9 @@ law_harassment_voting = {
 	
 	can_impose = { can_impose_law_default = yes } #progressiveness = 100
 
-	disallowing_laws = {
-		law_appointed_legislature
-	}
+	#disallowing_laws = {
+	#	law_appointed_legislature
+	#}
 	
 	can_enact = {
 	
@@ -280,12 +306,12 @@ law_harassment_voting = {
 		country_voting_power_wealth_threshold_add = 5
 		country_voting_power_base_add = 1
 		
-		country_legitimacy_govt_total_votes_add = 60
-		country_legitimacy_govt_total_clout_add = 10
+		country_legitimacy_govt_total_votes_add = 120
+		country_legitimacy_govt_total_clout_add = 20
 		
 		#state_political_strength_from_wealth_mult = 0.10
 		
-		political_movement_radicalism_mult = 0.10
+		political_movement_radicalism_mult = 0.05
 		interest_group_in_opposition_approval_add = 3
 	}
 	
@@ -298,10 +324,17 @@ law_harassment_voting = {
 	}
 
 	on_activate = {
+		
+		#Enable parties - as V3 elections require parties
 		if = {
 			limit = { has_law = law_type:law_appointed_legislature }
 			activate_law = law_type:law_technocratic_legislature
 		}
+		if = {
+			limit = { OR = { has_law = law_type:law_parties_not_allowed has_law = law_type:law_single_party_state } }
+			activate_law = law_type:law_dominant_party_state
+		}
+		
 	}
 	
 	ai_enact_weight_modifier = { #Petitions
@@ -325,9 +358,9 @@ law_fair_voting = {
 	
 	can_impose = { can_impose_law_default = yes } #progressiveness = 100
 
-	disallowing_laws = {
-		law_appointed_legislature
-	}
+	#disallowing_laws = {
+	#	law_appointed_legislature
+	#}
 	
 	can_enact = {
 	
@@ -358,7 +391,7 @@ law_fair_voting = {
 		country_voting_power_from_literacy_add = 4
 		country_voting_power_base_add = 1
 		
-		country_legitimacy_govt_total_votes_add = 80
+		country_legitimacy_govt_total_votes_add = 160
 		
 		interest_group_in_opposition_approval_add = 4
 		
@@ -373,10 +406,17 @@ law_fair_voting = {
 	}
 
 	on_activate = {
+		
+		#Enable parties - as V3 elections require parties
 		if = {
 			limit = { has_law = law_type:law_appointed_legislature }
 			activate_law = law_type:law_technocratic_legislature
 		}
+		if = {
+			limit = { OR = { has_law = law_type:law_parties_not_allowed has_law = law_type:law_single_party_state } }
+			activate_law = law_type:law_dominant_party_state
+		}
+		
 	}
 	
 	ai_enact_weight_modifier = { #Petitions

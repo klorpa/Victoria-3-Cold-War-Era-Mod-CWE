@@ -83,6 +83,19 @@
 			calculate_election_momentum_fluctuation = yes
 		}
 		
+		#Give additional momentum to ruling party if THIS has dominant party system
+		if = {
+			limit = { 
+				has_law = law_type:law_dominant_party_state
+			}
+			every_active_party  = {
+				limit = { 
+					any_member = { is_in_government = yes } 
+				}
+				add_momentum = 0.50
+			}
+		}
+		
 	}
 
 	complete = {

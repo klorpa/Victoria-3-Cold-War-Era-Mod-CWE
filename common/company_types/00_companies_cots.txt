@@ -94,15 +94,15 @@ company_estaleiro_maua = {
 
 # Companhia Fiação e Tecidos de Pernambuco
 company_pernambuco_textiles = {
-	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds" icon = "gfx/interface/icons/company_icons/historical_company_icons/brazil_companhia_fiacai_e_tecidos_de_pernambuco.dds"
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/brazil_companhia_fiacai_e_tecidos_de_pernambuco.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 	
 	building_types = {  
-		building_furniture_manufacturies
+		building_textile_mills
 	}
 	
 	potential = {
 		has_interest_marker_in_region = region_brazil
-		is_a_capitalistic_economy = yes
 	}
 		
 	attainable = {
@@ -118,14 +118,15 @@ company_pernambuco_textiles = {
 			state_region = s:STATE_PERNAMBUCO
 			is_incorporated = yes
 			any_scope_building = {
-				is_building_type = building_furniture_manufacturies
-				level >= 10
+				is_building_type = building_textile_mills
+				level >= 3
 			}
 		}
 	}
 	
 	prosperity_modifier = {
-		building_livestock_ranch_throughput_add = 0.15
+		building_cotton_plantation_throughput_add = 0.1
+		building_rubber_plantation_throughput_add = 0.05
 	}
 	
 	ai_weight = {
@@ -135,7 +136,8 @@ company_pernambuco_textiles = {
 
 # Real Fábrica de Ferro São João de Ipanema
 company_fundicao_ipanema = {
-	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds" icon = "gfx/interface/icons/company_icons/historical_company_icons/brazil_fundicao_ipanema.dds"
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/brazil_fundicao_ipanema.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
 	
 	building_types = {  
 		building_steel_mills
@@ -143,8 +145,8 @@ company_fundicao_ipanema = {
 	}
 	
 	potential = {
+		has_dlc_feature = rp1_content
 		has_interest_marker_in_region = region_brazil
-		is_a_capitalistic_economy = yes
 	}
 
 	attainable = {
@@ -165,7 +167,7 @@ company_fundicao_ipanema = {
 					is_building_type = building_iron_mine
 
 				}
-				level >= 10
+				level >= 3
 			}
 		}
 	}
@@ -216,48 +218,6 @@ company_rossi = {
 	prosperity_modifier = {
 		building_livestock_ranch_throughput_add = 0.1
 		building_chemical_plants_throughput_add = 0.05
-	}
-	
-	ai_weight = {
-		value = 3 # Higher base value for flavored companies
-	}
-}
-
-# Compañía Estañífera de Llallagua
-company_estanifera_llallagua = {
-	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds" icon = "gfx/interface/icons/company_icons/historical_company_icons/bolivia_compania_estanifera_de_llallagua.dds"
-	
-	building_types = {  
-		building_lead_mine
-	}
-	
-	potential = {
-		has_interest_marker_in_region = region_andes
-		is_a_capitalistic_economy = yes
-	}
-	
-	attainable = {
-		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
-			any_scope_state = {
-				state_region = s:STATE_POTOSI
-			}
-		}
-	}	
-
-	possible = {
-		any_scope_state = {
-			state_region = s:STATE_POTOSI
-			is_incorporated = yes
-			any_scope_building = {
-				is_building_type = building_lead_mine
-				level >= 10
-			}
-		}
-	}
-	
-	prosperity_modifier = {
-		building_lead_mine_throughput_add = 0.1
-		interest_group_ig_industrialists_pol_str_mult = 0.15
 	}
 	
 	ai_weight = {

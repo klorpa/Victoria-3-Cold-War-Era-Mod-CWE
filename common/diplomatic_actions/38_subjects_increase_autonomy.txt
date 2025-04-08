@@ -17,6 +17,9 @@
 
 	possible = {
 	
+		#THIS allows peaceful decolonisation
+		relinquishing_of_subjects_permitted = yes
+	
 		scope:target_country = {
 			can_increase_autonomy = yes
 			NOT = { is_diplomatic_play_enemy_of = root }			
@@ -478,10 +481,56 @@ da_increase_autonomy_of_self = {
 		accept_score = {
 			value = 0
 			
-			add = {
-				desc = "DIPLOMATIC_ACCEPTANCE_BASE"
-				value = -100
-			}		
+			if = {
+				limit = { 
+					scope:target_country = {
+						NOT = { is_a_democracy = yes }
+						ruler ?= { NOT = { character_is_democratic = yes } }
+					}
+				}
+				add = {
+					desc = "DIPLOMATIC_ACCEPTANCE_BASE"
+					value = -200
+				}
+			}
+			else_if = {
+				limit = { 
+					scope:target_country = {
+						NOT = { is_a_democracy = yes }
+						ruler ?= { character_is_democratic = yes }
+					}
+				}
+				add = {
+					desc = "DIPLOMATIC_ACCEPTANCE_BASE"
+					value = -50
+				}
+			}
+			else_if = {
+				limit = { 
+					scope:actor = {
+						is_a_democracy = yes
+						ruler ?= { NOT = { character_is_democratic = yes } }
+					}
+				}
+				add = {
+					desc = "DIPLOMATIC_ACCEPTANCE_BASE"
+					value = -50
+				}
+			}
+			else_if = {
+				limit = { 
+					scope:actor = {
+						is_a_democratic_monarchy = yes
+					}
+					scope:target_country = {
+						is_a_democratic_monarchy = yes
+					}
+				}
+				add = {
+					desc = "DIPLOMATIC_ACCEPTANCE_BASE"
+					value = -50
+				}
+			}
 
 			if = {
 				limit = {
@@ -536,13 +585,50 @@ da_increase_autonomy_of_self = {
 				max = 100
 			}
 
-			add = {
-				desc = "DIPLOMATIC_ACCEPTANCE_ACTOR_LIBERTY_DESIRE"
-				value = "scope:actor.liberty_desire"
-				subtract = 75
-				multiply = 2
-				min = -50
-				max = 50
+			if = {
+				limit = { 
+					scope:actor = {
+						is_a_democracy = yes
+					}
+					scope:target_country = {
+						is_a_democracy = yes
+					}
+				}
+				if = {
+					limit = { 
+						scope:target_country = { 
+							ruler ?= { character_is_democratic = yes }
+						} 
+					}
+					add = {
+						desc = "DIPLOMATIC_ACCEPTANCE_ACTOR_LIBERTY_DESIRE"
+						value = "scope:actor.liberty_desire"
+						subtract = 25
+						multiply = 2
+						min = -50
+						max = 100
+					}
+				}
+				else = {
+					add = {
+						desc = "DIPLOMATIC_ACCEPTANCE_ACTOR_LIBERTY_DESIRE"
+						value = "scope:actor.liberty_desire"
+						subtract = 50
+						multiply = 2
+						min = -50
+						max = 75
+					}
+				}
+			}
+			else = {
+				add = {
+					desc = "DIPLOMATIC_ACCEPTANCE_ACTOR_LIBERTY_DESIRE"
+					value = "scope:actor.liberty_desire"
+					subtract = 75
+					multiply = 2
+					min = -50
+					max = 50
+				}
 			}
 
 			add = {

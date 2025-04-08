@@ -12,8 +12,7 @@ combat_unit_type_irregular_infantry = {
     group = combat_unit_group_infantry
 
     upkeep_modifier = {
-        goods_input_small_arms_add = 1
-		goods_input_ammunition_add = 2
+       
     }
     
     battle_modifier = {
@@ -82,14 +81,16 @@ combat_unit_type_infantry_1 = {
     group = combat_unit_group_infantry
 
     upkeep_modifier = {
-        goods_input_small_arms_add = 2
-		goods_input_ammunition_add = 4
+        goods_input_small_arms_add = 0.5
+		goods_input_ammunition_add = 1
 		
-		goods_input_tanks_add = 1
+		goods_input_tanks_add = 0.5
 		
-		goods_input_oil_add = 4
+		#goods_input_automobiles_add = 0.1
 		
-		goods_input_communication_services_add = 1
+		goods_input_oil_add = 0.5
+		
+		goods_input_communication_services_add = 0.5
     }
     
     battle_modifier = {
@@ -97,6 +98,12 @@ combat_unit_type_infantry_1 = {
 		unit_defense_add = 20
         unit_morale_loss_add = 45
 		unit_provinces_captured_mult = 0.05
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_ground_forces_1 }
@@ -153,16 +160,16 @@ combat_unit_type_infantry_2 = {
     group = combat_unit_group_infantry
 
     upkeep_modifier = {
-        goods_input_small_arms_add = 3
-		goods_input_ammunition_add = 6
+        goods_input_small_arms_add = 1
+		goods_input_ammunition_add = 2
 		
-		goods_input_tanks_add = 2
+		goods_input_tanks_add = 1
 		
-		goods_input_automobiles_add = 4
+		#goods_input_automobiles_add = 0.2
 		
-		goods_input_oil_add = 6
+		goods_input_oil_add = 1
 		
-		goods_input_communication_services_add = 2
+		goods_input_communication_services_add = 1
     }
     
     battle_modifier = {
@@ -170,6 +177,12 @@ combat_unit_type_infantry_2 = {
 		unit_defense_add = 30
         unit_morale_loss_add = 40
 		unit_provinces_captured_mult = 0.10
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_ground_forces_2 }
@@ -197,16 +210,16 @@ combat_unit_type_infantry_3 = {
     group = combat_unit_group_infantry
 
     upkeep_modifier = {
-        goods_input_small_arms_add = 4
-		goods_input_ammunition_add = 8
+        goods_input_small_arms_add = 1.5
+		goods_input_ammunition_add = 3
 		
-		goods_input_tanks_add = 3
+		goods_input_tanks_add = 1.5
 		
-		goods_input_automobiles_add = 6
+		#goods_input_automobiles_add = 0.3
 		
-		goods_input_oil_add = 8
+		goods_input_oil_add = 1.5
 		
-		goods_input_communication_services_add = 3
+		goods_input_communication_services_add = 1.5
     }
     
     battle_modifier = {
@@ -214,6 +227,12 @@ combat_unit_type_infantry_3 = {
 		unit_defense_add = 40
         unit_morale_loss_add = 35
 		unit_provinces_captured_mult = 0.15
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_ground_forces_3 }
@@ -242,17 +261,17 @@ combat_unit_type_infantry_4 = {
     group = combat_unit_group_infantry
 
     upkeep_modifier = {
-        goods_input_small_arms_add = 5
-		goods_input_ammunition_add = 10
-		goods_input_advanced_weaponry_add = 1
+        goods_input_small_arms_add = 2
+		goods_input_ammunition_add = 4
+		goods_input_advanced_weaponry_add = 0.5
 		
-		goods_input_tanks_add = 4
+		goods_input_tanks_add = 2
 		
-		goods_input_automobiles_add = 8
-			
-		goods_input_oil_add = 10
-			
-		goods_input_communication_services_add = 4
+		#goods_input_automobiles_add = 0.4
+		
+		goods_input_oil_add = 2
+		
+		goods_input_communication_services_add = 2
     }
     
     battle_modifier = {
@@ -260,6 +279,12 @@ combat_unit_type_infantry_4 = {
 		unit_defense_add = 50
         unit_morale_loss_add = 30
 		unit_provinces_captured_mult = 0.20
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_ground_forces_4 }
@@ -288,17 +313,17 @@ combat_unit_type_infantry_5 = {
     group = combat_unit_group_infantry
 
     upkeep_modifier = {
-		goods_input_small_arms_add = 6
-		goods_input_ammunition_add = 12
-		goods_input_advanced_weaponry_add = 2
+        goods_input_small_arms_add = 2.5
+		goods_input_ammunition_add = 5
+		goods_input_advanced_weaponry_add = 1
 		
-		goods_input_tanks_add = 5
+		goods_input_tanks_add = 2.5
 		
-		goods_input_automobiles_add = 10
+		#goods_input_automobiles_add = 0.5
 		
-		goods_input_oil_add = 12
+		goods_input_oil_add = 2.5
 		
-		goods_input_communication_services_add = 5
+		goods_input_communication_services_add = 2.5
     }
     
     battle_modifier = {
@@ -306,6 +331,12 @@ combat_unit_type_infantry_5 = {
 		unit_defense_add = 60
         unit_morale_loss_add = 25
 		unit_provinces_captured_mult = 0.25
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_ground_forces_5 }
@@ -333,18 +364,18 @@ combat_unit_type_infantry_5 = {
 combat_unit_type_infantry_6 = {
     group = combat_unit_group_infantry
 
-    upkeep_modifier = {
-		goods_input_small_arms_add = 7
-		goods_input_ammunition_add = 14
-		goods_input_advanced_weaponry_add = 3
+	upkeep_modifier = {
+        goods_input_small_arms_add = 3
+		goods_input_ammunition_add = 6
+		goods_input_advanced_weaponry_add = 1.5
 		
-		goods_input_tanks_add = 6
+		goods_input_tanks_add = 3
 		
-		goods_input_automobiles_add = 12
+		#goods_input_automobiles_add = 0.6
 		
-		goods_input_oil_add = 12
+		goods_input_oil_add = 3
 		
-		goods_input_communication_services_add = 6
+		goods_input_communication_services_add = 3
     }
     
     battle_modifier = {
@@ -352,6 +383,12 @@ combat_unit_type_infantry_6 = {
 		unit_defense_add = 70
         unit_morale_loss_add = 20
 		unit_provinces_captured_mult = 0.30
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_ground_forces_6 }
@@ -380,17 +417,17 @@ combat_unit_type_infantry_7 = {
     group = combat_unit_group_infantry
 
     upkeep_modifier = {
-		goods_input_small_arms_add = 8
-		goods_input_ammunition_add = 16
-		goods_input_advanced_weaponry_add = 4
+        goods_input_small_arms_add = 3.5
+		goods_input_ammunition_add = 7
+		goods_input_advanced_weaponry_add = 2
 		
-		goods_input_tanks_add = 7
+		goods_input_tanks_add = 3.5
 		
-		goods_input_automobiles_add = 14
+		#goods_input_automobiles_add = 0.7
 		
-		goods_input_oil_add = 16
+		goods_input_oil_add = 3.5
 		
-		goods_input_communication_services_add = 7
+		goods_input_communication_services_add = 3.5
     }
     
     battle_modifier = {
@@ -398,6 +435,12 @@ combat_unit_type_infantry_7 = {
 		unit_defense_add = 80
 		unit_morale_loss_add = 15
 		unit_provinces_captured_mult = 0.35
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_ground_forces_7 }
@@ -426,17 +469,17 @@ combat_unit_type_infantry_8 = {
     group = combat_unit_group_infantry
 
     upkeep_modifier = {
-		goods_input_small_arms_add = 9
-		goods_input_ammunition_add = 18
-		goods_input_advanced_weaponry_add = 5
+        goods_input_small_arms_add = 4
+		goods_input_ammunition_add = 8
+		goods_input_advanced_weaponry_add = 2.5
 		
-		goods_input_tanks_add = 8
+		goods_input_tanks_add = 4
 		
-		goods_input_automobiles_add = 16
+		#goods_input_automobiles_add = 0.8
 		
-		goods_input_oil_add = 18
+		goods_input_oil_add = 4
 		
-		goods_input_communication_services_add = 8
+		goods_input_communication_services_add = 4
     }
     
     battle_modifier = {
@@ -444,6 +487,12 @@ combat_unit_type_infantry_8 = {
 		unit_defense_add = 90
 		unit_morale_loss_add = 10
 		unit_provinces_captured_mult = 0.40
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_ground_forces_8 }
@@ -472,17 +521,17 @@ combat_unit_type_infantry_9 = {
     group = combat_unit_group_infantry
 
     upkeep_modifier = {
-		goods_input_small_arms_add = 10
-		goods_input_ammunition_add = 20
-		goods_input_advanced_weaponry_add = 6
+        goods_input_small_arms_add = 4.5
+		goods_input_ammunition_add = 9
+		goods_input_advanced_weaponry_add = 3
 		
-		goods_input_tanks_add = 9
+		goods_input_tanks_add = 4.5
 		
-		goods_input_automobiles_add = 18
+		#goods_input_automobiles_add = 0.9
 		
-		goods_input_oil_add = 20
+		goods_input_oil_add = 4.5
 		
-		goods_input_communication_services_add = 9
+		goods_input_communication_services_add = 4.5
     }
     
     battle_modifier = {
@@ -490,6 +539,12 @@ combat_unit_type_infantry_9 = {
 		unit_defense_add = 100
 		unit_morale_loss_add = 5
 		unit_provinces_captured_mult = 0.45
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_ground_forces_9 }
@@ -517,24 +572,30 @@ combat_unit_type_infantry_9 = {
 combat_unit_type_infantry_10 = {
     group = combat_unit_group_infantry
 
-    upkeep_modifier = {
-		goods_input_small_arms_add = 11
-		goods_input_ammunition_add = 22
-		goods_input_advanced_weaponry_add = 7
+     upkeep_modifier = {
+        goods_input_small_arms_add = 5
+		goods_input_ammunition_add = 10
+		goods_input_advanced_weaponry_add = 3.5
 		
-		goods_input_tanks_add = 10
+		goods_input_tanks_add = 5
 		
-		goods_input_automobiles_add = 20
+		#goods_input_automobiles_add = 1
 		
-		goods_input_oil_add = 22
+		goods_input_oil_add = 5
 		
-		goods_input_communication_services_add = 10
+		goods_input_communication_services_add = 5
     }
     
     battle_modifier = {
         unit_offense_add = 100
 		unit_defense_add = 110
 		unit_provinces_captured_mult = 0.50
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_ground_forces_10 }

@@ -36,8 +36,10 @@ ig_trait_compliant_security_services = {
 	
 	modifier = {
 		state_political_strength_from_discrimination_mult = -0.1
-		state_radicals_from_discrimination_mult = -0.1
-		state_radicals_from_sol_change_mult = -0.1
+		state_radicalism_increases_violent_hostility_mult = -0.1
+		state_radicalism_increases_cultural_erasure_mult = -0.1
+		state_radicalism_increases_open_prejudice_mult = -0.1
+		state_radicals_from_political_movements_mult = -0.1
 	}
 }
 
@@ -48,8 +50,10 @@ ig_trait_hostile_security_services = {
 	
 	modifier = {
 		state_political_strength_from_discrimination_mult = 0.1
-		state_radicals_from_discrimination_mult = 0.1
-		state_radicals_from_sol_change_mult = 0.1
+		state_radicalism_increases_violent_hostility_mult = 0.1
+		state_radicalism_increases_cultural_erasure_mult = 0.1
+		state_radicalism_increases_open_prejudice_mult = 0.1
+		state_radicals_from_political_movements_mult = 0.1
 	}
 }
 
@@ -79,8 +83,8 @@ ig_trait_compliant_civil_service = {
 	max_approval = happy
 	
 	modifier = {
-		country_law_enactment_time_mult = -0.10
-		country_influence_mult = -0.10
+		country_law_enactment_time_mult = -0.25
+		country_influence_mult = 0.10
 	}
 }
 
@@ -90,7 +94,7 @@ ig_trait_hostile_civil_service = {
 	max_approval = unhappy
 	
 	modifier = {
-		country_law_enactment_time_mult = 0.10
-		country_influence_mult = 0.10
+		country_law_enactment_time_mult = 0.25
+		country_influence_mult = -0.10
 	}
 }

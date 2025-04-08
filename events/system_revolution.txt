@@ -641,9 +641,11 @@ revolution_system.7 = {
 
 	trigger = {
 		
+		always = no
+		
 		# There is a brewing revolution
 		any_political_movement = {
-			is_revolutionary_movement = yes
+			is_revolutionary = yes
 		}
 		#any_civil_war = {
 		#	is_civil_war_type = revolution
@@ -661,7 +663,7 @@ revolution_system.7 = {
 		
 		random_political_movement = {
 			limit = { 
-				is_revolutionary_movement = yes
+				is_revolutionary = yes
 			}
 			save_scope_as = revolting_political_movement
 		}
@@ -675,7 +677,7 @@ revolution_system.7 = {
 		if = {
 			limit = { 
 				scope:revolting_political_movement = { 
-					is_political_movement_type = movement_to_enact 
+					law_enactment_stance = { law = owner.currently_enacting_law.type value > neutral } 
 				} 
 			}
 			activate_law = scope:revolting_political_movement.desired_law
@@ -684,7 +686,7 @@ revolution_system.7 = {
 		if = {
 			limit = { 
 				scope:revolting_political_movement = { 
-					is_political_movement_type = movement_to_preserve
+					law_stance = { law = owner.currently_enacting_law.type value > neutral }
 				}
 				enacting_any_law = yes
 			}
@@ -753,4 +755,134 @@ revolution_system.8 = {
 		
 	}
 	
+}
+
+# SPS if all opposition parties are blocked from joining any parties
+revolution_system.9 = {
+    type = country_event
+
+    title = single_party_state_de_facto.t 							# Title of the event; ADD LOCALISATION
+    desc = single_party_state_de_facto.d 							# Description of the event; ADD LOCALISATION
+    flavor = single_party_state_de_facto.f 							# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_ruler_speaking_to_people.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_portrait.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		#All parties allowed
+		NOR = { has_law = law_type:law_parties_not_allowed has_law = law_type:law_single_party_state }
+		
+		#No opposition IG is allowed to join a party
+		any_interest_group = {
+			is_in_government = no
+			has_variable = IG_party_banned
+		}
+		NOT = {
+			any_interest_group = {
+				is_in_government = no
+				NOT = { has_variable = IG_party_banned }
+			}
+		}
+		
+    }
+	
+	immediate = {
+		
+		
+		
+	}
+    
+	option = {
+        name = single_party_state_de_facto.option					# Great
+		default_option = yes
+		
+		activate_law = law_type:law_single_party_state
+		
+		effect_opposition_angry_with_government = yes
+		
+    }
+
+}
+
+# Enforce Regime Change
+revolution_system.10 = {
+    type = country_event
+	placement = var:most_recent_war_opponent
+
+    title = regime_change_failsafe.t 								# Title of the event; ADD LOCALISATION
+    desc = regime_change_failsafe.d 								# Description of the event; ADD LOCALISATION
+    flavor = regime_change_failsafe.f 								# Flavor for event; ADD LOCALISATION, IF REQUIRED
+
+    event_image = { video = "gfx/event_pictures/unspecific_signed_contract.bk2" }
+
+    icon = "gfx/interface/icons/event_icons/event_portrait.dds" 	# Icon that shows on the map or the outliner
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear" 	# Sound effect if needed
+
+    duration = 1 # Duration to fire if triggers are met
+	
+	trigger = {														# What triggers the event, if using other events or journal entries leave empty
+		
+		#Recently had regime change
+		has_modifier = forced_regime_change
+		
+		#Locate victor
+		has_variable = most_recent_war_opponent
+		
+    }
+	
+	immediate = {
+		
+		random_country = {
+			limit = { root.var:most_recent_war_opponent ?= this }
+			save_scope_as = foreign_power_regime_change
+		}
+		
+	}
+    
+	option = {
+        name = regime_change_failsafe.option						# Great
+		default_option = yes
+		
+		#Make independent
+		if = {
+			limit = { 
+				is_subject = yes 
+				NOT = { is_subject_of = var:most_recent_war_opponent }
+			}
+			make_independent = yes
+		}
+		
+		#Impose regime change
+		copy_laws = var:most_recent_war_opponent
+		
+		#Install ruler
+		random_country = {
+			limit = { root.var:most_recent_war_opponent ?= this }
+			ruler ?= { interest_group = { save_scope_as = foreign_interest_group } }
+		}
+		random_scope_character = {
+			limit = { 
+				is_ruler = no 
+				has_role = politician
+				interest_group = { is_same_interest_group_type = scope:foreign_interest_group }
+			}
+			set_character_as_ruler = yes
+		}
+		
+		#Gain relations with installer
+		set_relations = {
+			country = var:most_recent_war_opponent
+			value = 100
+		}
+		
+		#Remove recent regime change
+		remove_variable = most_recent_war_opponent
+		
+    }
+
 }

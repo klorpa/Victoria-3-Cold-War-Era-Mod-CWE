@@ -48,7 +48,7 @@ strike.1 = {
 						is_pop_type = laborers
 						is_pop_type = machinists
 					}
-					pop_is_discriminated = no
+					pop_acceptance >= acceptance_status_4
 					OR = {
 						pop_employment_building_group = bg_manufacturing
 						pop_employment_building_group = bg_mining
@@ -64,7 +64,7 @@ strike.1 = {
 						is_pop_type = machinists
 					}
 					standard_of_living < 15
-					pop_is_discriminated = no
+					pop_acceptance >= acceptance_status_4
 					OR = {
 						pop_employment_building_group = bg_manufacturing
 						pop_employment_building_group = bg_mining
@@ -107,7 +107,7 @@ strike.1 = {
 				days = 30
 			}
 		}
-		scope:strike_state = {
+		scope:strike_state ?= {
 			strike_state_add_modifier_effect_strong = yes
 		}
 	}
@@ -118,7 +118,7 @@ strike.1 = {
 			id = strike.4
 			days = 30
 		}
-		scope:strike_state = {
+		scope:strike_state ?= {
 			strike_state_add_modifier_effect_strong = yes
 		}
 	}

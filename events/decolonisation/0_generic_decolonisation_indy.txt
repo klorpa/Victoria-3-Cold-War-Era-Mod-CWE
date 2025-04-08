@@ -205,11 +205,7 @@ generic_decolonisation_indy.2 = {
 		OR = {
 			
 			#THIS allows peaceful decolonisation
-			has_law = law_type:law_no_colonial_affairs
-			has_law = law_type:law_colonial_resettlement
-			
-			#Has bad economy
-			has_healthy_economy = no
+			relinquishing_of_territory_permitted = yes
 			
 			#Has high infamy
 			infamy >= infamy_threshold:pariah
@@ -227,7 +223,7 @@ generic_decolonisation_indy.2 = {
 			
 			#Only discriminated want self-rule
 			any_scope_culture = {
-				culture_is_discriminated_in = ROOT
+				ROOT = { cultural_acceptance_base = { target = prev value < acceptance_status_5 } }
 			}
 		}
 		
@@ -255,7 +251,7 @@ generic_decolonisation_indy.2 = {
 				
 				#Only discriminated want self-rule
 				any_scope_culture = {
-					culture_is_discriminated_in = ROOT
+					ROOT = { cultural_acceptance_base = { target = prev value < acceptance_status_5 } }
 				}
 			}
 			save_scope_as = state_to_release
@@ -263,7 +259,7 @@ generic_decolonisation_indy.2 = {
 				limit = { 
 					has_homeland = scope:state_to_release
 					NOT = { is_primary_culture_of = ROOT }
-					culture_is_discriminated_in = ROOT
+					ROOT = { cultural_acceptance_base = { target = prev value < acceptance_status_5 } }
 				}
 				save_scope_as = culture_to_release
 			}

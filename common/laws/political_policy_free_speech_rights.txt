@@ -25,12 +25,22 @@ law_outlawed_dissent = {
 			}
 		}
 		
+		#Ruler must support this
+		ruler ?= { 
+			interest_group = {
+				law_stance = {
+					law = law_type:law_outlawed_dissent
+					value >= approve
+				}
+			}
+		}
+		
 	}
 	
 	modifier = {
 		country_authority_add = 200
-		country_bolster_ig_attraction_mult = 0.5
-		country_suppression_ig_attraction_mult = -0.5
+		country_bolster_attraction_mult = 0.5
+		country_suppression_attraction_mult = -0.5
 		country_tech_spread_mult = -0.25
 		country_leverage_resistance_mult = 0.50
 	}
@@ -80,12 +90,22 @@ law_censorship = {
 			}
 		}
 		
+		#Ruler must support this
+		ruler ?= { 
+			interest_group = {
+				law_stance = {
+					law = law_type:law_censorship
+					value >= approve
+				}
+			}
+		}
+		
 	}
 	
 	modifier = {
 		country_authority_add = 100
-		country_bolster_ig_attraction_mult = 0.3
-		country_suppression_ig_attraction_mult = -0.3
+		country_bolster_attraction_mult = 0.3
+		country_suppression_attraction_mult = -0.3
 		country_tech_spread_mult = -0.125
 		country_leverage_resistance_mult = 0.25
 		
@@ -144,12 +164,22 @@ law_limited_free_speech = {
 			}
 		}
 		
+		#Ruler must support this
+		ruler ?= { 
+			interest_group = {
+				law_stance = {
+					law = law_type:law_limited_free_speech
+					value >= approve
+				}
+			}
+		}
+		
 	}
 	
 	modifier = {
 		country_authority_add = 50
-		country_bolster_ig_attraction_mult = 0.1
-		country_suppression_ig_attraction_mult = -0.1
+		country_bolster_attraction_mult = 0.1
+		country_suppression_attraction_mult = -0.1
 		
 		interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.1
 		
@@ -196,6 +226,16 @@ law_full_free_speech = {
 		
 		#No restriction by legal union
 		THIS_is_not_restricted_by_confederal_law = yes
+		
+		#Ruler must support this
+		ruler ?= { 
+			interest_group = {
+				law_stance = {
+					law = law_type:law_full_free_speech
+					value >= approve
+				}
+			}
+		}
 		
 	}
 	

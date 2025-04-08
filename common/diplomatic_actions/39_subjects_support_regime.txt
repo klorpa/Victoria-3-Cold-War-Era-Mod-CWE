@@ -40,11 +40,12 @@
 		
 		second_modifier = {
 			country_legitimacy_base_add = 20
-			political_movement_radicalism_mult = -0.1
+			political_movement_radicalism_add = -0.1
 			country_liberty_desire_add = -0.1
 		}
 		
 		income_transfer = 0.20
+		max_paying_country_income_to_transfer = 0.10
 		second_country_gets_income_transfer = yes
 		income_transfer_based_on_second_country = yes
 		

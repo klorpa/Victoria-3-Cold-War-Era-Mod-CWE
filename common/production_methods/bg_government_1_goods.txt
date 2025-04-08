@@ -4,13 +4,48 @@
 
 # This adds bureaucracy, so the negative productivity is okay
 # p = -3.1, e = 5000, pe = -15500.0
-pm_bureaucracy_government = {
+pm_bureaucracy_government_1 = {
 	texture = "gfx/interface/icons/production_method_icons/vertical_filing_cabinets.dds"
 	
 	country_modifiers = {
 		workforce_scaled = {
-			country_bureaucracy_add = 500
-			state_tax_capacity_add = 25
+			country_bureaucracy_add = 100
+			state_tax_capacity_add = 10
+		}
+	}
+
+	#state_modifiers = {
+	#	workforce_scaled = {
+	#		state_tax_capacity_add = 100
+	#	}		
+	#}
+
+	building_modifiers = {
+		workforce_scaled = {
+			#goods_input_furniture_add = 1
+			
+			#goods_output_corporate_services_add = 0.4
+			#goods_output_professional_services_add = 0.2
+			#goods_output_real_estate_add = 0.1
+		}
+		level_scaled = { 
+			building_employment_bureaucrats_add = 5000
+		}
+	}
+	
+}
+
+pm_bureaucracy_government_2 = {
+	texture = "gfx/interface/icons/production_method_icons/telephones.dds"
+	
+	unlocking_technologies = {
+		tech_services_2
+	}
+	
+	country_modifiers = {
+		workforce_scaled = {
+			country_bureaucracy_add = 200
+			state_tax_capacity_add = 20
 		}
 	}
 
@@ -23,13 +58,346 @@ pm_bureaucracy_government = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_furniture_add = 1
+			goods_input_communication_services_add = 2
+			goods_input_transportation_add = 2
+			goods_input_electricity_add = 2
 			
-			goods_output_corporate_services_add = 0.4
-			goods_output_professional_services_add = 0.2
-			goods_output_real_estate_add = 0.1
+			#goods_output_corporate_services_add = 0.4
+			#goods_output_professional_services_add = 0.2
+			#goods_output_real_estate_add = 0.1
+		}
+		level_scaled = { 
+			building_employment_bureaucrats_add = 5000
 		}
 	}
 	
+}
+
+pm_bureaucracy_government_3 = {
+	texture = "gfx/interface/icons/production_method_icons/telephone_switchboards.dds"
+	
+	unlocking_technologies = {
+		tech_services_4
+	}
+	
+	country_modifiers = {
+		workforce_scaled = {
+			country_bureaucracy_add = 300
+			state_tax_capacity_add = 30
+		}
+	}
+
+	#state_modifiers = {
+	#	workforce_scaled = {
+	#		state_tax_capacity_add = 100
+	#	}		
+	#}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_furniture_add = 2
+			goods_input_communication_services_add = 3
+			goods_input_transportation_add = 3
+			goods_input_electricity_add = 3
+			
+			#goods_output_corporate_services_add = 0.4
+			#goods_output_professional_services_add = 0.2
+			#goods_output_real_estate_add = 0.1
+		}
+		level_scaled = { 
+			building_employment_bureaucrats_add = 5000
+		}
+	}
+	
+}
+
+pm_bureaucracy_government_4 = {
+	texture = "gfx/interface/icons/production_method_icons/realist_art.dds"
+	
+	unlocking_technologies = {
+		tech_services_6
+	}
+	
+	country_modifiers = {
+		workforce_scaled = {
+			country_bureaucracy_add = 400
+			state_tax_capacity_add = 40
+		}
+	}
+
+	#state_modifiers = {
+	#	workforce_scaled = {
+	#		state_tax_capacity_add = 100
+	#	}		
+	#}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_furniture_add = 3
+			goods_input_communication_services_add = 4
+			goods_input_software_add = 1
+			goods_input_transportation_add = 4
+			goods_input_electricity_add = 4
+			
+			#goods_output_corporate_services_add = 0.4
+			#goods_output_professional_services_add = 0.2
+			#goods_output_real_estate_add = 0.1
+		}
+		level_scaled = { 
+			building_employment_bureaucrats_add = 5000
+		}
+	}
+	
+}
+
+pm_bureaucracy_government_5 = {
+	texture = "gfx/interface/icons/production_method_icons/electric_streetlights.dds"
+	
+	unlocking_technologies = {
+		tech_services_8
+	}
+	
+	country_modifiers = {
+		workforce_scaled = {
+			country_bureaucracy_add = 500
+			state_tax_capacity_add = 50
+		}
+	}
+
+	#state_modifiers = {
+	#	workforce_scaled = {
+	#		state_tax_capacity_add = 100
+	#	}		
+	#}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_furniture_add = 4
+			goods_input_communication_services_add = 5
+			goods_input_software_add = 2
+			goods_input_transportation_add = 5
+			goods_input_electricity_add = 5
+			
+			#goods_output_corporate_services_add = 0.4
+			#goods_output_professional_services_add = 0.2
+			#goods_output_real_estate_add = 0.1
+		}
+		level_scaled = { 
+			building_employment_bureaucrats_add = 5000
+		}
+	}
+	
+}
+
+### Essential Services ###
+
+pm_essential_services_government_0 = {
+	texture = "gfx/interface/icons/production_method_icons/wound_dressing.dds"
+	
+}
+
+pm_essential_services_government_1 = {
+	texture = "gfx/interface/icons/production_method_icons/field_hospitals.dds"
+
+	state_modifiers = {
+		unscaled = {
+			state_pop_qualifications_mult = 0.01
+			state_infrastructure_add = 20
+			state_standard_of_living_add = 1
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+		
+			#Healthcare
+			goods_input_industrial_chemicals_add = 1
+			goods_input_furniture_add = 1
+			
+			#Education
+			goods_input_furniture_add = 1
+			
+		}
+		level_scaled = { 
+		
+			#Healthcare
+			building_employment_engineers_add = 500
+			
+			#Education
+			building_employment_academics_add = 500
+			
+		}
+	}
+	
+}
+
+pm_essential_services_government_2 = {
+	texture = "gfx/interface/icons/production_method_icons/field_hospitals.dds"
+
+	state_modifiers = {
+		unscaled = {
+			state_pop_qualifications_mult = 0.03
+			state_infrastructure_add = 30
+			state_standard_of_living_add = 3
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+		
+			#Healthcare
+			goods_input_industrial_chemicals_add = 2
+			goods_input_furniture_add = 2
+			
+			#Education
+			goods_input_furniture_add = 2
+			
+		}
+		level_scaled = { 
+		
+			#Healthcare
+			building_employment_engineers_add = 1000
+			
+			#Education
+			building_employment_academics_add = 1000
+			
+		}
+	}
+	
+}
+
+pm_essential_services_government_3 = {
+	texture = "gfx/interface/icons/production_method_icons/field_hospitals.dds"
+
+	state_modifiers = {
+		unscaled = {
+			state_pop_qualifications_mult = 0.05
+			state_infrastructure_add = 50
+			state_standard_of_living_add = 5
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+		
+			#Healthcare
+			goods_input_industrial_chemicals_add = 3
+			goods_input_furniture_add = 3
+			
+			#Education
+			goods_input_furniture_add = 3
+			
+		}
+		level_scaled = { 
+		
+			#Healthcare
+			building_employment_engineers_add = 2000
+			
+			#Education
+			building_employment_academics_add = 2000
+			
+		}
+	}
+	
+}
+
+### Security Services ###
+
+pm_security_services_government_0 = {
+	texture = "gfx/interface/icons/production_method_icons/no_specialists.dds"
+	
+}
+
+pm_security_services_government_1 = {
+	texture = "gfx/interface/icons/production_method_icons/cavalry.dds"
+	
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_ammunition_add = 1
+			goods_input_small_arms_add = 0.5
+		}
+		level_scaled = {
+			building_employment_soldiers_add = 500
+		}
+	}
+	
+	state_modifiers = {
+		unscaled = { 
+			state_turmoil_effects_mult = -0.05
+		}
+	}
+	
+	required_input_goods = ammunition
+
+}
+
+pm_security_services_government_2 = {
+	texture = "gfx/interface/icons/production_method_icons/irregular_infantry.dds"
+	
+	building_modifiers = {
+		workforce_scaled = { 
+			goods_input_ammunition_add = 2
+			goods_input_small_arms_add = 1
+		}
+		level_scaled = {
+			building_employment_soldiers_add = 1000
+		}
+	}
+
+	state_modifiers = {
+		unscaled = { 
+			state_turmoil_effects_mult = -0.10
+		}	
+	}
+	
+	required_input_goods = ammunition
+
+}
+
+pm_security_services_government_3 = {
+	texture = "gfx/interface/icons/production_method_icons/machine_gunners.dds"
+	
+	building_modifiers = {
+		workforce_scaled = { 
+			goods_input_ammunition_add = 3
+			goods_input_small_arms_add = 1.5
+		}
+		level_scaled = {
+			building_employment_soldiers_add = 1500
+		}
+	}
+	
+	state_modifiers = {
+		unscaled = { 
+			state_turmoil_effects_mult = -0.15
+		}	
+	}
+	
+	required_input_goods = ammunition
+
+}
+
+pm_security_services_government_4 = {
+	texture = "gfx/interface/icons/production_method_icons/flamethrower_company.dds"
+	
+	building_modifiers = {
+		workforce_scaled = { 
+			goods_input_ammunition_add = 4
+			goods_input_small_arms_add = 2
+		}
+		level_scaled = {
+			building_employment_soldiers_add = 2000
+		}
+	}
+	
+	state_modifiers = {
+		unscaled = { 
+			state_turmoil_effects_mult = -0.20
+		}	
+	}
+	
+	required_input_goods = ammunition
+
 }
 
 ### Corruption (Government Admin) ####
@@ -48,7 +416,7 @@ pm_no_corruption_government = {
 }
 
 pm_low_corruption_government = {
-	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
+	texture = "gfx/interface/icons/production_method_icons/worker_cooperative.dds"
 
 	disallowing_laws = {
 		law_very_high_anti_corruption
@@ -67,7 +435,7 @@ pm_low_corruption_government = {
 }
 
 pm_medium_corruption_government = {
-	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
+	texture = "gfx/interface/icons/production_method_icons/merchant_guilds.dds"
 
 	disallowing_laws = {
 		law_very_high_anti_corruption
@@ -86,7 +454,7 @@ pm_medium_corruption_government = {
 }
 
 pm_high_corruption_government = {
-	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
+	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
 
 	disallowing_laws = {
 		law_very_high_anti_corruption
@@ -105,7 +473,7 @@ pm_high_corruption_government = {
 }
 
 pm_very_high_corruption_government = {
-	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
+	texture = "gfx/interface/icons/production_method_icons/power_of_the_purse.dds"
 
 	disallowing_laws = {
 		law_very_high_anti_corruption
@@ -139,7 +507,7 @@ pm_no_corruption_military = {
 }
 
 pm_low_corruption_military = {
-	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
+	texture = "gfx/interface/icons/production_method_icons/worker_cooperative.dds"
 
 	disallowing_laws = {
 		law_very_high_anti_corruption
@@ -162,7 +530,7 @@ pm_low_corruption_military = {
 }
 
 pm_medium_corruption_military = {
-	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
+	texture = "gfx/interface/icons/production_method_icons/merchant_guilds.dds"
 
 	disallowing_laws = {
 		law_very_high_anti_corruption
@@ -185,7 +553,7 @@ pm_medium_corruption_military = {
 }
 
 pm_high_corruption_military = {
-	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
+	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
 
 	disallowing_laws = {
 		law_very_high_anti_corruption
@@ -208,7 +576,7 @@ pm_high_corruption_military = {
 }
 
 pm_very_high_corruption_military = {
-	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
+	texture = "gfx/interface/icons/production_method_icons/power_of_the_purse.dds"
 
 	disallowing_laws = {
 		law_very_high_anti_corruption
@@ -246,7 +614,7 @@ pm_no_corruption_private = {
 }
 
 pm_low_corruption_private = {
-	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
+	texture = "gfx/interface/icons/production_method_icons/worker_cooperative.dds"
 
 	disallowing_laws = {
 		law_very_high_anti_corruption
@@ -265,7 +633,7 @@ pm_low_corruption_private = {
 }
 
 pm_medium_corruption_private = {
-	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
+	texture = "gfx/interface/icons/production_method_icons/merchant_guilds.dds"
 	
 	disallowing_laws = {
 		law_very_high_anti_corruption
@@ -284,7 +652,7 @@ pm_medium_corruption_private = {
 }
 
 pm_high_corruption_private = {
-	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
+	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
 
 	disallowing_laws = {
 		law_very_high_anti_corruption
@@ -303,7 +671,7 @@ pm_high_corruption_private = {
 }
 
 pm_very_high_corruption_private = {
-	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
+	texture = "gfx/interface/icons/production_method_icons/power_of_the_purse.dds"
 
 	disallowing_laws = {
 		law_very_high_anti_corruption
@@ -335,7 +703,6 @@ pm_scholastic_education = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_furniture_add = 5
-			goods_input_real_estate_add = 1
 			
 			goods_output_intellectual_property_add = 10
 			
@@ -362,6 +729,10 @@ pm_scholastic_education = {
 pm_espionage_inactive = {
 	texture = "gfx/interface/icons/production_method_icons/disabled.dds"
 	
+	disallowing_laws = {
+		law_secret_police
+	}
+	
 }
 
 # p = -208.0, e = 100, pe = -20800.0
@@ -387,7 +758,7 @@ pm_espionage_active = {
 
 # p = 1560.0, e = 100, pe = 156000.0
 pm_forex_gold = {
-	texture = "gfx/interface/icons/production_method_icons/forex_gold.dds"
+	texture = "gfx/interface/icons/production_method_icons/gold_mining.dds"
 
 	disallowing_laws = {
 		#law_gold_standard
@@ -395,11 +766,9 @@ pm_forex_gold = {
 		law_fiat_standard
 	}
 
-	building_modifiers = {
+	country_modifiers = {
 		workforce_scaled = {
-			goods_input_gold_add = 10
-			
-			#goods_output_forex_add = 60
+			country_minting_add = 500
 		}
 	}
 	
@@ -407,7 +776,7 @@ pm_forex_gold = {
 
 # p = 1144.0, e = 150, pe = 171600.0
 pm_forex_semi_gold = {
-	texture = "gfx/interface/icons/production_method_icons/forex_semi_gold.dds"
+	texture = "gfx/interface/icons/production_method_icons/devine_economics.dds"
 
 	disallowing_laws = {
 		law_gold_standard
@@ -415,11 +784,9 @@ pm_forex_semi_gold = {
 		law_fiat_standard
 	}
 
-	building_modifiers = {
+	country_modifiers = {
 		workforce_scaled = {
-			goods_input_gold_add = 5
-			
-			#goods_output_forex_add = 60
+			country_minting_add = 250
 		}
 	}
 	
@@ -427,20 +794,12 @@ pm_forex_semi_gold = {
 
 # p = 988.0, e = 200, pe = 197600.0
 pm_forex_fiat = {
-	texture = "gfx/interface/icons/production_method_icons/forex_fiat.dds"
+	texture = "gfx/interface/icons/production_method_icons/bleached_paper.dds"
 
 	disallowing_laws = {
 		law_gold_standard
 		law_semi_gold_standard
 		#law_fiat_standard
-	}
-	
-	building_modifiers = {
-		workforce_scaled = {
-			goods_input_professional_services_add = 5
-		
-			#goods_output_forex_add = 60
-		}
 	}
 	
 }

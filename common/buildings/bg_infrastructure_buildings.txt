@@ -1,6 +1,6 @@
 building_railway = {
 	building_group = bg_private_infrastructure
-	texture = "gfx/interface/icons/building_icons/building_railway.dds"
+	icon = "gfx/interface/icons/building_icons/building_railway.dds"
 	
 	unlocking_technologies = {
 		tech_land_infrastructure_1
@@ -10,7 +10,7 @@ building_railway = {
 		pmg_rail_design_infrastructure 		#Rail
 		pmg_car_design_infrastructure 		#Road
 		pmg_air_design_infrastructure 		#Air
-		pmg_corruption_private				#Corruption
+		pmg_corruption_government			#Corruption
 		#pmg_ownership_transportation		#Ownership
 	}
 	
@@ -40,7 +40,7 @@ building_railway = {
 
 building_port = {
 	building_group = bg_private_infrastructure
-	texture = "gfx/interface/icons/building_icons/building_port.dds"
+	icon = "gfx/interface/icons/building_icons/building_port.dds"
 	
 	city_type = port
 
@@ -55,7 +55,7 @@ building_port = {
 		pmg_sea_design_infrastructure 		#Greeness
 		#pmg_technique_infrastructure		#Technique
 		#pmg_automation_infrastructure		#Organisation
-		pmg_corruption_private				#Corruption
+		pmg_corruption_government			#Corruption
 		#pmg_ownership_government_companies	#Ownership
 	}
 
@@ -63,7 +63,7 @@ building_port = {
 
 	terrain_manipulator = urban_port
 	
-	possible = {
+	potential = {
 		is_coastal = yes
 	}
 	
@@ -92,7 +92,7 @@ building_port = {
 
 #building_coal_power_plant = {
 #	building_group = bg_private_infrastructure
-#	texture = "gfx/interface/icons/building_icons/power_plant.dds"
+#	icon = "gfx/interface/icons/building_icons/power_plant.dds"
 #	
 #	#levels_per_mesh = 5
 #	
@@ -114,7 +114,7 @@ building_port = {
 #Previously building_oil_power_plant
 building_power_plant = {
 	building_group = bg_private_infrastructure
-	texture = "gfx/interface/icons/building_icons/power_plant.dds"
+	icon = "gfx/interface/icons/building_icons/power_plant.dds"
 	
 	levels_per_mesh = 5
 	
@@ -128,7 +128,7 @@ building_power_plant = {
 		pmg_oil_power_infrastructure
 		#pmg_automation_infrastructure 		#Automation
 		#pmg_organisation_infrastructure	#Organisation
-		pmg_corruption_private				#Corruption
+		pmg_corruption_government			#Corruption
 		#pmg_ownership_transportation		#Ownership
 	}
 	
@@ -150,6 +150,24 @@ building_power_plant = {
 		NOT = { is_under_construction = yes }
 	}
 	
+	ai_value = {
+		value = 1000 
+
+		# Need 1 level of Power Plants everywhere as its a local good and a prerequisite to enabling electricity PMs to begin with
+		if = {
+			limit = {
+				NOR = {
+					has_building = building_power_plant
+					any_scope_building = {
+						is_building_type = building_power_plant
+						is_under_construction = yes
+					}
+				}
+			}
+			add = 4000
+		}
+	}
+	
 	ownership_type = self
 
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
@@ -157,7 +175,7 @@ building_power_plant = {
 
 #building_gas_power_plant = {
 #	building_group = bg_private_infrastructure
-#	texture = "gfx/interface/icons/building_icons/power_plant.dds"
+#	icon = "gfx/interface/icons/building_icons/power_plant.dds"
 #	
 #	#levels_per_mesh = 5
 #	
@@ -178,7 +196,7 @@ building_power_plant = {
 
 building_hydroelectric_power_plant = {
 	building_group = bg_private_infrastructure
-	texture = "gfx/interface/icons/building_icons/power_plant.dds"
+	icon = "gfx/interface/icons/building_icons/building_hydroelectric_power_plant.dds"
 	
 	#levels_per_mesh = 5
 	
@@ -192,7 +210,7 @@ building_hydroelectric_power_plant = {
 		pmg_hydroelectric_power_infrastructure
 		pmg_nuclear_power_infrastructure
 		pmg_geothermal_power_infrastructure
-		pmg_corruption_private				#Corruption
+		pmg_corruption_government			#Corruption
 		#pmg_ownership_transportation		#Ownership
 	}
 	
@@ -230,13 +248,13 @@ building_hydroelectric_power_plant = {
 
 building_communications_network = {
 	building_group = bg_private_infrastructure
-	texture = "gfx/interface/icons/building_icons/building_communications_network.dds"
+	icon = "gfx/interface/icons/building_icons/building_communications_network.dds"
 
 	production_method_groups = {
 		pmg_communication_infrastructure 		#Goods
 		pmg_internet_infrastructure
 		pmg_espionage_government				#Espionage
-		pmg_corruption_private					#Corruption
+		pmg_corruption_government				#Corruption
 		#pmg_ownership_transportation			#Ownership
 	}
 	
@@ -249,19 +267,19 @@ building_communications_network = {
 
 building_construction_sector = {
 	building_group = bg_construction
-	texture = "gfx/interface/icons/building_icons/construction_camp.dds"
+	icon = "gfx/interface/icons/building_icons/construction_camp.dds"
 	
 	city_type = city
 	levels_per_mesh = 5
 	
-	has_max_level = yes
+	#has_max_level = yes
 	
 	production_method_groups = {
 		pmg_base_building_construction_sector	#Goods
 		pmg_base_building_construction_sector_size
 		#pmg_automation_infrastructure			#Automation
 		#pmg_organisation_infrastructure		#Organisation
-		pmg_corruption_private					#Corruption
+		pmg_corruption_government				#Corruption
 		#pmg_ownership_construction				#Ownership
 	}
 	
@@ -274,7 +292,7 @@ building_construction_sector = {
 
 building_skyscraper = {
 	building_group = bg_skyscraper
-	texture = "gfx/interface/icons/building_icons/skyscraper.dds"
+	icon = "gfx/interface/icons/building_icons/skyscraper.dds"
 
 	city_type = city
 

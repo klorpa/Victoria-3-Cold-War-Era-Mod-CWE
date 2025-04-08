@@ -23,6 +23,14 @@ ig_intelligentsia = {
 		
 	}
 
+	character_ideologies = {
+		ideology_autocratic
+		ideology_power_hungry
+		ideology_elitist
+		ideology_democratic
+		ideology_liberal
+	}
+
 	enable = {
 		always = yes
 	}
@@ -47,7 +55,7 @@ ig_intelligentsia = {
 	pop_potential = {
 	
 		#Only Accepted Pops can organise into IGs
-		#pop_is_discriminated = no
+		pop_acceptance >= acceptance_status_4
 		
 		#Any pop that works in the government
 		OR = { 
@@ -239,16 +247,7 @@ ig_intelligentsia = {
 	# scope:character is the most popular commander in the IG
 	commander_leader_chance = {
 		value = 0.25
-		if = {
-			limit = {
-				exists = scope:character
-			}
-			multiply = {
-				value = 1
-				add = scope:character.popularity
-				min = 0
-			}
-		}
+		multiply = ig_commander_leader_chance_mult
 	}
 	
 }

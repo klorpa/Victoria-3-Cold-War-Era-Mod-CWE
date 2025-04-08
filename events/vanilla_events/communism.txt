@@ -102,7 +102,7 @@ communism.1 = {
 		}
 		add_loyalists = {
 			value = medium_radicals
-			strata = rich
+			strata = upper
 		}
 	}
 }
@@ -519,7 +519,7 @@ communism.7 = {
 			}
 			add_radicals_in_state = {
 				value = large_radicals
-				strata = poor
+				strata = lower
 			}
 		}
 	}
@@ -608,7 +608,7 @@ communism.9 = {
 			NOT = { has_modifier = coop_loyalty_modifier }
 			NOT = { has_modifier = coop_migration_modifier }
 			any_scope_pop = {
-				pop_is_discriminated = no
+				pop_acceptance >= acceptance_status_4
 				standard_of_living > 15
 				is_employed = yes
 				workplace ?= {
@@ -635,7 +635,7 @@ communism.9 = {
 				NOT = { has_modifier = coop_loyalty_modifier }
 				NOT = { has_modifier = coop_migration_modifier }
 				any_scope_pop = {
-					pop_is_discriminated = no
+					pop_acceptance >= acceptance_status_4
 					standard_of_living > 15
 					is_employed = yes
 					workplace ?= {
@@ -656,7 +656,7 @@ communism.9 = {
 			save_scope_as = coop_state
 			random_scope_pop = {
 				limit = {
-					pop_is_discriminated = no
+					pop_acceptance >= acceptance_status_4
 					standard_of_living > 15
 					is_employed = yes
 					workplace ?= {
@@ -798,7 +798,7 @@ communism.11 = {
 		}
 		add_loyalists = {
 			value = small_radicals
-			strata = rich
+			strata = upper
 		}
 		add_loyalists = {
 			value = small_radicals
@@ -813,7 +813,7 @@ communism.11 = {
 		}
 		add_loyalists = {
 			value = medium_radicals
-			strata = rich
+			strata = upper
 		}
 		add_loyalists = {
 			value = medium_radicals

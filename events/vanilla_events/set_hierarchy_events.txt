@@ -1,0 +1,189 @@
+﻿namespace = set_hierarchy_event
+
+set_hierarchy_event.1 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+	
+		#Can change social hierarchy
+		has_social_hierarchy = default_social_hierarchy
+		
+		#Conditions
+		OR = {
+		
+			#Hindu
+			AND = { 
+				country_has_state_religion = rel:hindu
+				has_law = law_type:law_state_religion
+			}
+		
+			#feudalist_social_hierarchy
+			has_law = law_type:law_HOS_monarch
+		
+			#theocratic_social_hierarchy
+			has_law = law_type:law_HOS_religious_leader
+			
+			#nationalist_social_hierarchy
+			has_law = law_type:law_HOS_nationalist_leader
+			
+			#communist_social_hierarchy
+			has_law = law_type:law_HOS_communist_leader
+			
+			#oligarchic_social_hierarchy
+			AND = { 
+				has_law = law_type:law_HOS_president
+				OR = {
+					has_law = law_type:law_laissez_faire
+					AND = {
+						is_a_capitalistic_economy = yes
+						is_a_dictatorship = yes
+					}
+				}
+			}
+		
+		}
+		
+	}
+	
+	immediate = {
+		owner = {
+			save_scope_as = relevant_country_scope
+		}
+		
+		#Set specific social caste
+		if = {
+			limit = { 
+				AND = { 
+					country_has_state_religion = rel:hindu
+					has_law = law_type:law_state_religion
+				}
+			}
+			set_social_hierarchy = british_indian_caste_system
+			activate_law = law_type:law_hindu_caste_not_enforced
+		}
+		else_if = {
+			limit = {
+				#feudalist_social_hierarchy
+				has_law = law_type:law_HOS_monarch
+			}
+			set_social_hierarchy = feudalist_social_hierarchy
+			activate_law = law_type:law_social_hierarchy_1_not_enforced
+		}
+		else_if = {
+			limit = {
+				#theocratic_social_hierarchy
+				has_law = law_type:law_HOS_religious_leader
+			}
+			set_social_hierarchy = theocratic_social_hierarchy
+			activate_law = law_type:law_social_hierarchy_2_not_enforced
+		}
+		else_if = {
+			limit = {
+				#nationalist_social_hierarchy
+				has_law = law_type:law_HOS_nationalist_leader
+			}
+			set_social_hierarchy = nationalist_social_hierarchy
+			activate_law = law_type:law_social_hierarchy_3_not_enforced
+		}
+		else_if = {
+			limit = {
+				#communist_social_hierarchy
+				has_law = law_type:law_HOS_communist_leader
+			}
+			set_social_hierarchy = communist_social_hierarchy
+			activate_law = law_type:law_social_hierarchy_4_not_enforced
+		}
+		else_if = {
+			limit = {
+				#oligarchic_social_hierarchy
+				AND = { 
+					has_law = law_type:law_HOS_president
+					OR = {
+						has_law = law_type:law_laissez_faire
+						AND = {
+							is_a_capitalistic_economy = yes
+							is_a_dictatorship = yes
+						}
+					}
+				}
+			}
+			set_social_hierarchy = oligarchic_social_hierarchy
+			activate_law = law_type:law_social_hierarchy_5_not_enforced
+		}
+		
+		post_notification = caste_hierarchy_appears
+	}
+
+}
+
+set_hierarchy_event.2 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+	
+		#Does not have default hierarchy
+		NOT = { has_social_hierarchy = default_social_hierarchy }
+		
+		#Conditions
+		NOR = {
+			
+			#Hindu
+			AND = { 
+				country_has_state_religion = rel:hindu
+				has_law = law_type:law_state_religion
+				has_social_hierarchy = british_indian_caste_system
+			}
+		
+			#feudalist_social_hierarchy
+			AND = { 
+				has_law = law_type:law_HOS_monarch
+				has_social_hierarchy = feudalist_social_hierarchy
+			}
+		
+			#theocratic_social_hierarchy
+			AND = {
+				has_law = law_type:law_HOS_religious_leader
+				has_social_hierarchy = theocratic_social_hierarchy
+			}
+			
+			#nationalist_social_hierarchy
+			AND = { 
+				has_law = law_type:law_HOS_nationalist_leader
+				has_social_hierarchy = nationalist_social_hierarchy
+			}
+			
+			#communist_social_hierarchy
+			AND = {
+				has_law = law_type:law_HOS_communist_leader
+				has_social_hierarchy = communist_social_hierarchy
+			}
+			
+			#oligarchic_social_hierarchy
+			AND = { 
+				has_law = law_type:law_HOS_president
+				OR = {
+					has_law = law_type:law_laissez_faire
+					AND = {
+						is_a_capitalistic_economy = yes
+						is_a_dictatorship = yes
+					}
+				}
+				has_social_hierarchy = oligarchic_social_hierarchy
+			}
+			
+		}
+		
+	}
+	
+	immediate = {
+		owner = {
+			save_scope_as = relevant_country_scope
+		}
+		set_social_hierarchy = default_social_hierarchy
+		activate_law = law_type:law_social_hierarchy_0_not_enforced
+		post_notification = caste_hierarchy_disappears
+	}
+
+}

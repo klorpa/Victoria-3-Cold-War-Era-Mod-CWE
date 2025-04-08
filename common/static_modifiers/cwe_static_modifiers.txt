@@ -1,13 +1,19 @@
 tax_modifier_very_low = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
 	#country_legitimacy_base_add = 10
-	state_radicals_from_sol_change_mult = -0.2
+	state_radicals_from_political_movements_mult = -0.2
+	state_lower_strata_expected_sol_add = -1
+	state_middle_strata_expected_sol_add = -2
+	state_upper_strata_expected_sol_add = -3
 }
 
 tax_modifier_low = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
 	#country_legitimacy_base_add = 5
-	state_radicals_from_sol_change_mult = -0.1
+	state_radicals_from_political_movements_mult = -0.1
+	state_lower_strata_expected_sol_add = -0.5
+	state_middle_strata_expected_sol_add = -1
+	state_upper_strata_expected_sol_add = -1.5
 }	
 
 tax_modifier_medium = {
@@ -16,15 +22,21 @@ tax_modifier_medium = {
 tax_modifier_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
 	#country_legitimacy_base_add = -5
-	state_radicals_from_sol_change_mult = 0.25
+	state_radicals_from_political_movements_mult = 0.1
 	interest_group_in_government_attraction_mult = -0.1
+	state_lower_strata_expected_sol_add = 1.5
+	state_middle_strata_expected_sol_add = 2.5
+	state_upper_strata_expected_sol_add = 3.5
 }	
 
 tax_modifier_very_high = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
 	#country_legitimacy_base_add = -10
-	state_radicals_from_sol_change_mult = 0.5
+	state_radicals_from_political_movements_mult = 0.2
 	interest_group_in_government_attraction_mult = -0.2
+	state_lower_strata_expected_sol_add = 3
+	state_middle_strata_expected_sol_add = 5
+	state_upper_strata_expected_sol_add = 7
 }	
 
 government_wages_very_low = {
@@ -107,12 +119,7 @@ country_literacy_rate = {
 # Multiplies unemployment rate in state by this
 unemployment_birth_penalty_state = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
-	state_birth_rate_mult = 0.4
-}
-
-malnourishment = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
-	state_birth_rate_mult = -0.005	# per level below equilibrium
+	state_birth_rate_mult = -0.20
 }
 
 literacy_penalty = {
@@ -122,21 +129,8 @@ literacy_penalty = {
 
 working_conditions = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
-	building_group_bg_mining_laborers_mortality_mult = 0.005
-	building_group_bg_mining_machinists_mortality_mult = 0.001
-	building_group_bg_mining_engineers_mortality_mult = 0.001
-	
-	building_group_bg_logging_laborers_mortality_mult = 0.005
-	building_group_bg_logging_machinists_mortality_mult = 0.001
-	building_group_bg_logging_engineers_mortality_mult = 0.001
-	
-	building_group_bg_light_industry_laborers_mortality_mult = 0.005
-	building_group_bg_light_industry_machinists_mortality_mult = 0.001
-	building_group_bg_light_industry_engineers_mortality_mult = 0.001
-	
-	building_group_bg_heavy_industry_laborers_mortality_mult = 0.005
-	building_group_bg_heavy_industry_machinists_mortality_mult = 0.001
-	building_group_bg_heavy_industry_engineers_mortality_mult = 0.001
+	building_group_bg_mining_laborers_mortality_mult = 0.01
+	building_group_bg_logging_laborers_mortality_mult = 0.01
 }
 
 high_pop_state = {
@@ -150,4 +144,17 @@ state_region_pollution_health = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
 	#state_mortality_mult = 0.50
 	state_standard_of_living_add = -10
+}
+
+# starvation_penalty scales by the Starvation value and will never reach 100% effect as it will be substituted by the severe_starvation_penalty instead
+# At most this will reach (FOOD_SECURITY_STARVATION_THRESHOLD - FOOD_SECURITY_SEVERE_STARVATION_THRESHOLD) * STARVATION_EFFECTS_SCALING_FACTOR
+# E.g. (40% - 20%) * 2.5 = 50% effect max
+starvation_penalty = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	state_mortality_mult = 0.20
+}
+
+severe_starvation_penalty = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fire_negative.dds
+	state_mortality_mult = 0.40
 }

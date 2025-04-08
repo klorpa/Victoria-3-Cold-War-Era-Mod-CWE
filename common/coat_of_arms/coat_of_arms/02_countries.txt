@@ -4150,6 +4150,27 @@ CAM_communist = {
 		color1 = "yellow"
 	}
 }
+CAM_communist_subject = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	
+	colored_emblem = {
+		texture = "CAM_communist_subject.dds"
+		color1 = "yellow"
+	}
+}
+CAM_socialist_republic = {
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	
+	colored_emblem = {
+		texture = "ce_bicolor_bottom.dds"
+		color1 = "blue"
+	}
+	textured_emblem = {
+		texture = "te_coa_CAM_socialist_republic.dds"
+	}
+}
 CAM_subject_FRA = {
 	# French protectorate flag
 	
@@ -4711,6 +4732,18 @@ CHI_dictatorship = {
 		texture = "ce_border_KMT.dds"
 		color1 = "blue"
 		color2 = "white"	
+	}
+	
+}
+CHI_dictatorship_1 = {
+	pattern = "pattern_solid.tga"
+	color1 = "blue"
+	
+	colored_emblem = {
+		texture = "ce_kmt_sun_round.dds"
+		color1 = "blue"
+		color2 = "white"
+		instance = { scale = { 1.25 1.25 } }
 	}
 	
 }
@@ -9218,6 +9251,35 @@ HAI = {
 	}
 	
 }
+
+HAI_early = {
+	pattern = "pattern_solid.tga"
+	color1 = "blue"
+
+	colored_emblem = {
+		texture = "ce_bicolor_bottom.dds"
+		color1 = "red"
+		color2 = "red"
+	}
+	textured_emblem = {
+		texture = "te_coa_haiti_early.dds"
+		instance = { scale = { 1 1 } position = { 0.5 0.5 } }
+	}
+	
+}
+
+HAI_duvalier = {
+	pattern = "pattern_vertical_split_01.tga"
+	color1 = "black"
+	color2 = "red"
+	
+	textured_emblem = {
+		texture = "te_coa_haiti_duvalier.dds"
+		instance = { scale = { 1 1 } position = { 0.5 0.5 } }
+	}
+	
+}
+
 HAI_republic = {
 	pattern = "pattern_solid.tga"
 	color1 = "blue"
@@ -11564,8 +11626,10 @@ JAP_communist = {
 	pattern = "pattern_solid.tga"
 	color1 = "red"
 
-	textured_emblem = {
-		texture = "te_coa_communist_japan.dds"
+	colored_emblem = {
+		texture = "ce_border_JAP_communist.dds"
+		color1 = "white"
+		color2 = "yellow"
 	}
 }
 JAP_fascist = {
@@ -12327,7 +12391,7 @@ KOR_communist = {
 		texture = "ce_star_05.dds"
 		color1 = "red"
 		color2 = "red"
-		instance = { position = { 0.33 0.5 } scale = { 0.45 0.45 } }
+		instance = { position = { 0.33 0.5 } scale = { 0.53 0.53 } }
 	}
 }
 
@@ -15180,17 +15244,20 @@ NCA_theocracy = {
 
 
 NEJ = { # Nejd
-	# 1822-90
-	
 	pattern = "pattern_solid.tga"
-	color1 = "green"
+	color1 = "black"
 	
 	colored_emblem = {
-		texture = "ce_crescent_large.dds"
-		color1 = "white"
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "green"
 		color2 = "white"
-		instance = { scale = { 1.1 1.1 } position = { 0.5 0.5 } }			
-	}	
+	}
+	colored_emblem = {
+		texture = "ce_rhombus.dds"
+		color1 = "red"
+		color2 = "red"
+		instance = { position = { 0 0.5 } }
+	}
 }
 NEJ_monarchy = { # Saudi Arabia
 	pattern = "pattern_solid.tga"
@@ -16470,18 +16537,10 @@ OMA_late = { # Oman
 	color1 = "white"
 	
 	colored_emblem = {
-		texture = "ce_tricolor_horizontal.dds"
+		texture = "ce_border_OMA.dds"
 		color1 = "red"
 		color2 = "green"
 	}
-	
-	colored_emblem = {
-		texture = "ce_bicolor_left_third.dds"
-		color1 = "red"
-		color2 = "red"
-		instance = { scale = { 1 1 } position = { 0.5 0.5 } }					
-	}
-	
 	textured_emblem = {
 		texture = "te_coa_oman_monarchy.dds"
 		instance = { scale = { 1 1 } position = { 0.45 0.5 } }					
@@ -19117,7 +19176,7 @@ RHO_late = {
 	}
 	textured_emblem = {
 		texture = "te_coa_rhodesia.dds"
-		instance = { scale = { 0.5 0.5 } position = { 0.5 0.5 } }
+		instance = { scale = { 0.5 0.5 } position = { 0.505 0.5 } }
 	}
 }
 RHO_subject = {
@@ -19126,7 +19185,7 @@ RHO_subject = {
 
 	textured_emblem = {
 		texture = "te_coa_rhodesia_subject.dds"
-		instance = { scale = { 0.7 0.7 } position = { 0.75 0.5 } }
+		instance = { scale = { 0.7 0.7 } position = { 0.75 0.60 } }
 	}
 }
 
@@ -25372,6 +25431,32 @@ MOZ = { #Mozambique
 	}
 }
 
+MOZ_communist_early = { #Mozambique
+	pattern = "pattern_solid.tga"
+	color1 = "green"
+
+	colored_emblem = {
+		texture = "ce_bicolor_bottom.dds"
+		color1 = "yellow"
+	}
+
+	colored_emblem = {
+		texture = "ce_border_tanganyika.dds"
+		color1 = "white"
+		color2 = "black"
+	}
+	
+	colored_emblem = {
+		texture = "ce_rhombus.dds"
+		color1 = "red"
+		instance = { position = { 0 0.5 } }
+	}
+	
+	textured_emblem = {
+		texture = "te_coa_MOZ_communist.dds"
+	}
+}
+
 MOZ_portuguese_colony = { # Mozambique
 	pattern = "pattern_solid.tga"
 	color1 = "red"
@@ -26595,6 +26680,18 @@ TAJ = { # Tajikistan
 	}	
 }
 
+TAJ_theocracy = { # Tajikistan
+	pattern = "pattern_solid.tga"
+	color1 = "green"
+	
+	colored_emblem = {
+		texture = "ce_border_TAJ_1.dds"
+		color1 = "black"
+		color2 = "white"
+		color3 = "red"
+	}	
+}
+
 UZB = { # Uzbekistan
 	pattern = "pattern_solid.tga"
 	color1 = "light_blue"
@@ -27392,4 +27489,32 @@ RUN = { # Reunion
 		color2 = "yellow"
 	}
 	
+}
+
+RSK = { # Republika Srpska
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "azure"
+		color2 = "white"
+	}		
+}
+
+HZB = { # Herzeg-Bosnia
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "blue"
+	}	
+	colored_emblem = {
+		texture = "ce_border_HZB.dds"
+		color1 = "white"
+		color2 = "red"
+		color3 = "yellow"
+	}	
 }

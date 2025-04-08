@@ -1,0 +1,294 @@
+﻿#Feudalism
+
+noble_class = { #Upper Class
+	social_hierarchy = feudalist_social_hierarchy
+	strata = upper
+
+	allowed_professions = {
+		aristocrats
+		capitalists
+		officers
+		engineers
+	}
+}
+
+merchant_class = { #Middle Class
+	social_hierarchy = feudalist_social_hierarchy
+	strata = middle
+
+	allowed_professions = {
+		academics
+		clergymen
+		bureaucrats
+		shopkeepers
+		clerks
+	}
+}
+
+peasant_class = { #Lower Class
+	social_hierarchy = feudalist_social_hierarchy
+	strata = lower
+
+	allowed_professions = {
+		farmers
+		laborers
+		machinists
+		soldiers
+	}
+}
+
+serf_class = { #Discriminated Class
+	social_hierarchy = feudalist_social_hierarchy
+	strata = lower
+
+	allowed_professions = {
+		peasants
+		slaves
+	}
+}
+
+#Theocratic
+
+elite_class = { #Upper Class
+	social_hierarchy = theocratic_social_hierarchy
+	strata = upper
+
+	allowed_professions = {
+		aristocrats
+		capitalists
+		engineers
+		officers
+		clergymen
+	}
+	
+	pop_criteria = {
+		custom_tooltip = {
+			text = same_state_religion
+			religion = root.religion
+		}
+    }
+	
+}
+
+commerce_class = { #Middle Class
+	social_hierarchy = theocratic_social_hierarchy
+	strata = middle
+	
+	allowed_professions = {
+		bureaucrats
+		clerks
+		shopkeepers
+		bureaucrats
+	}
+	
+	pop_criteria = {
+		custom_tooltip = {
+			text = same_state_religion
+			religion = root.religion
+		}
+    }
+	
+}
+
+working_class = { #Lower Class
+	social_hierarchy = theocratic_social_hierarchy
+	strata = lower
+	
+	allowed_professions = {
+		laborers
+		machinists
+		farmers
+		soldiers
+		slaves
+	}
+	
+	pop_criteria = {
+		custom_tooltip = {
+			text = same_state_religion
+			religion = root.religion
+		}
+    }
+	
+}
+
+religiously_discriminated_class = { #Discriminated Class
+	social_hierarchy = theocratic_social_hierarchy
+	strata = lower
+	
+	allowed_professions = {
+		academics
+		peasants
+	}
+	
+}
+
+#Nationalist
+
+business_class = { #Upper Class
+	social_hierarchy = nationalist_social_hierarchy
+	strata = upper
+
+	allowed_professions = {
+		aristocrats
+		capitalists
+		engineers
+		officers
+		bureaucrats
+	}
+	
+	pop_criteria = {
+		pop_acceptance >= acceptance_status_4
+    }
+	
+}
+
+petite_bourgeoisie_class = { #Middle Class
+	social_hierarchy = nationalist_social_hierarchy
+	strata = middle
+	
+	allowed_professions = {
+		clerks
+		shopkeepers
+		academics
+		clergymen
+	}
+	
+	pop_criteria = {
+		pop_acceptance >= acceptance_status_4
+    }
+	
+}
+
+worker_class = { #Lower Class
+	social_hierarchy = nationalist_social_hierarchy
+	strata = lower
+	
+	allowed_professions = {
+		laborers
+		machinists
+		farmers
+		soldiers
+	}
+	
+	pop_criteria = {
+		pop_acceptance >= acceptance_status_4
+    }
+	
+}
+
+culturally_discriminated_class = { #Discriminated Class
+	social_hierarchy = nationalist_social_hierarchy
+	strata = lower
+	
+	allowed_professions = {
+		peasants
+		slaves
+	}
+	
+}
+
+#Communist
+
+inner_party_class = { #Upper Class
+	social_hierarchy = communist_social_hierarchy
+	strata = upper
+
+	allowed_professions = {
+		bureaucrats
+		engineers
+		officers
+	}
+	
+}
+
+outer_party_class = { #Middle Class
+	social_hierarchy = communist_social_hierarchy
+	strata = middle
+	
+	allowed_professions = {
+		academics
+		clerks
+		soldiers
+	}
+	
+}
+
+plebs_class = { #Lower Class
+	social_hierarchy = communist_social_hierarchy
+	strata = lower
+	
+	allowed_professions = {
+		laborers
+		machinists
+		farmers
+		peasants
+	}
+	
+}
+
+professionally_discriminated_class = { #Discriminated Class
+	social_hierarchy = communist_social_hierarchy
+	strata = lower
+	
+	allowed_professions = {
+		aristocrats
+		capitalists
+		shopkeepers
+		clergymen
+		slaves
+	}
+	
+}
+
+#Oligarchic
+
+oligarch_class = { #Upper Class
+	social_hierarchy = oligarchic_social_hierarchy
+	strata = upper
+
+	allowed_professions = {
+		capitalists
+		aristocrats
+		engineers
+	}
+	
+}
+
+white_collar_employees_class = { #Middle Class
+	social_hierarchy = oligarchic_social_hierarchy
+	strata = middle
+
+	allowed_professions = {
+		academics
+		clerks
+		shopkeepers
+		bureaucrats
+		officers
+		clergymen
+	}
+	
+}
+	
+blue_collar_employees_class = { #Lower Class
+	social_hierarchy = oligarchic_social_hierarchy
+	strata = lower
+	
+	allowed_professions = {
+		soldiers
+		machinists
+		farmers
+		laborers
+	}
+	
+}
+
+slave_class = { #Discriminated Class
+	social_hierarchy = oligarchic_social_hierarchy
+	strata = lower
+	
+	allowed_professions = {
+		peasants
+		slaves
+	}
+	
+}

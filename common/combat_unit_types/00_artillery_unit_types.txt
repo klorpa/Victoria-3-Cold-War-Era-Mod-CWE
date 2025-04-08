@@ -4,11 +4,11 @@ combat_unit_type_artillery_1 = {
     group = combat_unit_group_artillery
     
     upkeep_modifier = {
-        goods_input_artillery_add = 1
-		goods_input_warplanes_add = 1
+        goods_input_artillery_add = 0.5
+		#goods_input_warplanes_add = 1
 		goods_input_ammunition_add = 1
 		goods_input_oil_add = 1
-		goods_input_communication_services_add = 1
+		#goods_input_communication_services_add = 1
     }
 
     battle_modifier = {
@@ -22,6 +22,12 @@ combat_unit_type_artillery_1 = {
 	formation_modifier = {
         military_formation_mobilization_speed_mult = -0.1
         military_formation_movement_speed_mult = -0.1
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_support_1 }
@@ -84,11 +90,11 @@ combat_unit_type_artillery_2 = {
     group = combat_unit_group_artillery
     
     upkeep_modifier = {
-        goods_input_artillery_add = 2
-		goods_input_warplanes_add = 2
+        goods_input_artillery_add = 1
+		#goods_input_warplanes_add = 2
 		goods_input_ammunition_add = 2
 		goods_input_oil_add = 2
-		goods_input_communication_services_add = 2
+		#goods_input_communication_services_add = 2
     }
 
     battle_modifier = {
@@ -102,6 +108,12 @@ combat_unit_type_artillery_2 = {
 	formation_modifier = {
         military_formation_mobilization_speed_mult = -0.1
         military_formation_movement_speed_mult = -0.1
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_support_2 }
@@ -164,11 +176,11 @@ combat_unit_type_artillery_3 = {
     group = combat_unit_group_artillery
     
     upkeep_modifier = {
-        goods_input_artillery_add = 3
-		goods_input_warplanes_add = 3
+        goods_input_artillery_add = 1.5
+		#goods_input_warplanes_add = 3
 		goods_input_ammunition_add = 3
 		goods_input_oil_add = 3
-		goods_input_communication_services_add = 3
+		#goods_input_communication_services_add = 3
     }
 
     battle_modifier = {
@@ -182,6 +194,12 @@ combat_unit_type_artillery_3 = {
 	formation_modifier = {
         military_formation_mobilization_speed_mult = -0.1
         military_formation_movement_speed_mult = -0.1
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_support_3 }
@@ -209,11 +227,11 @@ combat_unit_type_artillery_4 = {
     group = combat_unit_group_artillery
     
     upkeep_modifier = {
-        goods_input_artillery_add = 4
-		goods_input_warplanes_add = 4
-		goods_input_advanced_weaponry_add = 4
+        goods_input_artillery_add = 2
+		#goods_input_warplanes_add = 4
+		goods_input_advanced_weaponry_add = 0.5
 		goods_input_oil_add = 4
-		goods_input_communication_services_add = 4
+		#goods_input_communication_services_add = 4
     }
 
     battle_modifier = {
@@ -227,6 +245,12 @@ combat_unit_type_artillery_4 = {
 	formation_modifier = {
         military_formation_mobilization_speed_mult = -0.1
         military_formation_movement_speed_mult = -0.1
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_support_4 }
@@ -254,11 +278,11 @@ combat_unit_type_artillery_5 = {
     group = combat_unit_group_artillery
     
     upkeep_modifier = {
-        goods_input_artillery_add = 5
-		goods_input_warplanes_add = 5
-		goods_input_advanced_weaponry_add = 5
+        goods_input_artillery_add = 2.5
+		#goods_input_warplanes_add = 5
+		goods_input_advanced_weaponry_add = 1
 		goods_input_oil_add = 5
-		goods_input_communication_services_add = 5
+		#goods_input_communication_services_add = 5
     }
 
     battle_modifier = {
@@ -272,6 +296,12 @@ combat_unit_type_artillery_5 = {
 	formation_modifier = {
         military_formation_mobilization_speed_mult = -0.1
         military_formation_movement_speed_mult = -0.1
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_support_5 }
@@ -299,11 +329,11 @@ combat_unit_type_artillery_6 = {
     group = combat_unit_group_artillery
     
     upkeep_modifier = {
-        goods_input_artillery_add = 6
-		goods_input_warplanes_add = 6
-		goods_input_advanced_weaponry_add = 6
+        goods_input_artillery_add = 3
+		#goods_input_warplanes_add = 6
+		goods_input_advanced_weaponry_add = 1.5
 		goods_input_oil_add = 6
-		goods_input_communication_services_add = 6
+		#goods_input_communication_services_add = 6
     }
 
     battle_modifier = {
@@ -317,6 +347,12 @@ combat_unit_type_artillery_6 = {
 	formation_modifier = {
         military_formation_mobilization_speed_mult = -0.1
         military_formation_movement_speed_mult = -0.1
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_support_6 }
@@ -344,11 +380,11 @@ combat_unit_type_artillery_7 = {
     group = combat_unit_group_artillery
     
     upkeep_modifier = {
-        goods_input_artillery_add = 7
-		goods_input_warplanes_add = 7
-		goods_input_advanced_weaponry_add = 7
+        goods_input_artillery_add = 3.5
+		#goods_input_warplanes_add = 7
+		goods_input_advanced_weaponry_add = 2
 		goods_input_oil_add = 7
-		goods_input_communication_services_add = 7
+		#goods_input_communication_services_add = 7
     }
 
     battle_modifier = {
@@ -362,6 +398,12 @@ combat_unit_type_artillery_7 = {
 	formation_modifier = {
         military_formation_mobilization_speed_mult = -0.1
         military_formation_movement_speed_mult = -0.1
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_support_7 }
@@ -389,11 +431,11 @@ combat_unit_type_artillery_8 = {
     group = combat_unit_group_artillery
     
     upkeep_modifier = {
-        goods_input_artillery_add = 8
-		goods_input_warplanes_add = 8
-		goods_input_advanced_weaponry_add = 8
+        goods_input_artillery_add = 4
+		#goods_input_warplanes_add = 8
+		goods_input_advanced_weaponry_add = 2.5
 		goods_input_oil_add = 8
-		goods_input_communication_services_add = 8
+		#goods_input_communication_services_add = 8
     }
 
     battle_modifier = {
@@ -407,6 +449,12 @@ combat_unit_type_artillery_8 = {
 	formation_modifier = {
         military_formation_mobilization_speed_mult = -0.1
         military_formation_movement_speed_mult = -0.1
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_support_8 }
@@ -434,11 +482,11 @@ combat_unit_type_artillery_9 = {
     group = combat_unit_group_artillery
     
     upkeep_modifier = {
-        goods_input_artillery_add = 9
-		goods_input_warplanes_add = 9
-		goods_input_advanced_weaponry_add = 9
+        goods_input_artillery_add = 4.5
+		#goods_input_warplanes_add = 9
+		goods_input_advanced_weaponry_add = 3
 		goods_input_oil_add = 9
-		goods_input_communication_services_add = 9
+		#goods_input_communication_services_add = 9
     }
 
     battle_modifier = {
@@ -452,6 +500,12 @@ combat_unit_type_artillery_9 = {
 	formation_modifier = {
         military_formation_mobilization_speed_mult = -0.1
         military_formation_movement_speed_mult = -0.1
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_support_9 }
@@ -479,11 +533,11 @@ combat_unit_type_artillery_10 = {
     group = combat_unit_group_artillery
     
     upkeep_modifier = {
-        goods_input_artillery_add = 10
-		goods_input_warplanes_add = 10
-		goods_input_advanced_weaponry_add = 10
+        goods_input_artillery_add = 5
+		#goods_input_warplanes_add = 10
+		goods_input_advanced_weaponry_add = 3.5
 		goods_input_oil_add = 10
-		goods_input_communication_services_add = 10
+		#goods_input_communication_services_add = 10
     }
 
     battle_modifier = {
@@ -497,6 +551,12 @@ combat_unit_type_artillery_10 = {
 	formation_modifier = {
         military_formation_mobilization_speed_mult = -0.1
         military_formation_movement_speed_mult = -0.1
+    }
+	
+	can_build_conscript = {
+        NOT = {
+            has_law = law_type:law_peasant_levies
+        }
     }
 
 	unlocking_technologies = { tech_military_support_10 }

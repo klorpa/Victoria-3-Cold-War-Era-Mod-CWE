@@ -9,6 +9,16 @@
 		#Constitutional Laws system (Requires simple majority to amend constitutional laws)
 		government_has_legislative_simple_majority = yes
 		
+		#Ruler must support this
+		ruler ?= { 
+			interest_group = {
+				law_stance = {
+					law = law_type:law_no_secret_police
+					value >= approve
+				}
+			}
+		}
+		
 	}
 	
 	possible_political_movements = {
@@ -55,6 +65,16 @@ law_secret_police = {
 			}
 		}
 		
+		#Ruler must support this
+		ruler ?= { 
+			interest_group = {
+				law_stance = {
+					law = law_type:law_secret_police
+					value >= approve
+				}
+			}
+		}
+		
 	}
 	
 	on_enact = {
@@ -63,8 +83,8 @@ law_secret_police = {
 	
 	institution = institution_home_affairs
 	institution_modifier = {
-		country_suppression_ig_attraction_mult = -0.05
-		political_movement_radicalism_mult = -0.10
+		country_suppression_attraction_mult = -0.05
+		political_movement_radicalism_add = -0.10
 		
 		interest_group_ig_armed_forces_pol_str_mult = 0.05
 		interest_group_ig_intelligentsia_pol_str_mult = 0.05

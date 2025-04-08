@@ -1,6 +1,6 @@
 capitulate_to_revolution = {
 	scope:ongoing_revolution_movement = { #Can't trigger if they want governance reforms anyway.
-		this.desired_law = {
+		this.most_desired_law ?= {
 			save_scope_as = revolutionaries_law
 		}
 	}
@@ -17,173 +17,7 @@ capitulate_to_revolution = {
 		order_by = ig_clout
 		save_scope_as = revolution_leader_ig
 	}
-	if = { # Never activate Governance Principles twice.
-		limit = {
-			NOR = {
-				scope:revolutionaries_law = law_type:law_HOS_president
-				scope:revolutionaries_law = law_type:law_HOS_nationalist_leader
-				scope:revolutionaries_law = law_type:law_HOS_monarch
-				scope:revolutionaries_law = law_type:law_HOS_communist_leader
-				scope:revolutionaries_law = law_type:law_HOS_religious_leader
-			}
-		}
-		if = {
-			limit = {
-				scope:revolution_leader_ig = {
-					law_stance = {
-						law = law_type:law_HOS_communist_leader
-						value = strongly_approve
-					}
-				}
-				NOT = {
-					has_law = law_type:law_HOS_communist_leader
-				}
-			}
-			activate_law = law_type:law_HOS_communist_leader
-		}
-		else_if = {
-			limit = {
-				scope:revolution_leader_ig = {
-					law_stance = {
-						law = law_type:law_HOS_monarch
-						value = strongly_approve
-					}
-				}
-				NOT = {
-					has_law = law_type:law_HOS_monarch
-				}
-			}
-			activate_law = law_type:law_HOS_monarch
-		}
-		else_if = {
-			limit = {
-				scope:revolution_leader_ig = {
-					law_stance = {
-						law = law_type:law_HOS_nationalist_leader
-						value = strongly_approve
-					}
-				}
-				NOT = {
-					has_law = law_type:law_HOS_nationalist_leader
-				}
-			}
-			activate_law = law_type:law_HOS_nationalist_leader
-		}
-		else_if = {
-			limit = {
-				scope:revolution_leader_ig = {
-					law_stance = {
-						law = law_type:law_HOS_president
-						value = strongly_approve
-					}
-				}
-				NOT = {
-					has_law = law_type:law_HOS_president
-				}
-			}
-			activate_law = law_type:law_HOS_president
-		}
-		else_if = {
-			limit = {
-				scope:revolution_leader_ig = {
-					law_stance = {
-						law = law_type:law_HOS_religious_leader
-						value = strongly_approve
-					}
-				}
-				NOT = {
-					has_law = law_type:law_HOS_religious_leader
-				}
-			}
-			activate_law = law_type:law_HOS_religious_leader
-		}
-		else_if = {
-			limit = {
-				scope:revolution_leader_ig = {
-					law_stance = {
-						law = law_type:law_HOS_communist_leader
-						value = approve
-					}
-				}
-				NOT = {
-					has_law = law_type:law_HOS_communist_leader
-				}
-			}
-			activate_law = law_type:law_HOS_communist_leader
-		}
-		else_if = {
-			limit = {
-				scope:revolution_leader_ig = {
-					law_stance = {
-						law = law_type:law_HOS_monarch
-						value = approve
-					}
-				}
-				NOT = {
-					has_law = law_type:law_HOS_monarch
-				}
-			}
-			activate_law = law_type:law_HOS_monarch
-		}
-		else_if = {
-			limit = {
-				scope:revolution_leader_ig = {
-					law_stance = {
-						law = law_type:law_HOS_nationalist_leader
-						value = approve
-					}
-				}
-				NOT = {
-					has_law = law_type:law_HOS_nationalist_leader
-				}
-			}
-			activate_law = law_type:law_HOS_nationalist_leader
-		}
-		else_if = {
-			limit = {
-				scope:revolution_leader_ig = {
-					law_stance = {
-						law = law_type:law_HOS_president
-						value = approve
-					}
-				}
-				NOT = {
-					has_law = law_type:law_HOS_president
-				}
-			}
-			activate_law = law_type:law_HOS_president
-		}
-		else_if = {
-			limit = {
-				scope:revolution_leader_ig = {
-					law_stance = {
-						law = law_type:law_HOS_religious_leader
-						value = approve
-					}
-				}
-				NOT = {
-					has_law = law_type:law_HOS_religious_leader
-				}
-			}
-			activate_law = law_type:law_HOS_religious_leader
-		}
-	}
-
-	if = {
-		limit = {
-			scope:ongoing_revolution_movement = {
-				is_political_movement_type = movement_to_preserve
-			}
-		}
-		cancel_enactment = yes
-	}
-	else = {
-		activate_law = scope:revolutionaries_law
-	}
-
-	add_loyalists = {
-		value = 0.25
-	}
+	activate_law = scope:revolutionaries_law
 	
 	every_interest_group = {
 		limit = {
@@ -196,7 +30,7 @@ capitulate_to_revolution = {
 			}
 		}
 	}
-
+	
 	if = {
 		limit = {
 			country_has_voting_franchise = yes
@@ -208,7 +42,7 @@ capitulate_to_revolution = {
 	if = {
 		limit = {
 			NOT = {
-				has_law = law_type:law_HOS_monarch
+				is_a_regime_monarchy = yes
 			}
 		}
 		hidden_effect = {
@@ -231,7 +65,7 @@ capitulate_to_revolution = {
 			is_decaying = yes
 		}
 	}
-
+	
 	every_interest_group = {
 		limit = {
 			has_variable = revolutionary_ig
@@ -244,8 +78,14 @@ capitulate_to_revolution = {
 			months = normal_modifier_time
 			is_decaying = yes
 		}
-		add_ruling_interest_group = yes
+		if = {
+			limit = {
+				is_insurrectionary = no
+			}
+			add_ruling_interest_group = yes
+		}
 	}
+	
 }
 
 enact_preferred_governance_principle = {
@@ -482,4 +322,59 @@ enact_preferred_governance_principle_new = {
 		}
 	}
 	activate_law = scope:preferred_gov_principles
+}
+
+exile_character_with_martyrdom = {
+	save_scope_as = martyred_exile_scope
+	if = {
+		limit = {
+			NOT = {
+				has_modifier = modifier_political_martyr
+			}
+		}
+		add_modifier = modifier_political_martyr
+	}
+	if = {
+		limit = {
+			owner ?= {
+				NOT = {
+					any_primary_culture = {
+						this = scope:martyred_exile_scope.culture
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_country = {
+					NOT = {
+						this = scope:martyred_exile_scope.owner
+					}
+					any_primary_culture = {
+						this = scope:martyred_exile_scope.culture
+					}
+				}
+			}
+			ordered_country = {
+				limit = {
+					NOT = {
+						this = scope:martyred_exile_scope.owner
+					}
+					any_primary_culture = {
+						this = scope:martyred_exile_scope.culture
+					}
+				}
+				order_by = country_rank
+				create_diplomatic_catalyst = {
+					type = catalyst_exiled_culture_member
+					target = scope:martyred_exile_scope.owner
+				}
+			}
+		}
+	}
+	clean_up_exile_character_roles = yes
+	if = {
+		limit = { is_in_exile_pool = no }
+		exile_character = yes
+	}
 }

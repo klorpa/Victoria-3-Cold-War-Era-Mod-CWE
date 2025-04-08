@@ -26,8 +26,8 @@
     law_independent_judiciary:0 "Independent Judiciary"
     law_independent_judiciary_desc:0 "The appointments of judges are free from any interference from the executive and legislative branches."
 
-    law_no_voting:0 "No Real Elections"
-    law_no_voting_desc:0 "There are either no elections or only elections where ruling party approved candidates are allowed to run."
+    law_no_voting:0 "Controlled Elections"
+    law_no_voting_desc:0 "Elections are non-competitive - Only candidates affiliated with and approved by the ruling party are allowed to run for office and anyone who wishes to vote against those candidates must cast non-secret ballots."
     law_rigged_voting:0 "Rigged Elections"
     law_rigged_voting_desc:0 "A certain number of votes will always be in favour of the government."
     law_gerrymandered_voting:0 "Election Gerrymandering"
@@ -45,8 +45,12 @@
     law_propotional_representation_desc:0 "Proportional representation refers to any type of electoral system under which subgroups of an electorate are reflected proportionately in the elected body."
     
     law_parties_not_allowed:0 "Political Parties Banned"
-    law_parties_not_allowed_desc:0 "No political parties may be registered in the country."
-    law_parties_allowed:0 "Multi-party System"
+    law_parties_not_allowed_desc:0 "No political parties may be registered in the country. \n\nThis is represented in-game by disabling competitive [Concept('concept_election','$concept_elections$')]."
+    law_single_party_state:0 "Single-Party State"
+    law_single_party_state_desc:0 "The state is governed by a single legal political party, which has a monopoly on all political activity within the nation. \n\nThis is represented in-game by disabling competitive [Concept('concept_election','$concept_elections$')]."
+    law_dominant_party_state:0 "Dominant-Party System"
+    law_dominant_party_state_desc:0 "Although multiple political parties may exist in the country, the ruling party exerts great sway over all political activity within the nation."
+    law_parties_allowed:0 "Multi-Party System"
     law_parties_allowed_desc:0 "Any political party may be registered with the electoral commission and run for elections."
     
     law_appointed_legislature:0 "Appointed Legislature"
@@ -242,16 +246,16 @@
     law_taxation_5:0 "Very Progressive Taxes"
     law_taxation_5_desc:0 "Tax laws massively favour the poor at the expense of the wealthy."
     
-    law_very_deflationary_monetary_policy:0 "Very Deflationary Fiscal Policy"
-    law_very_deflationary_monetary_policy_desc:0 "Very Deflationary Fiscal Policy aims to greatly decrease aggregate demand in the economy by decreasing government spending and/or increasing taxes. This policy aims to decrease the budget deficit and discourage consumption, as consumers now have lower disposable income."
-    law_deflationary_monetary_policy:0 "Deflationary Fiscal Policy"
-    law_deflationary_monetary_policy_desc:0 "Deflationary Fiscal Policy aims to greatly decrease aggregate demand in the economy by decreasing government spending and/or increasing taxes. This policy aims to decrease the budget deficit and discourage consumption, as consumers now have lower disposable income."
-    law_neutral_monetary_policy:0 "Neutral Fiscal Policy"
-    law_neutral_monetary_policy_desc:0 "A neutral fiscal policy in sense is one that leaves individuals to decide to work, consume, save, invest, or engage in other economic actions unaltered."
-    law_expansionary_monetary_policy:0 "Expansionary Fiscal Policy"
-    law_expansionary_monetary_policy_desc:0 "Expansionary Fiscal Policy includes tax cuts, transfer payments, rebates and increased government spending on projects such as infrastructure improvements."
-    law_very_expansionary_monetary_policy:0 "Very Expansionary Fiscal Policy"
-    law_very_expansionary_monetary_policy_desc:0 "Very Expansionary Fiscal Policy includes massive tax cuts, transfer payments, rebates and increased government spending on projects such as infrastructure improvements."
+    law_very_deflationary_monetary_policy:0 "Very Deflationary Monetary Policy"
+    law_very_deflationary_monetary_policy_desc:0 "Very Deflationary Monetary Policy aims to reduce the money supply and increase interest rates to combat inflation by curbing aggregate demand and cooling down the economy."
+    law_deflationary_monetary_policy:0 "Deflationary Monetary Policy"
+    law_deflationary_monetary_policy_desc:0 "Deflationary Monetary Policy aims to reduce the money supply and increase interest rates to combat inflation by curbing aggregate demand and cooling down the economy."
+    law_neutral_monetary_policy:0 "Neutral Monetary Policy"
+    law_neutral_monetary_policy_desc:0 "A Neutral Monetary Policy is the interest rate that neither stimulates nor restrains economic growth, aiming for a balanced approach to inflation and growth."
+    law_expansionary_monetary_policy:0 "Expansionary Monetary Policy"
+    law_expansionary_monetary_policy_desc:0 "Expansionary Monetary Policy, implemented by central banks, aims to stimulate economic growth by increasing the money supply and lowering interest rates, encouraging borrowing and spending."
+    law_very_expansionary_monetary_policy:0 "Very Expansionary Monetary Policy"
+    law_very_expansionary_monetary_policy_desc:0 "Very Expansionary Monetary Policy, implemented by central banks, aims to stimulate economic growth by increasing the money supply and lowering interest rates, encouraging borrowing and spending."
     
     law_charitable_health_system:0 "Non-Profit Healthcare"
     law_private_health_insurance:0 "Private Healthcare"
@@ -397,3 +401,107 @@
     law_limited_private_land_ownership_desc:0 "Private individuals are permitted to own land but the ownership is not freehold."
     law_full_private_land_ownership:0 "Freehold Estates Permitted"
     law_full_private_land_ownership_desc:0 "Private individuals are permitted to own freehold interests in land."
+    
+    law_social_hierarchy_enforced:0 "Nepotistic Social Structure"
+    law_social_hierarchy_codified:0 "Elitist Social Structure"
+    law_social_hierarchy_not_enforced:0 "Meritocratic Social Structure"
+    
+    law_social_hierarchy_enforced_desc:0 "Relatives or friends are given advantages, such as jobs or positions, over more qualified candidates."
+    law_social_hierarchy_codified_desc:0 "Party members are given advantages, such as jobs or positions, over more qualified candidates."
+    law_social_hierarchy_not_enforced_desc:0 "Everyone has a fair opportunity to gain jobs or positions."
+    
+    lawgroup_social_mobility:0 "Social Stratification"
+    
+    lawgroup_social_mobility_1:0 "$lawgroup_social_mobility$"
+    lawgroup_social_mobility_2:0 "$lawgroup_social_mobility$"
+    lawgroup_social_mobility_3:0 "$lawgroup_social_mobility$"
+    lawgroup_social_mobility_4:0 "$lawgroup_social_mobility$"
+    lawgroup_social_mobility_5:0 "$lawgroup_social_mobility$"
+    
+    law_social_hierarchy_1_enforced:0 "$law_social_hierarchy_enforced$"
+    law_social_hierarchy_1_codified:0 "$law_social_hierarchy_codified$"
+    law_social_hierarchy_1_not_enforced:0 "$law_social_hierarchy_not_enforced$"
+    law_social_hierarchy_1_affirmative_action:0 "$law_affirmative_action$"
+    
+    law_social_hierarchy_2_enforced:0 "$law_social_hierarchy_enforced$"
+    law_social_hierarchy_2_codified:0 "$law_social_hierarchy_codified$"
+    law_social_hierarchy_2_not_enforced:0 "$law_social_hierarchy_not_enforced$"
+    law_social_hierarchy_2_affirmative_action:0 "$law_affirmative_action$"
+    
+    law_social_hierarchy_3_enforced:0 "$law_social_hierarchy_enforced$"
+    law_social_hierarchy_3_codified:0 "$law_social_hierarchy_codified$"
+    law_social_hierarchy_3_not_enforced:0 "$law_social_hierarchy_not_enforced$"
+    law_social_hierarchy_3_affirmative_action:0 "$law_affirmative_action$"
+    
+    law_social_hierarchy_4_enforced:0 "$law_social_hierarchy_enforced$"
+    law_social_hierarchy_4_codified:0 "$law_social_hierarchy_codified$"
+    law_social_hierarchy_4_not_enforced:0 "$law_social_hierarchy_not_enforced$"
+    law_social_hierarchy_4_affirmative_action:0 "$law_affirmative_action$"
+    
+    law_social_hierarchy_5_enforced:0 "$law_social_hierarchy_enforced$"
+    law_social_hierarchy_5_codified:0 "$law_social_hierarchy_codified$"
+    law_social_hierarchy_5_not_enforced:0 "$law_social_hierarchy_not_enforced$"
+    law_social_hierarchy_5_affirmative_action:0 "$law_affirmative_action$"
+    
+    law_social_hierarchy_1_enforced_desc:0 "$law_social_hierarchy_enforced_desc$"
+    law_social_hierarchy_1_codified_desc:0 "$law_social_hierarchy_codified_desc$"
+    law_social_hierarchy_1_not_enforced_desc:0 "$law_social_hierarchy_not_enforced_desc$"
+    law_social_hierarchy_1_affirmative_action_desc:0 "$law_affirmative_action_desc$"
+    
+    law_social_hierarchy_2_enforced_desc:0 "$law_social_hierarchy_enforced_desc$"
+    law_social_hierarchy_2_codified_desc:0 "$law_social_hierarchy_codified_desc$"
+    law_social_hierarchy_2_not_enforced_desc:0 "$law_social_hierarchy_not_enforced_desc$"
+    law_social_hierarchy_2_affirmative_action_desc:0 "$law_affirmative_action_desc$"
+    
+    law_social_hierarchy_3_enforced_desc:0 "$law_social_hierarchy_enforced_desc$"
+    law_social_hierarchy_3_codified_desc:0 "$law_social_hierarchy_codified_desc$"
+    law_social_hierarchy_3_not_enforced_desc:0 "$law_social_hierarchy_not_enforced_desc$"
+    law_social_hierarchy_3_affirmative_action_desc:0 "$law_affirmative_action_desc$"
+    
+    law_social_hierarchy_4_enforced_desc:0 "$law_social_hierarchy_enforced_desc$"
+    law_social_hierarchy_4_codified_desc:0 "$law_social_hierarchy_codified_desc$"
+    law_social_hierarchy_4_not_enforced_desc:0 "$law_social_hierarchy_not_enforced_desc$"
+    law_social_hierarchy_4_affirmative_action_desc:0 "$law_affirmative_action_desc$"
+    
+    law_social_hierarchy_5_enforced_desc:0 "$law_social_hierarchy_enforced_desc$"
+    law_social_hierarchy_5_codified_desc:0 "$law_social_hierarchy_codified_desc$"
+    law_social_hierarchy_5_not_enforced_desc:0 "$law_social_hierarchy_not_enforced_desc$"
+    law_social_hierarchy_5_affirmative_action_desc:0 "$law_affirmative_action_desc$"
+    
+    lawgroup_social_mobility_0:0 "Social Mobility Policy"
+    
+    law_social_hierarchy_0_enforced:0 "Poor Social Mobility Policies"
+    law_social_hierarchy_0_codified:0 "Decent Social Mobility Policies"
+    law_social_hierarchy_0_not_enforced:0 "Good Social Mobility Policies"
+    law_social_hierarchy_0_affirmative_action:0 "$law_affirmative_action$"
+    
+    law_social_hierarchy_0_enforced_desc:0 "There are few to no programmes to help marginalised groups climb the social ladder."
+    law_social_hierarchy_0_codified_desc:0 "There are some programmes to help marginalised groups climb the social ladder."
+    law_social_hierarchy_0_not_enforced_desc:0 "There are many programmes to help marginalised groups climb the social ladder and it is enshrined in law that class based discrimination is prohibited."
+    law_social_hierarchy_0_affirmative_action_desc:0 "$law_affirmative_action_desc$"
+    
+    lawgroup_foreign_investment_policy:0 "Foreign Investment Policy"
+    
+    law_no_foreign_investment_policy:0 "Foreign Investment Banned"
+    law_nationalist_foreign_investment_policy:0 "Restricted Foreign Investment"
+    law_full_foreign_investment_policy:0 "Unrestricted Foreign Investment"
+    
+    law_no_foreign_investment_policy_desc:0 "The government is legally prohibited from entering into any new $foreign_investment_rights$ or $foreign_investment_agreement$ [Concept('concept_diplomatic_pact','$concept_diplomatic_pacts$')]."
+    law_nationalist_foreign_investment_policy_desc:0 "The government may only enter into new $foreign_investment_rights$ [Concept('concept_diplomatic_pact','$concept_diplomatic_pacts$')]."
+    law_full_foreign_investment_policy_desc:0 "The government may freely enter into any new $foreign_investment_rights$ or $foreign_investment_agreement$ [Concept('concept_diplomatic_pact','$concept_diplomatic_pacts$')]."
+    
+    lawgroup_secession_rights:0 "Right to Secede"
+    
+    law_no_secession_rights:0 "Inviolable Sovereignty"
+    law_limited_secession_rights:0 "Devolution Permitted"
+    law_full_secession_rights:0 "Secession Permitted"
+    
+    law_no_secession_rights_desc:0 "No constituent state is allowed to gain more autonomy or secede from this country."
+    law_limited_secession_rights_desc:0 "Constituent states may be allowed greater autonomy but they may not secede from this country."
+    law_full_secession_rights_desc:0 "Constituent states may be allowed greater autonomy and to secede from this country."
+    
+    law_no_voting_additional_effects:0 "@information! All [Concept('concept_election','$concept_elections$')] will be non-competitive and the [concept_government] may suspend [Concept('concept_election','$concept_elections$')] from being held for any duration of time."
+    
+    law_parties_not_allowed_additional_effects:0 "@information! All [Concept('concept_election','$concept_elections$')] will be non-competitive."
+    law_dominant_party_state_additional_effects:0 "$can_ban_parties.tt$"
+    law_parties_allowed_additional_effects:0 "$cannot_ban_parties.tt$"

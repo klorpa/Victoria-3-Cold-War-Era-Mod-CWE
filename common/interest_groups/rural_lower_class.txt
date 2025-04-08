@@ -10,7 +10,7 @@
 		ideology_left_economy 				#General Economic Beliefs 
 		ideology_natural_resource_focus 	#Economic Specialisation
 		ideology_anti_environment 			#Environmental Laws
-		ideology_nationalist 				#Foreign Economic Policy
+		ideology_regionalist 				#Foreign Economic Policy
 		
 		#Political Ideologies
 		ideology_communitarian				#General Political Beliefs
@@ -21,6 +21,14 @@
 		#ideology_neutral_spending
 		#ideology_neutral_population
 		
+	}
+	
+	character_ideologies = {
+		ideology_autocratic
+		ideology_power_hungry
+		ideology_elitist
+		ideology_democratic
+		ideology_liberal
 	}
 	
 	enable = {
@@ -47,7 +55,7 @@
 	pop_potential = {
 	
 		#Only Accepted Pops can organise into IGs
-		#pop_is_discriminated = no
+		#pop_acceptance >= acceptance_status_3
 		
 		#Correct pop type
 		OR = { 
@@ -66,24 +74,76 @@
 	}
 	
 	pop_weight = {
-		value = 1
-		
-		if = {
-			limit = { exists = scope:interest_group exists = leader }
-			multiply = {
-				desc = "LEADER_POPULARITY"
-				scope:interest_group = {
-					leader ?= {
-						value = popularity
-						multiply = 0.0025
-						add = 1
-						max = 1.25
-						min = 0.75
+		value = 0
+
+		add = {
+			desc = "RURAL_POP"
+			if = {
+				limit = {
+					OR = {
+						pop_employment_building_group = bg_agriculture
+						pop_employment_building_group = bg_ranching
+						pop_employment_building_group = bg_plantations
+						pop_employment_building_group = bg_logging
+						pop_employment_building_group = bg_fishing
+						pop_employment_building_group = bg_whaling
+						pop_employment_building_group = bg_manor_houses
 					}
+				}
+				if = {
+					limit = {
+						is_pop_type = clergymen
+					}
+					value = 25
+				}
+				else = {
+					value = 100
 				}
 			}
 		}
-		
+
+		add = {
+			desc = "POP_FARMERS"
+			if = {
+				limit = {
+					is_pop_type = farmers
+				}
+				value = 200
+			}
+		}
+
+		add = {
+			desc = "POP_PEASANTS"
+			if = {
+				limit = {
+					is_pop_type = peasants
+				}
+				value = 200
+			}
+		}
+
+		add = {
+			desc = "POP_CLERGYMEN"
+			if = {
+				limit = {
+					is_pop_type = clergymen
+				}
+				value = 75
+			}
+		}
+	
+		multiply = {
+			desc = "LEADER_POPULARITY"
+			scope:interest_group = {
+				leader ?= {
+					value = popularity
+					multiply = 0.0025
+					add = 1
+					max = 1.25
+					min = 0.75
+				}
+			}
+		}
 		if = {
 			limit = {
 				scope:interest_group = {
@@ -124,7 +184,6 @@
 				add = 1
 			}
 		}
-		
 	}
 	
 	monarch_weight = {
@@ -245,16 +304,7 @@
 	# The chance that a commander belonging to this IG takes over leadership when it changes
 	# scope:character is the most popular commander in the IG
 	commander_leader_chance = {
-		value = 0.5
-		if = {
-			limit = {
-				exists = scope:character
-			}
-			multiply = {
-				value = 1
-				add = scope:character.popularity
-				min = 0
-			}
-		}
+		value = 0.25
+		multiply = ig_commander_leader_chance_mult
 	}
 }

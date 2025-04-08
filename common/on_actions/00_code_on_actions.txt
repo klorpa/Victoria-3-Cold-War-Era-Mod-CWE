@@ -1,5 +1,46 @@
 ﻿# For on_actions launched by the code itself.
 
+# No root scope set
+on_monthly_pulse = {
+	effect = {
+		every_character_in_exile_pool = {
+			limit = {
+				is_historical = no
+				popularity <= -100
+			}
+			kill_character = yes
+		}
+
+		every_character_in_jail = { # Music too loud? Right to jail. Right away. Driving too fast? Jail. Slow? Jail. You undercook fish? Believe it or not, jail.
+			save_scope_as = prisoner_scope
+			change_variable = { name = prison_time_var subtract = 1 }
+			if = {
+				limit = {
+					NOT = {
+						exists = var:prison_country
+					}
+				}
+				kill_character = yes
+			}
+			else_if = {
+				limit = {
+					exists = var:prison_country
+					var:prison_time_var <= 0
+				}
+				free_character_from_void = yes
+				owner ?= {
+					post_notification = prisoner_out_of_jail
+				}
+				remove_variable = prison_country
+				remove_variable = prison_time_var
+			}
+		}
+
+	}
+}
+
+on_yearly_pulse = { }
+
 # Root = Country
 on_monthly_pulse_country = {
 	events = {
@@ -10,20 +51,16 @@ on_monthly_pulse_country = {
 		yeet_agitator_events.1
 		yeet_agitator_events.2
 		yeet_agitator_events.3
+		
+		# Set Hierarchy Events
+		set_hierarchy_event.1 # Sets British Indian Caste System
+		set_hierarchy_event.2 # Replaces British Indian Caste System with Default
 	}
-	effect = {
-		trigger_event = { id = unable_to_enact.1 }
+	on_actions = { # delay ensures events won't fire simultaneously
+		coup_monthly_events
+		delay = { days = 4 }
+		fund_lobbies_monthly_events
 	}
-
-	#Coup
-	random_events = {
-		5 = 0
-		1 = coup.1
-	}
-}
-
-on_yearly_pulse_country = { #Krakatoa special pulse
-	
 }
 
 on_yearly_pulse_country = {
@@ -83,254 +120,49 @@ on_yearly_pulse_country = {
 		}
 		
 	}
-	random_events = {
-		150 = 0
-
-		20 = government_conflicts.1
-		20 = government_conflicts.2
-		20 = government_conflicts.3
-		20 = government_conflicts.4
-		20 = government_conflicts.5
-		20 = government_conflicts.6
-		20 = government_conflicts.7
-		20 = government_conflicts.8
-		20 = government_conflicts.9
-		20 = government_conflicts.10
-		20 = government_conflicts.11
-		#
-		10 = goldrush.3
-		10 = goldrush.4
-		#
-		20 = ig_leaders.20
-		20 = ig_leaders.4
-		20 = ig_leaders.5
-		20 = ig_leaders.6
-
-		#Character Events
-		20 = character_events.2
-		20 = character_events.3
-		20 = character_events.4
-		20 = character_events.5
-		100 = character_events.6
-		
-		# Border Situations
-		20 = neighbor_events.1
-		20 = neighbor_events.2
-		20 = neighbor_events.3
-		20 = neighbor_events.4
-		20 = neighbor_events.5
-		20 = neighbor_events.6
-		20 = neighbor_events.7
-
-		# Commander Events
-		20 = commander_events.2
-		20 = commander_events.4
-		20 = commander_events.5
-		5 = commander_events.6
-
-		# Law Events
-		50 = law_events.5
-		50 = law_events.6
-
-		# Cultural Homeland Events
-		10 = cultural_homeland_events.1
-		10 = cultural_homeland_events.10
-		10 = cultural_homeland_events.20
-		10 = cultural_homeland_events.30
-		10 = cultural_homeland_events.40
-		10 = cultural_homeland_events.50
-		
-		#IG Suppression
-		20 = ig_suppression_events.1
-
-		# Technology
-		20 = technology_events.1
-		20 = technology_events.10
-		20 = technology_events.20
-		20 = technology_events.30
-		20 = technology_events.40
-		20 = technology_events.50
-		
-		# Industrial Accidents
-		10 = industrial_accident_events.1
-		10 = industrial_accident_events.2
-		10 = industrial_accident_events.3
-		10 = industrial_accident_events.4
-		20 = industrial_accident_events.5
-		20 = industrial_accident_events.6
-
-		# Crime (Why do police not just comment out crime events?)
-		10 = crime_events.1
-		10 = crime_events.2
-		10 = crime_events.10
-
-		# Obligations
-		10 = obligation_events.1
-		10 = obligation_events.3
-		10 = obligation_events.5
-		
-		# Prostitution and police
-		20 = prostitution.1
-		20 = prostitution.2
-		20 = prostitution.3
-		20 = prostitution.4
-		20 = cable_street.1
-
-		#Natural Disasters
-		3 = natural_disaster_events.1
-		3 = natural_disaster_events.2
-		1 = natural_disaster_events.3
-		1 = natural_disaster_events.4
-		3 = natural_disaster_events.5
-		3 = natural_disaster_events.6
-		3 = natural_disaster_events.7
-		1 = natural_disaster_events.8
-		
-		# Assassination
-		10 = assassination_events.1
-
-		# Oil Rush Scandal
-		20 = oil_rush.5
-		
-		#Decree
-		20 = decree_events.1
-		20 = decree_events.2
-		20 = decree_events.3
-		20 = decree_events.4
-		20 = decree_events.5
-		20 = decree_events.6
-		20 = decree_events.100
-		20 = decree_events.101
-		20 = decree_events.102
-		20 = decree_events.103
-		20 = decree_events.104
-		20 = decree_events.105
-		20 = decree_events.106
-		20 = decree_events.107
-		20 = decree_events.108
-		20 = decree_events.109
-		
-		50 = strike.5
-		50 = strike.6
-		50 = strike.7
-
-		10 = south_america.3
-		
-		20 = communism.9
-		10 = communism.7
-		
-		#psychology
-		20 = psychology_events.1
-		20 = psychology_events.2
-		20 = psychology_events.3
-		20 = psychology_events.4
-		20 = psychology_events.5
-		20 = psychology_events.6
-		
-		#nationalism
-		20 = fascism_events.8
-
-		20 = dreadnought_hoax.1
-
-		2 = patagonia.2
-		10 = amazon.1
-		10 = amazon.2
-
-		10 = amazon.4 # The Most Dangerous Game
-
-		20 = autocracy.2
-		20 = autocracy.3
-
-		# rivalry events
-		10 = diplomatic_friction.1
-		10 = diplomatic_friction.2
-		10 = diplomatic_friction.20
-		
-		# Titanic
-		10 = titanic.1
-
-		# trains
-		5 = trains.1
-
-		30 = cholera.1
-
-		# Slave revolts
-		5 = slave_revolt.1
-		5 = slave_revolt.2
-		5 = slave_revolt.3
-
-		# Discrimination Events
-		20 = discrimination_events.1
-		20 = discrimination_events.2
-		20 = discrimination_events.3
-		20 = discrimination_events.4
-
-		# Trade routes
-		20 = trade_route_events.1
-		20 = trade_route_events.2
-		20 = trade_route_events.3
-		20 = trade_route_events.4
-		20 = trade_route_events.5
-		
-		#PMs
-		20 = pm_events.1
-		20 = pm_events.2
-		20 = pm_events.4
-		20 = pm_events.5
-		
-		# Vampire Panic
-		1 = vampire_panic.1
-	}
-
-	# Exiles
-	random_events = {
-		200 = 0
-		10 = exiles_events.1
-		10 = exiles_events.2
-		10 = exiles_events.3
-		10 = exiles_events.4
-		10 = exiles_events.5
-		10 = exiles_events.6
-		10 = exiles_events.7
-		10 = exiles_events.8
-		10 = exiles_events.9
-		10 = exiles_events.10
-
-		10 = exiles_more_events.1
-		10 = exiles_more_events.3
-		10 = exiles_more_events.4
-		10 = exiles_more_events.5
-		5 = exiles_more_events.6
-		10 = exiles_more_events.7
-		10 = exiles_more_events.8
-		10 = exiles_more_events.9
-		10 = exiles_more_events.10
-	}
-	
 	on_actions = { # delay ensures events won't fire simultaneously
+		on_memento_mori # IG leader death
+		on_yearly_events
+		delay = { days = 1 }
+		russian_monarchy_yearly_events
+		delay = { days = 1 }
+		springtime_of_peoples_yearly_events
+		delay = { days = 2 }
+		bp1_misc_yearly_events
+		delay = { days = 3 }
+		indochina_yearly_events
+		ip2_misc_yearly_events
+		delay = { days = 5 }
+		exiles_yearly_events
+		delay = { days = 8 }
+		historical_agitators_yearly_events
+		famine_yearly_events
+		delay = { days = 13 }
+		slavery_abolition_yearly_events
+		delay = { days = 21 }
 		lobby_yearly_events
+		delay = { days = 34 }
+		krakatoa_yearly_events
+		delay = { days = 55 }
+		tunguska_yearly_events
+		delay = { days = 89 }
+		british_dictate_yearly_events
+		ep1_misc_yearly_events
 	}
 	
 }
 on_half_yearly_pulse_country = {
-	
-	# Secession
-	random_events = {
-		20 = secession_events.1
-		20 = secession_events.2
-		20 = secession_events.3
-		20 = secession_events.4
-		20 = secession_events.5
-		20 = secession_events.6
-		20 = secession_events.7
-		20 = secession_events.8
-		20 = secession_events.9
-	}
-	
 	on_actions = { # delay ensures events won't fire simultaneously
+		on_half_yearly_events
+		delay = { days = 4 }
+		silkworm_half_yearly_events
+		delay = { days = 14 }
+		korea_half_yearly_events
+		delay = { days = 17 }
 		lobbies_proposals_half_yearly_events
+		delay = { days = 20 }
+		movement_half_yearly_events
 	}
-
 }
 on_five_year_pulse_country = {
 	events = {
@@ -341,9 +173,14 @@ on_five_year_pulse_country = {
 
 on_decade_pulse_country = {
 	random_events = {
-		99 = 0
+		chance_of_no_event = 95
 		1 = plague.1
 	}
+}
+
+# Only fires for countries with Elections enabled
+on_monthly_pulse_country_elections = {
+	
 }
 
 # Root = Character
@@ -362,11 +199,9 @@ on_monthly_pulse_character = {
 	}
 }
 on_yearly_pulse_character = {
-	random_events = {
-		20 = character_events.1
+	on_actions = {
+		on_wounded
 	}
-
-
 }
 on_half_yearly_pulse_character = {}
 on_five_year_pulse_character = {}
@@ -381,7 +216,14 @@ on_monthly_pulse_state = {
 	}
 
 }
-on_half_yearly_pulse_state = {}
+
+on_half_yearly_pulse_state = {
+	random_events = {
+		delay = { days = 23 }
+		1 = paralegal_discrimination.1
+	}
+}
+
 on_yearly_pulse_state = {
 	random_events = {
 		80 = 0
@@ -627,6 +469,68 @@ on_diplomatic_play_started = {
 
 # Root = Character
 on_character_creation = {
+
+	effect = {
+		set_variable = {
+			name = memento_mori_immunity
+			years = 10
+		}
+		#Politicians always have state religion
+		if = {
+			limit = {
+				is_historical = no
+				interest_group = { 
+					OR = { 
+						is_in_government = yes 
+						is_interest_group_type = ig_devout
+					}
+				}
+				owner ?= {
+					has_law = law_type:law_state_religion
+				}
+				NOT = { owner.religion ?= religion }
+			}
+			if = {
+				limit = { is_ruler = yes }
+				change_character_religion = owner.religion
+			}
+			else = {
+				random_list = {
+					2 = {
+						change_character_religion = owner.religion
+					}
+					1 = {
+						
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_historical = no
+				interest_group = { NOT = { is_interest_group_type = ig_devout } }
+				owner ?= {
+					has_law = law_type:law_state_atheism
+				}
+				NOT = { owner.religion ?= religion }
+			}
+			if = {
+				limit = { is_ruler = yes }
+				change_character_religion = owner.religion
+			}
+			else = {
+				random_list = {
+					2 = {
+						change_character_religion = owner.religion
+					}
+					1 = {
+						
+					}
+				}
+			}
+		}
+	}
+
 }
 
 # Root = Character
@@ -1968,12 +1872,6 @@ on_civil_war_won = {
 	effect = {
 		if = {
 			limit = {
-				has_global_variable = achievement_revo_needed
-			}
-			set_global_variable = achievement_revolutionary
-		}
-		if = {
-			limit = {
 				has_variable = anti_monarchist_revolution
 			}
 			if = {
@@ -1989,6 +1887,13 @@ on_civil_war_won = {
 				add_journal_entry = { type = je_abolish_monarchy }
 			}
 			remove_variable = anti_monarchist_revolution
+		}
+		### Garbage collection
+		if = {
+			limit = {
+				has_variable = civil_war_type_var
+			}
+			remove_variable = civil_war_type_var
 		}
 	}
 }
@@ -2077,6 +1982,30 @@ on_revolution_checkpoint_reached = {
 
 on_secession_checkpoint_reached = {
 	effect = {
+	}
+	random_events = {
+		# Secession events
+		5 = secession_events.1
+		5 = secession_events.2
+		5 = secession_events.3
+		5 = secession_events.4
+		5 = secession_events.5
+		5 = secession_events.6
+		5 = secession_events.7
+		5 = secession_events.8
+		5 = secession_events.9
+		5 = revolution_pulse_events.9
+		5 = revolution_pulse_events.30
+		5 = revolution_pulse1_events.2
+		5 = revolution_pulse1_events.6
+		5 = revolution_pulse1_events.11
+		5 = revolution_pulse1_events.12
+		5 = revolution_pulse1_events.15
+		5 = revolution_pulse1_events.16
+		5 = revolution_pulse1_events.17
+		5 = revolution_pulse1_events.18
+		5 = revolution_pulse1_events.19
+		5 = revolution_pulse2_events.5
 	}
 }
 
@@ -2284,10 +2213,10 @@ on_war_end = {
 		        days = 1825
 		        value = yes
 		    } 
-		    #set_variable = { #Available to use whenever needed
-		    #	name = most_recent_war_opponent
-		    #	value = scope:target
-		    #}
+		    set_variable = { #Available to use whenever needed
+		    	name = most_recent_war_opponent
+		    	value = scope:target
+		    }
 		}
 		scope:target = {
 			set_variable = {
@@ -2295,12 +2224,12 @@ on_war_end = {
 		        days = 1825
 		        value = yes
 		    }
-		    #set_variable = { 
-		    #	name = most_recent_war_opponent
-		    #	value = scope:actor
-		    #}
+		    set_variable = { 
+		    	name = most_recent_war_opponent
+		    	value = scope:actor
+		    }
 		}
-	}	
+	}
 }
 
 # Root = journal entry
@@ -2335,10 +2264,40 @@ on_native_uprising = {
 	}
 }
 
+# Root = country
+# scope:area = harvest condition area
+# scope:state = affected state with the highest intensity
+# scope:duration = duration of the harvest condition in days
+# scope:num_states = the number of affected states in the country
+# scope:intensity = the highest intensity of the affected states
+on_harvest_condition_started_in_country = {
+	effect = {
+		if = {
+			limit = {
+				scope:intensity > 3
+			}
+			post_notification = harvest_condition_started_in_country_important
+		}
+		else = {
+			post_notification = harvest_condition_started_in_country
+		}
+	}
+}
+
 # Root = state
 on_state_incorporation = {
 	effect = {
 		
+	}
+}
+on_state_owner_change = {
+	effect = {
+		assign_state_hub_dynamic_names = yes # All dynamic naming is handled by this scripted effect
+	}
+}
+on_state_created = { 
+	effect = { 
+		assign_state_hub_dynamic_names = yes # All dynamic naming is handled by this scripted effect
 	}
 }
 
@@ -2472,6 +2431,10 @@ on_government_reformed = {
 			}
 		}
 		
+	}
+	events = {
+		politicians_system.2
+		politicians_system.3
 	}
 }
 
@@ -2623,6 +2586,24 @@ on_character_recruitment = {
 					}
 				}
 			}
+		}
+	}
+}
+
+# Root = country
+on_become_subject = {
+	effect = {
+		every_scope_state = {
+			assign_state_hub_dynamic_names = yes # All dynamic naming is handled by this scripted effect
+		}
+	}
+}
+
+# Root = country
+on_become_independent = {
+	effect = { 
+		every_scope_state = {
+			assign_state_hub_dynamic_names = yes # All dynamic naming is handled by this scripted effect
 		}
 	}
 }

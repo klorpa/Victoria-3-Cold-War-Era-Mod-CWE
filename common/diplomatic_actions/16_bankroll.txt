@@ -27,6 +27,7 @@
 		}
 		has_diplomatic_relevance = scope:target_country
 		is_revolutionary = no is_secessionist = no
+		has_healthy_economy = yes
 		in_default = no
 		country_rank > scope:target_country.country_rank
 	}
@@ -43,6 +44,7 @@
 		relations_improvement_max = 100
 		
 		income_transfer = 0.25
+		max_paying_country_income_to_transfer = 0.10
 		second_country_gets_income_transfer = yes
 		income_transfer_based_on_second_country = yes
 		
@@ -127,6 +129,7 @@
 					
 				}
 				
+				has_healthy_economy = yes
 				in_default = no
 				
 				OR = {
@@ -144,6 +147,16 @@
 			
 		}
 		
+		requirement_to_maintain = {
+		
+			trigger = {
+			
+				NOT = { has_modifier = imf_loan_debtor }
+				
+			}
+			
+		}
+		
 	}
 	
 	accept_effect = {
@@ -157,7 +170,8 @@
 			FACTOR = appeasement_defensive_pact_formed
 		}
 	
-		change_relations = { country = scope:target_country value = 25 }
+		#Gain relations incrementally
+		#change_relations = { country = scope:target_country value = 25 }
 		
 		#Notification
 		if = {

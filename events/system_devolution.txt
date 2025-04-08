@@ -39,6 +39,9 @@ devolution_system.1 = {
 		#Only 1 decolonisation tag in the world at anytime
 		NOT = { exists = c:XFC }
 		
+		#Devolution is legally permitted
+		relinquishing_of_territory_permitted = yes
+		
 		#Owns Incorpoated Non-Core States (ie. states that THIS does not have cores in and is unincorporated)
 		any_scope_state = {
 			capable_of_release_devolution = yes
@@ -47,7 +50,7 @@ devolution_system.1 = {
 			
 			#Only discriminated want devolution
 			any_scope_culture = {
-				culture_is_discriminated_in = ROOT
+				ROOT = { cultural_acceptance_base = { target = prev value < acceptance_status_5 } }
 			}
 		}
 		
@@ -63,7 +66,7 @@ devolution_system.1 = {
 				
 				#Only discriminated want devolution
 				any_scope_culture = {
-					culture_is_discriminated_in = ROOT
+					ROOT = { cultural_acceptance_base = { target = prev value < acceptance_status_5 } }
 				}
 			}
 			save_scope_as = state_to_release
@@ -71,7 +74,7 @@ devolution_system.1 = {
 				limit = { 
 					has_homeland = scope:state_to_release
 					NOT = { is_primary_culture_of = ROOT }
-					culture_is_discriminated_in = ROOT
+					ROOT = { cultural_acceptance_base = { target = prev value < acceptance_status_5 } }
 				}
 				save_scope_as = culture_to_release
 			}
@@ -229,8 +232,9 @@ devolution_system.1 = {
 		
 		ai_chance = {
 			base = 90
-			modifier = { trigger = { game_date < 1980.1.1 has_global_variable = historical_railroading_active } add = -100 }
-			modifier = { trigger = { ruler = { NOR = { has_ideology = ideology:ideology_democratic has_ideology = ideology:ideology_liberal } } } add = -100 }
+			modifier = { trigger = { game_date < 2000.1.1 has_global_variable = historical_railroading_active } add = -100 }
+			modifier = { trigger = { ruler ?= { NOR = { has_ideology = ideology:ideology_democratic has_ideology = ideology:ideology_liberal } } } add = -100 }
+			modifier = { trigger = { country_rank >= rank_value:great_power } add = -100 }
 		}
 		
     }

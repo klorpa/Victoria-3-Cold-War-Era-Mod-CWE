@@ -3,7 +3,32 @@
 pmg_bureaucracy_government = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
 	production_methods = {
-		pm_bureaucracy_government
+		pm_bureaucracy_government_1
+		pm_bureaucracy_government_2
+		pm_bureaucracy_government_3
+		pm_bureaucracy_government_4
+		pm_bureaucracy_government_5
+	}
+}
+
+pmg_essential_services_government = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_essential_services_government_0
+		pm_essential_services_government_1
+		pm_essential_services_government_2
+		pm_essential_services_government_3
+	}
+}
+
+pmg_security_services_government = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_security_services_government_0
+		pm_security_services_government_1
+		pm_security_services_government_2
+		pm_security_services_government_3
+		pm_security_services_government_4
 	}
 }
 

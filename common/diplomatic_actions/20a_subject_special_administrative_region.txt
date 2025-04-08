@@ -29,8 +29,14 @@
 		
 		subject_type = subject_type_special_administrative_region
 		
+		second_modifier = {
+			country_law_enactment_imposition_success_add = 0.1
+			country_convoy_contribution_to_market_owner_add = 0.5
+		}
+		
 		actor_can_break = {
 			is_diplomatic_play_committed_participant = no
+			relinquishing_of_subjects_permitted = yes
 		}
 
 		target_can_break = {
@@ -48,10 +54,6 @@
 	
 	ai = {
 		check_acceptance_for_will_break = yes
-		
-		evaluation_chance = {
-			value = 0.25		
-		}
 		
 		will_break = {
 			is_subject_of = scope:target_country

@@ -14,25 +14,28 @@
 #
 
 country_has_voting_franchise = {
-	OR = {
-		modifier:country_voting_power_base_add > 0
-		modifier:country_voting_power_from_literacy_add > 0
-		modifier:country_voting_power_wealth_threshold_add > 0
-		modifier:country_academics_voting_power_add > 0
-		modifier:country_aristocrats_voting_power_add > 0
-		modifier:country_bureaucrats_voting_power_add > 0
-		modifier:country_capitalists_voting_power_add > 0
-		modifier:country_clergymen_voting_power_add > 0
-		modifier:country_clerks_voting_power_add > 0
-		modifier:country_engineers_voting_power_add > 0
-		modifier:country_farmers_voting_power_add > 0
-		modifier:country_laborers_voting_power_add > 0
-		modifier:country_machinists_voting_power_add > 0
-		modifier:country_officers_voting_power_add > 0
-		modifier:country_peasants_voting_power_add > 0
-		modifier:country_shopkeepers_voting_power_add > 0
-		modifier:country_slaves_voting_power_add > 0
-		modifier:country_soldiers_voting_power_add > 0
+	custom_tooltip = {
+		text = is_democratic_tt
+		OR = {
+			modifier:country_voting_power_base_add > 0
+			modifier:country_voting_power_from_literacy_add > 0
+			modifier:country_voting_power_wealth_threshold_add > 0
+			modifier:country_academics_voting_power_add > 0
+			modifier:country_aristocrats_voting_power_add > 0
+			modifier:country_bureaucrats_voting_power_add > 0
+			modifier:country_capitalists_voting_power_add > 0
+			modifier:country_clergymen_voting_power_add > 0
+			modifier:country_clerks_voting_power_add > 0
+			modifier:country_engineers_voting_power_add > 0
+			modifier:country_farmers_voting_power_add > 0
+			modifier:country_laborers_voting_power_add > 0
+			modifier:country_machinists_voting_power_add > 0
+			modifier:country_officers_voting_power_add > 0
+			modifier:country_peasants_voting_power_add > 0
+			modifier:country_shopkeepers_voting_power_add > 0
+			modifier:country_slaves_voting_power_add > 0
+			modifier:country_soldiers_voting_power_add > 0
+		}
 	}
 }
 
@@ -51,7 +54,7 @@ country_can_form_power_bloc = {
 			}
 			is_revolutionary = no
 		}
-		country_rank >= rank_value:unrecognized_regional_power
+		country_rank >= rank_value:unrecognized_major_power
 	}
 }
 
@@ -1172,9 +1175,15 @@ has_radical_leftist_economy = {
 	}
 }
 
+any_secession_ongoing = {
+	any_political_movement = {
+		is_secessionist = yes
+	}
+}
+
 any_revolution_ongoing = {
 	any_political_movement = {
-		is_revolutionary_movement = yes
+		is_revolutionary = yes
 	}
 }
 
@@ -1182,9 +1191,9 @@ socialist_revolution_ongoing = {
 	custom_tooltip = {
 		text = socialist_revolution_ongoing_tt
 		any_political_movement = {
-			is_revolutionary_movement = yes
+			is_revolutionary = yes
 			OR = {
-				any_supporting_interest_group = {
+				any_influenced_interest_group = {
 					law_stance = {
 						law = law_type:law_HOS_communist_leader
 						value > neutral
@@ -1206,9 +1215,9 @@ liberal_revolution_ongoing = {
 	custom_tooltip = {
 		text = liberal_revolution_ongoing_tt
 		any_political_movement = {
-			is_revolutionary_movement = yes
+			is_revolutionary = yes
 			OR = {
-				any_supporting_interest_group = {
+				any_influenced_interest_group = {
 					OR = {
 						has_ideology = ideology:ideology_republican
 						has_ideology = ideology:ideology_liberal
@@ -1262,9 +1271,9 @@ reactionary_revolution_ongoing = {
 	custom_tooltip = {
 		text = reactionary_revolution_ongoing_tt
 		any_political_movement = {
-			is_revolutionary_movement = yes
+			is_revolutionary = yes
 			OR = {
-				any_supporting_interest_group = {
+				any_influenced_interest_group = {
 					OR = {
 						has_ideology = ideology:ideology_pro_slavery
 						has_ideology = ideology:ideology_paternalistic
@@ -1435,11 +1444,39 @@ revolution_progress_high = {
 	}
 }
 
+secession_progress_low = {
+	any_civil_war = {
+		civil_war_progress >= 0
+		NOT = {
+			civil_war_progress >= 0.34
+		}
+		is_civil_war_type = secession
+	}
+}
+
+secession_progress_medium = {
+	any_civil_war = {
+		civil_war_progress >= 0.34
+		NOT = {
+			civil_war_progress >= 0.67
+		}
+		is_civil_war_type = secession
+	}
+}
+
+secession_progress_high = {
+	any_civil_war = {
+		civil_war_progress >= 0.67
+		is_civil_war_type = secession
+	}
+}
+
 government_ig_supports_enaction = {
+	exists = currently_enacting_law
 	any_interest_group = {
 		is_marginal = no
 		is_in_government = yes
-		law_stance = {
+		law_enactment_stance = {
 			law = owner.currently_enacting_law.type
 			value > neutral
 		}
@@ -1447,27 +1484,22 @@ government_ig_supports_enaction = {
 }
 
 movement_supports_enaction = {
+	exists = currently_enacting_law
 	any_political_movement = {
-		OR = {	
-			is_political_movement_type = movement_to_enact
-			is_political_movement_type = movement_to_restore	
-		}
-		desired_law = root.currently_enacting_law.type
+		law_enactment_stance = {
+			law = owner.currently_enacting_law.type
+			value > neutral
+		}	
 	}
 }
 
 agitator_supports_enaction = {
+	exists = currently_enacting_law
 	any_scope_character = {
 		has_role = agitator
-		law_stance = {
+		law_enactment_stance = {
 			law = owner.currently_enacting_law.type
 			value > neutral
-		}
-		NOT = {
-			law_stance = {
-				law = owner.currently_enacting_law.type
-				value > strongly_approve # Equals 'count'
-			}
 		}
 	}
 }
@@ -1476,7 +1508,7 @@ government_ig_opposes_enaction = {
 	any_interest_group = {
 		is_marginal = no
 		is_in_government = yes
-		law_stance = {
+		law_enactment_stance = {
 			law = owner.currently_enacting_law.type
 			value < neutral
 		}
@@ -1484,23 +1516,21 @@ government_ig_opposes_enaction = {
 }
 
 movement_opposes_enaction = {
+	exists = currently_enacting_law
 	any_political_movement = {
-		is_political_movement_type = movement_to_preserve
+		law_enactment_stance = {
+			law = owner.currently_enacting_law.type
+			value < neutral
+		}	
 	}
 }
 
 agitator_opposes_enaction = {
 	any_scope_character = {
 		has_role = agitator
-		law_stance = {
+		law_enactment_stance = {
 			law = owner.currently_enacting_law.type
 			value < neutral
-		}
-		NOT = {
-			law_stance = {
-				law = owner.currently_enacting_law.type
-				value > strongly_approve # Equals 'count'
-			}
 		}
 	}
 }
@@ -1509,7 +1539,7 @@ government_ig_ambivalent_enaction = {
 	any_interest_group = {
 		is_marginal = no
 		is_in_government = yes
-		law_stance = {
+		law_enactment_stance = {
 			law = owner.currently_enacting_law.type
 			value = neutral
 		}

@@ -85,6 +85,49 @@ CHARACTERS = {
 			}
 		}
 	}
+	c:NOR = {
+		create_character = {
+			first_name = "Trygve_Lie_first_name"
+			last_name = "Trygve_Lie_last_name"
+			is_agitator = yes historical = yes
+			birth_date = 1921.5.21
+			interest_group = ig_trade_unions
+			ideology = ideology_agitator_pro_human_rights
+			culture = cu:norwegian
+			religion = rel:catholic
+			traits = {
+				direct
+				persistent
+				experienced_diplomat
+			}
+			on_created = {
+				set_character_as_UNSG = yes
+				set_variable = Trygve_Lie
+			}
+		}
+	}
+	c:ITA = {
+		create_character = {
+			first_name = "Pius_XII_first_name"
+			last_name = "Pius_XII_last_name"
+			is_agitator = yes historical = yes
+			birth_date = 1876.3.2
+			interest_group = ig_devout
+			ideology = ideology_agitator_anti_war_rights
+			culture = cu:italian
+			religion = rel:catholic
+			traits = {
+				direct
+				brave
+				pious
+				healthy_character
+			}
+			on_created = { 
+				set_variable = Pius_XII 
+				set_character_as_pope = yes
+			}
+		}
+	}
 	
 	### Asia ###
 	c:JAP = {
@@ -120,6 +163,23 @@ CHARACTERS = {
 			}
 		}
     }
+	c:PRC = {
+		create_character = {
+			first_name = "puyi_first_name"
+			last_name = "puyi_last_name"
+			birth_date = 1906.2.7
+			is_agitator = yes historical = yes
+			interest_group = ig_landowners
+			ideology = ideology_agitator_monarchist
+			culture = cu:manchu
+			traits = {
+				reserved
+				pious
+				war_criminal
+			}
+			on_created = { set_variable	= puyi }
+		}
+	}
 	
 	### South East Asia ###
 	c:MLY = {

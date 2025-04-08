@@ -10,6 +10,8 @@ je_imf_system = {
 	scripted_button = je_imf_system_buy_sdr_button
 	scripted_button = je_imf_system_sell_sdr_button
 	
+	scripted_button = je_imf_system_request_loan_resume_button
+	
 	is_shown_when_inactive = {
 		
 		#THIS is a member of the UN
@@ -47,8 +49,7 @@ je_imf_system = {
 		
 		effect = {
 			
-			#Calculate SDR values
-			calculate_SDR_values_full = yes
+			
 			
 		}
 	
@@ -102,6 +103,7 @@ je_imf_system = {
 		remove_variable = SDR_local_amount_display
 		remove_variable = SDR_global_amount_display
 		remove_variable = SDR_local_actual_amount
+		remove_variable = SDR_local_actual_amount_display
 		remove_variable = SDR_buy_local_gold_reserve_minimum
 		remove_variable = SDR_sell_local_gold_reserve_minimum
 		

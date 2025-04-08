@@ -374,7 +374,7 @@ healthcare_laws.5 = {
 		}
 		scope:anti_public_healthcare_ig = {
 			add_modifier = {
-				name = healthcare_debate_ig_ignored
+				name = healthcare_debate_ig_concerns_heard
 				months = normal_modifier_time
 			}
 		}
@@ -457,13 +457,13 @@ healthcare_laws.6 = { #Healthcare too expensive
 			1 = {
 				add_enactment_modifier = {
 					name = right_to_care
-					multiplier = 3
+					multiplier = 2
 				}
 			}
 			3 = {
 				add_enactment_modifier = {
 					name = right_to_care
-					multiplier = 2
+					multiplier = 1
 				}
 			}
 		}

@@ -1,0 +1,32 @@
+﻿default_social_hierarchy = {
+	is_default = yes
+}
+
+feudalist_social_hierarchy = {
+	
+}
+
+theocratic_social_hierarchy = {
+	
+}
+
+nationalist_social_hierarchy = {
+	
+}
+
+communist_social_hierarchy = {
+	
+}
+
+oligarchic_social_hierarchy = {
+
+}
+
+british_indian_caste_system = {
+	pop_criteria = {
+		custom_tooltip = {
+			text = british_indian_caste_system_trigger_desc
+			has_pop_religion = hindu
+		}
+	}
+}

@@ -3,9 +3,11 @@
 ideology_autocratic = {
 	icon = "gfx/interface/icons/ideology_icons/ideology_leader/authoritarian.dds"
 	
+	#show_in_list = no
+	
 	character_ideology = yes
 	
-	possible = {
+	non_interest_group_leader_trigger = {
 		NOT = { has_role = agitator }
 	}
 	
@@ -108,7 +110,8 @@ ideology_autocratic = {
 	lawgroup_political_parties = {
 		law_parties_not_allowed = strongly_approve
 		law_single_party_state = approve
-		law_parties_allowed = disapprove
+		law_dominant_party_state = disapprove
+		law_parties_allowed = strongly_disapprove
 	}
 	
 	lawgroup_distribution_of_power = {
@@ -133,27 +136,206 @@ ideology_autocratic = {
 		law_very_high_anti_corruption = strongly_disapprove
 	}
 	
-	leader_weight = {
+	lawgroup_free_speech = {
+		law_outlawed_dissent = strongly_approve
+		law_censorship = approve
+		law_limited_free_speech = disapprove
+		law_full_free_speech = strongly_disapprove
+	}
+	
+	lawgroup_internal_security = {
+		law_no_secret_police = disapprove
+		law_secret_police = approve
+	}
+	
+	lawgroup_policing = {
+		law_lenient_policing = strongly_disapprove
+		law_balanced_policing = disapprove
+		law_strict_policing = approve
+		law_draconian_policing = strongly_approve
+	}
+	
+	lawgroup_social_mobility_1 = {
+		law_social_hierarchy_1_enforced = strongly_approve
+		law_social_hierarchy_1_codified = approve
+		law_social_hierarchy_1_not_enforced = disapprove
+		law_social_hierarchy_1_affirmative_action = strongly_disapprove
+	}
+	lawgroup_social_mobility_2 = {
+		law_social_hierarchy_2_enforced = strongly_approve
+		law_social_hierarchy_2_codified = approve
+		law_social_hierarchy_2_not_enforced = disapprove
+		law_social_hierarchy_2_affirmative_action = strongly_disapprove
+	}
+	lawgroup_social_mobility_3 = {
+		law_social_hierarchy_3_enforced = strongly_approve
+		law_social_hierarchy_3_codified = approve
+		law_social_hierarchy_3_not_enforced = disapprove
+		law_social_hierarchy_3_affirmative_action = strongly_disapprove
+	}
+	lawgroup_social_mobility_4 = {
+		law_social_hierarchy_4_enforced = strongly_approve
+		law_social_hierarchy_4_codified = approve
+		law_social_hierarchy_4_not_enforced = disapprove
+		law_social_hierarchy_4_affirmative_action = strongly_disapprove
+	}
+	lawgroup_social_mobility_5 = {
+		law_social_hierarchy_5_enforced = strongly_approve
+		law_social_hierarchy_5_codified = approve
+		law_social_hierarchy_5_not_enforced = disapprove
+		law_social_hierarchy_5_affirmative_action = strongly_disapprove
+	}
+	
+	lawgroup_secession_rights = {
+		law_no_secession_rights = strongly_approve
+		law_limited_secession_rights = disapprove
+		law_full_secession_rights = strongly_disapprove
+	}
+	
+	interest_group_leader_weight = {
 		value = 100	
 		
 		# Effect of Party Lean
 		if = {
 			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-					has_party = yes
-				}
+				is_in_government = yes
+				#has_party = yes
 				owner = {
 					has_variable = very_radical_party
 				}
 			}
-			add = 100
+			add = 1000
+		}
+		# Effect of existing IG leader
+		else_if = {
+			limit = {
+				is_in_government = yes
+				#has_party = no
+				owner = {
+					government_legitimacy >= 50
+				}
+				leader ?= { has_ideology = ideology:ideology_autocratic }
+			}
+			add = 500
 		}
 		
 		# angry IGs are more likely to have autocratic opinions
 		if = {
 			limit = {
-				scope:interest_group = {
+				ig_approval < -5
+			}
+			add = 25
+		}
+		if = {
+			limit = {
+				ig_approval < -10
+			}
+			add = 50
+		}
+		
+		# IGs in power are more likely to have autocratic opinions
+		if = {
+			limit = {
+				is_in_government = yes
+			}
+			add = 50
+		}
+		
+		# more likely if you border a rival
+		if = {
+			limit = {
+				owner = {
+					any_rival_country = {
+						any_neighbouring_state = {
+							owner = root.owner
+						}
+					}
+				}
+			}
+			add = 25
+		}
+		# more likely if you're the defender in a war
+		if = {
+			limit = {
+				owner = {
+					is_at_war = yes
+					any_scope_war = {
+						defender_warleader = { this = ROOT.owner }
+					}
+				}
+			}
+			add = 25
+		}
+		
+		# Cycle of life
+		if = {
+			limit = {
+				is_in_government = no
+				owner = { is_a_democracy = yes }
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				is_in_government = no
+				owner = { is_a_dictatorship = yes }
+			}
+			add = -50
+		}
+		
+		# National Values
+		if = {
+			limit = {
+				owner = { has_modifier = order_national_value }
+			}
+			add = 25
+		}
+		
+		# World Tension
+		if = {
+			limit = {
+				owner = { has_global_variable = very_high_world_tension }
+			}
+			add = 25
+		}
+		
+	}
+	
+	non_interest_group_leader_weight = {
+		value = 100	
+		
+		# Effect of Party Lean
+		if = {
+			limit = {
+				interest_group = {
+					is_in_government = yes
+					#has_party = yes
+				}
+				owner = {
+					has_variable = very_radical_party
+				}
+			}
+			add = 1000
+		}
+		# Effect of existing IG leader
+		else_if = {
+			limit = {
+				interest_group = { 
+					is_in_government = yes
+					leader ?= { has_ideology = ideology:ideology_autocratic }
+				}
+				#has_party = no
+				owner = {
+					government_legitimacy >= 50
+				}
+			}
+			add = 500
+		}
+		
+		# angry IGs are more likely to have autocratic opinions
+		if = {
+			limit = {
+				interest_group = {
 					ig_approval < -5
 				}
 			}
@@ -161,7 +343,7 @@ ideology_autocratic = {
 		}
 		if = {
 			limit = {
-				scope:interest_group = {
+				interest_group = {
 					ig_approval < -10
 				}
 			}
@@ -171,7 +353,7 @@ ideology_autocratic = {
 		# IGs in power are more likely to have autocratic opinions
 		if = {
 			limit = {
-				scope:interest_group = {
+				interest_group = {
 					is_in_government = yes
 				}
 			}
@@ -207,8 +389,8 @@ ideology_autocratic = {
 		# Cycle of life
 		if = {
 			limit = {
-				scope:interest_group = {
-					is_in_government = no
+				interest_group = { 
+					is_in_government = no 
 				}
 				owner = { is_a_democracy = yes }
 			}
@@ -216,8 +398,8 @@ ideology_autocratic = {
 		}
 		if = {
 			limit = {
-				scope:interest_group = {
-					is_in_government = no
+				interest_group = { 
+					is_in_government = no 
 				}
 				owner = { is_a_dictatorship = yes }
 			}
@@ -247,9 +429,11 @@ ideology_autocratic = {
 ideology_power_hungry = {
 	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_jingoist.dds"
 	
+	#show_in_list = no
+	
 	character_ideology = yes
 	
-	possible = {
+	non_interest_group_leader_trigger = {
 		NOT = { has_role = agitator }
 	}
 	
@@ -352,7 +536,8 @@ ideology_power_hungry = {
 	lawgroup_political_parties = {
 		law_parties_not_allowed = approve
 		law_single_party_state = strongly_approve
-		law_parties_allowed = disapprove
+		law_dominant_party_state = disapprove
+		law_parties_allowed = strongly_disapprove
 	}
 	
 	lawgroup_distribution_of_power = {
@@ -377,37 +562,99 @@ ideology_power_hungry = {
 		law_very_high_anti_corruption = strongly_disapprove
 	}
 	
-	leader_weight = {
+	lawgroup_free_speech = {
+		law_outlawed_dissent = approve
+		law_censorship = strongly_approve
+		law_limited_free_speech = disapprove
+		law_full_free_speech = strongly_disapprove
+	}
+	
+	lawgroup_internal_security = {
+		law_no_secret_police = disapprove
+		law_secret_police = approve
+	}
+	
+	lawgroup_policing = {
+		law_lenient_policing = strongly_disapprove
+		law_balanced_policing = disapprove
+		law_strict_policing = strongly_approve
+		law_draconian_policing = approve
+	}
+	
+	lawgroup_social_mobility_1 = {
+		law_social_hierarchy_1_enforced = approve
+		law_social_hierarchy_1_codified = strongly_approve
+		law_social_hierarchy_1_not_enforced = disapprove
+		law_social_hierarchy_1_affirmative_action = strongly_disapprove
+	}
+	lawgroup_social_mobility_2 = {
+		law_social_hierarchy_2_enforced = approve
+		law_social_hierarchy_2_codified = strongly_approve
+		law_social_hierarchy_2_not_enforced = disapprove
+		law_social_hierarchy_2_affirmative_action = strongly_disapprove
+	}
+	lawgroup_social_mobility_3 = {
+		law_social_hierarchy_3_enforced = approve
+		law_social_hierarchy_3_codified = strongly_approve
+		law_social_hierarchy_3_not_enforced = disapprove
+		law_social_hierarchy_3_affirmative_action = strongly_disapprove
+	}
+	lawgroup_social_mobility_4 = {
+		law_social_hierarchy_4_enforced = approve
+		law_social_hierarchy_4_codified = strongly_approve
+		law_social_hierarchy_4_not_enforced = disapprove
+		law_social_hierarchy_4_affirmative_action = strongly_disapprove
+	}
+	lawgroup_social_mobility_5 = {
+		law_social_hierarchy_5_enforced = approve
+		law_social_hierarchy_5_codified = strongly_approve
+		law_social_hierarchy_5_not_enforced = disapprove
+		law_social_hierarchy_5_affirmative_action = strongly_disapprove
+	}
+	
+	lawgroup_secession_rights = {
+		law_no_secession_rights = strongly_approve
+		law_limited_secession_rights = disapprove
+		law_full_secession_rights = strongly_disapprove
+	}
+	
+	interest_group_leader_weight = {
 		value = 100	
 		
 		# Effect of Party Lean
 		if = {
 			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-					has_party = yes
-				}
+				is_in_government = yes
+				#has_party = yes
 				owner = {
 					has_variable = radical_party
 				}
 			}
-			add = 100
+			add = 1000
+		}
+		# Effect of existing IG leader
+		else_if = {
+			limit = {
+				is_in_government = yes
+				#has_party = no
+				owner = {
+					government_legitimacy >= 50
+				}
+				leader ?= { has_ideology = ideology:ideology_power_hungry }
+			}
+			add = 500
 		}
 		
 		# angry IGs are more likely to have autocratic opinions
 		if = {
 			limit = {
-				scope:interest_group = {
-					ig_approval < 0
-				}
+				ig_approval < 0
 			}
 			add = 25
 		}
 		if = {
 			limit = {
-				scope:interest_group = {
-					ig_approval < -5
-				}
+				ig_approval < -5
 			}
 			add = 50
 		}
@@ -415,9 +662,7 @@ ideology_power_hungry = {
 		# IGs in power are more likely to have autocratic opinions
 		if = {
 			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-				}
+				is_in_government = yes
 			}
 			add = 50
 		}
@@ -425,18 +670,14 @@ ideology_power_hungry = {
 		# Cycle of life
 		if = {
 			limit = {
-				scope:interest_group = {
-					is_in_government = no
-				}
+				is_in_government = no
 				owner = { is_a_democracy = yes }
 			}
 			add = 50
 		}
 		if = {
 			limit = {
-				scope:interest_group = {
-					is_in_government = no
-				}
+				is_in_government = no
 				owner = { is_a_dictatorship = yes }
 			}
 			add = -50
@@ -459,14 +700,110 @@ ideology_power_hungry = {
 		}
 		
 	}
+	
+	non_interest_group_leader_weight = {
+		value = 100	
+		
+		# Effect of Party Lean
+		if = {
+			limit = {
+				interest_group = {
+					is_in_government = yes
+					#has_party = yes
+				}
+				owner = {
+					has_variable = radical_party
+				}
+			}
+			add = 1000
+		}
+		# Effect of existing IG leader
+		else_if = {
+			limit = {
+				interest_group = { 
+					is_in_government = yes
+					leader ?= { has_ideology = ideology:ideology_power_hungry }
+				}
+				#has_party = no
+				owner = {
+					government_legitimacy >= 50
+				}
+			}
+			add = 500
+		}
+		
+		# angry IGs are more likely to have autocratic opinions
+		if = {
+			limit = {
+				interest_group = {
+					ig_approval < 0
+				}
+			}
+			add = 25
+		}
+		if = {
+			limit = {
+				interest_group = {
+					ig_approval < -5
+				}
+			}
+			add = 50
+		}
+		
+		# IGs in power are more likely to have autocratic opinions
+		if = {
+			limit = {
+				interest_group = {
+					is_in_government = yes
+				}
+			}
+			add = 50
+		}
+		
+		# Cycle of life
+		if = {
+			limit = {
+				interest_group = { is_in_government = no }
+				owner = { is_a_democracy = yes }
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				interest_group = { is_in_government = no }
+				owner = { is_a_dictatorship = yes }
+			}
+			add = -50
+		}
+		
+		# National Values
+		if = {
+			limit = {
+				owner = { has_modifier = order_national_value }
+			}
+			add = 25
+		}
+		
+		# World Tension
+		if = {
+			limit = {
+				owner = { has_global_variable = high_world_tension }
+			}
+			add = 25
+		}
+		
+	}
+	
 }
 
 ideology_elitist = {
 	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_radical.dds"
 	
+	#show_in_list = no
+	
 	character_ideology = yes
 	
-	possible = {
+	non_interest_group_leader_trigger = {
 		NOT = { has_role = agitator }
 	}
 	
@@ -567,8 +904,9 @@ ideology_elitist = {
 	}
 	
 	lawgroup_political_parties = {
-		law_parties_not_allowed = disapprove
-		law_single_party_state = neutral
+		law_parties_not_allowed = strongly_disapprove
+		law_single_party_state = disapprove
+		law_dominant_party_state = strongly_approve
 		law_parties_allowed = approve
 	}
 	
@@ -594,27 +932,131 @@ ideology_elitist = {
 		law_very_high_anti_corruption = disapprove
 	}
 	
-	leader_weight = {
+	lawgroup_social_mobility_1 = {
+		law_social_hierarchy_1_enforced = disapprove
+		law_social_hierarchy_1_codified = approve
+		law_social_hierarchy_1_not_enforced = neutral
+		law_social_hierarchy_1_affirmative_action = disapprove
+	}
+	lawgroup_social_mobility_2 = {
+		law_social_hierarchy_2_enforced = disapprove
+		law_social_hierarchy_2_codified = approve
+		law_social_hierarchy_2_not_enforced = neutral
+		law_social_hierarchy_2_affirmative_action = disapprove
+	}
+	lawgroup_social_mobility_3 = {
+		law_social_hierarchy_3_enforced = disapprove
+		law_social_hierarchy_3_codified = approve
+		law_social_hierarchy_3_not_enforced = neutral
+		law_social_hierarchy_3_affirmative_action = disapprove
+	}
+	lawgroup_social_mobility_4 = {
+		law_social_hierarchy_4_enforced = disapprove
+		law_social_hierarchy_4_codified = approve
+		law_social_hierarchy_4_not_enforced = neutral
+		law_social_hierarchy_4_affirmative_action = disapprove
+	}
+	lawgroup_social_mobility_5 = {
+		law_social_hierarchy_5_enforced = disapprove
+		law_social_hierarchy_5_codified = approve
+		law_social_hierarchy_5_not_enforced = neutral
+		law_social_hierarchy_5_affirmative_action = disapprove
+	}
+	
+	lawgroup_secession_rights = {
+		law_no_secession_rights = disapprove
+		law_limited_secession_rights = approve
+		law_full_secession_rights = disapprove
+	}
+	
+	interest_group_leader_weight = {
 		value = 100	
 		
 		# Effect of Party Lean
 		if = {
 			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-					has_party = yes
-				}
+				is_in_government = yes
+				#has_party = yes
 				owner = {
 					has_variable = moderate_party
 				}
 			}
-			add = 100
+			add = 1000
+		}
+		# Effect of existing IG leader
+		else_if = {
+			limit = {
+				is_in_government = yes
+				#has_party = no
+				owner = {
+					government_legitimacy >= 50
+				}
+				leader ?= { has_ideology = ideology:ideology_elitist }
+			}
+			add = 500
 		}
 		
 		# IGs in power are more likely to have autocratic opinions
 		if = {
 			limit = {
-				scope:interest_group = {
+				is_in_government = yes
+			}
+			add = 50
+		}
+		
+		# National Values
+		if = {
+			limit = {
+				owner = { has_modifier = equality_national_value }
+			}
+			add = 25
+		}
+		
+		# World Tension
+		if = {
+			limit = {
+				owner = { has_global_variable = medium_world_tension }
+			}
+			add = 25
+		}
+		
+	}
+	
+	non_interest_group_leader_weight = {
+		value = 100	
+		
+		# Effect of Party Lean
+		if = {
+			limit = {
+				interest_group = {
+					is_in_government = yes
+					#has_party = yes
+				}
+				owner = {
+					has_variable = moderate_party
+				}
+			}
+			add = 1000
+		}
+		# Effect of existing IG leader
+		else_if = {
+			limit = {
+				interest_group = { 
+					is_in_government = yes
+					leader ?= { has_ideology = ideology:ideology_elitist }
+				}
+				#has_party = no
+				owner = {
+					government_legitimacy >= 50
+				}
+			}
+			add = 500
+		}
+		
+		# IGs in power are more likely to have autocratic opinions
+		if = {
+			limit = {
+				interest_group = {
 					is_in_government = yes
 				}
 			}
@@ -644,9 +1086,11 @@ ideology_elitist = {
 ideology_democratic = {
 	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_reformer.dds"
 	
+	#show_in_list = no
+	
 	character_ideology = yes
 	
-	possible = {
+	non_interest_group_leader_trigger = {
 		NOT = { has_role = agitator }
 	}
 	
@@ -747,8 +1191,9 @@ ideology_democratic = {
 	}
 	
 	lawgroup_political_parties = {
-		law_parties_not_allowed = disapprove
+		law_parties_not_allowed = strongly_disapprove
 		law_single_party_state = disapprove
+		law_dominant_party_state = disapprove
 		law_parties_allowed = strongly_approve
 	}
 	
@@ -774,6 +1219,62 @@ ideology_democratic = {
 		law_very_high_anti_corruption = approve
 	}
 	
+	lawgroup_free_speech = {
+		law_outlawed_dissent = strongly_disapprove
+		law_censorship = disapprove
+		law_limited_free_speech = strongly_approve
+		law_full_free_speech = approve
+	}
+	
+	lawgroup_internal_security = {
+		law_no_secret_police = approve
+		law_secret_police = disapprove
+	}
+	
+	lawgroup_policing = {
+		law_lenient_policing = approve
+		law_balanced_policing = strongly_approve
+		law_strict_policing = disapprove
+		law_draconian_policing = strongly_disapprove
+	}
+	
+	lawgroup_social_mobility_1 = {
+		law_social_hierarchy_1_enforced = disapprove
+		law_social_hierarchy_1_codified = neutral
+		law_social_hierarchy_1_not_enforced = strongly_approve
+		law_social_hierarchy_1_affirmative_action = approve
+	}
+	lawgroup_social_mobility_2 = {
+		law_social_hierarchy_2_enforced = disapprove
+		law_social_hierarchy_2_codified = neutral
+		law_social_hierarchy_2_not_enforced = strongly_approve
+		law_social_hierarchy_2_affirmative_action = approve
+	}
+	lawgroup_social_mobility_3 = {
+		law_social_hierarchy_3_enforced = disapprove
+		law_social_hierarchy_3_codified = neutral
+		law_social_hierarchy_3_not_enforced = strongly_approve
+		law_social_hierarchy_3_affirmative_action = approve
+	}
+	lawgroup_social_mobility_4 = {
+		law_social_hierarchy_4_enforced = disapprove
+		law_social_hierarchy_4_codified = neutral
+		law_social_hierarchy_4_not_enforced = strongly_approve
+		law_social_hierarchy_4_affirmative_action = approve
+	}
+	lawgroup_social_mobility_5 = {
+		law_social_hierarchy_5_enforced = disapprove
+		law_social_hierarchy_5_codified = neutral
+		law_social_hierarchy_5_not_enforced = strongly_approve
+		law_social_hierarchy_5_affirmative_action = approve
+	}
+	
+	lawgroup_secession_rights = {
+		law_no_secession_rights = disapprove
+		law_limited_secession_rights = neutral
+		law_full_secession_rights = approve
+	}
+	
 	### SPECIAL ###
 	lawgroup_governance_principles = {
 		law_HOS_monarch = disapprove
@@ -783,27 +1284,129 @@ ideology_democratic = {
 		law_HOS_communist_leader = disapprove
 	}
 	
-	leader_weight = {
+	interest_group_leader_weight = {
 		value = 100	
 		
 		# Effect of Party Lean
 		if = {
 			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-					has_party = yes
-				}
+				is_in_government = yes
+				#has_party = yes
 				owner = {
 					has_variable = reformist_party
 				}
 			}
-			add = 100
+			add = 1000
+		}
+		# Effect of existing IG leader
+		else_if = {
+			limit = {
+				is_in_government = yes
+				#has_party = no
+				owner = {
+					government_legitimacy >= 50
+				}
+				leader ?= { has_ideology = ideology:ideology_democratic }
+			}
+			add = 500
 		}
 		
 		# Happy IG's more likely to have democratic opinions
 		if = {
 			limit = {
-				scope:interest_group = {
+				ig_approval > 0
+			}
+			add = 25
+		}
+		if = {
+			limit = {
+				ig_approval > 5
+			}
+			add = 50
+		}
+		
+		# IGs in opposition are more likely to have autocratic opinions
+		if = {
+			limit = {
+				is_in_government = no
+			}
+			add = 100
+		}
+		
+		# Cycle of life
+		if = {
+			limit = {
+				is_in_government = no
+				owner = { is_a_democracy = yes }
+			}
+			add = -50
+		}
+		if = {
+			limit = {
+				is_in_government = no
+				owner = { is_a_dictatorship = yes }
+			}
+			add = 50
+		}
+		
+		# National Values
+		if = {
+			limit = {
+				owner = { 
+					OR = { 
+						has_modifier = equality_national_value 
+						has_modifier = liberty_national_value
+					}
+				}
+			}
+			add = 25
+		}
+		
+		# World Tension
+		if = {
+			limit = {
+				owner = { has_global_variable = low_world_tension }
+			}
+			add = 25
+		}
+		
+	}
+	
+	non_interest_group_leader_weight = {
+		value = 100	
+		
+		# Effect of Party Lean
+		if = {
+			limit = {
+				interest_group = {
+					is_in_government = yes
+					#has_party = yes
+				}
+				owner = {
+					has_variable = reformist_party
+				}
+			}
+			add = 1000
+		}
+		# Effect of existing IG leader
+		else_if = {
+			limit = {
+				interest_group = { 
+					is_in_government = yes
+					leader ?= { has_ideology = ideology:ideology_democratic }
+				}
+				#has_party = no
+				owner = {
+					government_legitimacy >= 50
+				}
+			}
+			add = 500
+		}
+		
+		# Happy IG's more likely to have democratic opinions
+		if = {
+			limit = {
+				interest_group = {
 					ig_approval > 0
 				}
 			}
@@ -811,7 +1414,7 @@ ideology_democratic = {
 		}
 		if = {
 			limit = {
-				scope:interest_group = {
+				interest_group = {
 					ig_approval > 5
 				}
 			}
@@ -821,7 +1424,7 @@ ideology_democratic = {
 		# IGs in opposition are more likely to have autocratic opinions
 		if = {
 			limit = {
-				scope:interest_group = {
+				interest_group = {
 					is_in_government = no
 				}
 			}
@@ -831,7 +1434,7 @@ ideology_democratic = {
 		# Cycle of life
 		if = {
 			limit = {
-				scope:interest_group = {
+				interest_group = {
 					is_in_government = no
 				}
 				owner = { is_a_democracy = yes }
@@ -840,7 +1443,7 @@ ideology_democratic = {
 		}
 		if = {
 			limit = {
-				scope:interest_group = {
+				interest_group = {
 					is_in_government = no
 				}
 				owner = { is_a_dictatorship = yes }
@@ -876,9 +1479,11 @@ ideology_democratic = {
 ideology_liberal = {
 	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_atheist.dds"
 	
+	#show_in_list = no
+	
 	character_ideology = yes
 	
-	possible = {
+	non_interest_group_leader_trigger = {
 		NOT = { has_role = agitator }
 	}
 	
@@ -981,6 +1586,7 @@ ideology_liberal = {
 	lawgroup_political_parties = {
 		law_parties_not_allowed = strongly_disapprove
 		law_single_party_state = strongly_disapprove
+		law_dominant_party_state = strongly_disapprove
 		law_parties_allowed = strongly_approve
 	}
 	
@@ -1006,6 +1612,62 @@ ideology_liberal = {
 		law_very_high_anti_corruption = strongly_approve
 	}
 	
+	lawgroup_free_speech = {
+		law_outlawed_dissent = strongly_disapprove
+		law_censorship = disapprove
+		law_limited_free_speech = approve
+		law_full_free_speech = strongly_approve
+	}
+	
+	lawgroup_internal_security = {
+		law_no_secret_police = approve
+		law_secret_police = disapprove
+	}
+	
+	lawgroup_policing = {
+		law_lenient_policing = strongly_approve
+		law_balanced_policing = approve
+		law_strict_policing = disapprove
+		law_draconian_policing = strongly_disapprove
+	}
+	
+	lawgroup_social_mobility_1 = {
+		law_social_hierarchy_1_enforced = strongly_disapprove
+		law_social_hierarchy_1_codified = disapprove
+		law_social_hierarchy_1_not_enforced = approve
+		law_social_hierarchy_1_affirmative_action = strongly_approve
+	}
+	lawgroup_social_mobility_2 = {
+		law_social_hierarchy_2_enforced = strongly_disapprove
+		law_social_hierarchy_2_codified = disapprove
+		law_social_hierarchy_2_not_enforced = approve
+		law_social_hierarchy_2_affirmative_action = strongly_approve
+	}
+	lawgroup_social_mobility_3 = {
+		law_social_hierarchy_3_enforced = strongly_disapprove
+		law_social_hierarchy_3_codified = disapprove
+		law_social_hierarchy_3_not_enforced = approve
+		law_social_hierarchy_3_affirmative_action = strongly_approve
+	}
+	lawgroup_social_mobility_4 = {
+		law_social_hierarchy_4_enforced = strongly_disapprove
+		law_social_hierarchy_4_codified = disapprove
+		law_social_hierarchy_4_not_enforced = approve
+		law_social_hierarchy_4_affirmative_action = strongly_approve
+	}
+	lawgroup_social_mobility_5 = {
+		law_social_hierarchy_5_enforced = strongly_disapprove
+		law_social_hierarchy_5_codified = disapprove
+		law_social_hierarchy_5_not_enforced = approve
+		law_social_hierarchy_5_affirmative_action = strongly_approve
+	}
+	
+	lawgroup_secession_rights = {
+		law_no_secession_rights = strongly_disapprove
+		law_limited_secession_rights = disapprove
+		law_full_secession_rights = approve
+	}
+	
 	### SPECIAL ###
 	lawgroup_governance_principles = {
 		law_HOS_monarch = disapprove
@@ -1015,27 +1677,168 @@ ideology_liberal = {
 		law_HOS_communist_leader = disapprove
 	}
 	
-	leader_weight = {
+	interest_group_leader_weight = {
 		value = 100	
 		
 		# Effect of Party Lean
 		if = {
 			limit = {
-				scope:interest_group = {
-					is_in_government = yes
-					has_party = yes
-				}
+				is_in_government = yes
+				#has_party = yes
 				owner = {
 					has_variable = very_reformist_party
 				}
 			}
-			add = 100
+			add = 1000
+		}
+		# Effect of existing IG leader
+		else_if = {
+			limit = {
+				is_in_government = yes
+				#has_party = no
+				owner = {
+					government_legitimacy >= 50
+				}
+				leader ?= { has_ideology = ideology:ideology_liberal }
+			}
+			add = 500
 		}
 		
 		# Happy IG's more likely to have democratic opinions
 		if = {
 			limit = {
-				scope:interest_group = {
+				ig_approval > 5
+			}
+			add = 25
+		}
+		if = {
+			limit = {
+				ig_approval > 10
+			}
+			add = 50
+		}
+		
+		# IGs in opposition are more likely to have autocratic opinions
+		if = {
+			limit = {
+				is_in_government = no
+			}
+			add = 100
+		}
+		
+		# emerges to counter powerful armed forces
+		if = {
+			limit = {
+				is_in_government = no
+				owner = {
+					exists = ig:ig_armed_forces
+					ig:ig_armed_forces = {
+						is_powerful = yes
+						is_in_government = yes
+					}
+				}
+			}
+			add = 10
+		}
+		# more likely if a war you started isn't going well
+		if = {
+			limit = {
+				is_in_government = no
+				owner = {
+					is_at_war = yes
+					any_scope_war = {
+						attacker_warleader = { this = ROOT.owner }
+						has_war_support = {
+							target = root.owner
+							value < 0
+						}
+					}
+				}
+			}
+			add = 100
+		}
+		# more likely with devastation in incorporated states
+		if = {
+			limit = {
+				owner = {
+					any_scope_state = {
+						is_incorporated = yes
+						devastation > 20
+					}
+				}
+			}
+			add = 50
+		}
+		
+		# Cycle of life
+		if = {
+			limit = {
+				is_in_government = no
+				owner = { is_a_democracy = yes }
+			}
+			add = -50
+		}
+		if = {
+			limit = {
+				is_in_government = no
+				owner = { is_a_dictatorship = yes }
+			}
+			add = 50
+		}
+		
+		# National Values
+		if = {
+			limit = {
+				owner = { has_modifier = liberty_national_value }
+			}
+			add = 25
+		}
+		
+		# World Tension
+		if = {
+			limit = {
+				owner = { has_global_variable = very_low_world_tension }
+			}
+			add = 25
+		}
+		
+	}
+	
+	non_interest_group_leader_weight = {
+		value = 100	
+		
+		# Effect of Party Lean
+		if = {
+			limit = {
+				interest_group = {
+					is_in_government = yes
+					#has_party = yes
+				}
+				owner = {
+					has_variable = very_reformist_party
+				}
+			}
+			add = 1000
+		}
+		# Effect of existing IG leader
+		else_if = {
+			limit = {
+				interest_group = { 
+					is_in_government = yes
+					leader ?= { has_ideology = ideology:ideology_liberal }
+				}
+				#has_party = no
+				owner = {
+					government_legitimacy >= 50
+				}
+			}
+			add = 500
+		}
+		
+		# Happy IG's more likely to have democratic opinions
+		if = {
+			limit = {
+				interest_group = {
 					ig_approval > 5
 				}
 			}
@@ -1043,7 +1846,7 @@ ideology_liberal = {
 		}
 		if = {
 			limit = {
-				scope:interest_group = {
+				interest_group = {
 					ig_approval > 10
 				}
 			}
@@ -1053,7 +1856,7 @@ ideology_liberal = {
 		# IGs in opposition are more likely to have autocratic opinions
 		if = {
 			limit = {
-				scope:interest_group = {
+				interest_group = { 
 					is_in_government = no
 				}
 			}
@@ -1063,7 +1866,7 @@ ideology_liberal = {
 		# emerges to counter powerful armed forces
 		if = {
 			limit = {
-				scope:interest_group = {
+				interest_group = { 
 					is_in_government = no
 				}
 				owner = {
@@ -1079,7 +1882,7 @@ ideology_liberal = {
 		# more likely if a war you started isn't going well
 		if = {
 			limit = {
-				scope:interest_group = {
+				interest_group = { 
 					is_in_government = no
 				}
 				owner = {
@@ -1111,7 +1914,7 @@ ideology_liberal = {
 		# Cycle of life
 		if = {
 			limit = {
-				scope:interest_group = {
+				interest_group = { 
 					is_in_government = no
 				}
 				owner = { is_a_democracy = yes }
@@ -1120,7 +1923,7 @@ ideology_liberal = {
 		}
 		if = {
 			limit = {
-				scope:interest_group = {
+				interest_group = { 
 					is_in_government = no
 				}
 				owner = { is_a_dictatorship = yes }

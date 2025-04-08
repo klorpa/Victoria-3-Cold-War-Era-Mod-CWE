@@ -1046,7 +1046,7 @@ BOS = { # Bosnia
 		subject_canton = BOS_old
 		allow_overlord_canton = yes	
 		coa_with_overlord_canton = BOS_subject
-		priority = 10
+		priority = 2
 		trigger = { 
 			OR = { 
 				game_date < 1998.2.4
@@ -1089,7 +1089,7 @@ BRU = { # Brunei
 		allow_overlord_canton = yes		
 		priority = 20
 		trigger = { 
-			coa_def_absolute_monarchy_flag_trigger = yes
+			coa_def_monarchy_flag_trigger = yes
 		}
 	}
 	flag_definition = {
@@ -1306,11 +1306,29 @@ CAM = { # Cambodia
 	}
 	flag_definition = {
 		coa = CAM_communist
-		priority = 1500
+		subject_canton = CAM_communist
+		priority = 100
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
 		}
-	}	
+	}
+	flag_definition = {
+		coa = CAM_communist_subject
+		subject_canton = CAM_communist_subject
+		priority = 110
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+			scope:actor = { is_subject = yes }
+		}
+	}
+	flag_definition = {
+		coa = CAM_socialist_republic
+		subject_canton = CAM_socialist_republic
+		priority = 120
+		trigger = {
+			scope:actor = { has_government_type = gov_soviet_republic }
+		}
+	}
 	flag_definition = {
 		coa = CAM_nationalist
 		subject_canton = CAM_nationalist
@@ -1619,7 +1637,18 @@ PRC = { # China
 				NOT = { exists = c:ROC }
 			}
 		}
-	}	
+	}
+	flag_definition = {
+		coa = CHI_dictatorship_1
+		subject_canton = CHI_dictatorship_1
+		priority = 20
+		trigger = {
+			coa_def_dictatorship_flag_trigger = yes
+			scope:actor = {
+				exists = c:ROC
+			}
+		}
+	}
 	flag_definition = {
 		coa = CHI_theocracy
 		subject_canton = CHI_theocracy
@@ -2639,10 +2668,7 @@ MLY = { # Malaya
 			OR = { 
 				game_date < 1950.5.26
 				scope:actor = { 
-					OR = {
-						has_law = law_type:law_state_atheism
-						has_law = law_type:law_total_separation
-					}
+					has_law = law_type:law_state_atheism
 				}
 			}
 		}
@@ -2683,10 +2709,7 @@ MSY = { # Malaysia
 			OR = { 
 				game_date < 1950.5.26
 				scope:actor = { 
-					OR = {
-						has_law = law_type:law_state_atheism
-						has_law = law_type:law_total_separation
-					}
+					has_law = law_type:law_state_atheism
 				}
 			}
 		}
@@ -3111,15 +3134,35 @@ HAI = { # Haiti
 		subject_canton = HAI
 		priority = 1
 	}	
-	#flag_definition = {
-	#	coa = HAI_republic
-	#	subject_canton = HAI_republic
-	#	allow_overlord_canton = yes				
-	#	priority = 10
-	#	trigger = { 
-	#		coa_def_republic_flag_trigger = yes
-	#	}
-	#}
+	flag_definition = {
+		coa = HAI_early
+		allow_overlord_canton = yes		
+		coa_with_overlord_canton = HAI_subject			
+		subject_canton = HAI_early
+		priority = 2
+		trigger = { 
+			game_date < 1986.2.26
+		}
+	}
+	flag_definition = {
+		coa = HAI_duvalier
+		allow_overlord_canton = yes		
+		coa_with_overlord_canton = HAI_subject			
+		subject_canton = HAI_duvalier
+		priority = 10
+		trigger = { 
+			game_date >= 1964.1.1
+			scope:actor = { 
+				ruler ?= {
+					OR = {
+						has_variable = Francois_Duvalier
+						has_variable = Jean_Claude_Duvalier
+					}
+				}
+				is_a_republican_regime = yes
+			}
+		}
+	}
 	flag_definition = {
 		coa = HAI_absolute_monarchy
 		subject_canton = HAI_absolute_monarchy
@@ -3703,42 +3746,11 @@ JAP = { # Japan
 		}
 	}
 	flag_definition = {
-		coa = JAP
-		subject_canton = JAP
-		priority = 10
-		trigger = { 
-			coa_def_republic_flag_trigger = yes
-		}
-	}	
-	flag_definition = {
-		coa = JAP_dictatorship
-		subject_canton = JAP_dictatorship
-		priority = 20
-		trigger = {
-			coa_def_dictatorship_flag_trigger = yes
-		}
-	}	
-	flag_definition = {
-		coa = JAP_theocracy
-		subject_canton = JAP_theocracy
-		priority = 20
-		trigger = { 
-			coa_def_theocracy_flag_trigger = yes
-		}
-	}	
-	flag_definition = {
 		coa = JAP_communist
+		subject_canton = JAP_communist
 		priority = 30
 		trigger = { 
 			coa_def_communist_flag_trigger = yes
-		}
-	}
-	flag_definition = {
-		coa = JAP_fascist
-		subject_canton = JAP_fascist
-		priority = 1500
-		trigger = { 
-			coa_def_fascist_flag_trigger = yes
 		}
 	}	
 }
@@ -4018,7 +4030,7 @@ LIB = { # Liberia
 		allow_overlord_canton = yes	
 		priority = 20
 		trigger = {
-			coa_def_dictatorship_flag_trigger = yes
+			coa_def_military_junta_flag_trigger = yes
 		}
 	}	
 	flag_definition = {
@@ -5644,6 +5656,7 @@ SYR = { # Syria
 		priority = 15
 		trigger = {
 			scope:actor = {
+				has_variable = UAR_formed_before
 				is_a_nationalist_government = yes 
 			}
 		}
@@ -6748,6 +6761,15 @@ MOZ = { # Mozambique
 		priority = 1000
 	}	
 	flag_definition = {
+		coa = MOZ_communist_early
+		subject_canton = MOZ_communist_early
+		priority = 2000
+		trigger = { 
+			coa_def_communist_flag_trigger = yes
+			game_date < 1983.4.30
+		}
+	}
+	flag_definition = {
 		coa = MOZ_portuguese_colony
 		subject_canton = MOZ
 		priority = 2000
@@ -7131,6 +7153,14 @@ TAJ = { # Tajikistan
 		allow_overlord_canton = no	
 		subject_canton = TAJ	
 		priority = 10
+	}
+	flag_definition = {
+		coa = TAJ_theocracy
+		subject_canton = TAJ_theocracy
+		priority = 20
+		trigger = { 
+			coa_def_theocracy_flag_trigger = yes
+		}
 	}
 }
 

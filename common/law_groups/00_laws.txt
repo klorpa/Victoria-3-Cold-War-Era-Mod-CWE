@@ -75,6 +75,16 @@ lawgroup_term_limits = {
 	regressive_movement_chance = 0.1
 }
 
+lawgroup_secession_rights = {
+	law_group_category = power_structure
+	base_enactment_days = 90
+	enactment_approval_mult = 1.5
+	affected_by_regime_change = yes
+	
+	progressive_movement_chance = 5
+	regressive_movement_chance = 0.1
+}
+
 # Difficult Laws #
 
 lawgroup_army_model = {
@@ -311,6 +321,69 @@ lawgroup_citizenship = {
 	regressive_movement_chance = 0.1
 }
 
+lawgroup_social_mobility_0 = {
+	law_group_category = human_rights
+	affected_by_regime_change = yes
+	linked_social_hierarchy = default_social_hierarchy
+	
+	progressive_movement_chance = 2
+	regressive_movement_chance = 0.25
+}
+
+lawgroup_social_mobility_1 = {
+	law_group_category = human_rights
+	affected_by_regime_change = yes
+	linked_social_hierarchy = feudalist_social_hierarchy
+	
+	progressive_movement_chance = 2
+	regressive_movement_chance = 0.25
+}
+
+lawgroup_social_mobility_2 = {
+	law_group_category = human_rights
+	affected_by_regime_change = yes
+	linked_social_hierarchy = theocratic_social_hierarchy
+	
+	progressive_movement_chance = 2
+	regressive_movement_chance = 0.25
+}
+
+lawgroup_social_mobility_3 = {
+	law_group_category = human_rights
+	affected_by_regime_change = yes
+	linked_social_hierarchy = nationalist_social_hierarchy
+	
+	progressive_movement_chance = 2
+	regressive_movement_chance = 0.25
+}
+
+lawgroup_social_mobility_4 = {
+	law_group_category = human_rights
+	affected_by_regime_change = yes
+	linked_social_hierarchy = communist_social_hierarchy
+	
+	progressive_movement_chance = 2
+	regressive_movement_chance = 0.25
+}
+
+lawgroup_social_mobility_5 = {
+	law_group_category = human_rights
+	affected_by_regime_change = yes
+	linked_social_hierarchy = oligarchic_social_hierarchy
+	
+	progressive_movement_chance = 2
+	regressive_movement_chance = 0.25
+}
+
+lawgroup_caste_hegemony = {
+	law_group_category = power_structure
+	affected_by_regime_change = yes
+	linked_social_hierarchy = british_indian_caste_system
+	
+	progressive_movement_chance = 2
+	regressive_movement_chance = 0.25
+}
+
 #### Economic Policy [12] ####
 
 lawgroup_welfare = {
@@ -411,6 +484,15 @@ lawgroup_environmental_policy = {
 lawgroup_foreign_policy = {
 	law_group_category = economy
 	base_enactment_days = 30
+	affected_by_regime_change = yes
+	
+	progressive_movement_chance = 4
+	regressive_movement_chance = 0.1
+}
+
+lawgroup_foreign_investment_policy = {
+	law_group_category = economy
+	base_enactment_days = 180
 	affected_by_regime_change = yes
 	
 	progressive_movement_chance = 4

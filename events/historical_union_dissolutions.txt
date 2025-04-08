@@ -173,7 +173,7 @@ historical_union_dissolution.2 = {
 			every_scope_state = {
 				limit = {
 					state_region = { is_homeland = cu:zambian }		# Change homeland identity to match colony to be released ****
-					is_incorporated = no							# State is a colony
+					#is_incorporated = no							# State is a colony
 					#contains_capital_of = c:ZAM					# State is the capital of colony ****
 				}
 				save_scope_as = colonial_state_1
@@ -181,7 +181,7 @@ historical_union_dissolution.2 = {
 			every_scope_state = {
 				limit = {
 					state_region = { is_homeland = cu:malawian }	# Change homeland identity to match colony to be released ****
-					is_incorporated = no							# State is a colony
+					#is_incorporated = no							# State is a colony
 					#contains_capital_of = c:MLW					# State is the capital of colony ****
 				}
 				save_scope_as = colonial_state_2
@@ -416,6 +416,22 @@ historical_union_dissolution.3 = {
 				
 				# Set diplomatic recognition
 				set_country_type = unrecognized
+				
+				#Nazim al-Qudsi
+				create_character = {
+					first_name = "Nazim_al-Qudsi_first_name"
+					last_name = "Nazim_al-Qudsi_last_name"
+					ruler = yes ig_leader = yes historical = yes
+					birth_date = 1906.2.14
+					interest_group = ig_rural_folk
+					ideology = ideology_power_hungry
+					traits = {
+						tactful
+						ambitious
+						erudite
+					}
+				}
+				
 			}
 		}
 		if = {
@@ -869,12 +885,10 @@ historical_union_dissolution.5 = {
 	trigger = {													# What triggers the event, if using other events or journal entries leave empty
 		
 		#Overlord conditions
-		exists = c:IDO
-		this = c:IDO											# Change TAG of the overlord ****
+		c:IDO ?= this
 		game_date >= 1956.1.1									# START DATE: Date colony became self governing ****
 		game_date < 1966.1.1									# END DATE: All historical events must not fire 10 years after the START DATE ****
 		
-		NOT = { is_a_democracy = yes }							# Correct gov types
 		is_subject_type = subject_type_confederal_state			# is_vassal = no
 		exists = c:NET
 		is_direct_subject_of = c:NET
@@ -893,7 +907,7 @@ historical_union_dissolution.5 = {
 	}
     
     option = {
-        name = historical_union_dissolution.option.1			# Accept secesssion
+        name = historical.option.1			# Accept secesssion
         highlighted_option = yes
 		
 		#Becomes independent
@@ -916,7 +930,7 @@ historical_union_dissolution.5 = {
     }
 	
 	option = {
-        name = historical_union_dissolution.option.2			# Refuse secesssion
+        name = historical.option.2			# Refuse secesssion
 		default_option = yes
 		
 		# Internal unrest
@@ -977,21 +991,21 @@ historical_union_dissolution.6 = {
 			#Has a Democratic Revolution when economy is bad
 			AND = {
 				any_political_movement = {
-					is_revolutionary_movement = yes
+					is_revolutionary = yes
 					OR = {
-						any_supporting_interest_group = {
+						any_influenced_interest_group = {
 							law_stance = {
 								law = law_type:law_HOS_communist_leader
 								value < neutral
 							}
 						}
-						any_supporting_interest_group = {
+						any_influenced_interest_group = {
 							law_stance = {
 								law = law_type:law_HOS_president
 								value > neutral
 							}
 						}
-						any_supporting_interest_group = {
+						any_influenced_interest_group = {
 							law_stance = {
 								law = law_type:law_multicultural
 								value > strongly_approve
@@ -1411,6 +1425,9 @@ historical_union_dissolution.6 = {
 			effect_starting_politics_constitutional_federal_state = yes
 			effect_starting_politics_economic_policy_interventionism = yes
 			effect_starting_politics_war_policy_anti_military = yes
+			
+			#Set State Religion
+			set_state_religion = rel:orthodox
 		
 			#Historical Ruler
 			if = {
@@ -1519,21 +1536,21 @@ historical_union_dissolution.7 = {
 			#Has a Democratic Revolution when economy is bad
 			AND = {
 				any_political_movement = {
-					is_revolutionary_movement = yes
+					is_revolutionary = yes
 					OR = {
-						any_supporting_interest_group = {
+						any_influenced_interest_group = {
 							law_stance = {
 								law = law_type:law_HOS_communist_leader
 								value < neutral
 							}
 						}
-						any_supporting_interest_group = {
+						any_influenced_interest_group = {
 							law_stance = {
 								law = law_type:law_HOS_president
 								value > neutral
 							}
 						}
-						any_supporting_interest_group = {
+						any_influenced_interest_group = {
 							law_stance = {
 								law = law_type:law_multicultural
 								value > strongly_approve
