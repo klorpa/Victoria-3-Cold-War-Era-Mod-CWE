@@ -142,11 +142,11 @@
 			}
 		}
 
-		requirement_to_maintain = {
-			trigger = {
-				NOT = { scope:target_country = { has_law = law_type:law_isolationism } }
-			}
-		}
+		#requirement_to_maintain = {
+		#	trigger = {
+		#		NOT = { scope:target_country = { has_law = law_type:law_isolationism } }
+		#	}
+		#}
 
 		manual_break_effect = {
 			change_relations = { country = scope:target_country value = -10 }
@@ -242,21 +242,21 @@
 					}
 				}
 				if = {
-					limit = { scope:target_country = { average_sol < 5 } }
+					limit = { average_sol >= 20 }
 					add = {
 						desc = "DIPLOMATIC_MARKET_OPENING_UP"
 						value = 200
 					}
 				}
 				else_if = {
-					limit = { scope:target_country = { average_sol < 10 } }
+					limit = { average_sol >= 15 }
 					add = {
 						desc = "DIPLOMATIC_MARKET_OPENING_UP"
 						value = 150
 					}
 				}
 				else_if = {
-					limit = { scope:target_country = { average_sol < 15 } }
+					limit = { average_sol >= 10 }
 					add = {
 						desc = "DIPLOMATIC_MARKET_OPENING_UP"
 						value = 100

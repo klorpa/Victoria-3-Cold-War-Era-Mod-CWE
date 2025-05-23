@@ -307,6 +307,12 @@ ww2_war_reparations = {
 	country_tax_income_add = 25000
 }
 
+starting_additional_revenue = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	#country_tax_income_add = 10000
+	country_minting_mult = 10
+}
+
 ### Colonial System ###
 
 nationalist_agitation = {
@@ -1040,6 +1046,11 @@ THIS_is_ruler = {
 	
 }
 
+prime_minister = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	#character_popularity_add = 25
+}
+
 politically_weakened_character = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
 	character_popularity_add = -25
@@ -1052,7 +1063,7 @@ politically_weakened_interest_group = {
 
 cabinet_minister = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
-	character_popularity_add = 25
+	#character_popularity_add = 25
 }
 
 cabinet_minister_ig = {
@@ -1085,6 +1096,12 @@ power_vacuum_modifier = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
 	country_legitimacy_base_add = -50
 	country_authority_mult = -0.50
+}
+
+cohabitation_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	country_decree_cost_mult = 0.25
+	country_law_enactment_time_mult = 0.25
 }
 
 ### National Values ###
@@ -1272,6 +1289,7 @@ conducting_great_purge = {
 	interest_group_in_opposition_approval_add = 10
 	country_secession_progress_mult = -0.50
 	country_revolution_progress_mult = -0.50
+	political_movement_radicalism_add = -0.50
 	country_bureaucracy_mult = -0.20
 }
 
@@ -1753,8 +1771,7 @@ party_outcast = {
 
 divided_party = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
-	country_legitimacy_base_add = -5
-	country_legitimacy_ideological_incoherence_mult = 0.10
+	country_legitimacy_ideological_incoherence_mult = 0.05
 }
 
 ### Oil Cartels ###
@@ -1863,7 +1880,7 @@ pope_character = {
 
 controlled_election_results_positive = {
 	icon = gfx/interface/icons/event_icons/event_election.dds
-	country_legitimacy_base_add = 1
+	#country_legitimacy_headofstate_add = 0.5
 	country_law_enactment_time_mult = -0.005
 	country_law_enactment_stall_mult = -0.005
 	country_law_enactment_success_add = 0.001
@@ -1882,6 +1899,21 @@ controlled_election_disabled = {
 	political_movement_radicalism_add = 0.1
 	political_movement_pop_attraction_mult = 0.1
 	country_opposition_ig_approval_add = -5
+}
+
+### Historical Modifiers ###
+
+cultural_revolution_effects = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_positive.dds
+	country_secession_progress_mult = -1
+	country_revolution_progress_mult = -1
+	political_movement_radicalism_add = -1
+	country_weekly_innovation_mult = -0.50
+}
+
+mass_grave = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	state_welfare_payments_add = 0.2
 }
 
 ### Vanilla modifiers ###

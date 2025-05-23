@@ -1218,6 +1218,8 @@
     PHI_MGD_dissolution.d:0 "The Bangsamoro Organic Law is a Philippine law that provided for the establishment of the Bangsamoro Autonomous Region in Muslim Mindanao (BARMM). As an organic act, the basic law abolished the Autonomous Region in Muslim Mindanao (ARMM) and provided for the basic structure of government for Bangsamoro, following the agreements set forth in the Comprehensive Agreement on the Bangsamoro peace agreement signed between the government of the Philippines and the Moro Islamic Liberation Front in 2014."
     SOM_SML_dissolution.t:0 "The Independence of Somaliland?"
     SOM_SML_dissolution.d:0 "The State of Somaliland voluntarily united with the Trust Territory of Somalia (the former Italian Somalia) to form the Somali Republic. The union of the two states proved problematic early on, and in response to the harsh policies enacted by Somalia's Barre regime against the main clan family in Somaliland, the Isaaq, shortly after the conclusion of the disastrous Ogaden War, a 10 year war of independence concluded with the declaration of Somaliland's independence in 1991."
+    MOR_WSA_dissolution.t:0 "The Western Sahara Ceasefire?"
+    MOR_WSA_dissolution.d:0 "The 1991 ceasefire in Western Sahara, brokered by the UN, went into effect on September 6, 1991. It was a key part of a broader peace process, including the establishment of MINURSO, the United Nations Mission for the Referendum in Western Sahara, to monitor the ceasefire and prepare for a referendum on the territory's future. While the ceasefire held for nearly 30 years, it ultimately did not lead to a resolution of the conflict."
     
     historical_union_dissolution.option.1:0 "Grant them independence"
     historical_union_dissolution.option.2:0 "Our country cannot be fragmented!"
@@ -1337,6 +1339,8 @@
     ETH_SOM_border_war.d:0 "The Ethiopian–Somali Border War took place from June 1982 to August 1983, when Ethiopia launched a large-scale invasion of central Somalia. Backed by warplanes and armored units, Ethiopia deployed a 10,000-man force alongside thousands of Somali Salvation Democratic Front (SSDF) rebels. The operation initially aimed to advance all the way to the Somali coastline and ultimately overthrow the Barre regime. Despite their efforts, Ethiopian troops and SSDF guerrillas failed to capture the key cities of Galkayo and Beledweyne, as the Somali army successfully repelled the main assault. However, the conflict soon devolved into a military stalemate around the border towns of Galdogob and Balanbale."
     USA_SOM_1993_war.t:0 "Operation Gothic Serpent?"
     USA_SOM_1993_war.d:0 "Operation Gothic Serpent was a military operation conducted in Mogadishu, Somalia, by an American force code-named Task Force Ranger during the Somali Civil War in 1993. The primary objective of the operation was to capture Mohamed Farrah Aidid, leader of the Somali National Alliance who was wanted by the UNOSOM II in response to his attacks against United Nations troops. The operation took place from August to October 1993 and was led by US Joint Special Operations Command (JSOC). On 3 October 1993, the task force executed a mission to capture two of Aidid's lieutenants. The mission ultimately culminated in what became known as the Battle of Mogadishu. The battle was extremely bloody and the task force inflicted significant casualties on Somali militia forces, while suffering heavy losses themselves."
+    ankoko_island_war.t:0 "The Invasion of Ankoko Island?"
+    ankoko_island_war.d:0 "In February 1966, the governments of Venezuela, the United Kingdom and Guyana signed the Geneva Agreement aimed at resolving the controversy over the Essequibo territorial dispute. Five months after Guyana's independence from the United Kingdom, Venezuelan troops began their occupation of Ankoko Island in October 1966.[4] Venezuelan troops quickly constructed military installations and an airstrip."
     
     korean_war:0 "The Korean War"
     portugal_india_war:0 "Annexation of Goa"
@@ -1408,6 +1412,17 @@
     NEJ_2005_revolution.t:0 "The Death of King Fahd"
     NEJ_2005_revolution.d:0 "King Fahd was admitted to the King Faisal Specialist Hospital in Riyadh on 27 May 2005 in "stable but serious condition" for unspecified medical tests. An official (who insisted on anonymity) told the Associated Press unofficially that the king had died at 07:30 on 1 August 2005 at age 84. Official statement was announced on state television at 10:00 by Information Minister Iyad Madani."
     
+    MOR_1953_revolution.t:0 "The Coup of Mohammed Ben Aarafa?"
+    MOR_1953_revolution.d:0 "Ben Arafa was placed on the Alouite throne on 21 August 1953 after his cousin Mohammed V was deposed, by the French authorities, which maintained a protectorate in Morocco under the 1912 Treaty of Fez. General Augustin Guillaume, who had been resident-general of Morocco since 1951, had clashed with Mohammed V because of the latter's support for the Moroccan independence movement and led a campaign to overthrow him, which was supported by the French colonists and some Moroccan leaders, such as Thami El Glaoui the Pasha of Marrakesh."
+    MOR_1955_revolution.t:0 "The Overthrow of Mohammed Ben Aarafa?"
+    MOR_1955_revolution.d:0 "Because of Ben Arafa's lack of legitimacy or popularity with the Moroccan population, as well as the increasing links of the violence in Morocco with that in Tunisia and with the Algerian War, led the French authorities to consider deposing him and restoring Mohammed V in 1955. Gilbert Grandval, who had been named as the new resident-general, decided to meet with Grand Vizir Muhammad al-Muqri. Al-Muqri flew to France and met with Grandval at Vichy and intimated that Ben Arafa needed to leave, in light of popular agitation throughout the country, and it was envisioned that Mohammed V would be restored to power. On 1 October, Ben Arafa abdicated."
+    MOR_1961_revolution.t:0 "The Death of King Mohammed V"
+    MOR_1961_revolution.d:0 "On 26 February 1961, Mohammed died from complications of a banal surgery on the nasal septum carried out by a surgeon from Vaud. His death was announced on national radio by his son, crown prince Moulay Hassan, who succeeded him as King Hassan II."
+    MOR_1970_revolution.t:0 "The Return of Parliamentary Elections?"
+    MOR_1970_revolution.d:0 "Parliamentary elections were held in Morocco on 21 August 1970. They followed the adoption of a new constitution in a referendum in July. The new Assembly of Representatives had 240 members; 90 elected directly in single member constituencies by public ballot, 90 elected by local councillors and 60 elected by four professional colleges (24 by the Chambers of Agriculture, 16 by the Chambers of Commerce and Industry, 10 by the Chambers of Artisans and 10 by representatives of the wage-earners)."
+    MOR_2011_revolution.t:0 "The Moroccan Constitutional Referendum?"
+    MOR_2011_revolution.d:0 "A referendum on constitutional reforms was held in Morocco on 1 July 2011, called by the king in response to a series of protests across Morocco that began on 20 February 2011 when over ten thousand Moroccans participated in demonstrations demanding democratic reforms."
+    
     ALG_1965_revolution.t:0 "The Algerian coup d'état?"
     ALG_1965_revolution.d:0 "The 1965 Algerian coup d'état brought Colonel Houari Boumédiène to power as Chairman of the Revolutionary Council in Algeria. The bloodless coup d'état saw Algeria's first President, Ahmed Ben Bella, arrested and his closest supporters imprisoned by Boumédiène and his allies, principally in the Algerian Land Forces."
     ALG_1992_revolution.t:0 "The Algerian Civil War?"
@@ -1450,6 +1465,22 @@
     SUD_1985_revolution.d:0 "The 1985 Sudanese coup d'état was a military coup that occurred in Sudan on 6 April 1985. The coup was staged by a group of military officers and led by the Defense Minister and Armed Forces Commander-in-Chief, Field Marshal Abdel Rahman Swar al-Dahab, against the government of President Gaafar Nimeiry. "
     SUD_2019_revolution.t:0 "The Sudanese coup d'état?"
     SUD_2019_revolution.d:0 "A coup d'état took place in Sudan in the late afternoon on 11 April 2019, when President Omar al-Bashir was overthrown by the Sudanese Armed Forces after popular protests demanded his departure. At that time, the army, led by Ahmed Awad Ibn Auf, toppled the government and National Legislature and declared a state of emergency in the country for a period of 3 months, followed by a transitional period of two years before an agreement was reached later."
+    
+    EQG_1968_revolution.t:0 "The Presidency of Macías Nguema?"
+    EQG_1968_revolution.d:0 "Francisco Macías Nguema was an Equatoguinean politician who served as the first president of Equatorial Guinea from the country's gaining of independence in 1968, until his overthrow in 1979. He is widely remembered as one of the most brutal dictators in history. As president, he exhibited bizarre and erratic behavior, to the point that many of his contemporaries believed he was insane."
+    EQG_1973_revolution.t:0 "The New Equatorial Guinea Constitution?"
+    EQG_1973_revolution.d:0 "Macias Nguema further consolidated his totalitarian powers by outlawing opposition political parties in July 1970 and making himself president for life in 1972. It was in force until the August 1979 coup d'état carried out by Teodoro Obiang, the so-called Freedom Coup that established the Supreme Military Council of Equatorial Guinea, although a new Constitution was not approved until August 1982."
+    EQG_1979_revolution.t:0 "The Coup of Teodoro Obiang?"
+    EQG_1979_revolution.d:0 "The 1979 Equatorial Guinea coup d'état happened on August 3, 1979, when President Francisco Macías Nguema's nephew, Teodoro Obiang Nguema Mbasogo, overthrew him in a bloody coup. Fighting between loyalists and rebels continued until Macías Nguema was captured fleeing for Cameroon on August 18. He was sentenced to death for the crime of genocide against the Bubi people and other crimes committed. Macías Nguema was executed by firing squad on September 29, 1979. Teodoro has remained leader since then, initially as chairman of the Revolutionary Military Council and Supreme Military Council and subsequently as president."
+    
+    CMR_1960_revolution.t:0 "The Presidency of Ahmadou Ahidjo?"
+    CMR_1960_revolution.d:0 "Ahmadou Babatoura Ahidjo (24 August 1924 – 30 November 1989) was a Cameroonian politician who was the first president of Cameroon from 1960 until 1982. He was previously the first Prime Minister from the country's independence in January 1960 until May of that same year following the creation of the presidency. Ahidjo played a major role in the establishment of Cameroon as an independent state in 1960 as well as integrating the French and English-speaking parts of the country. During Ahidjo's time in office, he established a centralised political system."
+    CMR_1966_revolution.t:0 "The Cameroon One Party State?"
+    CMR_1966_revolution.d:0 "In 1961, Ahidjo began calling for a single-party state. On 12 March 1962, Ahidjo issued a decree that prevented criticism against his regime, giving the government the authority to imprison anyone found guilty of subversion against government authorities or laws. In July 1962, a group of opposition party leaders who had served in the government with Ahidjo challenged Ahidjo's call for a single-party state, saying that it was dictatorial. These leaders were arrested, tried, and imprisoned on the grounds of subversion against the government. Ahidjo's political party, the Cameroon National Union (CNU), became the sole legal political party on 1 September 1966."
+    CMR_1972_revolution.t:0 "The Cameroonian Constitutional Referendum?"
+    CMR_1972_revolution.d:0 "A constitutional referendum was held in Cameroon on 20 May 1972. The new constitution would make the country a unitary state, as opposed to the previous federal system, as well as giving more powers to President Ahmadou Ahidjo. It was allegedly passed by 99.99% of voters with a 98% turnout."
+    CMR_1982_revolution.t:0 "The Resignation of Ahmadou Ahidjo?"
+    CMR_1982_revolution.d:0 "Ahidjo resigned, ostensibly for health reasons, on 4 November 1982 and was succeeded by Prime Minister Paul Biya two days later. That he stepped down in favor of Biya, a Christian from the south and not a Muslim from the north like himself, was considered surprising. Ahidjo's ultimate intentions were unclear; it is possible that he intended to return to the presidency at a later point when his health improved, and another possibility is that he intended for Maigari Bello Bouba, a fellow Muslim from the north who succeeded Biya as Prime Minister, to be his eventual successor as president, with Biya in effectively a caretaker role."
     
     NGE_1966_revolution.t:0 "The Nigerian coup d'état?"
     NGE_1966_revolution.d:0 "The military dictatorship in Nigeria was a period when members of the Nigerian Armed Forces held power in Nigeria from 1966 to 1999 with an interregnum from 1979 to 1983. The military was able to rise to power often with the tacit support of the elite through coup d'états."
@@ -1583,6 +1614,24 @@
     ARG_1983_revolution.t:0 "Return to Democracy?"
     ARG_1983_revolution.d:0 "The Argentine general election of 1983 was held on 30 October and marked the return of constitutional rule following the self-styled National Reorganization Process dictatorship installed in 1976."
     
+    GUY_1964_revolution.t:0 "The Rise of Forbes Burnham?"
+    GUY_1964_revolution.d:0 "Educated as a lawyer, Burnham was instrumental in the foundation of two political parties (the People's National Congress and the People's Progressive Party) that would come to dominate the politics of Guyana. During his time as head of government, Guyana moved from being a British colony to being a republic with no constitutional ties to the United Kingdom. His premiership was characterised by the nationalisation of foreign-owned private industries, membership of the Non-Aligned Movement and authoritarian domestic policy. Despite being widely regarded as having a significant role in the political, social, and economic development of Guyana, his presidency was marred by accusations of Afrocentrism, state-sanctioned violence, corruption, and electoral fraud."
+    GUY_1980_revolution.t:0 "The Co-Operative Republic of Guyana?"
+    GUY_1980_revolution.d:0 "In 1980 the constitution was changed to make the presidency an executive post; until this time the post had been held by Arthur Chung in a ceremonial head-of-state role. Burnham won election as president that year, winning 76% of the vote to 20% for Jagan in the official results. International Observers protested that Indo-Guyanese voters were prevented from voting in several polling locations, and there were widespread accusations of electoral fraud. The executive president was granted the powers to dissolve Parliament at will, veto legislation, and to appoint or dismiss almost all senior members of government."
+    GUY_1985_revolution.t:0 "The Death of Forbes Burnham"
+    GUY_1985_revolution.d:0 "Burnham died of heart failure during throat surgery in Georgetown on 6 August 1985 at the age of 62. Several sources suggest that Forbes had had heart problems in the years leading up to his death, and may have had diabetes. Following Burnham's death, Desmond Hoyte became president. The 1985 Guyanese general election was also considered to be fraudulent; the next "free and fair" election would come in 1992, the first fair election since 1964, where Cheddi Jagan was elected president."
+    GUY_1992_revolution.t:0 "The Victory of Cheddi Jagan?"
+    GUY_1992_revolution.d:0 "Following the death of Burnham in 1985, Desmond Hoyte came to power. Influenced by Jimmy Carter, Hoyte would put forward electoral reforms which would lead to the 1992 elections being internationally recognised as free and fair. After 28 years in opposition, the PPP won the 5 October 1992 elections with about 54% of the vote, and Jagan became president. Contrary to earlier foreign fears, he governed as a democratic socialist and not a Marxist–Leninist. Jagan would pursue policies to attract foreign investors and move towards free market policies."
+    
+    SUR_1975_revolution.t:0 "The Premiership of Henck Arron?"
+    SUR_1975_revolution.d:0 "Henck Alphonsus Eugène Arron was a Surinamese politician who served as the first Prime Minister of Suriname after it gained independence in 1975. A member of the National Party of Suriname, he served from 24 December 1973 with the transition government, to 25 February 1980. He was overthrown in a coup d'état by the military, led by Dési Bouterse."
+    SUR_1980_revolution.t:0 "The Sergeants' Coup?"
+    SUR_1980_revolution.d:0 "The 1980 Surinamese coup d'état, usually referred to as the Sergeants' Coup (Dutch: De Sergeantencoup), was a military coup in Suriname which occurred on 25 February 1980, when a group of 16 sergeants of the Surinamese Armed Forces (SKM) led by Dési Bouterse overthrew the government of Prime Minister Henck Arron with a violent coup d'état. This marked the beginning of the military dictatorship that dominated the country from 1980 until 1991."
+    SUR_1987_revolution.t:0 "The Surinamese Thaw?"
+    SUR_1987_revolution.d:0 "Later in 1985, the government lifted the ban on opposition parties, beginning a transition to civilian rule. A new constitution was overwhelmingly approved in a 30 September 1987 referendum. Elections were held two months later, and Ramsewak Shankar, an opponent of Bouterse, was elected president in January 1988. However, Bouterse retained much power as army commander. He scuttled a number of government efforts to negotiate with the Jungle Commando, and a number of Bouterse's opponents were murdered or disappeared."
+    SUR_1991_revolution.t:0 "The Surinamese Transition to Democracy?"
+    SUR_1991_revolution.d:0 "National elections were held in 1987. The National Assembly adopted a new constitution that allowed Bouterse to remain in charge of the army. Dissatisfied with the government, Bouterse summarily dismissed the ministers in 1990, by telephone. This event became popularly known as the "Telephone Coup". His power began to wane after the 1991 elections."
+    
     BRZ_1964_revolution.t:0 "The Fifth Brazilian Republic?"
     BRZ_1964_revolution.d:0 "The military dictatorship in Brazil, occasionally referred to as the Fifth Brazilian Republic, was established on 1 April 1964, after a coup d'état by the Brazilian Armed Forces, with support from the United States government, against president João Goulart. The coup was planned and executed by the most senior commanders of the Brazilian Army and received the support of almost all high-ranking members of the military, along with conservative sectors in society, like the Catholic Church and anti-communist civilian movements among the Brazilian middle and upper classes."
     BRZ_1985_revolution.t:0 "Restoration of Democracy?"
@@ -1644,6 +1693,12 @@
     
     PNM_1968_revolution.t:0 "The Coup of Omar Torrijos?"
     PNM_1968_revolution.d:0 "Omar Efraín Torrijos Herrera was a Panamanian dictator, as well as the Commander of the Panamanian National Guard and military leader of Panama from 1968 to his death in 1981. Torrijos was never officially the president of Panama, but instead held titles including 'Maximum Leader of the Panamanian Revolution'. Torrijos took power in a coup d'état and instituted a number of social reforms."
+    PNM_1981_revolution.t:0 "The Death of Omar Torrijos?"
+    PNM_1981_revolution.d:0 "Torrijos died at the age of 52 when his aircraft, a de Havilland Canada DHC-6 Twin Otter of the Panamanian Air Force, crashed at Cerro Marta, in Coclesito, near Penonomé, Panama on July 31, 1981. The aircraft disappeared from radar during light weather, but due to the limited nature of Panama's radar coverage at the time, the plane was not reported missing for nearly a day. The crash site was located several days later, and the body of Torrijos was recovered by a Special Forces team in the first few days of August."
+    PNM_1983_revolution.t:0 "The Rise of Manuel Noriega?"
+    PNM_1983_revolution.d:0 "Manuel Antonio Noriega Moreno was a Panamanian dictator and military officer who was the de facto ruler of Panama from 1983 to 1989. He never officially served as president of Panama, instead ruling as an unelected military dictator through puppet presidents. Amassing a personal fortune through drug trafficking operations by the Panamanian military, Noriega had longstanding ties with American intelligence agencies before the U.S. invasion of Panama removed him from power."
+    PNM_1989_revolution.t:0 "The Return of Democracy in Panama?"
+    PNM_1989_revolution.d:0 "The United States invaded Panama on December 20, 1989, codenamed Operation Just Cause. Noriega was captured and flown to Miami to be tried. The conflict ended on January 31, 1990. Panama's Electoral Tribunal moved quickly to restore civilian constitutional government, reinstated the results of the May 1989 election on December 27, 1989, and confirmed the victory of President Guillermo Endara and Vice Presidents Guillermo Ford and Ricardo Arias Calderón."
     
     MEX_2000_revolution.t:0 "End of PRI dominance?"
     MEX_2000_revolution.d:0 "The presidential election was won by Vicente Fox of the Alliance for Change, who received 43.4% of the vote, the first time the opposition had won an election since the Mexican Revolution. In the congressional elections the Alliance for Change emerged as the largest faction in the Chamber of Deputies with 224 of the 500 seats, whilst the Institutional Revolutionary Party remained the largest faction in the Senate with 60 of the 128 seats in the Senate."
@@ -1873,6 +1928,19 @@
     
     NIC_1979_revolution.t:0 "The Nicaraguan Revolution?"
     NIC_1979_revolution.d:0 "The Nicaraguan Revolution encompassed the rising opposition to the Somoza dictatorship in the 1960s and 1970s, the campaign led by the Sandinista National Liberation Front (FSLN) to oust the dictatorship in 1978–79."
+    NIC_1990_revolution.t:0 "The Return of Democracy in Nicaragua?"
+    NIC_1990_revolution.d:0 "General elections were held in Nicaragua on 25 February 1990 to elect the President and the members of the National Assembly. The result was a victory for the National Opposition Union (UNO), whose presidential candidate Violeta Chamorro surprisingly defeated incumbent president Daniel Ortega of the Sandinista National Liberation Front (FSLN). This led to a historic peaceful and democratic transfer of power in Nicaragua."
+    
+    ELS_1956_revolution.t:0 "The Presidency of José María Lemus?"
+    ELS_1956_revolution.d:0 "Lieutenant Colonel José María Lemus López was president of El Salvador from 14 September 1956 to 26 October 1960. Before becoming a president, he served as an undersecretary of defense and a minister of the interior. He continued socio-economic reforms of his predecessor, but there was no improvement in the living standards of the working class."
+    ELS_1960_revolution.t:0 "The Salvadoran coup d'états?"
+    ELS_1960_revolution.d:0 "The 1961 Salvadoran coup d'état was a successful countercoup in El Salvador led by Colonel Anibal Portillo against the short-lived Junta of Government that had taken power in 1960, replacing the reformist military junta with an ardent anti-Communist government named the Civic-Military Directory. By the end of that year, military governance had given way to democratic rule."
+    ELS_1979_revolution.t:0 "The Salvadoran coup d'état?"
+    ELS_1979_revolution.d:0 "The 1979 Salvadoran coup d'état was a military coup d'état that occurred in El Salvador on 15 October 1979. The coup, led by young military officers, bloodlessly overthrew military President Carlos Humberto Romero and sent him into exile. The National Conciliation Party's firm grip on power was ended, and in its place the military established the Revolutionary Government Junta of El Salvador (JRG)."
+    ELS_1984_revolution.t:0 "The Election of José Napoleón Duarte?"
+    ELS_1984_revolution.d:0 "José Napoleón Duarte Fuentes (23 November 1925 – 23 February 1990) was a Salvadoran politician who served as President of El Salvador from 1 June 1984 to 1 June 1989. He was mayor of San Salvador before running for president in 1972. He lost, but the election is widely viewed as fraudulent. Following a coup d'état in 1979, Duarte led the subsequent civil-military Junta from 1980 to 1982. He was then elected president in 1984, defeating ARENA party leader Roberto D'Aubuisson."
+    ELS_1992_revolution.t:0 "The Chapultepec Peace Accords?"
+    ELS_1992_revolution.d:0 "The Chapultepec Peace Accords were a set of peace agreements signed on January 16, 1992, the day in which the Salvadoran Civil War ended. The treaty established peace between the Salvadoran government and the Farabundo Martí National Liberation Front (FMLN)."
     
     NEP_1990_revolution.t:0 "The Nepalese People's Movement?"
     NEP_1990_revolution.d:0 "The 1990 People's Movement was a multiparty movement in Nepal that brought an end to absolute monarchy and the beginning of constitutional monarchy. It also eliminated the Panchayat system."
@@ -2368,6 +2436,8 @@
     JAP_ELR_Reforms.d:0 "Abenomics refers to the economic policies implemented by the Government of Japan since the December 2012 general election. Abenomics is based upon three arrows: monetary easing from the Bank of Japan, fiscal stimulus through government spending, and structural reforms. The Economist characterised the program as a "mix of reflation, government spending and a growth strategy designed to jolt the economy out of suspended animation that has gripped it for more than two decades". The term Abenomics is a portmanteau of Abe and economics."
     PHI_ELR_Reforms.t:0 "Enact Economic Liberalisation?"
     PHI_ELR_Reforms.d:0 "Fidel Valdez Ramos CCLH GCS KGCR, popularly known as FVR, was a Filipino general and politician who served as the 12th President of the Philippines from 1992 to 1998. During his administration, Ramos began implementing economic reforms intended to open up the once-closed national economy, encourage private enterprise, invite more foreign and domestic investment, and reduce corruption. Ramos ended the government’s monopoly over the skies and opened aviation to new players."
+    USA_Trade_War_2025.t:0 "The Trump Trade War?"
+    USA_Trade_War_2025.d:0 "Tariffs implemented during the second presidency of Donald Trump marked a sharp escalation in protectionist trade policies in the United States, with President Donald Trump announcing a series of steep tariffs on nearly all goods imported to the US. The announcement of these controversially termed "reciprocal tariffs" prompted retaliation from trade partners and triggered a stock market crash."
     
     western_economic_liberalisation.t:0 "Economic Liberalisation?"
     western_economic_liberalisation.d:0 "Neoliberalism is associated with free-market capitalism after it fell into decline following the Second World War. A prominent factor in the rise of conservative and right-libertarian organisations, political parties, and think tanks, and predominantly advocated by them, it is generally associated with policies of economic liberalisation, including privatisation, deregulation, globalisation, free trade, monetarism, austerity, and reductions in government spending in order to increase the role of the private sector in the economy and society."
@@ -4478,6 +4548,10 @@
     PAP_assassinate_PJP_1981.d:0 "On 13 May 1981, in St. Peter's Square in Vatican City, Pope John Paul II was shot and wounded by Mehmet Ali Ağca while he was entering the square. The Pope was struck twice and suffered severe blood loss. Ağca was apprehended immediately and later sentenced to life in prison by an Italian court. The Pope forgave Ağca for the assassination attempt. He was pardoned by Italian president Carlo Azeglio Ciampi at the Pope's request and was deported to Turkey in June 2000."
     PAP_assassinate_PJP_1982.t:0 "The Second Attempted Assassination of Pope John Paul II?"
     PAP_assassinate_PJP_1982.d:0 "A second assassination attempt was made on 12 May 1982, just a day before the anniversary of the first attempt on his life, in Fátima, Portugal, when a man tried to stab John Paul II with a bayonet. He was stopped by security guards. Stanisław Dziwisz later said that John Paul II had been injured during the attempt but managed to hide a non-life-threatening wound."
+    USA_Jonestown_Massacre.t:0 "The Jonestown Massacre"
+    USA_Jonestown_Massacre.d:0 "The Peoples Temple Agricultural Project, better known by its informal name "Jonestown", was a remote settlement in Guyana established by the Peoples Temple, an American religious movement under the leadership of Jim Jones. Jonestown became internationally infamous when, on November 18, 1978, a total of 918 people died at the settlement; at the nearby airstrip in Port Kaituma; and at a Temple-run building in Georgetown, Guyana's capital city. Terms used to describe the deaths in Jonestown and Georgetown have evolved over time. Many contemporary media accounts after the events called the deaths a mass suicide."
+    GUY_Rupununi_Uprising.t:0 "The Rupununi Uprising"
+    GUY_Rupununi_Uprising.d:0 "The Rupununi uprising was a secessionist insurrection in Guyana that began on 2 January 1969 led by cattle ranchers who sought to control 22,300 square miles (58,000 km2) of land. Occurring less than two years after Guyana's independence from the United Kingdom, it constituted the country's earliest and most severe test of statehood and social solidarity. The rebels were ultimately dispersed by the Guyana Defence Force, with the group's leaders fleeing to Venezuela."
     
     in_a_defensive_war.tt:0 "This country is in a defensive [concept_war] with an independent country."
     alliance_leader_label.tt:0 "Leader: [SCOPE.sCountry('alliance_leader_scope_label').GetName]"
@@ -5078,7 +5152,7 @@
     je_party_system_favour_noone_button_desc: "The Party Leadership will not support or promote any particular faction of the Party. This will let $Party_Radicalism$ increase or decrease naturally."
     
     conduct_self_coup_decision: "Conduct a Self-Coup"
-    conduct_self_coup_decision_desc: "A self-coup is a form of coup d'état in which a nation's head, having come to power through legal means, stays in power through illegal means. \n\nThe [concept_ruler] will act in concert with the [GetInterestGroupVariant('ig_armed_forces',GetPlayer).GetNameWithCountryVariant] and the [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetNameWithCountryVariant] to conduct a self-coup to grant the [concept_ruler] dictatorial powers."
+    conduct_self_coup_decision_desc: "A self-coup is a form of coup d'état in which a nation's head, having come to power through legal means, stays in power through illegal means. \n\nThe [concept_ruler] will act in concert with either the [GetInterestGroupVariant('ig_armed_forces',GetPlayer).GetNameWithCountryVariant] or the [GetInterestGroupVariant('ig_intelligentsia',GetPlayer).GetNameWithCountryVariant] to conduct a self-coup to seize dictatorial powers."
     
     self_coup_recently: "Opposition to Coup"
     
@@ -5196,7 +5270,7 @@
     
     appoint_prime_minister.t: "The New [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]"
     appoint_prime_minister.d: "With the formation of a new [concept_government], the time has come for [ROOT.GetCountry.GetName] to get a new [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]. [SCOPE.sCharacter('most_powerful_gov_ig_leader').GetFullName] ([SCOPE.sCharacter('most_powerful_gov_ig_leader').GetInterestGroup.GetName]), being the leader of the strongest [concept_interest_group] in the [concept_government], is expected to become the next [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]. The ruling coalition can however select a different person to be the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]."
-    appoint_prime_minister.f: "This event fired because the [concept_ruler]'s [concept_interest_group] is not in the [concept_government]. Selecing a politician from an [concept_interest_group] which is not the strongest [concept_interest_group] in the [concept_government] will anger [SCOPE.gsInterestGroup('most_powerful_gov_ig').GetName]."
+    appoint_prime_minister.f: "This event fired because there is more than 1 [concept_interest_group] in the [concept_government]. Selecing a politician from an [concept_interest_group] which is not the strongest [concept_interest_group] in the [concept_government] will anger [SCOPE.gsInterestGroup('most_powerful_gov_ig').GetName]."
     appoint_prime_minister.option.1: "Appoint [SCOPE.gsInterestGroup('ig_industrialists_scope_ig').GetLeader.GetFullName]"
     appoint_prime_minister.option.2: "Appoint [SCOPE.gsInterestGroup('ig_petty_bourgeoisie_scope_ig').GetLeader.GetFullName]"
     appoint_prime_minister.option.3: "Appoint [SCOPE.gsInterestGroup('ig_trade_unions_scope_ig').GetLeader.GetFullName]"
@@ -5205,6 +5279,7 @@
     appoint_prime_minister.option.6: "Appoint [SCOPE.gsInterestGroup('ig_rural_folk_scope_ig').GetLeader.GetFullName]"
     appoint_prime_minister.option.7: "Appoint [SCOPE.gsInterestGroup('ig_intelligentsia_scope_ig').GetLeader.GetFullName]"
     appoint_prime_minister.option.8: "Appoint [SCOPE.gsInterestGroup('ig_armed_forces_scope_ig').GetLeader.GetFullName]"
+    appoint_prime_minister.option.9: "[GetPlayer.GetRuler.GetFullName] to remain as [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]"
     
     KMT_CHI_Unification.t: "The Unification of China"
     KMT_CHI_Unification.d: "With the fall of the communist regime in [SCOPE.sState('capital_scope').GetCityHubName], the [ROOT.GetCountry.GetName] has regained full control over China."
@@ -5240,7 +5315,7 @@
     PAP_GENERIC_revolution.f: "This event fired because there is no [concept_character] in the world which is a Pope."
     
     controlled_election.t: "The [ROOT.GetCountry.GetAdjectiveNoFormatting] Legislative Election"
-    controlled_election.d: "An election for the #o [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')]#! was held today. Candidates had to be nominated by the Ruling Party of [ROOT.GetCountry.GetName] or by a public organisation controlled by the Ruling Party. Voters could vote against the Ruling Party candidate, but could only do so by using polling booths, whereas votes for the party could be cast simply by submitting a blank ballot."
+    controlled_election.d: "An election for the #o [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')]#! was held today. Candidates had to be nominated by the Ruling Party of [ROOT.GetCountry.GetName] or by a public organisation controlled by the Ruling Party. Voters could vote against the Ruling Party candidate, but could only do so by using polling booths, whereas votes for the party could be cast simply by submitting a blank ballot."
     controlled_election.f: "As elections in [ROOT.GetCountry.GetName] are not competitive, they function as an approval poll of the [concept_government]. As such, the effect of such elections is only to reduce the [concept_legitimacy] of the [concept_government], if the number of [Concept('concept_radical', '$concept_radicals$')] is higher than the number of [Concept('concept_loyalist', '$concept_loyalists$')]. \n\nNote: [concept_legitimacy] is reduced by the output value of the following formula: \n\nTotal [Concept('concept_radical', '$concept_radicals$')] / Total [Concept('concept_loyalist', '$concept_loyalists$')] + [Concept('concept_radical', '$concept_radicals$')] x 100"
     controlled_elections_system_option.1: "Respect the vote."
     controlled_elections_system_option.2: "Manipulate the results!"
@@ -5253,9 +5328,44 @@
     controlled_election_disabled: "No Elections Permitted"
     
     je_controlled_elections_disabled_button: "Suspend Elections"
-    je_controlled_elections_disabled_button_desc: "The [concept_government] will not hold any elections for the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] until further notice. \n\nNote: This will disable elections for the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')], which are normally held every 5 years."
+    je_controlled_elections_disabled_button_desc: "The [concept_government] will not hold any elections for the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')] until further notice. \n\nNote: This will disable elections for the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')], which are normally held every 5 years."
     je_controlled_elections_enabled_button: "Resume Elections"
-    je_controlled_elections_enabled_button_desc: "The [concept_government] will resume holding elections for the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] until further notice. \n\nNote: Elections for the [SCOPE.GetRootScope.GetCountry.GetCustom('lower_house_name')] will be held every 5 years."
+    je_controlled_elections_enabled_button_desc: "The [concept_government] will resume holding elections for the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')] until further notice. \n\nNote: Elections for the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')] will be held every 5 years."
     
     has_controlled_elections.tt:0 "$law_no_voting_additional_effects$"
     controlled_elections_toggle_timer.tt:0 "Did not suspend or resume elections in the last 6 months"
+    
+    cultural_revolution_effects:0 "Legacy of the Cultural Revolution"
+    mass_grave:0 "Mass Graves"
+    
+    reserve_powers_pm_veto.t: "Opposition from the [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')]"
+    reserve_powers_pm_veto.d: "[SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')] [SCOPE.sCharacter('ceremonial_head_of_state').GetFullName] is refusing to vote for the bill in the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')] to enact [SCOPE.sLaw('current_law_scope').GetName]. [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [GetPlayer.GetRuler.GetFullName] can however pressure the [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')] to vote for the bill if the [concept_government] has sufficient [concept_legitimacy]."
+    reserve_powers_pm_veto.f: "This event fired because [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')] either disapproves or strongly disapproves of the [concept_law] that is currently being enacted. The [concept_ruler] can however overcome the [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')]'s opposition if [concept_legitimacy] is above 50."
+    
+    reserve_powers_pm_veto_accept_option:0 "Abandon attempts to enact the current bill."
+    reserve_powers_pm_veto_reject_option:0 "The [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')] shall submit to the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')]'s will!"
+    
+    je_cohabitation_system: "A Divided Executive Branch"
+    je_cohabitation_system_reason: "Under the Constitution of [ROOT.GetCountry.GetName], the executive functions of the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] are shared with the [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')]. This means that the [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')] has some say in the formulation of laws and policies of the country. \n\nWhere the [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] is from a different political faction than the majority of the members of the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')], a divided government arises because the [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')] must name a [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')] who will be acceptable to the majority faction within the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')]. \n\nAs [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] [GetPlayer.GetRuler.GetFullName] is not from the [concept_interest_group] with the highest [concept_clout] in the [concept_government], there is a divided [concept_government] in [ROOT.GetCountry.GetName]. The [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')] may therefore exercise a veto over the enactment of any [Concept('concept_law','$concept_laws$')] which the [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')]'s [concept_interest_group] disapproves of. \n\nCurrent [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')]: [SCOPE.sCharacter('cohabitation_pm_scope').GetFullName]"
+    
+    prime_minister: "Co-Head of Government"
+    cohabitation_modifier: "Political Cohabitation"
+    
+    pm_ig_landowners:0 "@landowners!$ig_landowners$ [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')]"
+    pm_ig_devout:0 "@devout!$ig_devout$ [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')]"
+    pm_ig_rural_folk:0 "@rural_folk!$ig_rural_folk$ [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')]"
+    pm_ig_industrialists:0 "@industrialists!$ig_industrialists$ [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')]"
+    pm_ig_petty_bourgeoisie:0 "@petty_bourgeoisie!$ig_petty_bourgeoisie$ [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')]"
+    pm_ig_trade_unions:0 "@trade_unions!$ig_trade_unions$ [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')]"
+    pm_ig_intelligentsia:0 "@intelligentsia!$ig_intelligentsia$ [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')]"
+    pm_ig_armed_forces:0 "@armed_forces!$ig_armed_forces$ [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')]"
+    pm_vacant: "Position Vacant"
+    
+    prime_minister_timer.tt: "Did not dismiss the [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')] within the last 1 year"
+    
+    je_fire_prime_minister_button: "Dismiss [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')]"
+    je_fire_prime_minister_button_desc: "The [SCOPE.GetRootScope.GetCountry.GetCustom('government_ruler_custom_title')] will dismiss the current [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')] and let the [SCOPE.GetRootScope.GetCountry.GetCustom('legislature_name')] appoint a new [SCOPE.GetRootScope.GetCountry.GetCustom('government_prime_minister_custom_title')]."
+    
+    starting_additional_revenue: "Past Government Reserves"
+    
+    coup.2.d: "The [SCOPE.gsInterestGroup('coup_ig').GetName] have successfully orchestrated a coup against [ROOT.GetCountry.GetAdjective] democracy. [SCOPE.sCharacter('coup_leader').GetFullName] has invoked a state of national emergency, allowing [SCOPE.sCharacter('coup_leader').GetHerHim] to lead the country as an autocracy."

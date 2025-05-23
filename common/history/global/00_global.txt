@@ -302,6 +302,19 @@ GLOBAL = {
 		}
 	}
 	
+	#Start up capital
+	every_country = {
+		limit = { 
+			
+		}
+		add_modifier = {
+			name = starting_additional_revenue
+			#multiplier = money_amount_multiplier_small
+			years = 10
+			is_decaying = yes
+		}
+	}
+	
 	#Discoverable resources
 	every_country = {
 		every_scope_state = {
@@ -332,6 +345,11 @@ GLOBAL = {
 				is_decaying = yes
 			}
 		}
+	}
+	
+	#Apply starting JE
+	every_country = {
+		effect_journal_entry_cwe_on_action = yes
 	}
 
 }

@@ -92,7 +92,9 @@ law_hybrid_chamber = { #Civil Service can withold assent
 	on_activate = {
 		if = {
 			limit = { NOT = { has_journal_entry = je_reserved_powers } }
-			add_journal_entry = { type = je_reserved_powers }
+			hidden_effect = {
+				add_journal_entry = { type = je_reserved_powers }
+			}
 		}
 	}
 	
@@ -148,6 +150,9 @@ law_hybrid_chamber = { #Civil Service can withold assent
 		country_law_enactment_time_mult = 0.10
 		country_decree_cost_mult = 0.10
 		
+		country_legitimacy_base_add = -50
+		country_legitimacy_govt_total_clout_add = 50
+		
 	}
 	
 	possible_political_movements = {
@@ -183,7 +188,9 @@ law_bicameralism = {
 	on_activate = {
 		if = {
 			limit = { NOT = { has_journal_entry = je_upper_house } }
-			add_journal_entry = { type = je_upper_house }
+			hidden_effect = {
+				add_journal_entry = { type = je_upper_house }
+			}
 		}
 	}
 	

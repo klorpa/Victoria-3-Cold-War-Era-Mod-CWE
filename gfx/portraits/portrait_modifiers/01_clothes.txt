@@ -1044,7 +1044,48 @@
                             }   
                         }
                     }
+					AND = {
+						scope:character ?= {
+							OR = { 
+								culture = {
+									OR = {
+										has_discrimination_trait = sinosphere
+										has_discrimination_trait = han_chinese
+										has_discrimination_trait = tibetan_language
+										has_discrimination_trait = mongol_language
+										has_discrimination_trait = tai
+										has_discrimination_trait = hmong_mien_language
+									}
+								} 
+								culture = cu:vietnamese
+							}
+						}
+						devout_clothes_trigger = yes
+					}
                 }
+            }
+			modifier = {
+                add = 100000
+                scope:character ?= {
+					is_female = yes
+					OR = {
+						has_role = politician
+						is_ruler = yes
+					}
+					OR = { 
+						culture = {
+							OR = {
+								has_discrimination_trait = sinosphere
+								has_discrimination_trait = han_chinese
+								has_discrimination_trait = tibetan_language
+								has_discrimination_trait = mongol_language
+								has_discrimination_trait = tai
+								has_discrimination_trait = hmong_mien_language
+							}
+						} 
+						culture = cu:vietnamese
+					}
+				}
             }
         }
     }
@@ -1119,6 +1160,7 @@
                         }
                     }
                 }
+				devout_clothes_trigger = no
             }
         }
     }
@@ -1167,6 +1209,7 @@
 						}
                     }
                 }
+				devout_clothes_trigger = no
             }
         }
     }
@@ -1220,6 +1263,7 @@
                 }
                 ruler_clothes_trigger = yes
                 republic_clothes_trigger = yes
+				devout_clothes_trigger = no
             }
         }
     }
@@ -1246,7 +1290,6 @@
                 exists = scope:character
                 scope:character = {
                     is_female = no
-
                     owner ?= {
                         is_in_power_bloc = yes
                         power_bloc ?= {
@@ -1260,6 +1303,7 @@
                 }
                 ruler_clothes_trigger = yes
                 republic_clothes_trigger = yes
+				devout_clothes_trigger = no
             }
         }
     }
@@ -1297,6 +1341,7 @@
                         }
                     }
                 }
+				devout_clothes_trigger = no
             }
         }
     }
@@ -1399,7 +1444,7 @@
             base = 0
             modifier = {
                 add = 2000
-                american_clothes_trigger = no
+                #american_clothes_trigger = no
                 #arabic_clothes_trigger = no
                 #british_empire_clothes_trigger = no
                 #french_empire_clothes_trigger = no
@@ -1649,19 +1694,8 @@
                     age >= define:NCharacters|ADULT_AGE
                     is_female = no
                 }
-                OR = {
-                    monarchy_clothes_trigger = yes
-                    scope:character ?= {
-                        OR = {
-                            has_role = general
-                            has_role = admiral
-                        }
-                    }
-                    AND = {
-                        armed_forces_clothes_trigger = yes
-                        politician_clothes_trigger = yes
-                    }
-                }  
+                monarchy_clothes_trigger = yes
+				ruler_clothes_trigger = yes
             }
         }
     }
@@ -1742,32 +1776,10 @@
                             exists = home_country
                             home_country = c:USA
                             is_female = no
-                            OR = {
-                                has_role = general
-								has_role = admiral
-                                AND = {
-                                    is_interest_group_type = ig_armed_forces
-                                    has_role = politician
-                                    OR = {  # A monarch shouldn't wear this, but a republican ruler can
-                                        AND = {
-                                            is_ruler = no
-                                            home_country ?= {
-                                                is_a_regime_monarchy = yes
-                                            }
-                                        }
-                                        AND = {
-                                            is_ruler = yes
-                                            home_country ?= {
-                                                NOT = { is_a_regime_monarchy = yes }
-                                            }
-                                        }
-                                    }
-                                }
-                                AND = {
-                                    has_role = agitator
-                                    is_interest_group_type = ig_armed_forces
-                                }
-                            }
+                            AND = {
+								has_role = agitator
+								is_interest_group_type = ig_armed_forces
+							}
                         }
                     }
                 }
@@ -2637,6 +2649,7 @@
                         }
                     }
                 }
+				devout_clothes_trigger = no
            }
 
            modifier = { #If we want rulers to dress like politicians later.
@@ -2646,6 +2659,7 @@
                    ruler_clothes_trigger = yes
                    monarchy_clothes_trigger = no
                }
+			   devout_clothes_trigger = no
            }
         }
     }
@@ -2709,6 +2723,7 @@
                         }
                     }
                 }
+				devout_clothes_trigger = no
            }
 
            modifier = { #If we want rulers to dress like politicians later.
@@ -2718,6 +2733,7 @@
                    ruler_clothes_trigger = yes
                    monarchy_clothes_trigger = no
                }
+			   devout_clothes_trigger = no
            }
         }
     }
@@ -3035,12 +3051,7 @@
                             }
                             has_culture = cu:ainu
                         }
-                        OR = {
-                            devout_clothes_trigger = yes
-                            owner ?= {
-                                NOT = { has_variable = meiji_restoration_complete }
-                            }
-                        }
+                        devout_clothes_trigger = yes
                     }
                 }
             }
@@ -3096,6 +3107,7 @@
                             has_culture = cu:korean
                             is_ruler = no
                         }
+						devout_clothes_trigger = yes
                     }
                     AND = {
                         exists = scope:pop
@@ -3136,7 +3148,18 @@
                         }
                     }
                 }
-           }
+			}
+			modifier = {
+                add = 100000
+                scope:character ?= {
+					is_female = yes
+					OR = {
+						has_role = politician
+						is_ruler = yes
+					}
+					has_culture = cu:korean
+				}
+            }
         }
     }
 
@@ -3316,6 +3339,11 @@
 				armed_forces_clothes_trigger = no
 				monarchy_clothes_trigger = no
 			}
+			modifier = {
+                add = 500
+                siamese_clothes_trigger = yes
+				devout_clothes_trigger = yes
+			}
         }
     }
 
@@ -3427,6 +3455,16 @@
                 scope:character = {
                     christian_clothes_trigger = yes
 					has_modifier = pope_character
+                    is_female = no
+                }
+			}
+			modifier = {
+                add = 1000
+                exists = scope:character
+                scope:character = {
+                    christian_clothes_trigger = yes
+					is_interest_group_type = ig_devout
+					is_ruler = yes
                     is_female = no
                 }
 			}
@@ -4416,13 +4454,6 @@
                     upper_clothes_pop_trigger = yes
                 }
 			}
-			modifier = {
-                add = 500
-                siamese_clothes_trigger = yes
-				scope:character ?= {
-					is_female = no
-				}
-			}
         }
     }
 
@@ -5383,6 +5414,22 @@
                     clergy_clothes_pop_trigger = yes
                 }
             }
+			modifier = {
+                add = 1000
+                OR = { 
+					ruler_clothes_trigger = yes
+					politician_clothes_trigger = yes
+				}
+				devout_clothes_trigger = yes
+				scope:character ?= {
+					OR = { 
+						religion = {
+							has_discrimination_trait = jewish
+						}
+						religion = rel:orthodox
+					}
+				}
+            }
         }
     }
 
@@ -5443,6 +5490,13 @@
 							is_a_regime_monarchy = yes
 						}
 					}
+					religion = { has_discrimination_trait = buddhist }
+				}
+            }
+			modifier = {
+                add = 20000
+                scope:character ?= {
+					devout_clothes_trigger = yes
 					religion = { has_discrimination_trait = buddhist }
 				}
             }

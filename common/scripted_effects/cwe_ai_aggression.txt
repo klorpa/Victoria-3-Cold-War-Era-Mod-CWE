@@ -27,28 +27,6 @@ cwe_ai_aggression_factors = {
 		multiply = 2
 	}
 	
-	# AI will not attack nuclear powers
-	if = {
-		limit = { 
-			NOT = { has_modifier = nuclear_capability }
-			OR = { 
-				scope:target_country = { has_modifier = nuclear_capability }
-				scope:target_country.overlord ?= { has_modifier = nuclear_capability } 
-			}
-		}
-		add = -100			
-	}
-	if = {
-		limit = { 
-			has_modifier = nuclear_capability
-			OR = { 
-				scope:target_country = { has_modifier = nuclear_capability }
-				scope:target_country.overlord ?= { has_modifier = nuclear_capability } 
-			}
-		}
-		multiply = 0.1
-	}
-	
 	# AI is less aggressive against non-adjacent countries
 	if = {
 		limit = { 
@@ -170,22 +148,89 @@ cwe_ai_aggression_factors = {
 					has_diplomatic_pact = {
 						who = scope:target_country
 						type = guarantee_independence
-					}	
-					has_diplomatic_pact = {
-						who = scope:target_country
-						type = satellite
-					}
-					has_diplomatic_pact = {
-						who = scope:target_country
-						type = dominion
 					}
 				}
 				OR = { 
 					army_size >= root.army_size
 					has_modifier = nato_leader
+					has_modifier = nato_member
 					has_modifier = warsaw_pact_leader
+					has_modifier = warsaw_pact_member
+					has_modifier = nuclear_capability
 				}
 			}
+		}
+		multiply = 0.1
+	}
+	if = {
+		limit = { 
+			scope:target_country = { 
+				is_subject = yes 
+				top_overlord ?= { 
+					OR = { 
+						army_size >= root.army_size
+						has_modifier = nato_leader
+						has_modifier = nato_member
+						has_modifier = warsaw_pact_leader
+						has_modifier = warsaw_pact_member
+						has_modifier = nuclear_capability
+					}
+				}
+			}
+		}
+		multiply = 0.1
+	}
+	
+	# AI is less aggressive against TARGET if both are in a cold war bloc
+	if = {
+		limit = { 
+			OR = {
+				has_modifier = nato_member
+				has_modifier = warsaw_pact_member
+				has_modifier = COMECON_member
+			}
+			scope:target_country = { 
+				OR = {
+					has_modifier = nato_member
+					has_modifier = warsaw_pact_member
+					has_modifier = COMECON_member
+				}
+			}
+		}
+		multiply = 0.1
+	}
+	
+	# AI is less aggressive against TARGET if both are in a power bloc
+	if = {
+		limit = { 
+			is_in_power_bloc = yes
+			scope:target_country = { 
+				is_in_power_bloc = yes
+			}
+		}
+		multiply = 0.25
+	}
+	
+	# AI is less aggressive against TARGET if lower rank than TARGET
+	if = {
+		limit = { 
+			scope:target_country = { country_rank > root.country_rank }
+		}
+		multiply = 0.1
+	}
+	
+	# AI will not attack nuclear powers
+	if = {
+		limit = { 
+			NOT = { has_modifier = nuclear_capability }
+			scope:target_country = { has_modifier = nuclear_capability }
+		}
+		multiply = 0
+	}
+	if = {
+		limit = { 
+			has_modifier = nuclear_capability
+			scope:target_country = { has_modifier = nuclear_capability }
 		}
 		multiply = 0.1
 	}

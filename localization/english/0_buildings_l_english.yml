@@ -1412,6 +1412,7 @@
     pm_professional_services_goods_services:0 "Highly Regulated Professional Services"
     pm_financial_services_goods_services:0 "Financial Services"
     
+    pmg_software_services:0 "Software"
     pm_software_goods_services_0:0 "Early Computer Languages"
     pm_software_goods_services_1:0 "Disk Operating Systems"
     pm_software_goods_services_2:0 "User Friendly Computer Languages"
@@ -1897,6 +1898,10 @@
     pm_technique_8_building_university:0 "$tech_philosophy_8$"
     pm_technique_9_building_university:0 "$tech_philosophy_9$"
     pm_technique_10_building_university:0 "$tech_philosophy_10$"
+    
+    pm_scholastic_education_0:0 "Small Universities"
+    pm_scholastic_education_1:0 "Medium Universities"
+    pm_scholastic_education_2:0 "Large Universities"
     
     building_nuclear_naval_base:0 "Nuclear Submarine Base"
     
